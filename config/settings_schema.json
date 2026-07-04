@@ -139,14 +139,16 @@
         "default": 15
       },
       {
-        "type": "range",
+        "type": "select",
         "id": "heading_letter_spacing",
         "label": "Heading letter spacing",
-        "min": -0.02,
-        "max": 0.1,
-        "step": 0.01,
-        "unit": "em",
-        "default": 0.01
+        "options": [
+          { "value": "-0.01em", "label": "Tight" },
+          { "value": "0em", "label": "None" },
+          { "value": "0.01em", "label": "Normal" },
+          { "value": "0.04em", "label": "Wide" }
+        ],
+        "default": "0.01em"
       }
     ]
   },
