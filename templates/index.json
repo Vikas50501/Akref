@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,11 +15,14 @@
         "slide1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+            "overlay_opacity": 40,
+            "content_position": "center",
+            "subheading": "",
             "heading": "Doppio",
             "text": "<p>Inspired by the rhythm of city life, where elegance and energy coexist.</p>",
             "button_label": "Explore Now",
-            "content_position": "bottom-right",
-            "overlay_opacity": 40
+            "button_link": ""
           }
         }
       },
@@ -20,7 +32,8 @@
       "settings": {
         "desktop_height": 92,
         "mobile_height": 90,
-        "autoplay": 5
+        "autoplay": 5,
+        "show_dots": false
       }
     },
     "ticker": {
@@ -57,16 +70,30 @@
         "t3",
         "t4"
       ],
-      "settings": {}
+      "settings": {
+        "bg": "#0e3432",
+        "text_color": "#ffffff",
+        "speed": 50,
+        "gap": 200,
+        "pause_on_hover": true
+      }
     },
     "products": {
       "type": "product-carousel",
       "settings": {
+        "show_star": true,
         "tagline": "Designed by Annika Saraf.",
         "heading": "Luxury Handbags Made With Finest Indian Leather.",
         "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
         "button_label": "Discover all",
-        "products_limit": 8
+        "button_link": "",
+        "collection": "",
+        "products_limit": 8,
+        "show_arrows": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "founder": {
@@ -113,6 +140,11 @@
       "settings": {
         "image_position": "left",
         "media_height": 90,
+        "parallax": true,
+        "full_width": false,
+        "divider": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
         "padding_top": 10,
         "padding_bottom": 0
       }
@@ -120,23 +152,43 @@
     "atelier_video": {
       "type": "background-video",
       "settings": {
+        "video_url": "",
+        "overlay_opacity": 25,
+        "full_width": true,
+        "show_controls": true,
+        "desktop_height": 650,
+        "mobile_height": 500,
         "subheading": "Inside the Atelier",
         "heading": "Where Craft Becomes Form.",
         "text": "<p>Every AKINNA piece is brought to life by master artisans in India. Inside our workshops, skilled hands shape each form with patience and precision.</p>",
-        "overlay_opacity": 25
+        "button_label": "",
+        "button_link": ""
       }
     },
     "new_arrivals": {
       "type": "collection-showcase",
       "settings": {
+        "lifestyle_height": 80,
+        "tagline": "",
         "heading": "New Arrivals",
         "button_label": "Explore all",
-        "products_limit": 4
+        "button_link": "",
+        "collection": "",
+        "products_limit": 4,
+        "bg": "#ffffff",
+        "text_color": "#000000",
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "sep1": {
       "type": "separator",
-      "settings": {}
+      "settings": {
+        "color": "#0000001a",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
     },
     "material": {
       "type": "image-text",
@@ -167,7 +219,9 @@
           "type": "certifications",
           "settings": {
             "label_1": "Read LWG-certified",
-            "label_2": "Read SA8000-certified"
+            "link_1": "",
+            "label_2": "Read SA8000-certified",
+            "link_2": ""
           }
         }
       },
@@ -180,35 +234,59 @@
       ],
       "settings": {
         "image_position": "left",
-        "media_height": 90
+        "media_height": 90,
+        "parallax": true,
+        "full_width": false,
+        "divider": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     },
     "green": {
       "type": "brand-feature",
       "settings": {
+        "image_position": "right",
+        "media_height": 80,
         "tagline": "The Colour of the Maison.",
         "heading": "AKINNA Green",
         "text": "<p>AKINNA Green is more than a signature — it is our seal. A deep emerald that lives within our packaging, our linings, and our quietest details. It represents balance, prosperity, and intention.</p>",
-        "image_position": "right"
+        "button_label": "",
+        "button_link": "",
+        "button_style": "alt",
+        "bg": "#0e3432",
+        "text_color": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     },
     "testimonials": {
       "type": "testimonials",
       "blocks": {
         "s1": {
-          "type": "video"
+          "type": "video",
+          "settings": {
+            "video_url": ""
+          }
         },
         "s2": {
-          "type": "image"
+          "type": "image",
+          "settings": {}
         },
         "s3": {
-          "type": "image"
+          "type": "image",
+          "settings": {}
         },
         "s4": {
-          "type": "video"
+          "type": "video",
+          "settings": {
+            "video_url": ""
+          }
         },
         "s5": {
-          "type": "image"
+          "type": "image",
+          "settings": {}
         }
       },
       "block_order": [
@@ -219,37 +297,68 @@
         "s5"
       ],
       "settings": {
-        "heading": "Happy Customers"
+        "tagline": "",
+        "heading": "Happy Customers",
+        "bg": "#ffffff",
+        "text_color": "#000000",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "club": {
       "type": "club-banner",
       "settings": {
+        "overlay_opacity": 35,
+        "aspect_desktop": "2.5",
+        "aspect_mobile": "1.2",
+        "show_star": true,
+        "tagline": "",
         "heading": "AKINNA Sphere",
         "text": "<p>Members-only community for exclusive brand insights, insider stories, and special offers designed just for you.</p>",
-        "button_label": "Join Our Community"
+        "button_label": "Join Our Community",
+        "button_link": "",
+        "padding_top": 12,
+        "padding_bottom": 0
       }
     },
     "press": {
       "type": "logo-marquee",
       "blocks": {
         "l1": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         },
         "l2": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         },
         "l3": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         },
         "l4": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         },
         "l5": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         },
         "l6": {
-          "type": "logo"
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -260,28 +369,56 @@
         "l5",
         "l6"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "",
+        "speed": 120,
+        "gap": 120,
+        "logo_width": 120,
+        "pause_on_hover": true,
+        "border_bottom": true,
+        "bg": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     },
     "instagram": {
       "type": "instagram",
       "blocks": {
         "p1": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         },
         "p2": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         },
         "p3": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         },
         "p4": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         },
         "p5": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         },
         "p6": {
-          "type": "post"
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -293,7 +430,14 @@
         "p6"
       ],
       "settings": {
-        "heading": "@akinna.studios"
+        "heading": "@akinna.studios",
+        "profile_url": "",
+        "columns": 6,
+        "border_top": true,
+        "bg": "#ffffff",
+        "text_color": "#0e3432",
+        "padding_top": 80,
+        "padding_bottom": 36
       }
     }
   },
