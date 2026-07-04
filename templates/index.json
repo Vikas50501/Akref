@@ -154,6 +154,7 @@
       "type": "background-video",
       "settings": {
         "video_url": "",
+        "poster": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 25,
         "full_width": true,
         "show_controls": true,
@@ -169,6 +170,7 @@
     "new_arrivals": {
       "type": "collection-showcase",
       "settings": {
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "lifestyle_height": 80,
         "tagline": "",
         "heading": "New Arrivals",
@@ -219,8 +221,10 @@
         "certs": {
           "type": "certifications",
           "settings": {
+            "image_1": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "label_1": "Read LWG-certified",
             "link_1": "",
+            "image_2": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "label_2": "Read SA8000-certified",
             "link_2": ""
           }
@@ -234,6 +238,7 @@
         "certs"
       ],
       "settings": {
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "image_position": "left",
         "media_height": 90,
         "parallax": true,
