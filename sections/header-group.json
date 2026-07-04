@@ -5,10 +5,23 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "m1": { "type": "message", "settings": { "text": "Welcome Offer - Get 10% Off with code FIRST10" } },
-        "m2": { "type": "message", "settings": { "text": "Handcrafted in India · 100% Pure Leather · 5-Year Warranty" } }
+        "m1": {
+          "type": "message",
+          "settings": {
+            "text": "Welcome Offer - Get 10% Off with code FIRST10"
+          }
+        },
+        "m2": {
+          "type": "message",
+          "settings": {
+            "text": "Handcrafted in India · 100% Pure Leather · 5-Year Warranty"
+          }
+        }
       },
-      "block_order": ["m1", "m2"],
+      "block_order": [
+        "m1",
+        "m2"
+      ],
       "settings": {}
     },
     "header": {
@@ -33,7 +46,10 @@
           }
         }
       },
-      "block_order": ["promo_category", "promo_collection"],
+      "block_order": [
+        "promo_category",
+        "promo_collection"
+      ],
       "settings": {
         "menu": "main-menu",
         "layout": "centered",
@@ -42,5 +58,8 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }

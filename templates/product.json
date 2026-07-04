@@ -3,88 +3,287 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "breadcrumb": { "type": "breadcrumb", "settings": {} },
-        "title": { "type": "title", "settings": {} },
-        "tagline": { "type": "tagline", "settings": {} },
-        "price": { "type": "price", "settings": { "show_tax_note": true } },
-        "inventory": { "type": "inventory", "settings": { "threshold": 10 } },
-        "variant": { "type": "variant_picker", "settings": { "show_selected": true } },
-        "buy": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true, "show_pickup": true } },
-        "badges": { "type": "trust_badges", "settings": {} },
+        "breadcrumb": {
+          "type": "breadcrumb",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "tagline": {
+          "type": "tagline",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_note": true
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "threshold": 10
+          }
+        },
+        "variant": {
+          "type": "variant_picker",
+          "settings": {
+            "show_selected": true
+          }
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_pickup": true
+          }
+        },
+        "badges": {
+          "type": "trust_badges",
+          "settings": {}
+        },
         "accordion": {
           "type": "accordion",
           "settings": {
-            "title_1": "Description", "metafield_1": "description_extra",
-            "title_2": "Size", "metafield_2": "size",
-            "title_3": "Materials", "metafield_3": "materials",
-            "title_4": "Shipping & Returns", "content_4": "<ul><li>FREE delivery. Shipped within 2-4 working days.</li><li>FREE returns within 14 days.</li></ul>"
+            "title_1": "Description",
+            "metafield_1": "description_extra",
+            "title_2": "Size",
+            "metafield_2": "size",
+            "title_3": "Materials",
+            "metafield_3": "materials",
+            "title_4": "Shipping & Returns",
+            "content_4": "<ul><li>FREE delivery. Shipped within 2-4 working days.</li><li>FREE returns within 14 days.</li></ul>"
           }
         },
-        "share": { "type": "share", "settings": {} }
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
       },
-      "block_order": ["breadcrumb", "title", "tagline", "price", "inventory", "variant", "buy", "badges", "accordion", "share"],
-      "settings": { "gallery_layout": "thumbnails", "enable_zoom": true, "sticky_info": true, "show_sticky_atc": true }
+      "block_order": [
+        "breadcrumb",
+        "title",
+        "tagline",
+        "price",
+        "inventory",
+        "variant",
+        "buy",
+        "badges",
+        "accordion",
+        "share"
+      ],
+      "settings": {
+        "gallery_layout": "thumbnails",
+        "enable_zoom": true,
+        "sticky_info": true,
+        "show_sticky_atc": true
+      }
     },
     "designer_note": {
       "type": "designer-note",
-      "settings": { "tagline": "From the Atelier", "heading": "Designer's note" }
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
     },
     "what_inside": {
       "type": "what-fits-inside",
       "blocks": {
-        "i1": { "type": "item", "settings": { "text": "Mac Pro 15\"" } },
-        "i2": { "type": "item", "settings": { "text": "Slim Folder" } },
-        "i3": { "type": "item", "settings": { "text": "Phone" } },
-        "i4": { "type": "item", "settings": { "text": "Charger" } },
-        "i5": { "type": "item", "settings": { "text": "Notepad" } },
-        "i6": { "type": "item", "settings": { "text": "Air Pods" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "text": "Mac Pro 15\""
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "text": "Slim Folder"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "text": "Phone"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "text": "Charger"
+          }
+        },
+        "i5": {
+          "type": "item",
+          "settings": {
+            "text": "Notepad"
+          }
+        },
+        "i6": {
+          "type": "item",
+          "settings": {
+            "text": "Air Pods"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4", "i5", "i6"],
-      "settings": { "heading": "What Fits Inside" }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6"
+      ],
+      "settings": {
+        "heading": "What Fits Inside"
+      }
     },
     "elements": {
       "type": "media-carousel",
       "blocks": {
-        "e1": { "type": "image", "settings": { "label": "AKINNA Logo Hardware" } },
-        "e2": { "type": "image", "settings": { "label": "Green Interiors" } },
-        "e3": { "type": "image", "settings": { "label": "LWG Certification" } },
-        "e4": { "type": "image", "settings": { "label": "Signature Panelling" } }
+        "e1": {
+          "type": "image",
+          "settings": {
+            "label": "AKINNA Logo Hardware"
+          }
+        },
+        "e2": {
+          "type": "image",
+          "settings": {
+            "label": "Green Interiors"
+          }
+        },
+        "e3": {
+          "type": "image",
+          "settings": {
+            "label": "LWG Certification"
+          }
+        },
+        "e4": {
+          "type": "image",
+          "settings": {
+            "label": "Signature Panelling"
+          }
+        }
       },
-      "block_order": ["e1", "e2", "e3", "e4"],
-      "settings": { "tagline": "Top features", "heading": "Elements Of AKINNA", "per_view": 4 }
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "settings": {
+        "tagline": "Top features",
+        "heading": "Elements Of AKINNA",
+        "per_view": 4
+      }
     },
-    "video": { "type": "video-banner", "settings": {} },
+    "video": {
+      "type": "video-banner",
+      "settings": {}
+    },
     "symbols": {
       "type": "icon-grid",
       "blocks": {
-        "s1": { "type": "item", "settings": { "title": "Handcrafted in India", "text": "Proudly crafted in India by skilled artisans." } },
-        "s2": { "type": "item", "settings": { "title": "New-Age Design Language", "text": "A contemporary vision with global sensibility." } },
-        "s3": { "type": "item", "settings": { "title": "Unique Shape", "text": "Holds its sculptural form for years." } },
-        "s4": { "type": "item", "settings": { "title": "Enduring Hardware", "text": "Zamac fittings and YKK metal zippers, built to last." } }
+        "s1": {
+          "type": "item",
+          "settings": {
+            "title": "Handcrafted in India",
+            "text": "Proudly crafted in India by skilled artisans."
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "title": "New-Age Design Language",
+            "text": "A contemporary vision with global sensibility."
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "title": "Unique Shape",
+            "text": "Holds its sculptural form for years."
+          }
+        },
+        "s4": {
+          "type": "item",
+          "settings": {
+            "title": "Enduring Hardware",
+            "text": "Zamac fittings and YKK metal zippers, built to last."
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
-      "settings": { "columns": 4, "dividers": true }
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "columns": 4,
+        "dividers": true
+      }
     },
     "features": {
       "type": "media-carousel",
       "blocks": {
-        "f1": { "type": "video" },
-        "f2": { "type": "image" },
-        "f3": { "type": "image" },
-        "f4": { "type": "video" },
-        "f5": { "type": "image" }
+        "f1": {
+          "type": "video"
+        },
+        "f2": {
+          "type": "image"
+        },
+        "f3": {
+          "type": "image"
+        },
+        "f4": {
+          "type": "video"
+        },
+        "f5": {
+          "type": "image"
+        }
       },
-      "block_order": ["f1", "f2", "f3", "f4", "f5"],
-      "settings": { "tagline": "", "heading": "", "per_view": 4, "aspect": "0.625" }
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {
+        "tagline": "",
+        "heading": "",
+        "per_view": 4,
+        "aspect": "0.625"
+      }
     },
     "recommendations": {
       "type": "product-recommendations",
-      "settings": { "heading": "You may also like", "limit": 4 }
+      "settings": {
+        "heading": "You may also like",
+        "limit": 4
+      }
     },
     "recently_viewed": {
       "type": "recently-viewed",
-      "settings": { "heading": "Recently viewed", "limit": 4 }
+      "settings": {
+        "heading": "Recently viewed",
+        "limit": 4
+      }
     }
   },
-  "order": ["main", "designer_note", "what_inside", "elements", "video", "symbols", "features", "recommendations", "recently_viewed"]
+  "order": [
+    "main",
+    "designer_note",
+    "what_inside",
+    "elements",
+    "video",
+    "symbols",
+    "features",
+    "recommendations",
+    "recently_viewed"
+  ]
 }

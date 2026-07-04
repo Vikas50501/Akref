@@ -1,26 +1,79 @@
 {
   "sections": {
-    "header": { "type": "page-header", "settings": { "tagline": "Meet The Founders", "heading": "Two Paths. One Vision.", "height": 420 } },
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "tagline": "Meet The Founders",
+        "heading": "Two Paths. One Vision.",
+        "height": 420
+      }
+    },
     "story": {
       "type": "image-text",
       "blocks": {
-        "tag": { "type": "tagline", "settings": { "text": "Our Story" } },
-        "head": { "type": "heading", "settings": { "text": "Annika Saraf & Sanchit Goyal" } },
-        "div": { "type": "divider", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors, they returned to India with a singular vision — to build a modern luxury house rooted in craft, intention, and identity.</p>" } }
+        "tag": {
+          "type": "tagline",
+          "settings": {
+            "text": "Our Story"
+          }
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Annika Saraf & Sanchit Goyal"
+          }
+        },
+        "div": {
+          "type": "divider",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors, they returned to India with a singular vision — to build a modern luxury house rooted in craft, intention, and identity.</p>"
+          }
+        }
       },
-      "block_order": ["tag", "head", "div", "body"],
-      "settings": { "image_position": "right", "media_height": 80 }
+      "block_order": [
+        "tag",
+        "head",
+        "div",
+        "body"
+      ],
+      "settings": {
+        "image_position": "right",
+        "media_height": 80
+      }
     },
     "values": {
       "type": "rich-text",
       "blocks": {
-        "h": { "type": "heading", "settings": { "text": "Modern luxury, made in India" } },
-        "t": { "type": "text", "settings": { "text": "<p>Every AKINNA piece is designed to move with you — timeless yet contemporary, crafted with pride and carried with confidence.</p>" } }
+        "h": {
+          "type": "heading",
+          "settings": {
+            "text": "Modern luxury, made in India"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every AKINNA piece is designed to move with you — timeless yet contemporary, crafted with pride and carried with confidence.</p>"
+          }
+        }
       },
-      "block_order": ["h", "t"],
-      "settings": { "alignment": "center", "width": "medium" }
+      "block_order": [
+        "h",
+        "t"
+      ],
+      "settings": {
+        "alignment": "center",
+        "width": "medium"
+      }
     }
   },
-  "order": ["header", "story", "values"]
+  "order": [
+    "header",
+    "story",
+    "values"
+  ]
 }

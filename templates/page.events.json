@@ -1,14 +1,35 @@
 {
   "sections": {
-    "header": { "type": "page-header", "settings": { "tagline": "Akinna's Events", "heading": "Where We've Been", "height": 320 } },
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "tagline": "Akinna's Events",
+        "heading": "Where We've Been",
+        "height": 320
+      }
+    },
     "events": {
       "type": "events",
       "blocks": {
-        "e1": { "type": "event", "settings": { "title": "Milan Fashion Week", "meta": "September 2024 · Milan, Italy" } }
+        "e1": {
+          "type": "event",
+          "settings": {
+            "title": "Milan Fashion Week",
+            "meta": "September 2024 · Milan, Italy"
+          }
+        }
       },
-      "block_order": ["e1"],
-      "settings": { "tagline": "Akinna's Events", "heading": "Milan Fashion Week" }
+      "block_order": [
+        "e1"
+      ],
+      "settings": {
+        "tagline": "Akinna's Events",
+        "heading": "Milan Fashion Week"
+      }
     }
   },
-  "order": ["header", "events"]
+  "order": [
+    "header",
+    "events"
+  ]
 }

@@ -1,6 +1,13 @@
 {
   "sections": {
-    "header": { "type": "page-header", "settings": { "tagline": "Contact", "heading": "Get in touch", "height": 300 } },
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "tagline": "Contact",
+        "heading": "Get in touch",
+        "height": 300
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -10,5 +17,8 @@
       }
     }
   },
-  "order": ["header", "form"]
+  "order": [
+    "header",
+    "form"
+  ]
 }

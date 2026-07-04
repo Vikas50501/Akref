@@ -14,18 +14,49 @@
           }
         }
       },
-      "block_order": ["slide1"],
-      "settings": { "desktop_height": 92, "mobile_height": 90, "autoplay": 5 }
+      "block_order": [
+        "slide1"
+      ],
+      "settings": {
+        "desktop_height": 92,
+        "mobile_height": 90,
+        "autoplay": 5
+      }
     },
     "ticker": {
       "type": "ticker",
       "blocks": {
-        "t1": { "type": "item", "settings": { "text": "Handcrafted In India" } },
-        "t2": { "type": "item", "settings": { "text": "100% Pure Leather" } },
-        "t3": { "type": "item", "settings": { "text": "5-Year Warranty" } },
-        "t4": { "type": "item", "settings": { "text": "LWG-Certified" } }
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Handcrafted In India"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "100% Pure Leather"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "5-Year Warranty"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "LWG-Certified"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
       "settings": {}
     },
     "products": {
@@ -41,14 +72,50 @@
     "founder": {
       "type": "image-text",
       "blocks": {
-        "tag": { "type": "tagline", "settings": { "text": "Founder and Creative Director" } },
-        "head": { "type": "heading", "settings": { "text": "Annika Saraf" } },
-        "body": { "type": "text", "settings": { "text": "<p>From <strong>Prada</strong> and <strong>Stella McCartney</strong> to the <strong>Lucia Bag</strong> for <strong>Borbonese</strong> at <strong>Milan Fashion Week 2020</strong>, recognised by <strong>Vogue Italia</strong> among Italy's Top 5 Foreign Designers in 2024.</p>" } },
-        "quote": { "type": "quote", "settings": { "text": "AKINNA is the result of years spent chasing one perfect spark — a vision of modern luxury that feels personal, timeless, and deeply meaningful." } },
-        "sign": { "type": "signature", "settings": { "text": "Annika" } }
+        "tag": {
+          "type": "tagline",
+          "settings": {
+            "text": "Founder and Creative Director"
+          }
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Annika Saraf"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From <strong>Prada</strong> and <strong>Stella McCartney</strong> to the <strong>Lucia Bag</strong> for <strong>Borbonese</strong> at <strong>Milan Fashion Week 2020</strong>, recognised by <strong>Vogue Italia</strong> among Italy's Top 5 Foreign Designers in 2024.</p>"
+          }
+        },
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "text": "AKINNA is the result of years spent chasing one perfect spark — a vision of modern luxury that feels personal, timeless, and deeply meaningful."
+          }
+        },
+        "sign": {
+          "type": "signature",
+          "settings": {
+            "text": "Annika"
+          }
+        }
       },
-      "block_order": ["tag", "head", "body", "quote", "sign"],
-      "settings": { "image_position": "left", "media_height": 90, "padding_top": 10, "padding_bottom": 0 }
+      "block_order": [
+        "tag",
+        "head",
+        "body",
+        "quote",
+        "sign"
+      ],
+      "settings": {
+        "image_position": "left",
+        "media_height": 90,
+        "padding_top": 10,
+        "padding_bottom": 0
+      }
     },
     "atelier_video": {
       "type": "background-video",
@@ -61,20 +128,60 @@
     },
     "new_arrivals": {
       "type": "collection-showcase",
-      "settings": { "heading": "New Arrivals", "button_label": "Explore all", "products_limit": 4 }
+      "settings": {
+        "heading": "New Arrivals",
+        "button_label": "Explore all",
+        "products_limit": 4
+      }
     },
-    "sep1": { "type": "separator", "settings": {} },
+    "sep1": {
+      "type": "separator",
+      "settings": {}
+    },
     "material": {
       "type": "image-text",
       "blocks": {
-        "tag": { "type": "tagline", "settings": { "text": "Material Excellence" } },
-        "head": { "type": "heading", "settings": { "text": "Only the Finest. Made to Last." } },
-        "div": { "type": "divider", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>Crafted from <strong>premium full-grain leather</strong> with <strong>anti-tarnish hardware</strong> and backed by a <strong>5-year warranty</strong>.</p>" } },
-        "certs": { "type": "certifications", "settings": { "label_1": "Read LWG-certified", "label_2": "Read SA8000-certified" } }
+        "tag": {
+          "type": "tagline",
+          "settings": {
+            "text": "Material Excellence"
+          }
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Only the Finest. Made to Last."
+          }
+        },
+        "div": {
+          "type": "divider",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Crafted from <strong>premium full-grain leather</strong> with <strong>anti-tarnish hardware</strong> and backed by a <strong>5-year warranty</strong>.</p>"
+          }
+        },
+        "certs": {
+          "type": "certifications",
+          "settings": {
+            "label_1": "Read LWG-certified",
+            "label_2": "Read SA8000-certified"
+          }
+        }
       },
-      "block_order": ["tag", "head", "div", "body", "certs"],
-      "settings": { "image_position": "left", "media_height": 90 }
+      "block_order": [
+        "tag",
+        "head",
+        "div",
+        "body",
+        "certs"
+      ],
+      "settings": {
+        "image_position": "left",
+        "media_height": 90
+      }
     },
     "green": {
       "type": "brand-feature",
@@ -88,14 +195,32 @@
     "testimonials": {
       "type": "testimonials",
       "blocks": {
-        "s1": { "type": "video" },
-        "s2": { "type": "image" },
-        "s3": { "type": "image" },
-        "s4": { "type": "video" },
-        "s5": { "type": "image" }
+        "s1": {
+          "type": "video"
+        },
+        "s2": {
+          "type": "image"
+        },
+        "s3": {
+          "type": "image"
+        },
+        "s4": {
+          "type": "video"
+        },
+        "s5": {
+          "type": "image"
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4", "s5"],
-      "settings": { "heading": "Happy Customers" }
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "heading": "Happy Customers"
+      }
     },
     "club": {
       "type": "club-banner",
@@ -108,25 +233,83 @@
     "press": {
       "type": "logo-marquee",
       "blocks": {
-        "l1": { "type": "logo" }, "l2": { "type": "logo" }, "l3": { "type": "logo" },
-        "l4": { "type": "logo" }, "l5": { "type": "logo" }, "l6": { "type": "logo" }
+        "l1": {
+          "type": "logo"
+        },
+        "l2": {
+          "type": "logo"
+        },
+        "l3": {
+          "type": "logo"
+        },
+        "l4": {
+          "type": "logo"
+        },
+        "l5": {
+          "type": "logo"
+        },
+        "l6": {
+          "type": "logo"
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6"
+      ],
       "settings": {}
     },
     "instagram": {
       "type": "instagram",
       "blocks": {
-        "p1": { "type": "post" }, "p2": { "type": "post" }, "p3": { "type": "post" },
-        "p4": { "type": "post" }, "p5": { "type": "post" }, "p6": { "type": "post" }
+        "p1": {
+          "type": "post"
+        },
+        "p2": {
+          "type": "post"
+        },
+        "p3": {
+          "type": "post"
+        },
+        "p4": {
+          "type": "post"
+        },
+        "p5": {
+          "type": "post"
+        },
+        "p6": {
+          "type": "post"
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
-      "settings": { "heading": "@akinna.studios" }
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ],
+      "settings": {
+        "heading": "@akinna.studios"
+      }
     }
   },
   "order": [
-    "hero", "ticker", "products", "founder", "atelier_video",
-    "new_arrivals", "sep1", "material", "green", "testimonials",
-    "club", "press", "instagram"
+    "hero",
+    "ticker",
+    "products",
+    "founder",
+    "atelier_video",
+    "new_arrivals",
+    "sep1",
+    "material",
+    "green",
+    "testimonials",
+    "club",
+    "press",
+    "instagram"
   ]
 }
