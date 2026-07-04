@@ -153,6 +153,8 @@
     </div>
   </div>
 </section>
+{%- comment -%} Product JSON-LD (rendered from the product section, not the head) {%- endcomment -%}
+{%- render 'structured-data-product' -%}
 
 {%- if section.settings.show_sticky_atc -%}
   <div class="sticky-atc" data-sticky-atc aria-hidden="true">

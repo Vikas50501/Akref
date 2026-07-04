@@ -16,7 +16,36 @@
 
   {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
 
-  {%- render 'meta-tags' -%}
+  {%- comment -%} SEO / social meta + JSON-LD — inlined into the layout for maximum reliability (no head-snippet dependency) {%- endcomment -%}
+  {%- assign og_image = page_image | default: settings.share_image -%}
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:type" content="{% if request.page_type == 'product' %}product{% elsif request.page_type == 'article' %}article{% else %}website{% endif %}">
+  {%- if page_description -%}<meta property="og:description" content="{{ page_description | escape }}">{%- endif -%}
+  {%- if og_image -%}
+    <meta property="og:image" content="https:{{ og_image | image_url: width: 1200 }}">
+    <meta property="og:image:secure_url" content="https:{{ og_image | image_url: width: 1200 }}">
+  {%- endif -%}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  {%- if page_description -%}<meta name="twitter:description" content="{{ page_description | escape }}">{%- endif -%}
+  {%- if og_image -%}<meta name="twitter:image" content="https:{{ og_image | image_url: width: 1200 }}">{%- endif -%}
+  {%- if settings.social_twitter_handle != blank -%}<meta name="twitter:site" content="{{ settings.social_twitter_handle }}">{%- endif -%}
+  {%- capture social_links -%}
+    {%- assign sep = '' -%}
+    {%- if settings.social_instagram != blank -%}{{ sep }}{{ settings.social_instagram | json }}{%- assign sep = ',' -%}{%- endif -%}
+    {%- if settings.social_facebook != blank -%}{{ sep }}{{ settings.social_facebook | json }}{%- assign sep = ',' -%}{%- endif -%}
+    {%- if settings.social_youtube != blank -%}{{ sep }}{{ settings.social_youtube | json }}{%- assign sep = ',' -%}{%- endif -%}
+  {%- endcapture -%}
+  {%- assign social_trim = social_links | strip -%}
+  <script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Organization", "name": {{ shop.name | json }}, "url": {{ shop.url | append: '/' | json }}{% if settings.logo_dark %}, "logo": {{ settings.logo_dark | image_url: width: 500 | prepend: 'https:' | json }}{% endif %}{% if social_trim != blank %}, "sameAs": [{{ social_trim }}]{% endif %} }
+  </script>
+  <script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "WebSite", "name": {{ shop.name | json }}, "url": {{ shop.url | append: '/' | json }}, "potentialAction": { "@type": "SearchAction", "target": {{ shop.url | append: routes.search_url | append: '?q={search_term_string}' | json }}, "query-input": "required name=search_term_string" } }
+  </script>
+
   {%- render 'font-face' -%}{%- comment -%} font-face snippet also preloads the two critical fonts (queens heading serif + centra body). {%- endcomment -%}
 
   {{ content_for_header }}
