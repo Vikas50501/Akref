@@ -316,6 +316,7 @@
     "club": {
       "type": "club-banner",
       "settings": {
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 35,
         "aspect_desktop": "2.5",
         "aspect_mobile": "1.2",
@@ -335,47 +336,37 @@
         "l1": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "l2": {
+        "logo_LARaU7": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "l3": {
+        "logo_LexCDe": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "l4": {
+        "logo_Xkktiw": {
           "type": "logo",
           "settings": {
-            "link": ""
-          }
-        },
-        "l5": {
-          "type": "logo",
-          "settings": {
-            "link": ""
-          }
-        },
-        "l6": {
-          "type": "logo",
-          "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         }
       },
       "block_order": [
         "l1",
-        "l2",
-        "l3",
-        "l4",
-        "l5",
-        "l6"
+        "logo_LARaU7",
+        "logo_LexCDe",
+        "logo_Xkktiw"
       ],
       "settings": {
         "heading": "",
@@ -392,50 +383,64 @@
     "instagram": {
       "type": "instagram",
       "blocks": {
-        "p1": {
-          "type": "post",
-          "settings": {
-            "link": ""
-          }
-        },
         "p2": {
           "type": "post",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "p3": {
+        "post_yCTGAy": {
           "type": "post",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "p4": {
+        "post_axU6xt": {
           "type": "post",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "p5": {
+        "post_6Vmrz8": {
           "type": "post",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         },
-        "p6": {
+        "post_L3gqfi": {
           "type": "post",
           "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+            "link": ""
+          }
+        },
+        "post_BUrLzQ": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+            "link": ""
+          }
+        },
+        "post_LgcQat": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "link": ""
           }
         }
       },
       "block_order": [
-        "p1",
         "p2",
-        "p3",
-        "p4",
-        "p5",
-        "p6"
+        "post_yCTGAy",
+        "post_axU6xt",
+        "post_6Vmrz8",
+        "post_L3gqfi",
+        "post_BUrLzQ",
+        "post_LgcQat"
       ],
       "settings": {
         "heading": "@akinna.studios",
