@@ -1,0 +1,13 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+
+# Node / tooling
+node_modules/
+
+# Shopify CLI
+.shopify/
+
+# Local-only QA tooling (not part of the theme; safe to keep, ignored by Shopify)
+# .qa-validate.mjs   # uncomment to exclude from the repo

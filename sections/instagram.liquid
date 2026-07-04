@@ -1,0 +1,147 @@
+{%- comment -%} Instagram grid — manual images (no app dependency) with heading {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }}; color: {{ section.settings.text_color }}; {% if section.settings.border_top %}border-top: 1px solid var(--color-border);{% endif %} }
+{%- endstyle -%}
+<div class="instagram-section index-section">
+  <div class="common-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="instagram__head" data-anim="up">
+        <h2 class="letters-slide-up text-split title">
+          {%- if section.settings.profile_url != blank -%}<a href="{{ section.settings.profile_url }}" target="_blank" rel="noopener">{{ section.settings.heading }}</a>{%- else -%}{{ section.settings.heading }}{%- endif -%}
+        </h2>
+      </div>
+    {%- endif -%}
+    <div class="instagram__grid" style="--ig-cols: {{ section.settings.columns }};">
+      {%- for block in section.blocks -%}
+        <a class="instagram__item" href="{{ block.settings.link | default: section.settings.profile_url | default: '#' }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.image.alt | default: 'Instagram post' | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
+          {%- else -%}{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}{%- endif -%}
+          <span class="instagram__icon">{%- render 'icon', name: 'instagram', size: 24 -%}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.instagram__head { text-align: center; margin-bottom: 32px; }
+.instagram__grid { display: grid; grid-template-columns: repeat(var(--ig-cols, 6), 1fr); gap: 4px; }
+.instagram__item { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--color-bg-alt); }
+.instagram__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--easing); }
+.instagram__item:hover img { transform: scale(1.06); }
+.instagram__icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(0,0,0,0.3); opacity: 0; transition: opacity var(--transition); }
+.instagram__item:hover .instagram__icon { opacity: 1; }
+@media (max-width: 1023px) { .instagram__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .instagram__grid { grid-template-columns: repeat(2, 1fr); } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.instagram.name",
+  "class": "index-section instagram-section-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.instagram.settings.heading.label",
+      "default": "@akinna.studios"
+    },
+    {
+      "type": "url",
+      "id": "profile_url",
+      "label": "t:sections.instagram.settings.profile_url.label"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:sections.instagram.settings.columns.label",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "border_top",
+      "label": "t:sections.instagram.settings.border_top.label",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.instagram.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.instagram.settings.text_color.label",
+      "default": "#0e3432"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.instagram.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.instagram.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "t:sections.instagram.blocks.post.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.instagram.blocks.post.settings.image.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.instagram.blocks.post.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram",
+      "blocks": [
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,126 @@
+{%- comment -%} Scrolling ticker bar {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --ticker-bg: {{ section.settings.bg }};
+    --ticker-fg: {{ section.settings.text_color }};
+    --ticker-speed: {{ section.settings.speed }}s;
+    --ticker-gap: {{ section.settings.gap }}px;
+  }
+{%- endstyle -%}
+<div class="ticker-section" {% if section.settings.pause_on_hover %}data-ticker-hover{% endif %}>
+  <div class="ticker__viewport">
+    <div class="ticker__wrap">
+      {%- for n in (1..3) -%}
+        <div class="ticker__group" aria-hidden="{% if n > 1 %}true{% else %}false{% endif %}">
+          {%- for block in section.blocks -%}
+            <span class="ticker__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.ticker-section { background: var(--ticker-bg); color: var(--ticker-fg); overflow: hidden; padding: 12px 0; }
+.ticker__viewport { overflow: hidden; }
+.ticker__wrap { display: flex; width: max-content; }
+.ticker__group { display: flex; align-items: center; gap: var(--ticker-gap, 200px); padding-right: var(--ticker-gap, 200px); animation: ticker-scroll var(--ticker-speed, 50s) linear infinite; }
+.ticker__item { position: relative; white-space: nowrap; font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.ticker__item::before { content: ''; position: absolute; left: calc(var(--ticker-gap, 200px) / -2); top: 50%; width: 10px; height: 1px; background: currentColor; transform: translateY(-50%); opacity: 0.6; }
+[data-ticker-hover]:hover .ticker__group { animation-play-state: paused; }
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% )); } }
+@media (max-width: 767px) { #shopify-section [style] { } .ticker__group { gap: 60px; padding-right: 60px; } .ticker__item::before { left: -35px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.ticker.name",
+  "class": "index-section ticker-section-wrap",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.ticker.settings.bg.label",
+      "default": "#0e3432"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.ticker.settings.text_color.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "t:sections.ticker.settings.speed.label",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "s",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:sections.ticker.settings.gap.label",
+      "min": 40,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "t:sections.ticker.settings.pause_on_hover.label",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.ticker.blocks.item.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.ticker.blocks.item.settings.text.label",
+          "default": "Handcrafted In India"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ticker",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Handcrafted In India"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "100% Pure Leather"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "5-Year Warranty"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "LWG-Certified"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,224 @@
+{%- comment -%} Media carousel — labelled image/video slides (Elements of AKINNA, features) {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }}; color: {{ section.settings.text_color }}; --mc-per: {{ section.settings.per_view }}; --mc-ar: {{ section.settings.aspect }}; }
+{%- endstyle -%}
+<div class="media-carousel elements-section index-section">
+  <div class="common-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="media-carousel__head" data-anim="up">
+        {%- if section.settings.tagline != blank -%}<div class="tag-line">{{ section.settings.tagline }}</div>{%- endif -%}
+        <h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+    <div class="media-carousel__wrap" data-carousel>
+      <div class="media-carousel__track" data-carousel-track>
+        {%- for block in section.blocks -%}
+          <div class="media-carousel__slide element-slide" data-carousel-slide {{ block.shopify_attributes }}>
+            <div class="element-wrap">
+              {%- if block.type == 'video' -%}
+                <div class="vd-wrp">
+                  {%- if block.settings.video != blank -%}{{ block.settings.video | video_tag: image_size: '600x', loop: true, muted: true, controls: false, autoplay: false, playsinline: true, class: 'fr-video', preload: 'metadata' }}
+                  {%- elsif block.settings.video_url != blank -%}<video class="fr-video" loop muted playsinline preload="metadata" {% if block.settings.poster %}poster="{{ block.settings.poster | image_url: width: 600 }}"{% endif %}><source src="{{ block.settings.video_url }}" type="video/mp4"></video>{%- endif -%}
+                  <button class="play-pause-wrap" data-mc-toggle aria-label="Play"><span class="vd-btn is-play">{%- render 'icon', name: 'play', size: 16 -%}</span><span class="vd-btn is-pause" hidden>{%- render 'icon', name: 'pause', size: 16 -%}</span></button>
+                </div>
+              {%- else -%}
+                {%- if block.settings.image != blank -%}<img class="element-grid-image" src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.label | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
+                {%- else -%}{{ 'product-2' | placeholder_svg_tag: 'placeholder-svg element-grid-image' }}{%- endif -%}
+              {%- endif -%}
+            </div>
+            {%- if block.settings.label != blank -%}<p class="elememt-name">{{ block.settings.label }}</p>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if section.settings.show_nav -%}
+        <div class="media-carousel__nav navigation-wrapper">
+          <button class="carousel-arrow" data-carousel-prev aria-label="{{ 'accessibility.previous' | t }}">{%- render 'icon', name: 'arrow-left', size: 18 -%}</button>
+          <span class="features-pagination" data-carousel-pagination></span>
+          <button class="carousel-arrow" data-carousel-next aria-label="{{ 'accessibility.next' | t }}">{%- render 'icon', name: 'arrow-right', size: 18 -%}</button>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    document.getElementById('shopify-section-{{ section.id }}').querySelectorAll('[data-mc-toggle]').forEach(function(btn){
+      var vid = btn.parentElement.querySelector('video'); if(!vid) return;
+      btn.addEventListener('click', function(){ if(vid.paused){ vid.play(); btn.querySelector('.is-play').hidden=true; btn.querySelector('.is-pause').hidden=false; } else { vid.pause(); btn.querySelector('.is-play').hidden=false; btn.querySelector('.is-pause').hidden=true; } });
+    });
+  })();
+</script>
+
+{% stylesheet %}
+.media-carousel__head { text-align: center; margin-bottom: 32px; }
+.media-carousel__head .tag-line { margin-bottom: 8px; }
+.media-carousel__track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - (var(--mc-per) - 1) * 4px) / var(--mc-per)); gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.media-carousel__track::-webkit-scrollbar { display: none; }
+.media-carousel__slide { scroll-snap-align: start; }
+.element-wrap { position: relative; aspect-ratio: var(--mc-ar, 0.66); overflow: hidden; background: var(--color-bg-alt); }
+.element-grid-image, .element-wrap video, .element-wrap .fr-video { width: 100%; height: 100%; object-fit: cover; }
+.elememt-name { font-family: var(--font-ui); font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 12px; text-align: center; }
+.media-carousel__nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 28px; }
+.features-pagination { font-family: var(--font-ui); font-size: 14px; min-width: 60px; text-align: center; }
+@media (max-width: 1023px) { #shopify-section .media-carousel__track { } .media-carousel__track { grid-auto-columns: calc((100% - 4px) / 2.2); } }
+@media (max-width: 767px) { .media-carousel__track { grid-auto-columns: 66%; gap: 12px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.media-carousel.name",
+  "class": "index-section media-carousel-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.media-carousel.settings.tagline.label",
+      "default": "Top features"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.media-carousel.settings.heading.label",
+      "default": "Elements Of AKINNA"
+    },
+    {
+      "type": "range",
+      "id": "per_view",
+      "label": "t:sections.media-carousel.settings.per_view.label",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "aspect",
+      "label": "t:sections.media-carousel.settings.aspect.label",
+      "default": "0.66",
+      "info": "t:sections.media-carousel.settings.aspect.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_nav",
+      "label": "t:sections.media-carousel.settings.show_nav.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.media-carousel.headers.h0"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.media-carousel.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.media-carousel.settings.text_color.label",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.media-carousel.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.media-carousel.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.media-carousel.blocks.image.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.media-carousel.blocks.image.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.media-carousel.blocks.image.settings.label.label"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "t:sections.media-carousel.blocks.video.name",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "t:sections.media-carousel.blocks.video.settings.video.label"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "t:sections.media-carousel.blocks.video.settings.video_url.label",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "t:sections.media-carousel.blocks.video.settings.poster.label"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.media-carousel.blocks.video.settings.label.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media carousel",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "label": "AKINNA Logo Hardware"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "label": "Green Interiors"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "label": "LWG Certification"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "label": "Signature Panelling"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

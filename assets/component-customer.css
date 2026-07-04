@@ -1,0 +1,35 @@
+/* AKINNA — Customer account pages */
+.customer { padding: 60px 0 80px; }
+.customer__title { font-size: clamp(28px, 4vw, 40px); }
+.customer__sub { opacity: 0.7; margin-bottom: 24px; }
+.customer__panel { max-width: 460px; margin: 0 auto; }
+.customer__links { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+.customer__toggle { margin-top: 12px; }
+
+.customer-account__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; gap: 16px; }
+.customer-account__grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; }
+.customer-account__side h2 { font-size: 20px; margin-bottom: 12px; }
+.customer-account__side .custombtn { margin-top: 16px; }
+.customer-empty { opacity: 0.7; padding: 20px 0; }
+
+.orders-table-wrap { overflow-x: auto; }
+.orders-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.orders-table th, .orders-table td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--color-border); }
+.orders-table th { font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; }
+.orders-table__total td { font-family: var(--font-ui-medium); border-top: 2px solid var(--color-ink); }
+.customer-order__date { opacity: 0.6; margin-bottom: 20px; }
+.customer-order__addresses { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+.customer-order__addresses h3 { font-size: 16px; margin-bottom: 10px; }
+
+.address-item { padding: 24px 0; border-bottom: 1px solid var(--color-border); }
+.address-item__default { display: inline-block; font-family: var(--font-ui); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; background: var(--color-green); color: #fff; padding: 3px 8px; border-radius: var(--radius); margin-bottom: 10px; }
+.address-item__actions { display: flex; gap: 16px; margin-top: 12px; }
+.address-form { margin-top: 20px; }
+.address-form .contact-form__row { margin-bottom: 12px; }
+.address-form .full { width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 12px 14px; font-family: var(--font-body); }
+.address-default { display: flex; align-items: center; gap: 8px; margin: 12px 0; font-size: 14px; }
+.address-new { margin-bottom: 32px; }
+
+@media (max-width: 767px) {
+  .customer-account__grid, .customer-order__addresses { grid-template-columns: 1fr; gap: 32px; }
+}

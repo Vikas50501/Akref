@@ -1,0 +1,184 @@
+{%- comment -%}
+  Brand feature (Akinna Green) — full-bleed image on one side, heading + nested
+  image + descriptive text on the other. Dark background by default.
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+    --bf-h: {{ section.settings.media_height }}vh;
+  }
+{%- endstyle -%}
+<div class="brand-feature index-section">
+  <div class="greens-container{% if section.settings.image_position == 'right' %} brand-feature--reverse{% endif %}">
+    <div class="left-blocks brand-feature__media">
+      {%- if section.settings.image != blank -%}
+        <img class="frame-img" gsap-scale-anim src="{{ section.settings.image | image_url: width: 1400 }}" srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1400 }} 1400w" sizes="(max-width:1023px) 100vw, 50vw" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+      {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg frame-img' }}{%- endif -%}
+    </div>
+    <div class="right-block brand-feature__content">
+      <div class="flex-right">
+        {%- if section.settings.tagline != blank -%}<p class="tag-line" style="color: {{ section.settings.text_color }};">{{ section.settings.tagline }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split brand-feature__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+      </div>
+      <div class="rihg-bitim">
+        {%- if section.settings.inset_image != blank -%}
+          <div class="righti"><img src="{{ section.settings.inset_image | image_url: width: 700 }}" alt="{{ section.settings.inset_image.alt | escape }}" width="{{ section.settings.inset_image.width }}" height="{{ section.settings.inset_image.height }}" loading="lazy"></div>
+        {%- endif -%}
+        <div class="rightri">
+          {%- if section.settings.text != blank -%}<div class="tag-info rte">{{ section.settings.text }}</div>{%- endif -%}
+          {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="button {{ section.settings.button_style }}" style="margin-top:20px;">{{ section.settings.button_label }}</a>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.brand-feature__media { min-height: var(--bf-h, 80vh); }
+.brand-feature--reverse .brand-feature__media { order: 2; }
+.brand-feature__content { padding: 70px; display: flex; flex-direction: column; }
+.flex-right { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.brand-feature__heading { margin: 0; }
+.rihg-bitim { display: grid; grid-template-columns: 0.75fr 1fr; gap: 60px; align-items: start; padding-top: 40px; }
+.righti img { width: 100%; height: auto; object-fit: cover; }
+.rightri { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-feature__content .tag-info { max-width: none; }
+@media (max-width: 1023px) {
+  .brand-feature--reverse .brand-feature__media { order: 0; }
+  .brand-feature__media { min-height: 60vh; }
+  .brand-feature__content { padding: 40px 20px; }
+  .rihg-bitim { grid-template-columns: 1fr; gap: 24px; }
+  .flex-right { padding-bottom: 24px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.brand-feature.name",
+  "class": "index-section brand-feature-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.brand-feature.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "inset_image",
+      "label": "t:sections.brand-feature.settings.inset_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.brand-feature.settings.image_position.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.brand-feature.settings.image_position.options.o0"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.brand-feature.settings.image_position.options.o1"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "media_height",
+      "label": "t:sections.brand-feature.settings.media_height.label",
+      "min": 40,
+      "max": 100,
+      "step": 2,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.brand-feature.settings.tagline.label",
+      "default": "The Colour of the Maison."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.brand-feature.settings.heading.label",
+      "default": "AKINNA Green"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.brand-feature.settings.text.label",
+      "default": "<p>AKINNA Green is more than a signature — it is our seal. A deep emerald that lives within our packaging, our linings, and our quietest details.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.brand-feature.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.brand-feature.settings.button_link.label"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "t:sections.brand-feature.settings.button_style.label",
+      "options": [
+        {
+          "value": "",
+          "label": "t:sections.brand-feature.settings.button_style.options.o0"
+        },
+        {
+          "value": "alt",
+          "label": "t:sections.brand-feature.settings.button_style.options.o1"
+        }
+      ],
+      "default": "alt"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.brand-feature.headers.h0"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.brand-feature.settings.bg.label",
+      "default": "#0e3432"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.brand-feature.settings.text_color.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.brand-feature.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.brand-feature.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand feature"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "header": { "type": "page-header", "settings": { "tagline": "Contact", "heading": "Get in touch", "height": 300 } },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "show_info": true,
+        "heading": "We're here to help",
+        "text": "<p>Questions about an order, a product, or a bespoke request? Reach out and our team will respond within 24 hours.</p>"
+      }
+    }
+  },
+  "order": ["header", "form"]
+}

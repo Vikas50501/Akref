@@ -1,0 +1,165 @@
+{%- comment -%} Press / partner logos — infinite scroll marquee {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg }}; --lm-speed: {{ section.settings.speed }}s; --lm-gap: {{ section.settings.gap }}px; --lm-max: {{ section.settings.logo_width }}px;
+    {% if section.settings.border_bottom %}border-bottom: 1px solid var(--color-border);{% endif %}
+  }
+{%- endstyle -%}
+<div class="logo-marquee features-section index-section"{% if section.settings.pause_on_hover %} data-marquee-hover{% endif %}>
+  {%- if section.settings.heading != blank -%}<h2 class="logo-marquee__heading text-center">{{ section.settings.heading }}</h2>{%- endif -%}
+  <div class="logo-marquee__viewport">
+    <div class="logo-marquee__wrap grap-for">
+      {%- for n in (1..3) -%}
+        <div class="logo-marquee__group gcroll-wrapper" aria-hidden="{% if n > 1 %}true{% endif %}">
+          {%- for block in section.blocks -%}
+            <div class="glock-images" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" target="_blank" rel="noopener">{%- endif -%}
+              {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.image.alt | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">{%- else -%}<span class="logo-marquee__ph">Logo</span>{%- endif -%}
+              {%- if block.settings.link != blank -%}</a>{%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.logo-marquee__heading { margin-bottom: 40px; }
+.logo-marquee__viewport { overflow: hidden; }
+.logo-marquee__wrap { display: flex; width: max-content; }
+.logo-marquee__group { display: flex; align-items: center; gap: var(--lm-gap, 120px); padding-right: var(--lm-gap, 120px); animation: logo-scroll var(--lm-speed, 120s) linear infinite; }
+.glock-images { flex: none; max-width: var(--lm-max, 120px); }
+.glock-images img { width: 100%; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: opacity var(--transition), filter var(--transition); }
+.glock-images:hover img { filter: none; opacity: 1; }
+.logo-marquee__ph { font-family: var(--font-ui); opacity: 0.4; }
+[data-marquee-hover]:hover .logo-marquee__group { animation-play-state: paused; }
+@keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@media (max-width: 767px) { .logo-marquee__group { gap: 50px; padding-right: 50px; } .glock-images { max-width: 80px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.logo-marquee.name",
+  "class": "index-section logo-marquee-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.logo-marquee.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "t:sections.logo-marquee.settings.speed.label",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "s",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:sections.logo-marquee.settings.gap.label",
+      "min": 40,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "t:sections.logo-marquee.settings.logo_width.label",
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "t:sections.logo-marquee.settings.pause_on_hover.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "border_bottom",
+      "label": "t:sections.logo-marquee.settings.border_bottom.label",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.logo-marquee.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.logo-marquee.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.logo-marquee.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:sections.logo-marquee.blocks.logo.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.logo-marquee.blocks.logo.settings.image.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.logo-marquee.blocks.logo.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo marquee",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

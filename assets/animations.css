@@ -1,0 +1,36 @@
+/* AKINNA — animation helpers (split text, scroll reveal variants, hover) */
+
+/* Split-word slide up */
+.split-word { display: inline-block; overflow: hidden; vertical-align: top; }
+.split-word .split-inner {
+  display: inline-block; transform: translateY(110%);
+  transition: transform 0.7s var(--easing);
+}
+.letters-slide-up.text-split.is-inview .split-inner,
+.is-inview .letters-slide-up.text-split .split-inner { transform: translateY(0); }
+/* stagger by word */
+.split-word:nth-child(2) .split-inner { transition-delay: 0.04s; }
+.split-word:nth-child(3) .split-inner { transition-delay: 0.08s; }
+.split-word:nth-child(4) .split-inner { transition-delay: 0.12s; }
+.split-word:nth-child(5) .split-inner { transition-delay: 0.16s; }
+.split-word:nth-child(6) .split-inner { transition-delay: 0.20s; }
+.split-word:nth-child(n+7) .split-inner { transition-delay: 0.24s; }
+
+/* Trigger split when the heading itself is in view */
+.letters-slide-up.text-split { display: inline-block; }
+
+/* Scale-in image on scroll */
+[gsap-scale-anim] { transform: scale(1.06); transition: transform 1.2s var(--easing); will-change: transform; }
+.is-inview [gsap-scale-anim], [gsap-scale-anim].is-inview { transform: scale(1); }
+
+/* Generic entrance variants */
+[data-anim="up"]    { transform: translateY(28px); }
+[data-anim="left"]  { transform: translateX(28px); }
+[data-anim="right"] { transform: translateX(-28px); }
+[data-anim="zoom"]  { transform: scale(0.96); }
+[data-anim].is-inview { transform: none; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .split-word .split-inner { transform: none !important; }
+  [gsap-scale-anim] { transform: none !important; }
+}

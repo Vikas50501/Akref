@@ -1,0 +1,49 @@
+{%- comment -%} Customer login + password recovery {%- endcomment -%}
+<div class="customer customer-login">
+  <div class="container container--text">
+    <div id="recover-password" class="customer__panel" style="display:none;">
+      <h1 class="customer__title text-center">{{ 'customer.recover.title' | t }}</h1>
+      <p class="text-center customer__sub">{{ 'customer.recover.subtext' | t }}</p>
+      {%- form 'recover_customer_password' -%}
+        {%- if form.posted_successfully? -%}<p class="contact-form__success" role="status">{{ 'customer.recover.success' | t }}</p>{%- endif -%}
+        <div class="contact-form__row">
+          <label class="visually-hidden" for="RecoverEmail">{{ 'customer.login.email' | t }}</label>
+          <input type="email" id="RecoverEmail" name="email" placeholder="{{ 'customer.login.email' | t }}" class="full" required>
+        </div>
+        <button type="submit" class="button">{{ 'customer.recover.submit' | t }}</button>
+        <button type="button" class="custombtn customer__toggle" data-recover-cancel>{{ 'customer.recover.cancel' | t }}</button>
+      {%- endform -%}
+    </div>
+
+    <div id="customer-login" class="customer__panel">
+      <h1 class="customer__title text-center">{{ 'customer.login.title' | t }}</h1>
+      {%- form 'customer_login' -%}
+        {%- if form.errors -%}<div class="contact-form__errors" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+        <div class="contact-form__row">
+          <label class="visually-hidden" for="LoginEmail">{{ 'customer.login.email' | t }}</label>
+          <input type="email" id="LoginEmail" name="customer[email]" placeholder="{{ 'customer.login.email' | t }}" class="full" autocomplete="email" required>
+        </div>
+        <div class="contact-form__row">
+          <label class="visually-hidden" for="LoginPassword">{{ 'customer.login.password' | t }}</label>
+          <input type="password" id="LoginPassword" name="customer[password]" placeholder="{{ 'customer.login.password' | t }}" class="full" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="button">{{ 'customer.login.submit' | t }}</button>
+        <div class="customer__links">
+          <button type="button" class="custombtn" data-recover-toggle>{{ 'customer.login.forgot' | t }}</button>
+          <a href="{{ routes.account_register_url }}" class="custombtn">{{ 'customer.login.create' | t }}</a>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    var login = document.getElementById('customer-login'), recover = document.getElementById('recover-password');
+    if(!login || !recover) return;
+    function showRecover(){ login.style.display='none'; recover.style.display='block'; var f=recover.querySelector('input'); if(f) f.focus(); }
+    function showLogin(){ recover.style.display='none'; login.style.display='block'; var f=login.querySelector('input'); if(f) f.focus(); }
+    var t = document.querySelector('[data-recover-toggle]'); if(t) t.addEventListener('click', showRecover);
+    var c = document.querySelector('[data-recover-cancel]'); if(c) c.addEventListener('click', showLogin);
+    if(window.location.hash === '#recover') showRecover();
+  })();
+</script>

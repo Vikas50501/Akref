@@ -1,0 +1,107 @@
+{%- comment -%} Search results page {%- endcomment -%}
+{%- liquid
+  assign per = section.settings.results_per_page
+  assign cols = section.settings.columns
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+<div class="search-page">
+  <div class="container">
+    <div class="search-page__head text-center">
+      <h1 class="thb-shop-title">{% if search.performed %}{{ 'general.search.results_for' | t: terms: search.terms }}{% else %}{{ 'general.search.title' | t }}{% endif %}</h1>
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search-page__form">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.search' | t }}">
+        <button type="submit" class="button">{{ 'general.search.search' | t }}</button>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      {%- if search.results.size > 0 -%}
+        <p class="thb-filter-count text-center">{{ 'products.facets.results_short' | t: count: search.results_count }}</p>
+        {%- paginate search.results by per -%}
+          <div class="search-results-grid" style="--col-count: {{ cols }};">
+            {%- for item in search.results -%}
+              {%- case item.object_type -%}
+                {%- when 'product' -%}{%- render 'product-card', product: item -%}
+                {%- when 'article' -%}
+                  <a href="{{ item.url }}" class="search-result-card">
+                    {%- if item.image -%}<div class="aspect-ratio" style="--ratio-percent:66%;"><img src="{{ item.image | image_url: width: 600 }}" alt="{{ item.title | escape }}" loading="lazy"></div>{%- endif -%}
+                    <span class="search-result-card__type">{{ 'blogs.article.read_more' | t }}</span>
+                    <h3>{{ item.title }}</h3>
+                  </a>
+                {%- when 'page' -%}
+                  <a href="{{ item.url }}" class="search-result-card search-result-card--text"><h3>{{ item.title }}</h3><p>{{ item.content | strip_html | truncatewords: 20 }}</p></a>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+          {%- if paginate.pages > 1 -%}
+            <nav class="pagination" aria-label="Pagination">
+              {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" class="pagination__prev">{{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+              <ul class="pagination__list">{%- for part in paginate.parts -%}<li>{% if part.is_link %}<a href="{{ part.url }}">{{ part.title }}</a>{% else %}<span class="{% if part.title == paginate.current_page %}is-current{% endif %}">{{ part.title }}</span>{% endif %}</li>{%- endfor -%}</ul>
+              {%- if paginate.next -%}<a href="{{ paginate.next.url }}" class="pagination__next">{{ 'general.pagination.next' | t }}</a>{%- endif -%}
+            </nav>
+          {%- endif -%}
+        {%- endpaginate -%}
+      {%- else -%}
+        <p class="text-center search-page__empty">{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.search-page__form { display: flex; gap: 12px; max-width: 520px; margin: 20px auto 40px; }
+.search-page__form input { flex: 1; border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 12px 20px; font-family: var(--font-body); }
+.search-result-card { display: block; }
+.search-result-card__type { font-family: var(--font-ui); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.5; display: block; margin-top: 12px; }
+.search-result-card h3 { font-size: 18px; margin-top: 6px; }
+.search-result-card--text { padding: 20px; border: 1px solid var(--color-border); }
+.search-page__empty { padding: 60px 0; opacity: 0.7; }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main-search.name",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:sections.main-search.settings.columns.label",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "results_per_page",
+      "label": "t:sections.main-search.settings.results_per_page.label",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.main-search.settings.padding_top.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.main-search.settings.padding_bottom.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}

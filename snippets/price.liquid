@@ -1,0 +1,32 @@
+{%- comment -%}
+  Price display matching original markup (<ins><span class="amount"> …).
+  Params: product (or) price, price_min, compare_at. Handles sale + range.
+{%- endcomment -%}
+{%- liquid
+  assign p = product
+  if p != blank
+    assign _price = p.price
+    assign _compare = p.compare_at_price
+    assign _varies = false
+    if p.price_varies
+      assign _varies = true
+    endif
+  else
+    assign _price = price
+    assign _compare = compare_at
+    assign _varies = false
+  endif
+  assign on_sale = false
+  if _compare and _compare > _price
+    assign on_sale = true
+  endif
+-%}
+<span class="price{% if on_sale %} price--on-sale{% endif %}">
+  {%- if on_sale -%}
+    <del><span class="amount">{{ _compare | money }}</span></del>
+  {%- endif -%}
+  <ins><span class="amount">
+    {%- if _varies -%}{{ 'products.price.from' | t }} {% endif -%}{{ _price | money }}
+  </span></ins>
+  <small class="unit-price hidden"><span></span><span class="unit-price-separator">/</span><span></span></small>
+</span>

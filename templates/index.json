@@ -1,0 +1,132 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "heading": "Doppio",
+            "text": "<p>Inspired by the rhythm of city life, where elegance and energy coexist.</p>",
+            "button_label": "Explore Now",
+            "content_position": "bottom-right",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": ["slide1"],
+      "settings": { "desktop_height": 92, "mobile_height": 90, "autoplay": 5 }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "text": "Handcrafted In India" } },
+        "t2": { "type": "item", "settings": { "text": "100% Pure Leather" } },
+        "t3": { "type": "item", "settings": { "text": "5-Year Warranty" } },
+        "t4": { "type": "item", "settings": { "text": "LWG-Certified" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
+    "products": {
+      "type": "product-carousel",
+      "settings": {
+        "tagline": "Designed by Annika Saraf.",
+        "heading": "Luxury Handbags Made With Finest Indian Leather.",
+        "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
+        "button_label": "Discover all",
+        "products_limit": 8
+      }
+    },
+    "founder": {
+      "type": "image-text",
+      "blocks": {
+        "tag": { "type": "tagline", "settings": { "text": "Founder and Creative Director" } },
+        "head": { "type": "heading", "settings": { "text": "Annika Saraf" } },
+        "body": { "type": "text", "settings": { "text": "<p>From <strong>Prada</strong> and <strong>Stella McCartney</strong> to the <strong>Lucia Bag</strong> for <strong>Borbonese</strong> at <strong>Milan Fashion Week 2020</strong>, recognised by <strong>Vogue Italia</strong> among Italy's Top 5 Foreign Designers in 2024.</p>" } },
+        "quote": { "type": "quote", "settings": { "text": "AKINNA is the result of years spent chasing one perfect spark — a vision of modern luxury that feels personal, timeless, and deeply meaningful." } },
+        "sign": { "type": "signature", "settings": { "text": "Annika" } }
+      },
+      "block_order": ["tag", "head", "body", "quote", "sign"],
+      "settings": { "image_position": "left", "media_height": 90, "padding_top": 10, "padding_bottom": 0 }
+    },
+    "atelier_video": {
+      "type": "background-video",
+      "settings": {
+        "subheading": "Inside the Atelier",
+        "heading": "Where Craft Becomes Form.",
+        "text": "<p>Every AKINNA piece is brought to life by master artisans in India. Inside our workshops, skilled hands shape each form with patience and precision.</p>",
+        "overlay_opacity": 25
+      }
+    },
+    "new_arrivals": {
+      "type": "collection-showcase",
+      "settings": { "heading": "New Arrivals", "button_label": "Explore all", "products_limit": 4 }
+    },
+    "sep1": { "type": "separator", "settings": {} },
+    "material": {
+      "type": "image-text",
+      "blocks": {
+        "tag": { "type": "tagline", "settings": { "text": "Material Excellence" } },
+        "head": { "type": "heading", "settings": { "text": "Only the Finest. Made to Last." } },
+        "div": { "type": "divider", "settings": {} },
+        "body": { "type": "text", "settings": { "text": "<p>Crafted from <strong>premium full-grain leather</strong> with <strong>anti-tarnish hardware</strong> and backed by a <strong>5-year warranty</strong>.</p>" } },
+        "certs": { "type": "certifications", "settings": { "label_1": "Read LWG-certified", "label_2": "Read SA8000-certified" } }
+      },
+      "block_order": ["tag", "head", "div", "body", "certs"],
+      "settings": { "image_position": "left", "media_height": 90 }
+    },
+    "green": {
+      "type": "brand-feature",
+      "settings": {
+        "tagline": "The Colour of the Maison.",
+        "heading": "AKINNA Green",
+        "text": "<p>AKINNA Green is more than a signature — it is our seal. A deep emerald that lives within our packaging, our linings, and our quietest details. It represents balance, prosperity, and intention.</p>",
+        "image_position": "right"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "s1": { "type": "video" },
+        "s2": { "type": "image" },
+        "s3": { "type": "image" },
+        "s4": { "type": "video" },
+        "s5": { "type": "image" }
+      },
+      "block_order": ["s1", "s2", "s3", "s4", "s5"],
+      "settings": { "heading": "Happy Customers" }
+    },
+    "club": {
+      "type": "club-banner",
+      "settings": {
+        "heading": "AKINNA Sphere",
+        "text": "<p>Members-only community for exclusive brand insights, insider stories, and special offers designed just for you.</p>",
+        "button_label": "Join Our Community"
+      }
+    },
+    "press": {
+      "type": "logo-marquee",
+      "blocks": {
+        "l1": { "type": "logo" }, "l2": { "type": "logo" }, "l3": { "type": "logo" },
+        "l4": { "type": "logo" }, "l5": { "type": "logo" }, "l6": { "type": "logo" }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
+      "settings": {}
+    },
+    "instagram": {
+      "type": "instagram",
+      "blocks": {
+        "p1": { "type": "post" }, "p2": { "type": "post" }, "p3": { "type": "post" },
+        "p4": { "type": "post" }, "p5": { "type": "post" }, "p6": { "type": "post" }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "settings": { "heading": "@akinna.studios" }
+    }
+  },
+  "order": [
+    "hero", "ticker", "products", "founder", "atelier_video",
+    "new_arrivals", "sep1", "material", "green", "testimonials",
+    "club", "press", "instagram"
+  ]
+}

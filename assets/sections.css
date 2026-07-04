@@ -1,0 +1,56 @@
+/* ==========================================================================
+   AKINNA — Section styles (shared + per-section). Grows as sections are added.
+   ========================================================================== */
+
+/* --- Shared section primitives --------------------------------------- */
+.index-section { position: relative; }
+.common-container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-gutter); }
+.section-heading { font-family: var(--font-heading); }
+.dewrap { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.top-section-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+
+/* Two-column image + text (founder / normal / green) */
+.grid-normal, .greens-container { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+.grid-normal { border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.left-blocks { position: relative; overflow: hidden; }
+.left-blocks .frame-img { width: 100%; height: 100%; object-fit: cover; }
+.right-block { display: flex; flex-direction: column; justify-content: center; padding: 60px; }
+.tag-info { max-width: 460px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+
+@media (max-width: 1023px) {
+  .grid-normal, .greens-container { grid-template-columns: 1fr; }
+  .right-block { padding: 40px 20px; }
+  .left-blocks { min-height: 60vh; }
+}
+
+/* --- WhatsApp float --------------------------------------------------- */
+.whatsapp-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 900;
+  width: 54px; height: 54px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #25d366; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  transition: transform var(--transition);
+}
+.whatsapp-float:hover { transform: scale(1.06); color: #fff; }
+@media (max-width: 767px) { .whatsapp-float { width: 48px; height: 48px; right: 14px; bottom: 14px; } }
+
+/* --- Shared carousel controls (used across multiple sections) --------- */
+.carousel-arrow {
+  width: 42px; height: 42px; border: 1px solid var(--color-border); background: none;
+  border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  color: inherit; transition: all var(--transition); flex: none;
+}
+.carousel-arrow:hover { background: var(--color-green); color: #fff; border-color: var(--color-green); }
+.carousel-arrow[disabled] { opacity: 0.3; pointer-events: none; }
+
+/* --- Shopify policy pages (auto-rendered) ----------------------------- */
+.shopify-policy__container { max-width: 760px; margin: 0 auto; padding: 60px var(--container-gutter); }
+.shopify-policy__title { text-align: center; margin-bottom: 32px; }
+.shopify-policy__title h1 { font-size: clamp(28px, 4vw, 44px); }
+.shopify-policy__body { font-size: 15px; line-height: 1.7; }
+.shopify-policy__body h2 { margin-top: 1.6em; }
+
+/* --- Placeholder image ------------------------------------------------ */
+.placeholder-image { background: var(--color-bg-alt); }
+.placeholder-image svg { width: 100%; height: 100%; display: block; }
+.placeholder-svg { width: 100%; height: 100%; display: block; fill: rgba(var(--color-ink-rgb), 0.12); }

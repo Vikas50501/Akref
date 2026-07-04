@@ -1,0 +1,93 @@
+{%- comment -%} Page hero header with optional image {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { --ph-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
+{%- endstyle -%}
+<div class="page-header{% if section.settings.image != blank %} page-header--image{% endif %}" style="--ph-h: {{ section.settings.height }}px; {% if section.settings.image != blank %}color:#fff;{% else %}background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};{% endif %}">
+  {%- if section.settings.image != blank -%}
+    <div class="page-header__media">
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" srcset="{{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 2000 }} 2000w" sizes="100vw" alt="{{ section.settings.heading | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="eager" fetchpriority="high">
+      <span class="page-header__overlay" style="opacity: var(--ph-overlay);"></span>
+    </div>
+  {%- endif -%}
+  <div class="page-header__content container" data-anim="up">
+    {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
+    <h1 class="page-header__heading letters-slide-up text-split">{{ section.settings.heading | default: page.title }}</h1>
+    {%- if section.settings.subheading != blank -%}<div class="page-header__sub rte">{{ section.settings.subheading }}</div>{%- endif -%}
+  </div>
+</div>
+{% stylesheet %}
+.page-header { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; min-height: var(--ph-h, 360px); overflow: hidden; padding: 60px 0; }
+.page-header--image { align-items: flex-end; }
+.page-header__media { position: absolute; inset: 0; }
+.page-header__media img { width: 100%; height: 100%; object-fit: cover; }
+.page-header__overlay { position: absolute; inset: 0; background: #000; }
+.page-header__content { position: relative; z-index: 1; }
+.page-header--image .page-header__content { padding-bottom: 40px; }
+.page-header__heading { font-size: clamp(30px, 5vw, 56px); margin: 8px 0; }
+.page-header__sub { max-width: 640px; margin: 12px auto 0; opacity: 0.9; }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "t:sections.page-header.name",
+  "class": "index-section page-header-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.page-header.settings.tagline.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.page-header.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "t:sections.page-header.settings.subheading.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.page-header.settings.image.label"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.page-header.settings.overlay_opacity.label",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "t:sections.page-header.settings.height.label",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.page-header.settings.bg.label",
+      "default": "#f5f3f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.page-header.settings.text_color.label",
+      "default": "#141515"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page header"
+    }
+  ]
+}
+{% endschema %}

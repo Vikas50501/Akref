@@ -1,0 +1,136 @@
+{%- comment -%} Store locator / stockists grid {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+<div class="store-locator index-section">
+  <div class="container">
+    {%- if section.settings.heading != blank -%}
+      <div class="store-locator__head text-center" data-anim="up">
+        {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
+        <h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+    <div class="stockiest-grid-wrap">
+      {%- for block in section.blocks -%}
+        <div class="stockiest-grid-item" {{ block.shopify_attributes }}>
+          <div class="grid-image-wrap aspect-ratio" style="--ratio-percent: 75%;">
+            {%- if block.settings.image != blank -%}<img class="imgstockiest" src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.name | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
+            {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}{%- endif -%}
+          </div>
+          {%- if block.settings.name != blank -%}<h3>{{ block.settings.name }}</h3>{%- endif -%}
+          {%- if block.settings.city != blank -%}<div class="city-wrap"><p>{{ block.settings.city }}</p></div>{%- endif -%}
+          {%- if block.settings.address != blank -%}<div class="city-address"><p><strong>Address</strong><br>{{ block.settings.address }}</p></div>{%- endif -%}
+          {%- if block.settings.timing != blank -%}<div class="city-timing"><p><strong>Timing:</strong> {{ block.settings.timing }}</p></div>{%- endif -%}
+          {%- if block.settings.map_link != blank -%}<a href="{{ block.settings.map_link }}" target="_blank" rel="noopener" class="custombtn">Get directions{%- render 'icon', name: 'arrow-right', size: 13 -%}</a>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.store-locator__head { margin-bottom: 40px; }
+.stockiest-grid-wrap { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+.stockiest-grid-item .grid-image-wrap { background: var(--color-bg-alt); margin-bottom: 16px; }
+.imgstockiest { width: 100%; height: 100%; object-fit: cover; }
+.stockiest-grid-item h3 { font-size: 24px; margin-bottom: 8px; }
+.city-wrap p { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.03em; font-size: 12px; opacity: 0.6; margin-bottom: 12px; }
+.city-address, .city-timing { font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+.city-address strong, .city-timing strong { font-family: var(--font-ui-medium); }
+@media (max-width: 767px) { .stockiest-grid-wrap { grid-template-columns: 1fr; gap: 32px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.store-locator.name",
+  "class": "index-section store-locator-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.store-locator.settings.tagline.label",
+      "default": "Store locator"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.store-locator.settings.heading.label",
+      "default": "Store & Stockists"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.store-locator.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.store-locator.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "t:sections.store-locator.blocks.store.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.store-locator.blocks.store.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:sections.store-locator.blocks.store.settings.name.label",
+          "default": "Store name"
+        },
+        {
+          "type": "text",
+          "id": "city",
+          "label": "t:sections.store-locator.blocks.store.settings.city.label",
+          "default": "New Delhi"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "t:sections.store-locator.blocks.store.settings.address.label"
+        },
+        {
+          "type": "text",
+          "id": "timing",
+          "label": "t:sections.store-locator.blocks.store.settings.timing.label",
+          "default": "Mon-Sun 11AM-10PM"
+        },
+        {
+          "type": "url",
+          "id": "map_link",
+          "label": "t:sections.store-locator.blocks.store.settings.map_link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store locator",
+      "blocks": [
+        {
+          "type": "store"
+        },
+        {
+          "type": "store"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

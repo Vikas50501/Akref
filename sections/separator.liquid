@@ -1,0 +1,56 @@
+{%- comment -%} Thin horizontal rule separator {%- endcomment -%}
+<div class="seprator index-section" style="margin: {{ section.settings.margin }}px {{ section.settings.side_margin }}px;">
+  <span class="seprator__line" style="background: {{ section.settings.color }}; height: {{ section.settings.thickness }}px;"></span>
+</div>
+{% stylesheet %}
+.seprator__line { display: block; width: 100%; }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "t:sections.separator.name",
+  "class": "index-section seprator-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "label": "t:sections.separator.settings.color.label",
+      "default": "#0000001A"
+    },
+    {
+      "type": "range",
+      "id": "thickness",
+      "label": "t:sections.separator.settings.thickness.label",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "margin",
+      "label": "t:sections.separator.settings.margin.label",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "side_margin",
+      "label": "t:sections.separator.settings.side_margin.label",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Separator"
+    }
+  ]
+}
+{% endschema %}

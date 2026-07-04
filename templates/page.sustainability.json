@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "header": { "type": "page-header", "settings": { "tagline": "Responsibility", "heading": "Sustainability", "height": 420 } },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "h": { "type": "heading", "settings": { "text": "Made responsibly, made to last" } },
+        "t": { "type": "text", "settings": { "text": "<p>We believe true luxury respects people and planet. Our leather is LWG-certified and our workshops are SA8000-certified for ethical labour.</p>" } }
+      },
+      "block_order": ["h", "t"],
+      "settings": { "alignment": "center", "width": "medium" }
+    },
+    "lwg": {
+      "type": "image-text",
+      "blocks": {
+        "tag": { "type": "tagline", "settings": { "text": "LWG Certified" } },
+        "head": { "type": "heading", "settings": { "text": "Traceable, responsible leather" } },
+        "div": { "type": "divider", "settings": {} },
+        "body": { "type": "text", "settings": { "text": "<p id=\"is-lwg\">Our tanneries are certified by the Leather Working Group, ensuring lower environmental impact across water, energy, and traceability.</p>" } }
+      },
+      "block_order": ["tag", "head", "div", "body"],
+      "settings": { "image_position": "left", "media_height": 80 }
+    },
+    "sa8000": {
+      "type": "image-text",
+      "blocks": {
+        "tag": { "type": "tagline", "settings": { "text": "SA8000 Certified" } },
+        "head": { "type": "heading", "settings": { "text": "Ethical craftsmanship" } },
+        "div": { "type": "divider", "settings": {} },
+        "body": { "type": "text", "settings": { "text": "<p id=\"is-sa8000\">Our workshops meet SA8000 standards for fair wages, safe conditions, and dignified work.</p>" } }
+      },
+      "block_order": ["tag", "head", "div", "body"],
+      "settings": { "image_position": "right", "media_height": 80 }
+    }
+  },
+  "order": ["header", "intro", "lwg", "sa8000"]
+}

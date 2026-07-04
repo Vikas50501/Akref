@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_header": true,
+        "show_description": true,
+        "enable_filtering": true,
+        "columns": 3,
+        "products_per_page": 24
+      }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "disabled": true,
+      "settings": { "heading": "Designer's note" }
+    },
+    "features": {
+      "type": "icon-grid",
+      "blocks": {
+        "s1": { "type": "item", "settings": { "title": "Handcrafted in India", "text": "Proudly crafted in India by skilled artisans." } },
+        "s2": { "type": "item", "settings": { "title": "5-Year Warranty", "text": "Built to endure, backed for years." } },
+        "s3": { "type": "item", "settings": { "title": "Free Shipping", "text": "Complimentary delivery worldwide." } },
+        "s4": { "type": "item", "settings": { "title": "Easy Returns", "text": "14-day hassle-free returns." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "columns": 4, "dividers": true }
+    }
+  },
+  "order": ["main", "designer_note", "features"]
+}

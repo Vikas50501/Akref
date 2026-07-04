@@ -1,0 +1,74 @@
+{%- comment -%} Blog listing (masonry-ish article grid) {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --blog-cols: {{ section.settings.columns }}; }
+{%- endstyle -%}
+<div class="main-blog">
+  <div class="container">
+    <div class="blog-header text-center">
+      <nav class="north-breadcrumb" aria-label="breadcrumbs"><a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> <i>/</i> {{ blog.title }}</nav>
+      <h1 class="thb-shop-title">{{ blog.title }}</h1>
+    </div>
+    {%- paginate blog.articles by section.settings.posts_per_page -%}
+      <div class="blog-grid">
+        {%- for article in blog.articles -%}
+          <div class="article-card-wrap">
+            {%- render 'article-card', article: article -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="Pagination">
+          {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" class="pagination__prev">{{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+          <ul class="pagination__list">{%- for part in paginate.parts -%}<li>{% if part.is_link %}<a href="{{ part.url }}">{{ part.title }}</a>{% else %}<span class="{% if part.title == paginate.current_page %}is-current{% endif %}">{{ part.title }}</span>{% endif %}</li>{%- endfor -%}</ul>
+          {%- if paginate.next -%}<a href="{{ paginate.next.url }}" class="pagination__next">{{ 'general.pagination.next' | t }}</a>{%- endif -%}
+        </nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:sections.main-blog.settings.columns.label",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "t:sections.main-blog.settings.posts_per_page.label",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.main-blog.settings.padding_top.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.main-blog.settings.padding_bottom.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}

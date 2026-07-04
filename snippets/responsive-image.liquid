@@ -1,0 +1,41 @@
+{%- comment -%}
+  Responsive, lazy-loaded image with srcset. Accepts a Shopify image object.
+  Params:
+    image        (required) image_object
+    alt          (optional) alt text override
+    sizes        (optional) sizes attr, default '100vw'
+    class        (optional) extra classes
+    aspect       (optional) 'natural' | number (w/h ratio). Wraps in aspect-ratio box when set.
+    priority     (optional) true => eager + high fetchpriority (above-the-fold)
+    widths       (optional) comma list, default responsive set
+{%- endcomment -%}
+{%- liquid
+  assign img = image
+  assign _alt = alt | default: img.alt | escape
+  assign _sizes = sizes | default: '100vw'
+  assign _class = class | default: ''
+  assign widthset = widths | default: '320,480,640,768,960,1280,1600,1920'
+  assign eager = priority | default: false
+-%}
+{%- if img == blank -%}
+  <div class="placeholder-image {{ _class }}">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+{%- else -%}
+  {%- if aspect and aspect != 'natural' -%}
+    {%- assign pad = 1.0 | divided_by: aspect | times: 100 -%}
+  {%- endif -%}
+  {%- capture img_tag -%}
+    <img
+      {% unless eager %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endunless %}
+      class="ri {{ _class }}"
+      width="{{ img.width }}" height="{{ img.height }}"
+      alt="{{ _alt }}"
+      src="{{ img | image_url: width: 1000 }}"
+      srcset="{%- for w in widthset | split: ',' -%}{%- if img.width >= w | plus: 0 -%}{{ img | image_url: width: w }} {{ w }}w,{%- endif -%}{%- endfor -%}{{ img | image_url: width: img.width }} {{ img.width }}w"
+      sizes="{{ _sizes }}">
+  {%- endcapture -%}
+  {%- if aspect and aspect != 'natural' -%}
+    <div class="aspect-ratio {{ _class }}" style="--ratio-percent: {{ pad }}%;">{{ img_tag }}</div>
+  {%- else -%}
+    {{ img_tag }}
+  {%- endif -%}
+{%- endif -%}

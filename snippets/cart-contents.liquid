@@ -1,0 +1,106 @@
+{%- comment -%}
+  Shared cart markup for drawer + cart page. Param: context ('drawer' | 'page')
+{%- endcomment -%}
+{%- liquid
+  assign ctx = context | default: 'drawer'
+  comment
+    Threshold is entered in major units; cart.total_price is in the currency subunit.
+    times:100 is correct for 2-decimal currencies (INR/USD/EUR/GBP…).
+  endcomment
+  assign threshold = settings.cart_free_shipping_threshold | times: 100
+  assign remaining = threshold | minus: cart.total_price
+-%}
+{%- if cart.item_count == 0 -%}
+  <div class="cart-empty text-center">
+    {%- render 'icon', name: 'cart-empty', size: 48 -%}
+    <p class="cart-empty__text">{{ 'cart.empty' | t }}</p>
+    <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.browse' | t }}</a>
+  </div>
+{%- else -%}
+  {%- if settings.cart_free_shipping_bar -%}
+    <div class="cart-shipbar" data-shipbar>
+      {%- if remaining > 0 -%}
+        <p class="cart-shipbar__text">{{ 'cart.free_shipping_progress' | t: amount: remaining | money }}</p>
+      {%- else -%}
+        <p class="cart-shipbar__text">{{ 'cart.free_shipping_reached' | t }}</p>
+      {%- endif -%}
+      <div class="cart-shipbar__track"><span class="cart-shipbar__fill" style="width: {% if threshold > 0 %}{{ cart.total_price | times: 100.0 | divided_by: threshold | at_most: 100 }}{% else %}100{% endif %}%;"></span></div>
+    </div>
+  {%- endif -%}
+
+  <form action="{{ routes.cart_url }}" method="post" id="cart" class="cart-form" data-cart-form>
+    <ul class="cart-items" data-cart-items>
+      {%- for item in cart.items -%}
+        <li class="cart-item" data-cart-item data-key="{{ item.key }}" data-line="{{ forloop.index }}">
+          <a href="{{ item.url }}" class="cart-item__media">
+            {%- if item.image -%}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" width="90" height="120" loading="lazy">{%- endif -%}
+          </a>
+          <div class="cart-item__info">
+            <div class="cart-item__top">
+              <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+              <button type="button" class="cart-item__remove" data-cart-remove="{{ item.key }}" aria-label="{{ 'cart.remove' | t }}">{%- render 'icon', name: 'close', size: 14 -%}</button>
+            </div>
+            {%- unless item.product.has_only_default_variant -%}
+              <p class="cart-item__variant">{{ item.variant.title }}</p>
+            {%- endunless -%}
+            {%- if item.selling_plan_allocation -%}<p class="cart-item__variant">{{ item.selling_plan_allocation.selling_plan.name }}</p>{%- endif -%}
+            <div class="cart-item__bottom">
+              <quantity-input class="quantity" data-key="{{ item.key }}">
+                <button type="button" class="quantity__btn" data-qty-minus aria-label="Decrease">{%- render 'icon', name: 'minus', size: 14 -%}</button>
+                <input class="quantity__input" type="number" name="updates[]" value="{{ item.quantity }}" min="0" data-qty-input aria-label="{{ 'cart.quantity' | t }}">
+                <button type="button" class="quantity__btn" data-qty-plus aria-label="Increase">{%- render 'icon', name: 'plus', size: 14 -%}</button>
+              </quantity-input>
+              <span class="cart-item__price">{{ item.final_line_price | money }}</span>
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- comment -%} Cart upsell — products from a merchant-chosen collection not already in the cart {%- endcomment -%}
+    {%- if settings.cart_upsell_collection != blank -%}
+      {%- assign upsell = collections[settings.cart_upsell_collection] -%}
+      {%- assign shown = 0 -%}
+      {%- capture upsell_html -%}
+        {%- for p in upsell.products limit: 6 -%}
+          {%- unless cart.items contains p or shown >= 3 or p.available == false -%}
+            {%- assign shown = shown | plus: 1 -%}
+            <li class="cart-upsell__item">
+              <a href="{{ p.url }}" class="cart-upsell__media">{%- if p.featured_media -%}<img src="{{ p.featured_media | image_url: width: 120 }}" alt="{{ p.title | escape }}" width="48" height="60" loading="lazy">{%- endif -%}</a>
+              <div class="cart-upsell__info">
+                <a href="{{ p.url }}" class="cart-upsell__title">{{ p.title }}</a>
+                <span class="cart-upsell__price">{{ p.price | money }}</span>
+              </div>
+              {%- if p.variants.size > 1 -%}
+                <a href="{{ p.url }}" class="cart-upsell__add">{{ 'products.card.choose_options' | t }}</a>
+              {%- else -%}
+                <product-quick-add><a href="{{ p.url }}" data-id="{{ p.selected_or_first_available_variant.id }}" class="cart-upsell__add add_to_cart_button"><span data-add-text>{{ 'cart.add' | t }}</span></a></product-quick-add>
+              {%- endif -%}
+            </li>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+      {%- if shown > 0 -%}
+        <div class="cart-upsell">
+          <p class="cart-upsell__heading">{{ 'cart.you_may_also_like' | t }}</p>
+          <ul class="cart-upsell__list">{{ upsell_html }}</ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="cart-footer">
+      {%- if settings.cart_show_note -%}
+        <div class="cart-note">
+          <label for="CartNote{{ ctx }}">{{ 'cart.note' | t }}</label>
+          <textarea id="CartNote{{ ctx }}" name="note" rows="2">{{ cart.note }}</textarea>
+        </div>
+      {%- endif -%}
+      <div class="cart-subtotal">
+        <span>{{ 'cart.subtotal' | t }}</span>
+        <span data-cart-subtotal>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="cart-taxes">{{ 'cart.taxes_shipping' | t }}</p>
+      <button type="submit" name="checkout" class="button cart-checkout">{{ 'cart.checkout' | t }}</button>
+    </div>
+  </form>
+{%- endif -%}

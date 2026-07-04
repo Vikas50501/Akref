@@ -1,0 +1,92 @@
+{%- comment -%} Simple full-width video banner (desktop + mobile sources) {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; --vb-ar-d: {{ section.settings.aspect_desktop }}; --vb-ar-m: {{ section.settings.aspect_mobile }}; }
+{%- endstyle -%}
+<div class="video-banner index-section">
+  <div class="{% unless section.settings.full_width %}common-container{% endunless %}">
+    <div class="videos-banner">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: image_size: '1600x', autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'video_banner', preload: 'metadata' }}
+      {%- elsif section.settings.video_url != blank -%}
+        <video class="video_banner" playsinline autoplay loop muted preload="metadata" {% if section.settings.poster %}poster="{{ section.settings.poster | image_url: width: 1600 }}"{% endif %}><source src="{{ section.settings.video_url }}" type="video/mp4"></video>
+      {%- elsif section.settings.poster != blank -%}
+        <img class="video_banner" src="{{ section.settings.poster | image_url: width: 1600 }}" alt="{{ section.settings.poster.alt | escape }}" loading="lazy">
+      {%- else -%}{{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg video_banner' }}{%- endif -%}
+    </div>
+  </div>
+</div>
+{% stylesheet %}
+.videos-banner { position: relative; aspect-ratio: var(--vb-ar-d, 2.5); overflow: hidden; background: var(--color-bg-alt); }
+.video_banner { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 767px) { .videos-banner { aspect-ratio: var(--vb-ar-m, 1); } }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "t:sections.video-banner.name",
+  "class": "index-section video-banner-simple",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.video-banner.settings.video.label"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "t:sections.video-banner.settings.video_url.label",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "t:sections.video-banner.settings.poster.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.video-banner.settings.full_width.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "aspect_desktop",
+      "label": "t:sections.video-banner.settings.aspect_desktop.label",
+      "default": "2.5"
+    },
+    {
+      "type": "text",
+      "id": "aspect_mobile",
+      "label": "t:sections.video-banner.settings.aspect_mobile.label",
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.video-banner.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.video-banner.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video banner"
+    }
+  ]
+}
+{% endschema %}

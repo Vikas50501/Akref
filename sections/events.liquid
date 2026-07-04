@@ -1,0 +1,139 @@
+{%- comment -%} Events — each event: heading, meta, text + image gallery {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+<div class="events index-section">
+  <div class="container">
+    {%- if section.settings.heading != blank -%}
+      <div class="events__head text-center" data-anim="up">
+        {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
+        <h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      <div class="events-grid-wrap{% if forloop.index | modulo: 2 == 0 %} events-grid-wrap--reverse{% endif %}" {{ block.shopify_attributes }}>
+        <div class="events-content">
+          {%- if block.settings.title != blank -%}<h3>{{ block.settings.title }}</h3>{%- endif -%}
+          {%- if block.settings.meta != blank -%}<p class="events-meta">{{ block.settings.meta }}</p>{%- endif -%}
+          {%- if block.settings.text != blank -%}<div class="events-desc rte">{{ block.settings.text }}</div>{%- endif -%}
+        </div>
+        <div class="event-wrapepr">
+          {%- for i in (1..4) -%}
+            {%- assign eimg = block.settings['image_' | append: i] -%}
+            {%- if eimg != blank -%}
+              <div class="event-image aspect-ratio" style="--ratio-percent: 100%;"><img src="{{ eimg | image_url: width: 700 }}" alt="{{ block.settings.title | escape }}" width="{{ eimg.width }}" height="{{ eimg.height }}" loading="lazy"></div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.events__head { margin-bottom: 48px; }
+.events-grid-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-bottom: 64px; }
+.events-grid-wrap--reverse .events-content { order: 2; }
+.events-content { padding: 20px 40px; }
+.events-content h3 { font-size: 28px; margin-bottom: 8px; }
+.events-meta { font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.6; margin-bottom: 16px; }
+.event-wrapepr { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.event-image { background: var(--color-bg-alt); }
+.event-image img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 767px) { .events-grid-wrap { grid-template-columns: 1fr; } .events-grid-wrap--reverse .events-content { order: 0; } .events-content { padding: 0; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.events.name",
+  "class": "index-section events-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.events.settings.tagline.label",
+      "default": "Akinna's Events"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.events.settings.heading.label",
+      "default": "Milan Fashion Week"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.events.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.events.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "t:sections.events.blocks.event.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.events.blocks.event.settings.title.label",
+          "default": "Event title"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "t:sections.events.blocks.event.settings.meta.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.events.blocks.event.settings.text.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "t:sections.events.blocks.event.settings.image_1.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "t:sections.events.blocks.event.settings.image_2.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "t:sections.events.blocks.event.settings.image_3.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "t:sections.events.blocks.event.settings.image_4.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Events",
+      "blocks": [
+        {
+          "type": "event"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

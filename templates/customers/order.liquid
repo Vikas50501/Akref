@@ -1,0 +1,36 @@
+{%- comment -%} Customer order detail {%- endcomment -%}
+<div class="customer customer-order">
+  <div class="container">
+    <div class="customer-account__head">
+      <h1 class="customer__title">{{ 'customer.orders.order' | t }} {{ order.name }}</h1>
+      <a href="{{ routes.account_url }}" class="custombtn">{%- render 'icon', name: 'arrow-left', size: 13 -%}{{ 'customer.account.title' | t }}</a>
+    </div>
+    <p class="customer-order__date">{{ order.created_at | date: '%B %-d, %Y %H:%M' }}</p>
+    <div class="orders-table-wrap">
+      <table class="orders-table">
+        <thead><tr><th>{{ 'customer.orders.product' | t }}</th><th>{{ 'customer.orders.price' | t }}</th><th>{{ 'customer.orders.quantity' | t }}</th><th>{{ 'customer.orders.total' | t }}</th></tr></thead>
+        <tbody>
+          {%- for line in order.line_items -%}
+            <tr>
+              <td><a href="{{ line.product.url }}">{{ line.title }}</a></td>
+              <td>{{ line.price | money }}</td>
+              <td>{{ line.quantity }}</td>
+              <td>{{ line.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Subtotal</td><td>{{ order.line_items_subtotal_price | money }}</td></tr>
+          {%- for discount in order.cart_level_discount_applications -%}<tr><td colspan="3">{{ discount.title }}</td><td>-{{ discount.total_allocated_amount | money }}</td></tr>{%- endfor -%}
+          <tr><td colspan="3">Shipping</td><td>{{ order.shipping_price | money }}</td></tr>
+          <tr><td colspan="3">Tax</td><td>{{ order.tax_price | money }}</td></tr>
+          <tr class="orders-table__total"><td colspan="3">{{ 'customer.orders.total' | t }}</td><td>{{ order.total_net_amount | money }}</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="customer-order__addresses">
+      {%- if order.shipping_address -%}<div><h3>Shipping address</h3><div class="rte">{{ order.shipping_address | format_address }}</div></div>{%- endif -%}
+      {%- if order.billing_address -%}<div><h3>Billing address</h3><div class="rte">{{ order.billing_address | format_address }}</div></div>{%- endif -%}
+    </div>
+  </div>
+</div>

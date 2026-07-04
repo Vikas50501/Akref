@@ -1,0 +1,75 @@
+{%- comment -%}
+  Product card — two-image hover swap, price, quick add-to-cart.
+  Params:
+    product        (required)
+    show_quick_add (optional, default settings.card_quick_add)
+    class          (optional) grid column classes
+    ratio          (optional) aspect ratio percent number, default from settings
+{%- endcomment -%}
+{%- liquid
+  assign show_qa = show_quick_add
+  if show_quick_add == nil
+    assign show_qa = settings.card_quick_add
+  endif
+  assign ratio = card_ratio | default: settings.card_image_ratio | default: 1.2195
+  assign pad = ratio | times: 100
+  assign img_main = product.featured_media.preview_image
+  assign img_hover = product.media[1].preview_image | default: img_main
+  assign types = product.type
+-%}
+<product-card data-type="{{ types }}" class="product-card {{ class }}">
+  <figure class="product_thumbnail thb_hover" style="--ratio-percent: {{ pad }}%;">
+    <a href="{{ product.url }}" title="{{ product.title | escape }}" class="product-card__link">
+      {%- if img_hover and img_hover != img_main -%}
+        <span class="product_thumbnail_hover">
+          {%- render 'responsive-image', image: img_hover, alt: product.title, sizes: '(max-width:767px) 50vw, 25vw', class: 'product-card__img-hover' -%}
+        </span>
+      {%- endif -%}
+      {%- render 'responsive-image', image: img_main, alt: product.title, sizes: '(max-width:767px) 50vw, 25vw', class: 'product-card__img-main' -%}
+      {%- if product.available == false -%}
+        <span class="product-card__badge product-card__badge--soldout">{{ 'products.card.sold_out' | t }}</span>
+      {%- elsif product.compare_at_price > product.price -%}
+        <span class="product-card__badge product-card__badge--sale">{{ 'products.card.sale' | t }}</span>
+      {%- endif -%}
+    </a>
+  </figure>
+  <div class="product-card__info">
+    <h3 class="product-card__title">
+      <a href="{{ product.url }}" title="{{ product.title | escape }}">{{ product.title }}</a>
+    </h3>
+    {%- render 'price', product: product -%}
+    {%- comment -%} Color swatches — surfaces variant colours on the card {%- endcomment -%}
+    {%- assign swatch_option = null -%}
+    {%- for option in product.options_with_values -%}
+      {%- if option.name contains 'Color' or option.name contains 'Colour' or option.name contains 'Shade' -%}{%- assign swatch_option = option -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if swatch_option and swatch_option.values.size > 1 -%}
+      <div class="product-card__swatches" aria-label="{{ swatch_option.name }}">
+        {%- for value in swatch_option.values limit: 5 -%}
+          {%- if value.variant.url -%}
+            <a class="card-swatch{% if value.swatch.image %} card-swatch--img{% endif %}" href="{{ value.variant.url }}" title="{{ value }}" aria-label="{{ value }}"
+              {% if value.swatch.image %}style="background-image:url({{ value.swatch.image | image_url: width: 40 }})"{% elsif value.swatch.color %}style="background:{{ value.swatch.color }}"{% else %}style="background:var(--color-bg-alt)"{% endif %}></a>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if swatch_option.values.size > 5 -%}<span class="card-swatch__more">+{{ swatch_option.values.size | minus: 5 }}</span>{%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if show_qa -%}
+      <div class="product_after_title quick_add_active">
+        <div class="product_after_shop_loop_buttons">
+          {%- if product.available -%}
+            {%- if product.variants.size > 1 -%}
+              <a href="{{ product.url }}" class="add_to_cart_button product-card--add-to-cart-button-simple">{{ 'products.card.choose_options' | t }}</a>
+            {%- else -%}
+              <product-quick-add data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                <a href="{{ product.url }}" data-id="{{ product.selected_or_first_available_variant.id }}" data-product-id="{{ product.selected_or_first_available_variant.id }}" class="add_to_cart_button product-card--add-to-cart-button-simple">{{ 'products.card.add_to_cart' | t }}</a>
+              </product-quick-add>
+            {%- endif -%}
+          {%- else -%}
+            <span class="add_to_cart_button is-soldout">{{ 'products.card.sold_out' | t }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</product-card>

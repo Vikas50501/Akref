@@ -1,0 +1,31 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo": { "type": "logo", "settings": {} },
+        "cat": { "type": "menu", "settings": { "title": "Shop By Category", "menu": "footer-category" } },
+        "service": { "type": "menu", "settings": { "title": "Customer Services", "menu": "footer-services" } },
+        "about": { "type": "menu", "settings": { "title": "About Us", "menu": "footer-about" } },
+        "legal": { "type": "menu", "settings": { "title": "Legal", "menu": "footer-legal" } },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "More Akinna this way",
+            "text": "<p>Join the AKINNA Sphere &amp; get 15% off your second order.</p>",
+            "show_payment": true,
+            "payment_title": "Secure online payment"
+          }
+        }
+      },
+      "block_order": ["logo", "cat", "service", "about", "legal", "newsletter"],
+      "settings": {
+        "copyright_text": "All rights reserved.",
+        "bottom_menu": "footer-legal"
+      }
+    }
+  },
+  "order": ["footer"]
+}

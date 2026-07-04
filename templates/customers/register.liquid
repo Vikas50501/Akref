@@ -1,0 +1,15 @@
+{%- comment -%} Customer registration {%- endcomment -%}
+<div class="customer customer-register">
+  <div class="container container--text">
+    <h1 class="customer__title text-center">{{ 'customer.register.title' | t }}</h1>
+    {%- form 'create_customer' -%}
+      {%- if form.errors -%}<div class="contact-form__errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+      <div class="contact-form__row"><input type="text" name="customer[first_name]" placeholder="{{ 'customer.register.first_name' | t }}" class="full"></div>
+      <div class="contact-form__row"><input type="text" name="customer[last_name]" placeholder="{{ 'customer.register.last_name' | t }}" class="full"></div>
+      <div class="contact-form__row"><input type="email" name="customer[email]" placeholder="{{ 'customer.register.email' | t }}" class="full" required></div>
+      <div class="contact-form__row"><input type="password" name="customer[password]" placeholder="{{ 'customer.register.password' | t }}" class="full" required></div>
+      <button type="submit" class="button">{{ 'customer.register.submit' | t }}</button>
+      <div class="customer__links"><span>{{ 'customer.register.has_account' | t }}</span> <a href="{{ routes.account_login_url }}" class="custombtn">{{ 'customer.login.title' | t }}</a></div>
+    {%- endform -%}
+  </div>
+</div>

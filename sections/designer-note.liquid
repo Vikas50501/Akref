@@ -1,0 +1,165 @@
+{%- comment -%} Designer's note — quote + author on one side, image on the other {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }}; color: {{ section.settings.text_color }}; }
+{%- endstyle -%}
+<div class="designer-notes index-section">
+  <div class="common-container">
+    <div class="designer-grid{% if section.settings.image_position == 'left' %} designer-grid--reverse{% endif %}">
+      <div class="designer-grid-content">
+        <div class="designer-grid-top">
+          {%- if section.settings.tagline != blank -%}<div class="tagline tag-line">{{ section.settings.tagline }}</div>{%- endif -%}
+          {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>{%- endif -%}
+          <div class="designer-desc-content">
+            {%- render 'icon', name: 'quote', size: 24 -%}
+            {%- assign note = section.settings.text | default: product.metafields.custom.designer_note -%}
+            <div class="designer-desc rte">{{ note }}</div>
+            <div class="designer-desc-close">{%- render 'icon', name: 'quote', size: 24 -%}</div>
+            <div class="person-info">
+              {%- if section.settings.person_image != blank -%}<img class="person-img" src="{{ section.settings.person_image | image_url: width: 120 }}" alt="{{ section.settings.person_name | escape }}" width="56" height="56" loading="lazy">{%- endif -%}
+              <div class="person-detail">
+                {%- if section.settings.person_name != blank -%}<p class="perdon-name">{{ section.settings.person_name }}</p>{%- endif -%}
+                {%- if section.settings.person_role != blank -%}<p class="perdon-designation">{{ section.settings.person_role }}</p>{%- endif -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="designer-grid-item">
+        <div class="parallax-block" gsap-parallax-reverse data-anim="fade">
+          {%- if section.settings.image != blank -%}
+            <img class="designer-grid-image" gsap-scale-anim gsap-parallax src="{{ section.settings.image | image_url: width: 1200 }}" srcset="{{ section.settings.image | image_url: width: 700 }} 700w, {{ section.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width:1023px) 100vw, 50vw" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+          {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg designer-grid-image' }}{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.designer-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; }
+.designer-grid--reverse .designer-grid-item { order: -1; }
+.designer-grid-content { padding: 60px; }
+.designer-notes .tagline { margin-bottom: 12px; }
+.designer-desc-content { position: relative; max-width: 480px; margin-top: 20px; display: flex; flex-direction: column; gap: 16px; }
+.designer-desc { font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.designer-desc-close { align-self: flex-end; transform: rotate(180deg); }
+.person-info { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.person-img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.perdon-name { font-family: var(--font-ui-medium); font-size: 15px; margin: 0; }
+.perdon-designation { font-family: var(--font-ui); font-size: 12px; opacity: 0.6; margin: 0; text-transform: uppercase; letter-spacing: 0.03em; }
+.designer-grid-item { position: relative; overflow: hidden; align-self: stretch; min-height: 70vh; }
+.parallax-block { position: absolute; inset: 0; }
+.designer-grid-image { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) {
+  .designer-grid { grid-template-columns: 1fr; }
+  .designer-grid--reverse .designer-grid-item { order: 0; }
+  .designer-grid-content { padding: 40px 20px; }
+  .designer-grid-item { min-height: 60vh; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.designer-note.name",
+  "class": "index-section designer-note-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.designer-note.settings.tagline.label",
+      "default": "From the Atelier"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.designer-note.settings.heading.label",
+      "default": "Designer's note"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.designer-note.settings.text.label",
+      "default": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "person_image",
+      "label": "t:sections.designer-note.settings.person_image.label"
+    },
+    {
+      "type": "text",
+      "id": "person_name",
+      "label": "t:sections.designer-note.settings.person_name.label",
+      "default": "Annika Saraf"
+    },
+    {
+      "type": "text",
+      "id": "person_role",
+      "label": "t:sections.designer-note.settings.person_role.label",
+      "default": "Co-Founder & Creative Director"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.designer-note.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.designer-note.settings.image_position.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.designer-note.settings.image_position.options.o0"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.designer-note.settings.image_position.options.o1"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.designer-note.headers.h0"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.designer-note.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.designer-note.settings.text_color.label",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.designer-note.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.designer-note.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Designer note"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+{%- comment -%} Generic page content {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+<div class="page-main">
+  <div class="container {% if section.settings.narrow %}container--text{% else %}container--narrow{% endif %}">
+    {%- if section.settings.show_title -%}<h1 class="page-main__title text-center">{{ page.title }}</h1>{%- endif -%}
+    <div class="page-main__content rte">{{ page.content }}</div>
+  </div>
+</div>
+{% stylesheet %}
+.page-main__title { margin-bottom: 32px; font-size: clamp(28px, 4vw, 44px); }
+.page-main__content { font-size: 15px; line-height: 1.7; }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "t:sections.main-page.settings.show_title.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow",
+      "label": "t:sections.main-page.settings.narrow.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.main-page.settings.padding_top.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.main-page.settings.padding_bottom.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}

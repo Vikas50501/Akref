@@ -1,0 +1,16 @@
+{%- comment -%} Slide-out cart drawer. Rendered globally; hidden when cart_type = page. {%- endcomment -%}
+<div class="side-panel side-panel--right cart-drawer" id="cart-drawer" data-drawer aria-hidden="true" data-cart-type="{{ settings.cart_type }}">
+  <div class="side-panel__overlay" data-drawer-close></div>
+  <div class="side-panel__content cart-drawer__content">
+    <div class="side-panel__head">
+      <span class="side-panel__title">{{ 'cart.title' | t }} (<span data-cart-count>{{ cart.item_count }}</span>)</span>
+      <button class="side-panel__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 18 -%}</button>
+    </div>
+    <div class="cart-drawer__body" data-cart-body aria-live="polite">
+      {%- render 'cart-contents', context: 'drawer' -%}
+    </div>
+  </div>
+</div>
+{%- if settings.cart_type == 'page' -%}<style>#cart-drawer{display:none;}</style>{%- endif -%}
+<script src="{{ 'cart.js' | asset_url }}" defer></script>
+<script>document.body.setAttribute('data-cart-type','{{ settings.cart_type }}');</script>

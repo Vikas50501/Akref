@@ -1,0 +1,41 @@
+{%- comment -%}
+  Mega menu: left column of links (from menu children) + right promo grid (from block).
+  Params: link (parent link object), block (mega_promo block)
+{%- endcomment -%}
+<div class="mega-menu">
+  <div class="mega-menu__inner container">
+    <ul class="mega-menu__links">
+      {%- for child in link.links -%}
+        <li class="{% if child.links.size > 0 %}mega-menu__group{% endif %}">
+          <a href="{{ child.url }}" class="mega-menu__link">{{ child.title }}</a>
+          {%- if child.links.size > 0 -%}
+            <ul class="mega-menu__sublinks">
+              {%- for gchild in child.links -%}
+                <li><a href="{{ gchild.url }}">{{ gchild.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="mega-menu__promos">
+      {%- for i in (1..3) -%}
+        {%- liquid
+          assign img = block.settings['image_' | append: i]
+          assign ttl = block.settings['title_' | append: i]
+          assign lnk = block.settings['link_' | append: i]
+        -%}
+        {%- if img != blank or ttl != blank -%}
+          {%- if lnk != blank -%}<a href="{{ lnk }}" class="mega-menu__promo">{%- else -%}<div class="mega-menu__promo">{%- endif -%}
+            <div class="mega-menu__promo-img">
+              {%- if img != blank -%}
+                <img src="{{ img | image_url: width: 500 }}" alt="{{ ttl | escape }}" width="{{ img.width }}" height="{{ img.height }}" loading="lazy">
+              {%- endif -%}
+            </div>
+            {%- if ttl != blank -%}<p class="mega-menu__promo-title">{{ ttl }}</p>{%- endif -%}
+          {%- if lnk != blank -%}</a>{%- else -%}</div>{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+{%- comment -%} Predictive search results rendered for the search modal via section rendering API. {%- endcomment -%}
+<div data-predictive-inner>
+  {%- if predictions.resources.products.size > 0 or predictions.resources.collections.size > 0 or predictions.resources.articles.size > 0 -%}
+    {%- if predictions.resources.products.size > 0 -%}
+      <div class="predictive__group">
+        <p class="predictive__heading">{{ 'general.search.title' | t }}</p>
+        <ul class="predictive__products">
+          {%- for product in predictions.resources.products -%}
+            <li><a href="{{ product.url }}" class="predictive__product">
+              {%- if product.featured_media -%}<img src="{{ product.featured_media | image_url: width: 120 }}" alt="{{ product.title | escape }}" width="48" height="60" loading="lazy">{%- endif -%}
+              <span class="predictive__product-title">{{ product.title }}</span>
+              <span class="predictive__product-price">{% render 'price', product: product %}</span>
+            </a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+    {%- if predictions.resources.collections.size > 0 -%}
+      <div class="predictive__group">
+        <p class="predictive__heading">Collections</p>
+        <ul class="predictive__links">
+          {%- for c in predictions.resources.collections -%}<li><a href="{{ c.url }}">{{ c.title }}</a></li>{%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+    {%- if predictions.resources.articles.size > 0 -%}
+      <div class="predictive__group">
+        <p class="predictive__heading">Journal</p>
+        <ul class="predictive__links">
+          {%- for a in predictions.resources.articles -%}<li><a href="{{ a.url }}">{{ a.title }}</a></li>{%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  {%- else -%}
+    <p class="predictive__empty">{{ 'general.search.no_results' | t: terms: predictions.terms }}</p>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.predictive-search.name"
+}
+{% endschema %}

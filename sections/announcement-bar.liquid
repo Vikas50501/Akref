@@ -1,0 +1,106 @@
+{%- comment -%} Announcement bar — rotating messages, dismissible {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { --ann-bg: {{ section.settings.bg | default: settings.color_announcement_bg }}; --ann-fg: {{ section.settings.text_color | default: settings.color_announcement_text }}; }
+{%- endstyle -%}
+<div class="announcement-bar{% if section.settings.dismissible %} is-dismissible{% endif %}" data-announcement>
+  <div class="announcement-bar__inner">
+    {%- if section.blocks.size > 1 -%}
+      <button class="announcement-bar__nav announcement-bar__prev" data-ann-prev aria-label="{{ 'accessibility.previous' | t }}">{%- render 'icon', name: 'chevron-right', size: 14 -%}</button>
+    {%- endif -%}
+    <div class="announcement-bar__track" data-ann-track>
+      {%- for block in section.blocks -%}
+        <div class="announcement-bar__item{% if forloop.first %} is-active{% endif %}" data-ann-item {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
+            <span>{{ block.settings.text }}</span>
+          {%- if block.settings.link != blank -%}</a>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.blocks.size > 1 -%}
+      <button class="announcement-bar__nav announcement-bar__next" data-ann-next aria-label="{{ 'accessibility.next' | t }}">{%- render 'icon', name: 'chevron-right', size: 14 -%}</button>
+    {%- endif -%}
+  </div>
+  {%- if section.settings.dismissible -%}
+    <button class="announcement-bar__close" data-ann-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 14 -%}</button>
+  {%- endif -%}
+</div>
+
+<script>
+  (function(){
+    var bar = document.currentScript.previousElementSibling;
+    var items = bar.querySelectorAll('[data-ann-item]');
+    var i = 0, n = items.length, auto = {{ section.settings.autorotate | default: 4 | times: 1000 }};
+    function show(k){ items[i].classList.remove('is-active'); i=(k+n)%n; items[i].classList.add('is-active'); }
+    var nx = bar.querySelector('[data-ann-next]'), pv = bar.querySelector('[data-ann-prev]');
+    if(nx) nx.addEventListener('click',function(){show(i+1);});
+    if(pv) pv.addEventListener('click',function(){show(i-1);});
+    if(n>1 && auto>0) setInterval(function(){ if(!document.hidden) show(i+1); }, auto);
+    var cl = bar.querySelector('[data-ann-close]');
+    if(cl) cl.addEventListener('click',function(){ bar.style.display='none'; try{sessionStorage.setItem('ann_dismissed','1');}catch(e){} });
+    try{ if(sessionStorage.getItem('ann_dismissed')) bar.style.display='none'; }catch(e){}
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "class": "announcement-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.announcement-bar.settings.bg.label",
+      "default": "#0e3432"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.announcement-bar.settings.text_color.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "autorotate",
+      "label": "t:sections.announcement-bar.settings.autorotate.label",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "dismissible",
+      "label": "t:sections.announcement-bar.settings.dismissible.label",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "t:sections.announcement-bar.blocks.message.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.announcement-bar.blocks.message.settings.text.label",
+          "default": "Welcome Offer - Get 10% Off with code FIRST10"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.message.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "message"
+      }
+    ]
+  }
+}
+{% endschema %}

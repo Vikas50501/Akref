@@ -1,0 +1,349 @@
+{%- comment -%}
+  Versatile 2-column image + text. Content built from blocks so any arrangement
+  (founder bio, material story, certifications) is editable. Image side + parallax.
+{%- endcomment -%}
+{%- liquid
+  assign img_right = section.settings.image_position
+  assign parallax = section.settings.parallax
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+    --it-media-h: {{ section.settings.media_height }}vh;
+  }
+  #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}26; }
+{%- endstyle -%}
+<div class="image-text index-section{% if section.settings.divider %} image-text--divider{% endif %}">
+  <div class="{% if section.settings.full_width %}image-text__full{% else %}common-container{% endif %}">
+    <div class="grid-normal image-text__grid{% if img_right == 'right' %} image-text__grid--reverse{% endif %}"{% if section.settings.divider == false %} style="border:0;"{% endif %}>
+      <div class="left-blocks image-text__media">
+        {%- if section.settings.image != blank -%}
+          <div class="image-text__media-inner"{% if parallax %} gsap-parallax-reverse data-anim="fade"{% endif %}>
+            <img class="frame-img"{% if parallax %} gsap-scale-anim{% endif %} src="{{ section.settings.image | image_url: width: 1400 }}" srcset="{{ section.settings.image | image_url: width: 700 }} 700w, {{ section.settings.image | image_url: width: 1100 }} 1100w, {{ section.settings.image | image_url: width: 1600 }} 1600w" sizes="(max-width:1023px) 100vw, 50vw" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+          </div>
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg frame-img' }}
+        {%- endif -%}
+      </div>
+      <div class="right-block image-text__content">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'tagline' -%}
+              <p class="tag-line" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+            {%- when 'heading' -%}
+              <h2 class="letters-slide-up text-split image-text__heading" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
+            {%- when 'divider' -%}
+              <span class="straight-line" style="margin-left:0;" {{ block.shopify_attributes }}></span>
+            {%- when 'text' -%}
+              <div class="tag-info rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+            {%- when 'quote' -%}
+              <div class="image-text__quote" {{ block.shopify_attributes }}>
+                {%- render 'icon', name: 'quote', size: 22 -%}
+                <p class="image-text__quote-text">{{ block.settings.text }}</p>
+                <div class="image-text__quote-close">{%- render 'icon', name: 'quote', size: 22 -%}</div>
+              </div>
+            {%- when 'signature' -%}
+              <p class="image-text__signature" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+            {%- when 'button' -%}
+              <a href="{{ block.settings.link }}" class="button {{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+            {%- when 'certifications' -%}
+              <div class="divoth-wrap" {{ block.shopify_attributes }}>
+                {%- for i in (1..2) -%}
+                  {%- assign cimg = block.settings['image_' | append: i] -%}
+                  {%- assign clabel = block.settings['label_' | append: i] -%}
+                  {%- assign clink = block.settings['link_' | append: i] -%}
+                  {%- if cimg != blank or clabel != blank -%}
+                    <div class="elevet-block">
+                      <div class="elevet-blockimg">{%- if cimg != blank -%}<img src="{{ cimg | image_url: width: 200 }}" alt="{{ clabel | escape }}" width="70" height="70" loading="lazy">{%- endif -%}</div>
+                      {%- if clabel != blank -%}<a href="{{ clink | default: '#' }}" class="block-tag">{{ clabel }}</a>{%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.image-text__grid { align-items: stretch; }
+.image-text__grid--reverse .image-text__media { order: 2; }
+.image-text__media { min-height: var(--it-media-h, 80vh); }
+.image-text__media-inner { position: absolute; inset: 0; }
+.image-text__media .frame-img { width: 100%; height: 100%; object-fit: cover; }
+.image-text__content { padding: 60px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+.image-text__content .tag-info { max-width: 480px; }
+.image-text__heading { margin: 0; }
+.image-text__quote { display: flex; flex-direction: column; gap: 10px; max-width: 440px; }
+.image-text__quote-text { font-family: var(--font-body); font-style: italic; font-size: 17px; opacity: 0.85; margin: 0; }
+.image-text__quote-close { align-self: flex-end; transform: rotate(180deg); }
+.image-text__signature { font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+.divoth-wrap { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 10px; }
+.elevet-block { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.elevet-blockimg { width: 110px; height: 110px; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; border-radius: var(--radius); }
+.elevet-blockimg img { width: 55%; height: 55%; object-fit: contain; }
+.block-tag { font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 1023px) {
+  .image-text__grid--reverse .image-text__media { order: 0; }
+  .image-text__content { padding: 40px 20px; }
+  .image-text__media { min-height: 60vh; position: relative; }
+  .image-text__media-inner { position: relative; height: 100%; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.image-text.name",
+  "class": "index-section image-text-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-text.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.image-text.settings.image_position.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-text.settings.image_position.options.o0"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-text.settings.image_position.options.o1"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "media_height",
+      "label": "t:sections.image-text.settings.media_height.label",
+      "min": 40,
+      "max": 100,
+      "step": 2,
+      "unit": "vh",
+      "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "t:sections.image-text.settings.parallax.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.image-text.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.image-text.settings.divider.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.image-text.headers.h0"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.image-text.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.image-text.settings.text_color.label",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.image-text.settings.padding_top.label",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.image-text.settings.padding_bottom.label",
+      "min": 0,
+      "max": 160,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tagline",
+      "name": "t:sections.image-text.blocks.tagline.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.image-text.blocks.tagline.settings.text.label",
+          "default": "Founder and Creative Director"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "t:sections.image-text.blocks.heading.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.image-text.blocks.heading.settings.text.label",
+          "default": "Annika Saraf"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "t:sections.image-text.blocks.divider.name",
+      "settings": []
+    },
+    {
+      "type": "text",
+      "name": "t:sections.image-text.blocks.text.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.image-text.blocks.text.settings.text.label",
+          "default": "<p>Add your story here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "t:sections.image-text.blocks.quote.name",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.image-text.blocks.quote.settings.text.label",
+          "default": "AKINNA is the result of years spent chasing one perfect spark."
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "name": "t:sections.image-text.blocks.signature.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.image-text.blocks.signature.settings.text.label",
+          "default": "Annika"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.image-text.blocks.button.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.image-text.blocks.button.settings.label.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.image-text.blocks.button.settings.link.label"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:sections.image-text.blocks.button.settings.style.label",
+          "options": [
+            {
+              "value": "",
+              "label": "t:sections.image-text.blocks.button.settings.style.options.o0"
+            },
+            {
+              "value": "alt",
+              "label": "t:sections.image-text.blocks.button.settings.style.options.o1"
+            },
+            {
+              "value": "custom",
+              "label": "t:sections.image-text.blocks.button.settings.style.options.o2"
+            }
+          ],
+          "default": ""
+        }
+      ]
+    },
+    {
+      "type": "certifications",
+      "name": "t:sections.image-text.blocks.certifications.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "t:sections.image-text.blocks.certifications.settings.image_1.label"
+        },
+        {
+          "type": "text",
+          "id": "label_1",
+          "label": "t:sections.image-text.blocks.certifications.settings.label_1.label",
+          "default": "Read LWG-certified"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "t:sections.image-text.blocks.certifications.settings.link_1.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "t:sections.image-text.blocks.certifications.settings.image_2.label"
+        },
+        {
+          "type": "text",
+          "id": "label_2",
+          "label": "t:sections.image-text.blocks.certifications.settings.label_2.label",
+          "default": "Read SA8000-certified"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "t:sections.image-text.blocks.certifications.settings.link_2.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text",
+      "blocks": [
+        {
+          "type": "tagline"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

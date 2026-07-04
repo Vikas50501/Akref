@@ -1,0 +1,86 @@
+{%- comment -%} Blog article {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+{%- endstyle -%}
+<article class="main-article" itemscope itemtype="https://schema.org/Article">
+  <div class="container container--text">
+    <div class="article-header text-center">
+      <nav class="north-breadcrumb" aria-label="breadcrumbs"><a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a> <i>/</i> <a href="{{ blog.url }}">{{ blog.title }}</a></nav>
+      <h1 class="article-title" itemprop="headline">{{ article.title }}</h1>
+      <div class="article-meta">
+        {%- if article.author != blank -%}<span>{{ 'blogs.article.by' | t }} {{ article.author }}</span> · {% endif -%}
+        <time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ article.published_at | date: '%B %-d, %Y' }}</time>
+      </div>
+    </div>
+  </div>
+  {%- if article.image and section.settings.show_image -%}
+    <div class="container">
+      <div class="article-featured aspect-ratio" style="--ratio-percent: 50%;">
+        <img src="{{ article.image | image_url: width: 1600 }}" srcset="{{ article.image | image_url: width: 800 }} 800w, {{ article.image | image_url: width: 1600 }} 1600w" sizes="100vw" alt="{{ article.title | escape }}" width="{{ article.image.width }}" height="{{ article.image.height }}" loading="eager">
+      </div>
+    </div>
+  {%- endif -%}
+  <div class="container container--text">
+    <div class="article-content rte" itemprop="articleBody">{{ article.content }}</div>
+    {%- if article.tags.size > 0 -%}
+      <div class="article-tags"><span>{{ 'blogs.article.tags' | t }}:</span> {% for tag in article.tags %}<a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+    {%- endif -%}
+    <div class="article-footer"><a href="{{ blog.url }}" class="custombtn">{%- render 'icon', name: 'arrow-left', size: 13 -%}{{ 'blogs.article.back' | t }}</a></div>
+  </div>
+
+  {%- if blog.comments_enabled? -%}
+    <div class="container container--text">
+      <div class="article-comments">
+        {%- if article.comments.size > 0 -%}
+          <h3>{{ article.comments_count }} {{ 'blogs.comments.title' | t }}</h3>
+          {%- for comment in article.comments -%}
+            <div class="comment"><p>{{ comment.content }}</p><span class="comment-author">— {{ comment.author }}</span></div>
+          {%- endfor -%}
+        {%- endif -%}
+        {%- form 'new_comment', article, class: 'comment-form' -%}
+          {%- if form.posted_successfully? -%}<p class="contact-form__success">Thanks for your comment.</p>{%- endif -%}
+          {%- if form.errors -%}<div class="contact-form__errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+          <h3>{{ 'blogs.comments.title' | t }}</h3>
+          <div class="contact-form__row"><input type="text" name="comment[author]" placeholder="{{ 'blogs.comments.name' | t }}" class="full" required></div>
+          <div class="contact-form__row"><input type="email" name="comment[email]" placeholder="{{ 'blogs.comments.email' | t }}" class="full" required></div>
+          <div class="contact-form__row"><textarea name="comment[body]" rows="5" placeholder="{{ 'blogs.comments.message' | t }}" class="full" required></textarea></div>
+          <button type="submit" class="button">{{ 'blogs.comments.post' | t }}</button>
+        {%- endform -%}
+      </div>
+    </div>
+  {%- endif -%}
+</article>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "t:sections.main-article.settings.show_image.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.main-article.settings.padding_top.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.main-article.settings.padding_bottom.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}

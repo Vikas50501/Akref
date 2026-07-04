@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "header": { "type": "page-header", "settings": { "tagline": "Store locator", "heading": "Store & Stockists", "height": 320 } },
+    "stores": {
+      "type": "store-locator",
+      "blocks": {
+        "s1": { "type": "store", "settings": { "name": "Coyu", "city": "New Delhi", "address": "Select City, New Delhi", "timing": "Mon-Sun 11AM-10PM" } },
+        "s2": { "type": "store", "settings": { "name": "Made As Me by FEF", "city": "Raipur, Chhattisgarh", "address": "Raipur, Chhattisgarh", "timing": "Mon-Sun 11AM-10PM" } }
+      },
+      "block_order": ["s1", "s2"],
+      "settings": { "tagline": "Store locator", "heading": "Store & Stockists" }
+    }
+  },
+  "order": ["header", "stores"]
+}

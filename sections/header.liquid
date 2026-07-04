@@ -1,0 +1,243 @@
+{%- comment -%}
+  Header — centered logo, left nav with dropdown + mega-menu, right icons.
+  Nav is driven by the linklist chosen in settings. Mega-menu promotions are
+  provided by "mega_promo" blocks matched to a top-level item by its title.
+{%- endcomment -%}
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+  assign logo_dark = section.settings.logo_dark | default: settings.logo_dark
+  assign logo_light = section.settings.logo_light | default: settings.logo_light
+  assign sticky = section.settings.sticky
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { --header-max-logo: {{ settings.logo_max_height }}px; }
+{%- endstyle -%}
+
+<theme-header class="header header--{{ section.settings.layout }}{% if sticky %} header--sticky{% endif %}{% if section.settings.transparent_on_home and template.name == 'index' %} header--transparent{% endif %}" data-sticky="{{ sticky }}">
+  <div class="header__inner container">
+    <div class="header-grid">
+      <!-- Left: nav (desktop) + hamburger (mobile) -->
+      <div class="header__left">
+        <button class="header__mobile-toggle hide-desktop" data-drawer-open="mobile-menu" aria-label="{{ 'accessibility.menu' | t }}">
+          {%- render 'icon', name: 'menu', size: 22 -%}
+        </button>
+        {%- if menu != blank -%}
+          <nav class="header__nav hide-mobile hide-tablet" aria-label="Primary">
+            <ul class="header__menu">
+              {%- for link in menu.links -%}
+                {%- liquid
+                  assign has_children = false
+                  if link.links.size > 0
+                    assign has_children = true
+                  endif
+                  assign promo_block = nil
+                  for b in section.blocks
+                    if b.type == 'mega_promo' and b.settings.menu_title == link.title
+                      assign promo_block = b
+                      break
+                    endif
+                  endfor
+                -%}
+                <li class="header__item{% if has_children %} has-children{% endif %}{% if promo_block %} has-megamenu{% endif %}">
+                  <a href="{{ link.url }}" class="header__link">{{ link.title }}{% if has_children %} {%- render 'icon', name: 'chevron-down', size: 12 -%}{% endif %}</a>
+                  {%- if has_children -%}
+                    {%- if promo_block -%}
+                      {%- render 'mega-menu', link: link, block: promo_block -%}
+                    {%- else -%}
+                      <ul class="header__submenu">
+                        {%- for child in link.links -%}
+                          <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {%- endif -%}
+      </div>
+
+      <!-- Center: logo -->
+      <div class="header__center">
+        <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
+          {%- if logo_dark != blank -%}
+            <img class="header__logo-img header__logo-img--dark" src="{{ logo_dark | image_url: width: 600 }}" alt="{{ shop.name }}" width="{{ logo_dark.width }}" height="{{ logo_dark.height }}">
+          {%- else -%}
+            <img class="header__logo-img header__logo-img--dark" src="{{ 'brand_akinna_logo_black.png' | asset_url }}" alt="{{ shop.name }}" width="469" height="94">
+          {%- endif -%}
+          {%- if logo_light != blank -%}
+            <img class="header__logo-img header__logo-img--light" src="{{ logo_light | image_url: width: 600 }}" alt="{{ shop.name }}" width="{{ logo_light.width }}" height="{{ logo_light.height }}">
+          {%- else -%}
+            <img class="header__logo-img header__logo-img--light" src="{{ 'brand_akinna_logo_white.png' | asset_url }}" alt="{{ shop.name }}" width="469" height="94">
+          {%- endif -%}
+        </a>
+      </div>
+
+      <!-- Right: icons -->
+      <div class="header__right">
+        <button class="header__icon" data-search-open aria-label="{{ 'general.search.search' | t }}">{%- render 'icon', name: 'search', size: 21 -%}</button>
+        <a class="header__icon hide-mobile" href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="{{ 'customer.account.title' | t }}">{%- render 'icon', name: 'account', size: 20 -%}</a>
+        <a class="header__icon header__cart" href="{{ routes.cart_url }}" data-cart-open aria-label="{{ 'cart.title' | t }}">
+          {%- render 'icon', name: 'cart', size: 20 -%}
+          <span class="header__cart-count float_count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count aria-hidden="true">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</theme-header>
+
+<!-- Mobile menu drawer -->
+<div class="side-panel mobile-menu" id="mobile-menu" data-drawer aria-hidden="true">
+  <div class="side-panel__overlay" data-drawer-close></div>
+  <div class="side-panel__content">
+    <div class="side-panel__head">
+      <span class="side-panel__title">{{ 'accessibility.menu' | t }}</span>
+      <button class="side-panel__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 18 -%}</button>
+    </div>
+    <form action="{{ routes.search_url }}" method="get" class="side-panel__search" role="search">
+      <input type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.search' | t }}">
+      <button type="submit" aria-label="{{ 'general.search.search' | t }}">{%- render 'icon', name: 'search', size: 18 -%}</button>
+    </form>
+    {%- if menu != blank -%}
+      <ul class="mobile-menu__list" data-accordion data-accordion-multi>
+        {%- for link in menu.links -%}
+          <li class="mobile-menu__item{% if link.links.size > 0 %} has-children{% endif %}" data-accordion-item>
+            <div class="mobile-menu__row">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              {%- if link.links.size > 0 -%}
+                <button class="mobile-menu__expand" data-accordion-trigger aria-expanded="false" aria-label="{{ link.title }}">{%- render 'icon', name: 'chevron-down', size: 16 -%}</button>
+              {%- endif -%}
+            </div>
+            {%- if link.links.size > 0 -%}
+              <ul class="mobile-menu__sub" data-accordion-panel>
+                {%- for child in link.links -%}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <div class="mobile-menu__foot">
+      <a href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{{ 'customer.login.title' | t }}</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:sections.header.settings.menu.label",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.header.settings.layout.label",
+      "options": [
+        {
+          "value": "centered",
+          "label": "t:sections.header.settings.layout.options.o0"
+        },
+        {
+          "value": "inline",
+          "label": "t:sections.header.settings.layout.options.o1"
+        }
+      ],
+      "default": "centered"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "t:sections.header.settings.sticky.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_on_home",
+      "label": "t:sections.header.settings.transparent_on_home.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.headers.h0"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_dark",
+      "label": "t:sections.header.settings.logo_dark.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_light",
+      "label": "t:sections.header.settings.logo_light.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_promo",
+      "name": "t:sections.header.blocks.mega_promo.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "t:sections.header.blocks.mega_promo.settings.menu_title.label",
+          "info": "t:sections.header.blocks.mega_promo.settings.menu_title.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "t:sections.header.blocks.mega_promo.settings.image_1.label"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "t:sections.header.blocks.mega_promo.settings.title_1.label"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "t:sections.header.blocks.mega_promo.settings.link_1.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "t:sections.header.blocks.mega_promo.settings.image_2.label"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "t:sections.header.blocks.mega_promo.settings.title_2.label"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "t:sections.header.blocks.mega_promo.settings.link_2.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "t:sections.header.blocks.mega_promo.settings.image_3.label"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "t:sections.header.blocks.mega_promo.settings.title_3.label"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "t:sections.header.blocks.mega_promo.settings.link_3.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+{%- comment -%}
+  Shopify Markets country/currency + language selectors.
+  Renders only when there is more than one country or locale to choose from.
+  Uses native <select> for zero-JS, accessible switching (form auto-submits).
+  Usage: {% render 'localization-form' %}  (optional: place: 'footer' | 'drawer')
+{%- endcomment -%}
+{%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+  <div class="localization {% if place %}localization--{{ place }}{% endif %}">
+    {%- if localization.available_countries.size > 1 -%}
+      {%- form 'localization', class: 'localization__form', id: 'localization-country' -%}
+        <label class="localization__label" for="LocalizationCountry">{{ 'general.localization.country_label' | t }}</label>
+        <select class="localization__select" name="country_code" id="LocalizationCountry" onchange="this.form.submit()">
+          {%- for country in localization.available_countries -%}
+            <option value="{{ country.iso_code }}"{% if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+              {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+            </option>
+          {%- endfor -%}
+        </select>
+        <input type="hidden" name="return_to" value="{{ request.path }}">
+      {%- endform -%}
+    {%- endif -%}
+    {%- if localization.available_languages.size > 1 -%}
+      {%- form 'localization', class: 'localization__form', id: 'localization-language' -%}
+        <label class="localization__label" for="LocalizationLanguage">{{ 'general.localization.language_label' | t }}</label>
+        <select class="localization__select" name="locale_code" id="LocalizationLanguage" onchange="this.form.submit()">
+          {%- for language in localization.available_languages -%}
+            <option value="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %} lang="{{ language.iso_code }}">
+              {{ language.endonym_name | capitalize }}
+            </option>
+          {%- endfor -%}
+        </select>
+        <input type="hidden" name="return_to" value="{{ request.path }}">
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+{%- endif -%}

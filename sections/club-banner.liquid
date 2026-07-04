@@ -1,0 +1,134 @@
+{%- comment -%} Parallax banner with centered CTA (AKINNA Sphere) {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+  #shopify-section-{{ section.id }} .banner-club-section { --overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; --ar-d: {{ section.settings.aspect_desktop }}; --ar-m: {{ section.settings.aspect_mobile }}; }
+{%- endstyle -%}
+<div class="banner-club-section index-section">
+  <div class="common-container">
+    <div class="club-banner">
+      <div class="parralex-wrap">
+        {%- if section.settings.image != blank -%}
+          <img class="video_banner-img" gsap-parallax gsap-scale-anim src="{{ section.settings.image | image_url: width: 2000 }}" srcset="{{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 2000 }} 2000w" sizes="100vw" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+        {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg video_banner-img' }}{%- endif -%}
+        <span class="club-banner__overlay"></span>
+      </div>
+      <div class="center-block" data-anim="up">
+        {%- if section.settings.show_star -%}{%- render 'icon', name: 'star', size: 22 -%}{%- endif -%}
+        {%- if section.settings.tagline != blank -%}<p class="tag-line" style="color:#fff;">{{ section.settings.tagline }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split" style="color:#fff;">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="club-banner__text rte">{{ section.settings.text }}</div>{%- endif -%}
+        {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="button custombtn" style="color:#fff;" target="_blank" rel="noopener">{{ section.settings.button_label }}{%- render 'icon', name: 'arrow-right', size: 14 -%}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.club-banner { position: relative; overflow: hidden; aspect-ratio: var(--ar-d, 2.5); }
+.parralex-wrap { position: absolute; inset: -10% 0; }
+.video_banner-img { width: 100%; height: 120%; object-fit: cover; }
+.club-banner__overlay { position: absolute; inset: 0; background: rgba(0,0,0,var(--overlay, 0.35)); }
+.center-block { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; padding: 20px; color: #fff; }
+.club-banner__text { color: #fff; max-width: 520px; opacity: 0.92; }
+@media (max-width: 767px) { .club-banner { aspect-ratio: var(--ar-m, 1.2); } .club-banner__text { display: none; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.club-banner.name",
+  "class": "index-section club-banner-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.club-banner.settings.image.label"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.club-banner.settings.overlay_opacity.label",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "text",
+      "id": "aspect_desktop",
+      "label": "t:sections.club-banner.settings.aspect_desktop.label",
+      "default": "2.5",
+      "info": "t:sections.club-banner.settings.aspect_desktop.info"
+    },
+    {
+      "type": "text",
+      "id": "aspect_mobile",
+      "label": "t:sections.club-banner.settings.aspect_mobile.label",
+      "default": "1.2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_star",
+      "label": "t:sections.club-banner.settings.show_star.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.club-banner.settings.tagline.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.club-banner.settings.heading.label",
+      "default": "AKINNA Sphere"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.club-banner.settings.text.label",
+      "default": "<p>Members-only community for exclusive brand insights, insider stories, and special offers designed just for you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.club-banner.settings.button_label.label",
+      "default": "Join Our Community"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.club-banner.settings.button_link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.club-banner.headers.h0"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.club-banner.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.club-banner.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Club banner"
+    }
+  ]
+}
+{% endschema %}

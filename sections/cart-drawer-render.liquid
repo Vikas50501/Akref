@@ -1,0 +1,9 @@
+{%- comment -%} Render target for AJAX cart drawer refresh (fetched via ?section_id=cart-drawer-render). {%- endcomment -%}
+<div data-cart-body>
+  {%- render 'cart-contents', context: 'drawer' -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.cart-drawer-render.name"
+}
+{% endschema %}

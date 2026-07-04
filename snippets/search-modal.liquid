@@ -1,0 +1,19 @@
+{%- comment -%} Full-width search modal with predictive results {%- endcomment -%}
+<div class="search-modal side-panel" id="search-modal" data-drawer aria-hidden="true">
+  <div class="side-panel__overlay" data-drawer-close></div>
+  <div class="search-modal__content">
+    <div class="search-modal__head container">
+      <predictive-search class="search-modal__form-wrap" data-predictive>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-modal__form">
+          <input type="hidden" name="options[prefix]" value="last">
+          {%- render 'icon', name: 'search', size: 20 -%}
+          <input type="search" name="q" class="search-modal__input" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off" aria-label="{{ 'general.search.search' | t }}" data-predictive-input>
+          <button type="submit" class="search-modal__submit">{{ 'general.search.search' | t }}</button>
+        </form>
+        <button class="search-modal__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 20 -%}</button>
+      </predictive-search>
+    </div>
+    <div class="search-modal__results container" data-predictive-results role="region" aria-label="{{ 'general.search.search' | t }}" aria-live="polite" hidden></div>
+  </div>
+</div>
+<script src="{{ 'predictive-search.js' | asset_url }}" defer></script>

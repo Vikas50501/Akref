@@ -1,0 +1,160 @@
+{%- comment -%} Icon/feature grid — icon + title + text columns with dividers {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }}; color: {{ section.settings.text_color }}; --ig-cols: {{ section.settings.columns }}; }
+{%- endstyle -%}
+<div class="icon-grid symbol-section index-section">
+  <div class="common-container">
+    {%- if section.settings.heading != blank -%}<div class="icon-grid__head text-center" data-anim="up">{% if section.settings.tagline != blank %}<p class="tag-line">{{ section.settings.tagline }}</p>{% endif %}<h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2></div>{%- endif -%}
+    <div class="icon-grid__wrap{% if section.settings.dividers %} icon-grid__wrap--dividers{% endif %}">
+      {%- for block in section.blocks -%}
+        <div class="symbol-block" data-anim="up" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}<img class="symimag" src="{{ block.settings.icon | image_url: width: 120 }}" alt="{{ block.settings.title | escape }}" width="48" height="48" loading="lazy">{%- endif -%}
+          {%- if block.settings.title != blank -%}<h3 class="letters-slide-up text-split">{{ block.settings.title }}</h3>{%- endif -%}
+          {%- if block.settings.text != blank -%}<div class="infopr"><p>{{ block.settings.text }}</p></div>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.icon-grid__head { margin-bottom: 40px; }
+.icon-grid__wrap { display: grid; grid-template-columns: repeat(var(--ig-cols, 4), 1fr); }
+.symbol-block { text-align: center; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.symbol-block .symimag { width: 48px; height: 48px; object-fit: contain; }
+.symbol-block h3 { font-size: 18px; margin: 0; }
+.symbol-block .infopr p { font-family: var(--font-body); font-size: 14px; opacity: 0.75; margin: 0; max-width: 240px; }
+.icon-grid__wrap--dividers .symbol-block { border-right: 1px solid var(--color-border); }
+.icon-grid__wrap--dividers .symbol-block:last-child { border-right: 0; }
+@media (max-width: 767px) {
+  .icon-grid__wrap { grid-template-columns: repeat(2, 1fr); }
+  .icon-grid__wrap--dividers .symbol-block:nth-child(2n) { border-right: 0; }
+  .icon-grid__wrap--dividers .symbol-block { border-bottom: 1px solid var(--color-border); }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.icon-grid.name",
+  "class": "index-section icon-grid-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "t:sections.icon-grid.settings.tagline.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.icon-grid.settings.heading.label"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:sections.icon-grid.settings.columns.label",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "dividers",
+      "label": "t:sections.icon-grid.settings.dividers.label",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.icon-grid.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.icon-grid.settings.text_color.label",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.icon-grid.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.icon-grid.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.icon-grid.blocks.item.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:sections.icon-grid.blocks.item.settings.icon.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.icon-grid.blocks.item.settings.title.label",
+          "default": "Handcrafted in India"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:sections.icon-grid.blocks.item.settings.text.label",
+          "default": "Proudly crafted in India by skilled artisans."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon grid",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Handcrafted in India",
+            "text": "Proudly crafted in India by skilled artisans."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "New-Age Design Language",
+            "text": "A contemporary vision with global sensibility."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Unique Shape",
+            "text": "Holds its sculptural form for years."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Enduring Hardware",
+            "text": "Zamac fittings and YKK metal zippers, built for strength and longevity."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+{%- comment -%} JSON-LD Product schema for SEO. Uses AggregateOffer for multi-variant; adds all media images and optional rating metafields. {%- endcomment -%}
+{%- if product -%}
+{%- liquid
+  assign rating = product.metafields.reviews.rating.value
+  assign rating_count = product.metafields.reviews.rating_count
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  "image": [
+    {%- for media in product.media -%}
+      {%- if media.media_type == 'image' -%}{{ media.preview_image | image_url: width: 1600 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+    {%- endfor -%}
+  ],
+  "description": {{ product.description | strip_html | truncatewords: 60 | json }},
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  {% if product.vendor != blank %}"brand": { "@type": "Brand", "name": {{ product.vendor | json }} },{% endif %}
+  {% if rating and rating_count and rating_count > 0 %}"aggregateRating": { "@type": "AggregateRating", "ratingValue": {{ rating.rating | json }}, "bestRating": {{ rating.scale_max | json }}, "ratingCount": {{ rating_count | json }} },{% endif %}
+  {%- if product.variants.size > 1 -%}
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "lowPrice": {{ product.price_min | divided_by: 100.0 | json }},
+    "highPrice": {{ product.price_max | divided_by: 100.0 | json }},
+    "offerCount": {{ product.variants.size }},
+    "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+    "url": {{ shop.url | append: product.url | json }}
+  }
+  {%- else -%}
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "price": {{ product.price | divided_by: 100.0 | json }},
+    "availability": "https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+    "url": {{ shop.url | append: product.url | json }}
+  }
+  {%- endif -%}
+}
+</script>
+{%- endif -%}

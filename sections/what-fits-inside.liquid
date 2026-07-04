@@ -1,0 +1,208 @@
+{%- comment -%} "What Fits Inside" — video, numbered capacity list, secondary media {%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }}; color: {{ section.settings.text_color }}; }
+{%- endstyle -%}
+<div class="inside-section index-section">
+  <div class="common-container">
+    <div class="inside__grid">
+      <div class="left-grid">
+        {%- if section.settings.video != blank -%}
+          {{ section.settings.video | video_tag: image_size: '800x', autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'whatsinvideo', preload: 'metadata' }}
+        {%- elsif section.settings.video_url != blank -%}
+          <video class="whatsinvideo" autoplay loop muted playsinline preload="metadata"><source src="{{ section.settings.video_url }}" type="video/mp4"></video>
+        {%- elsif section.settings.image != blank -%}
+          <img class="whatsinvideo" src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image.alt | escape }}" loading="lazy">
+        {%- else -%}{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg whatsinvideo' }}{%- endif -%}
+      </div>
+      <div class="right-grid">
+        <div class="rtc">
+          {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split title">{{ section.settings.heading }}</h2>{%- endif -%}
+          <div class="pointtext">
+            <ul class="inside__list">
+              {%- for block in section.blocks -%}
+                <li {{ block.shopify_attributes }}><em>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</em> {{ block.settings.text }}</li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+        {%- if section.settings.secondary_video != blank or section.settings.secondary_video_url != blank or section.settings.secondary_image != blank -%}
+          <div class="rbc">
+            {%- if section.settings.secondary_video != blank -%}
+              {{ section.settings.secondary_video | video_tag: image_size: '600x', autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'whatsingif', preload: 'metadata' }}
+            {%- elsif section.settings.secondary_video_url != blank -%}
+              <video class="whatsingif" autoplay loop muted playsinline preload="metadata"><source src="{{ section.settings.secondary_video_url }}" type="video/mp4"></video>
+            {%- elsif section.settings.secondary_image != blank -%}
+              <img class="whatsingif" src="{{ section.settings.secondary_image | image_url: width: 700 }}" alt="{{ section.settings.secondary_image.alt | escape }}" loading="lazy">
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.inside__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; align-items: stretch; }
+.left-grid { overflow: hidden; background: var(--color-bg-alt); }
+.whatsinvideo { width: 100%; height: 100%; object-fit: cover; }
+.right-grid { display: grid; grid-template-rows: 1fr auto; gap: 4px; }
+.rtc { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+.rtc .title { margin-bottom: 24px; }
+.inside__list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+.inside__list li { font-family: var(--font-body); font-size: 16px; padding: 8px 0; break-inside: avoid; }
+.inside__list em { font-family: var(--font-ui); font-style: normal; opacity: 0.4; margin-right: 8px; }
+.rbc { overflow: hidden; }
+.whatsingif { width: 100%; height: 100%; object-fit: cover; max-height: 300px; }
+@media (max-width: 1023px) {
+  .inside__grid { grid-template-columns: 1fr; }
+  .left-grid { min-height: 50vh; }
+  .rtc { padding: 32px 20px; }
+  .inside__list { columns: 1; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.what-fits-inside.name",
+  "class": "index-section inside-section-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.what-fits-inside.settings.heading.label",
+      "default": "What Fits Inside"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.what-fits-inside.settings.video.label"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "t:sections.what-fits-inside.settings.video_url.label",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.what-fits-inside.settings.image.label"
+    },
+    {
+      "type": "video",
+      "id": "secondary_video",
+      "label": "t:sections.what-fits-inside.settings.secondary_video.label"
+    },
+    {
+      "type": "video_url",
+      "id": "secondary_video_url",
+      "label": "t:sections.what-fits-inside.settings.secondary_video_url.label",
+      "accept": [
+        "youtube",
+        "vimeo"
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "secondary_image",
+      "label": "t:sections.what-fits-inside.settings.secondary_image.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.what-fits-inside.headers.h0"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "t:sections.what-fits-inside.settings.bg.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.what-fits-inside.settings.text_color.label",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.what-fits-inside.settings.padding_top.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.what-fits-inside.settings.padding_bottom.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.what-fits-inside.blocks.item.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.what-fits-inside.blocks.item.settings.text.label",
+          "default": "Mac Pro 15\""
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What fits inside",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Mac Pro 15\""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Slim Folder"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Phone"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Charger"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Notepad"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Air Pods"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

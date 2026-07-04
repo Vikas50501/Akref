@@ -1,0 +1,5 @@
+{%- comment -%}
+  Renders a single product card for a given product context. Fetched via
+  /products/{handle}?section_id=product-card-render by recently-viewed.js.
+{%- endcomment -%}
+{%- if product -%}{%- render 'product-card', product: product -%}{%- endif -%}

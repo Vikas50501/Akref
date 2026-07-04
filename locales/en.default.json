@@ -1,0 +1,86 @@
+{
+  "general": {
+    "meta": { "tags": "Tagged \"{{ tags }}\"", "page": "Page {{ page }}" },
+    "search": { "search": "Search", "placeholder": "Search for", "no_results": "No results found for “{{ terms }}”.", "results_for": "Results for “{{ terms }}”", "title": "Search our store" },
+    "newsletter": { "label": "Your E-Mail", "button": "Subscribe", "success": "Thanks for subscribing." },
+    "password_page": { "login_button": "Enter store" },
+    "localization": { "country_label": "Country/region", "language_label": "Language", "update": "Update" },
+    "social": { "facebook": "Facebook", "instagram": "Instagram", "youtube": "YouTube", "whatsapp": "Chat on WhatsApp" },
+    "pagination": { "previous": "Previous", "next": "Next", "page": "Page {{ number }}" },
+    "breadcrumb": { "home": "Home" },
+    "404": { "title": "Page not found", "subtext": "The page you were looking for does not exist.", "link": "Continue shopping" }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "close": "Close",
+    "menu": "Menu",
+    "cart": "Cart",
+    "previous": "Previous",
+    "next": "Next",
+    "loading": "Loading…"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "tax_included_shipping": "Tax included. Free shipping worldwide.",
+      "on_sale": "Sale",
+      "from_price": "From {{ price }}",
+      "low_stock": "Only {{ count }} left in stock",
+      "added": "Added"
+    },
+    "card": {
+      "add_to_cart": "Add to cart",
+      "choose_options": "Choose options",
+      "sold_out": "Sold out",
+      "sale": "Sale"
+    },
+    "price": { "from": "From", "regular_price": "Regular price", "sale_price": "Sale price" },
+    "facets": {
+      "filter": "Filter",
+      "sort_by": "Sort by",
+      "clear": "Clear",
+      "apply": "Apply",
+      "price": "Price",
+      "from": "From",
+      "to": "To",
+      "results": "Showing {{ from }} - {{ to }} of {{ count }} results",
+      "results_short": "{{ count }} results"
+    }
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "You have no items in your cart.",
+    "browse": "Browse products",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "note": "Order note",
+    "taxes_shipping": "Taxes and shipping calculated at checkout.",
+    "free_shipping_progress": "You are {{ amount }} away from free shipping!",
+    "free_shipping_reached": "Congratulations! You've got free shipping.",
+    "quantity": "Quantity",
+    "add": "Add",
+    "you_may_also_like": "You may also like"
+  },
+  "blogs": {
+    "article": { "read_more": "Read more", "by": "by", "back": "Back to blog", "tags": "Tags" },
+    "comments": { "title": "Leave a comment", "name": "Name", "email": "Email", "message": "Message", "post": "Post comment" }
+  },
+  "contact": {
+    "form": { "name": "First Name*", "email": "Email*", "phone": "Phone Number*", "message": "Your Message", "send": "Send Message", "success": "Thanks for reaching out. We'll be in touch soon." }
+  },
+  "customer": {
+    "login": { "title": "Login", "email": "Email", "password": "Password", "submit": "Sign in", "forgot": "Forgot your password?", "guest": "Continue as guest", "create": "Create account" },
+    "register": { "title": "Create account", "first_name": "First name", "last_name": "Last name", "email": "Email", "password": "Password", "submit": "Create", "has_account": "Already have an account?" },
+    "account": { "title": "My account", "orders": "Order history", "details": "Account details", "logout": "Log out", "no_orders": "You haven't placed any orders yet.", "view_addresses": "View addresses" },
+    "orders": { "order": "Order", "date": "Date", "payment": "Payment", "fulfillment": "Fulfillment", "total": "Total", "product": "Product", "quantity": "Quantity", "price": "Price" },
+    "addresses": { "title": "Addresses", "add": "Add address", "edit": "Edit", "delete": "Delete", "default": "Default", "back": "Back to account" },
+    "recover": { "title": "Reset password", "subtext": "We'll send you an email to reset your password.", "submit": "Submit", "cancel": "Cancel", "success": "We've sent you an email with a link to update your password." },
+    "reset": { "title": "Reset account password", "password": "Password", "confirm": "Confirm password", "submit": "Reset password" },
+    "activate": { "title": "Activate account", "submit": "Activate account", "decline": "Decline" }
+  }
+}
