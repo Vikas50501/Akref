@@ -253,6 +253,8 @@
     "green": {
       "type": "brand-feature",
       "settings": {
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "inset_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "image_position": "right",
         "media_height": 80,
         "tagline": "The Colour of the Maison.",
