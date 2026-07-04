@@ -286,14 +286,11 @@
         "default": true
       },
       {
-        "type": "range",
+        "type": "number",
         "id": "cart_free_shipping_threshold",
         "label": "Free shipping threshold",
-        "min": 0,
-        "max": 100000,
-        "step": 500,
         "default": 25000,
-        "info": "In your store currency (major units)."
+        "info": "In your store currency, major units (e.g. 25000). Set 0 to hide the bar's target."
       },
       {
         "type": "checkbox",

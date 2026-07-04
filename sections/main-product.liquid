@@ -105,8 +105,10 @@
                 <div class="commonpoints" {{ block.shopify_attributes }}>
                   <div class="divpointswrap">
                     {%- for i in (1..3) -%}
-                      {%- assign badge_img = block.settings['icon_' | append: i] -%}
-                      {%- assign badge_txt = block.settings['text_' | append: i] -%}
+                      {%- assign icon_key = 'icon_' | append: i -%}
+                      {%- assign text_key = 'text_' | append: i -%}
+                      {%- assign badge_img = block.settings[icon_key] -%}
+                      {%- assign badge_txt = block.settings[text_key] -%}
                       {%- if badge_txt != blank -%}
                         <div class="divpoints">
                           {%- if badge_img != blank -%}<img src="{{ badge_img | image_url: width: 60 }}" alt="" width="24" height="24" loading="lazy">{%- endif -%}
@@ -123,9 +125,12 @@
               {%- when 'accordion' -%}
                 <div class="accrodian-block" data-accordion {{ block.shopify_attributes }}>
                   {%- for i in (1..5) -%}
-                    {%- assign a_title = block.settings['title_' | append: i] -%}
-                    {%- assign a_content = block.settings['content_' | append: i] -%}
-                    {%- assign a_meta = block.settings['metafield_' | append: i] -%}
+                    {%- assign title_key = 'title_' | append: i -%}
+                    {%- assign content_key = 'content_' | append: i -%}
+                    {%- assign meta_key = 'metafield_' | append: i -%}
+                    {%- assign a_title = block.settings[title_key] -%}
+                    {%- assign a_content = block.settings[content_key] -%}
+                    {%- assign a_meta = block.settings[meta_key] -%}
                     {%- if a_meta != blank -%}{%- assign a_content = product.metafields.custom[a_meta] -%}{%- endif -%}
                     {%- if a_title != blank -%}
                       <div class="accordion-item titleaccordian-wrap" data-accordion-item>

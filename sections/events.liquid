@@ -11,7 +11,8 @@
       </div>
     {%- endif -%}
     {%- for block in section.blocks -%}
-      <div class="events-grid-wrap{% if forloop.index | modulo: 2 == 0 %} events-grid-wrap--reverse{% endif %}" {{ block.shopify_attributes }}>
+      {%- assign row_mod = forloop.index | modulo: 2 -%}
+      <div class="events-grid-wrap{% if row_mod == 0 %} events-grid-wrap--reverse{% endif %}" {{ block.shopify_attributes }}>
         <div class="events-content">
           {%- if block.settings.title != blank -%}<h3>{{ block.settings.title }}</h3>{%- endif -%}
           {%- if block.settings.meta != blank -%}<p class="events-meta">{{ block.settings.meta }}</p>{%- endif -%}
@@ -19,7 +20,8 @@
         </div>
         <div class="event-wrapepr">
           {%- for i in (1..4) -%}
-            {%- assign eimg = block.settings['image_' | append: i] -%}
+            {%- assign ekey = 'image_' | append: i -%}
+            {%- assign eimg = block.settings[ekey] -%}
             {%- if eimg != blank -%}
               <div class="event-image aspect-ratio" style="--ratio-percent: 100%;"><img src="{{ eimg | image_url: width: 700 }}" alt="{{ block.settings.title | escape }}" width="{{ eimg.width }}" height="{{ eimg.height }}" loading="lazy"></div>
             {%- endif -%}

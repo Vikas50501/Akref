@@ -50,9 +50,12 @@
             {%- when 'certifications' -%}
               <div class="divoth-wrap" {{ block.shopify_attributes }}>
                 {%- for i in (1..2) -%}
-                  {%- assign cimg = block.settings['image_' | append: i] -%}
-                  {%- assign clabel = block.settings['label_' | append: i] -%}
-                  {%- assign clink = block.settings['link_' | append: i] -%}
+                  {%- assign img_key = 'image_' | append: i -%}
+                  {%- assign label_key = 'label_' | append: i -%}
+                  {%- assign link_key = 'link_' | append: i -%}
+                  {%- assign cimg = block.settings[img_key] -%}
+                  {%- assign clabel = block.settings[label_key] -%}
+                  {%- assign clink = block.settings[link_key] -%}
                   {%- if cimg != blank or clabel != blank -%}
                     <div class="elevet-block">
                       <div class="elevet-blockimg">{%- if cimg != blank -%}<img src="{{ cimg | image_url: width: 200 }}" alt="{{ clabel | escape }}" width="70" height="70" loading="lazy">{%- endif -%}</div>

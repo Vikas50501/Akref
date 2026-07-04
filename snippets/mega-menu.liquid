@@ -21,9 +21,12 @@
     <div class="mega-menu__promos">
       {%- for i in (1..3) -%}
         {%- liquid
-          assign img = block.settings['image_' | append: i]
-          assign ttl = block.settings['title_' | append: i]
-          assign lnk = block.settings['link_' | append: i]
+          assign img_key = 'image_' | append: i
+          assign ttl_key = 'title_' | append: i
+          assign lnk_key = 'link_' | append: i
+          assign img = block.settings[img_key]
+          assign ttl = block.settings[ttl_key]
+          assign lnk = block.settings[lnk_key]
         -%}
         {%- if img != blank or ttl != blank -%}
           {%- if lnk != blank -%}<a href="{{ lnk }}" class="mega-menu__promo">{%- else -%}<div class="mega-menu__promo">{%- endif -%}

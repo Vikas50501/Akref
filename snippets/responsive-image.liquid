@@ -30,7 +30,7 @@
       width="{{ img.width }}" height="{{ img.height }}"
       alt="{{ _alt }}"
       src="{{ img | image_url: width: 1000 }}"
-      srcset="{%- for w in widthset | split: ',' -%}{%- if img.width >= w | plus: 0 -%}{{ img | image_url: width: w }} {{ w }}w,{%- endif -%}{%- endfor -%}{{ img | image_url: width: img.width }} {{ img.width }}w"
+      srcset="{%- assign widths = widthset | split: ',' -%}{%- for w in widths -%}{%- assign wnum = w | plus: 0 -%}{%- if img.width >= wnum -%}{{ img | image_url: width: wnum }} {{ wnum }}w,{%- endif -%}{%- endfor -%}{{ img | image_url: width: img.width }} {{ img.width }}w"
       sizes="{{ _sizes }}">
   {%- endcapture -%}
   {%- if aspect and aspect != 'natural' -%}
