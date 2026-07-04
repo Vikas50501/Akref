@@ -383,13 +383,6 @@
     "instagram": {
       "type": "instagram",
       "blocks": {
-        "p2": {
-          "type": "post",
-          "settings": {
-            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-            "link": ""
-          }
-        },
         "post_yCTGAy": {
           "type": "post",
           "settings": {
@@ -434,7 +427,6 @@
         }
       },
       "block_order": [
-        "p2",
         "post_yCTGAy",
         "post_axU6xt",
         "post_6Vmrz8",
