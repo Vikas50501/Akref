@@ -164,5 +164,13 @@ if (existsSync(join(root, 'locales/en.default.schema.json'))) {
   scanT(read('config/settings_schema.json'), 'config/settings_schema.json');
 } else { warn('locales/en.default.schema.json not found (schema labels not localized)'); }
 
+// ---- 10. No Liquid inside static .css/.js assets (Shopify won't process it) ----
+console.log('No Liquid in static assets:');
+for (const f of list('assets').filter(f => /\.(css|js)$/.test(f))) {
+  checks++;
+  const src = read(join('assets', f));
+  if (/\{\{|\{%/.test(src)) fail(`assets/${f}: contains Liquid ({{ or {%) — move it to a .liquid file (Shopify serves .css/.js as static).`);
+}
+
 console.log(`\n${errors === 0 ? '✅ PASS' : '❌ FAIL'} — ${checks} checks, ${errors} error(s), ${warns} warning(s).`);
 process.exit(errors === 0 ? 0 : 1);

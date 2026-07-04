@@ -1,0 +1,31 @@
+{%- comment -%}
+  Merchant/settings-driven CSS custom properties. Rendered inline in the <head>
+  AFTER base.css so these override the static defaults. Kept here (a .liquid file)
+  because Shopify only processes Liquid in .liquid files, not in .css assets.
+{%- endcomment -%}
+<style>
+  :root {
+    --color-green: {{ settings.color_brand_green | default: '#0e3432' }};
+    --color-green-rgb: {{ settings.color_brand_green | default: '#0e3432' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+    --color-ink: {{ settings.color_text | default: '#141515' }};
+    --color-ink-rgb: {{ settings.color_text | default: '#141515' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+    --color-bg: {{ settings.color_background | default: '#ffffff' }};
+    --color-bg-alt: {{ settings.color_background_alt | default: '#f5f3f5' }};
+    --color-link-hover: {{ settings.color_link_hover | default: '#3a6662' }};
+    --color-muted: {{ settings.color_muted | default: '#5c5c5c' }};
+    --color-sale: {{ settings.color_sale | default: '#b12704' }};
+    --color-btn: {{ settings.color_button | default: settings.color_brand_green | default: '#0e3432' }};
+    --color-btn-text: {{ settings.color_button_text | default: '#ffffff' }};
+    --color-btn-hover: {{ settings.color_button_hover | default: '#141515' }};
+    --color-focus: {{ settings.color_brand_green | default: '#0e3432' }};
+    --h1-max: {{ settings.h1_size | default: 48 }};
+    --h2-max: {{ settings.h2_size | default: 32 }};
+    --body-size: {{ settings.body_size | default: 15 }}px;
+    {% if settings.heading_letter_spacing %}--heading-tracking: {{ settings.heading_letter_spacing }}em;{% endif %}
+    --container-max: {{ settings.container_width | default: 1720 }}px;
+    --container-gutter: {{ settings.container_gutter | default: 10 }}px;
+    --section-gap: {{ settings.section_spacing | default: 0 }}px;
+    --radius: {{ settings.border_radius | default: 0 }}px;
+    --btn-radius: {{ settings.button_radius | default: 0 }}px;
+  }
+</style>

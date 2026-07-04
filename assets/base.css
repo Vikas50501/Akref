@@ -4,26 +4,29 @@
    layout primitives, buttons, and shared utility classes.
    ========================================================================== */
 
+/* NOTE: static defaults only — no Liquid in this file (Shopify serves .css as-is).
+   Merchant/settings-driven overrides are injected via an inline <style> in
+   layout/theme.liquid (see snippets/css-settings). */
 :root {
-  /* Brand palette (overridable via settings_schema) */
-  --color-green:      {{ settings.color_brand_green | default: '#0e3432' }};
-  --color-green-rgb:  {{ settings.color_brand_green | default: '#0e3432' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-  --color-ink:        {{ settings.color_text | default: '#141515' }};
-  --color-ink-rgb:    {{ settings.color_text | default: '#141515' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-  --color-bg:         {{ settings.color_background | default: '#ffffff' }};
-  --color-bg-alt:     {{ settings.color_background_alt | default: '#f5f3f5' }};
+  /* Brand palette */
+  --color-green:      #0e3432;
+  --color-green-rgb:  14,52,50;
+  --color-ink:        #141515;
+  --color-ink-rgb:    20,21,21;
+  --color-bg:         #ffffff;
+  --color-bg-alt:     #f5f3f5;
   --color-white:      #ffffff;
   --color-border:     rgba(var(--color-ink-rgb), 0.10);
   --color-border-light: rgba(255,255,255,0.10);
-  --color-link-hover: {{ settings.color_link_hover | default: '#3a6662' }};
-  --color-muted:      {{ settings.color_muted | default: '#5c5c5c' }};
-  --color-sale:       {{ settings.color_sale | default: '#b12704' }};
+  --color-link-hover: #3a6662;
+  --color-muted:      #5c5c5c;
+  --color-sale:       #b12704;
   --color-error:      #b12704;
   --color-success:    #1a7f4b;
-  --color-btn:        {{ settings.color_button | default: settings.color_brand_green | default: '#0e3432' }};
-  --color-btn-text:   {{ settings.color_button_text | default: '#ffffff' }};
-  --color-btn-hover:  {{ settings.color_button_hover | default: '#141515' }};
-  --color-focus:      {{ settings.color_brand_green | default: '#0e3432' }};
+  --color-btn:        #0e3432;
+  --color-btn-text:   #ffffff;
+  --color-btn-hover:  #141515;
+  --color-focus:      #0e3432;
   --overlay-color:    0,0,0;
 
   /* Typography families */
@@ -34,26 +37,26 @@
   --font-accent:  'panamaregular', serif;
 
   /* Type scale — fluid: scales continuously between mobile min and settings-driven max */
-  --h1-max: {{ settings.h1_size | default: 48 }};
-  --h2-max: {{ settings.h2_size | default: 32 }};
+  --h1-max: 48;
+  --h2-max: 32;
   --h1-size: clamp(30px, 4.5vw, calc(var(--h1-max) * 1px));
   --h2-size: clamp(24px, 3vw, calc(var(--h2-max) * 1px));
   --h3-size: clamp(20px, 2vw, 24px);
-  --body-size: {{ settings.body_size | default: 15 }}px;
+  --body-size: 15px;
   --small-size: 12px;
   --line-body: 1.5;
   --line-heading: 1.2;
-  {% if settings.heading_letter_spacing %}--heading-tracking: {{ settings.heading_letter_spacing }}em;{% endif %}
+  --heading-tracking: 0.01em;
 
   /* Layout */
-  --container-max: {{ settings.container_width | default: 1720 }}px;
-  --container-gutter: {{ settings.container_gutter | default: 10 }}px;
-  --section-gap: {{ settings.section_spacing | default: 0 }}px;
+  --container-max: 1720px;
+  --container-gutter: 10px;
+  --section-gap: 0px;
 
   /* Effects */
-  --radius: {{ settings.border_radius | default: 0 }}px;
+  --radius: 0px;
   --radius-pill: 100px;
-  --btn-radius: {{ settings.button_radius | default: 0 }}px;
+  --btn-radius: 0px;
   --transition: 0.3s ease;
   --easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
