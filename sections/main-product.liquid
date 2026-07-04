@@ -192,14 +192,14 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-product.name",
+  "name": "Product information",
   "tag": "section",
   "class": "main-product-section",
   "settings": [
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.main-product.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 100,
       "step": 4,
@@ -209,7 +209,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.main-product.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 100,
       "step": 4,
@@ -218,20 +218,20 @@
     },
     {
       "type": "header",
-      "content": "t:sections.main-product.headers.h0"
+      "content": "Gallery"
     },
     {
       "type": "select",
       "id": "gallery_layout",
-      "label": "t:sections.main-product.settings.gallery_layout.label",
+      "label": "Gallery layout",
       "options": [
         {
           "value": "thumbnails",
-          "label": "t:sections.main-product.settings.gallery_layout.options.o0"
+          "label": "Thumbnails"
         },
         {
           "value": "stacked",
-          "label": "t:sections.main-product.settings.gallery_layout.options.o1"
+          "label": "Stacked"
         }
       ],
       "default": "thumbnails"
@@ -239,19 +239,19 @@
     {
       "type": "checkbox",
       "id": "enable_zoom",
-      "label": "t:sections.main-product.settings.enable_zoom.label",
+      "label": "Enable image zoom",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "sticky_info",
-      "label": "t:sections.main-product.settings.sticky_info.label",
+      "label": "Sticky info column",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_sticky_atc",
-      "label": "t:sections.main-product.settings.show_sticky_atc.label",
+      "label": "Show mobile sticky add-to-cart bar",
       "default": true
     }
   ],
@@ -261,23 +261,23 @@
     },
     {
       "type": "breadcrumb",
-      "name": "t:sections.main-product.blocks.breadcrumb.name",
+      "name": "Breadcrumb",
       "limit": 1
     },
     {
       "type": "title",
-      "name": "t:sections.main-product.blocks.title.name",
+      "name": "Title",
       "limit": 1
     },
     {
       "type": "inventory",
-      "name": "t:sections.main-product.blocks.inventory.name",
+      "name": "Stock indicator",
       "limit": 1,
       "settings": [
         {
           "type": "range",
           "id": "threshold",
-          "label": "t:sections.main-product.blocks.inventory.settings.threshold.label",
+          "label": "Show when stock at or below",
           "min": 1,
           "max": 50,
           "step": 1,
@@ -287,214 +287,214 @@
     },
     {
       "type": "tagline",
-      "name": "t:sections.main-product.blocks.tagline.name",
+      "name": "Tagline",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.main-product.blocks.tagline.settings.text.label"
+          "label": "Tagline (or product 'tagline' metafield)"
         }
       ]
     },
     {
       "type": "price",
-      "name": "t:sections.main-product.blocks.price.name",
+      "name": "Price",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_tax_note",
-          "label": "t:sections.main-product.blocks.price.settings.show_tax_note.label",
+          "label": "Show tax/shipping note",
           "default": true
         }
       ]
     },
     {
       "type": "variant_picker",
-      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "name": "Variant picker",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_selected",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.show_selected.label",
+          "label": "Show selected value in label",
           "default": true
         }
       ]
     },
     {
       "type": "buy_buttons",
-      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "name": "Buy buttons",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_quantity",
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_quantity.label",
+          "label": "Show quantity selector",
           "default": false
         },
         {
           "type": "checkbox",
           "id": "show_dynamic_checkout",
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "label": "Show dynamic checkout buttons",
           "default": true
         },
         {
           "type": "checkbox",
           "id": "show_pickup",
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_pickup.label",
+          "label": "Show pickup availability",
           "default": true
         }
       ]
     },
     {
       "type": "trust_badges",
-      "name": "t:sections.main-product.blocks.trust_badges.name",
+      "name": "Trust badges",
       "limit": 1,
       "settings": [
         {
           "type": "image_picker",
           "id": "icon_1",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.icon_1.label"
+          "label": "Icon 1"
         },
         {
           "type": "text",
           "id": "text_1",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.text_1.label",
+          "label": "Text 1",
           "default": "100% Leather"
         },
         {
           "type": "image_picker",
           "id": "icon_2",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.icon_2.label"
+          "label": "Icon 2"
         },
         {
           "type": "text",
           "id": "text_2",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.text_2.label",
+          "label": "Text 2",
           "default": "5-Year Warranty"
         },
         {
           "type": "image_picker",
           "id": "icon_3",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.icon_3.label"
+          "label": "Icon 3"
         },
         {
           "type": "text",
           "id": "text_3",
-          "label": "t:sections.main-product.blocks.trust_badges.settings.text_3.label",
+          "label": "Text 3",
           "default": "Global by Design"
         }
       ]
     },
     {
       "type": "description",
-      "name": "t:sections.main-product.blocks.description.name",
+      "name": "Description",
       "limit": 1
     },
     {
       "type": "accordion",
-      "name": "t:sections.main-product.blocks.accordion.name",
+      "name": "Accordion",
       "settings": [
         {
           "type": "paragraph",
-          "content": "t:sections.main-product.blocks.accordion.paragraphs.p0"
+          "content": "Each row can use static content or a product metafield (custom.<key>)."
         },
         {
           "type": "text",
           "id": "title_1",
-          "label": "t:sections.main-product.blocks.accordion.settings.title_1.label",
+          "label": "Row 1 title",
           "default": "Description"
         },
         {
           "type": "richtext",
           "id": "content_1",
-          "label": "t:sections.main-product.blocks.accordion.settings.content_1.label"
+          "label": "Row 1 content"
         },
         {
           "type": "text",
           "id": "metafield_1",
-          "label": "t:sections.main-product.blocks.accordion.settings.metafield_1.label"
+          "label": "Row 1 metafield key"
         },
         {
           "type": "text",
           "id": "title_2",
-          "label": "t:sections.main-product.blocks.accordion.settings.title_2.label",
+          "label": "Row 2 title",
           "default": "Size"
         },
         {
           "type": "richtext",
           "id": "content_2",
-          "label": "t:sections.main-product.blocks.accordion.settings.content_2.label"
+          "label": "Row 2 content"
         },
         {
           "type": "text",
           "id": "metafield_2",
-          "label": "t:sections.main-product.blocks.accordion.settings.metafield_2.label"
+          "label": "Row 2 metafield key"
         },
         {
           "type": "text",
           "id": "title_3",
-          "label": "t:sections.main-product.blocks.accordion.settings.title_3.label",
+          "label": "Row 3 title",
           "default": "Materials"
         },
         {
           "type": "richtext",
           "id": "content_3",
-          "label": "t:sections.main-product.blocks.accordion.settings.content_3.label"
+          "label": "Row 3 content"
         },
         {
           "type": "text",
           "id": "metafield_3",
-          "label": "t:sections.main-product.blocks.accordion.settings.metafield_3.label"
+          "label": "Row 3 metafield key"
         },
         {
           "type": "text",
           "id": "title_4",
-          "label": "t:sections.main-product.blocks.accordion.settings.title_4.label",
+          "label": "Row 4 title",
           "default": "Shipping & Returns"
         },
         {
           "type": "richtext",
           "id": "content_4",
-          "label": "t:sections.main-product.blocks.accordion.settings.content_4.label"
+          "label": "Row 4 content"
         },
         {
           "type": "text",
           "id": "metafield_4",
-          "label": "t:sections.main-product.blocks.accordion.settings.metafield_4.label"
+          "label": "Row 4 metafield key"
         },
         {
           "type": "text",
           "id": "title_5",
-          "label": "t:sections.main-product.blocks.accordion.settings.title_5.label"
+          "label": "Row 5 title"
         },
         {
           "type": "richtext",
           "id": "content_5",
-          "label": "t:sections.main-product.blocks.accordion.settings.content_5.label"
+          "label": "Row 5 content"
         },
         {
           "type": "text",
           "id": "metafield_5",
-          "label": "t:sections.main-product.blocks.accordion.settings.metafield_5.label"
+          "label": "Row 5 metafield key"
         }
       ]
     },
     {
       "type": "share",
-      "name": "t:sections.main-product.blocks.share.name",
+      "name": "Share",
       "limit": 1
     },
     {
       "type": "custom_liquid",
-      "name": "t:sections.main-product.blocks.custom_liquid.name",
+      "name": "Custom Liquid",
       "settings": [
         {
           "type": "liquid",
           "id": "custom_liquid",
-          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label"
+          "label": "Custom Liquid"
         }
       ]
     }

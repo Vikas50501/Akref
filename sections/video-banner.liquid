@@ -22,18 +22,18 @@
 {% endstylesheet %}
 {% schema %}
 {
-  "name": "t:sections.video-banner.name",
+  "name": "Video banner",
   "class": "index-section video-banner-simple",
   "settings": [
     {
       "type": "video",
       "id": "video",
-      "label": "t:sections.video-banner.settings.video.label"
+      "label": "Video"
     },
     {
       "type": "video_url",
       "id": "video_url",
-      "label": "t:sections.video-banner.settings.video_url.label",
+      "label": "Video URL",
       "accept": [
         "youtube",
         "vimeo"
@@ -42,30 +42,30 @@
     {
       "type": "image_picker",
       "id": "poster",
-      "label": "t:sections.video-banner.settings.poster.label"
+      "label": "Poster / fallback"
     },
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.video-banner.settings.full_width.label",
+      "label": "Full width",
       "default": true
     },
     {
       "type": "text",
       "id": "aspect_desktop",
-      "label": "t:sections.video-banner.settings.aspect_desktop.label",
+      "label": "Desktop aspect ratio",
       "default": "2.5"
     },
     {
       "type": "text",
       "id": "aspect_mobile",
-      "label": "t:sections.video-banner.settings.aspect_mobile.label",
+      "label": "Mobile aspect ratio",
       "default": "1"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.video-banner.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -75,7 +75,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.video-banner.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 4,

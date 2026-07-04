@@ -35,25 +35,25 @@
 
 {% schema %}
 {
-  "name": "t:sections.ticker.name",
+  "name": "Ticker",
   "class": "index-section ticker-section-wrap",
   "settings": [
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.ticker.settings.bg.label",
+      "label": "Background",
       "default": "#0e3432"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.ticker.settings.text_color.label",
+      "label": "Text",
       "default": "#ffffff"
     },
     {
       "type": "range",
       "id": "speed",
-      "label": "t:sections.ticker.settings.speed.label",
+      "label": "Scroll duration",
       "min": 10,
       "max": 120,
       "step": 5,
@@ -63,7 +63,7 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "t:sections.ticker.settings.gap.label",
+      "label": "Gap between items",
       "min": 40,
       "max": 300,
       "step": 10,
@@ -73,19 +73,19 @@
     {
       "type": "checkbox",
       "id": "pause_on_hover",
-      "label": "t:sections.ticker.settings.pause_on_hover.label",
+      "label": "Pause on hover",
       "default": true
     }
   ],
   "blocks": [
     {
       "type": "item",
-      "name": "t:sections.ticker.blocks.item.name",
+      "name": "Item",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.ticker.blocks.item.settings.text.label",
+          "label": "Text",
           "default": "Handcrafted In India"
         }
       ]

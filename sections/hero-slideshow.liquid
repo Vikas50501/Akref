@@ -104,14 +104,14 @@
 
 {% schema %}
 {
-  "name": "t:sections.hero-slideshow.name",
+  "name": "Hero slideshow",
   "class": "section-slideshow-wrap",
   "max_blocks": 6,
   "settings": [
     {
       "type": "range",
       "id": "desktop_height",
-      "label": "t:sections.hero-slideshow.settings.desktop_height.label",
+      "label": "Desktop height",
       "min": 50,
       "max": 100,
       "step": 1,
@@ -121,7 +121,7 @@
     {
       "type": "range",
       "id": "mobile_height",
-      "label": "t:sections.hero-slideshow.settings.mobile_height.label",
+      "label": "Mobile height",
       "min": 50,
       "max": 100,
       "step": 1,
@@ -131,7 +131,7 @@
     {
       "type": "range",
       "id": "autoplay",
-      "label": "t:sections.hero-slideshow.settings.autoplay.label",
+      "label": "Autoplay speed (0 = off)",
       "min": 0,
       "max": 10,
       "step": 1,
@@ -141,29 +141,29 @@
     {
       "type": "checkbox",
       "id": "show_dots",
-      "label": "t:sections.hero-slideshow.settings.show_dots.label",
+      "label": "Show dots",
       "default": false
     }
   ],
   "blocks": [
     {
       "type": "slide",
-      "name": "t:sections.hero-slideshow.blocks.slide.name",
+      "name": "Slide",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.image.label"
+          "label": "Desktop image"
         },
         {
           "type": "image_picker",
           "id": "image_mobile",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.image_mobile.label"
+          "label": "Mobile image"
         },
         {
           "type": "range",
           "id": "overlay_opacity",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.overlay_opacity.label",
+          "label": "Overlay opacity",
           "min": 0,
           "max": 80,
           "step": 5,
@@ -173,23 +173,23 @@
         {
           "type": "select",
           "id": "content_position",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.content_position.label",
+          "label": "Content position",
           "options": [
             {
               "value": "bottom-right",
-              "label": "t:sections.hero-slideshow.blocks.slide.settings.content_position.options.o0"
+              "label": "Bottom right"
             },
             {
               "value": "bottom-left",
-              "label": "t:sections.hero-slideshow.blocks.slide.settings.content_position.options.o1"
+              "label": "Bottom left"
             },
             {
               "value": "bottom-center",
-              "label": "t:sections.hero-slideshow.blocks.slide.settings.content_position.options.o2"
+              "label": "Bottom center"
             },
             {
               "value": "center",
-              "label": "t:sections.hero-slideshow.blocks.slide.settings.content_position.options.o3"
+              "label": "Center"
             }
           ],
           "default": "bottom-right"
@@ -197,30 +197,30 @@
         {
           "type": "text",
           "id": "subheading",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.subheading.label"
+          "label": "Subheading"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.heading.label",
+          "label": "Heading",
           "default": "Doppio"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.text.label",
+          "label": "Text",
           "default": "<p>Inspired by the rhythm of city life, where elegance and energy coexist.</p>"
         },
         {
           "type": "text",
           "id": "button_label",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.button_label.label",
+          "label": "Button label",
           "default": "Explore Now"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "t:sections.hero-slideshow.blocks.slide.settings.button_link.label"
+          "label": "Button link"
         }
       ]
     }

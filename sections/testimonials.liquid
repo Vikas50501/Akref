@@ -68,36 +68,36 @@
 
 {% schema %}
 {
-  "name": "t:sections.testimonials.name",
+  "name": "Testimonials media",
   "class": "index-section testimonials-section",
   "settings": [
     {
       "type": "text",
       "id": "tagline",
-      "label": "t:sections.testimonials.settings.tagline.label"
+      "label": "Tagline"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.testimonials.settings.heading.label",
+      "label": "Heading",
       "default": "Happy Customers"
     },
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.testimonials.settings.bg.label",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.testimonials.settings.text_color.label",
+      "label": "Text",
       "default": "#000000"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.testimonials.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -107,7 +107,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.testimonials.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -118,28 +118,28 @@
   "blocks": [
     {
       "type": "image",
-      "name": "t:sections.testimonials.blocks.image.name",
+      "name": "Image slide",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.testimonials.blocks.image.settings.image.label"
+          "label": "Image"
         }
       ]
     },
     {
       "type": "video",
-      "name": "t:sections.testimonials.blocks.video.name",
+      "name": "Video slide",
       "settings": [
         {
           "type": "video",
           "id": "video",
-          "label": "t:sections.testimonials.blocks.video.settings.video.label"
+          "label": "Video (Shopify-hosted)"
         },
         {
           "type": "video_url",
           "id": "video_url",
-          "label": "t:sections.testimonials.blocks.video.settings.video_url.label",
+          "label": "External video URL",
           "accept": [
             "youtube",
             "vimeo"
@@ -148,7 +148,7 @@
         {
           "type": "image_picker",
           "id": "poster",
-          "label": "t:sections.testimonials.blocks.video.settings.poster.label"
+          "label": "Poster image"
         }
       ]
     }

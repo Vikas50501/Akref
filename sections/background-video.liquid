@@ -66,18 +66,18 @@
 
 {% schema %}
 {
-  "name": "t:sections.background-video.name",
+  "name": "Background video",
   "class": "index-section background-video-section",
   "settings": [
     {
       "type": "video",
       "id": "video",
-      "label": "t:sections.background-video.settings.video.label"
+      "label": "Video (Shopify-hosted)"
     },
     {
       "type": "video_url",
       "id": "video_url",
-      "label": "t:sections.background-video.settings.video_url.label",
+      "label": "External video URL (mp4)",
       "accept": [
         "youtube",
         "vimeo"
@@ -86,12 +86,12 @@
     {
       "type": "image_picker",
       "id": "poster",
-      "label": "t:sections.background-video.settings.poster.label"
+      "label": "Poster / fallback image"
     },
     {
       "type": "range",
       "id": "overlay_opacity",
-      "label": "t:sections.background-video.settings.overlay_opacity.label",
+      "label": "Overlay opacity",
       "min": 0,
       "max": 80,
       "step": 5,
@@ -101,19 +101,19 @@
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.background-video.settings.full_width.label",
+      "label": "Full width",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_controls",
-      "label": "t:sections.background-video.settings.show_controls.label",
+      "label": "Show play/pause",
       "default": true
     },
     {
       "type": "range",
       "id": "desktop_height",
-      "label": "t:sections.background-video.settings.desktop_height.label",
+      "label": "Desktop height",
       "min": 300,
       "max": 900,
       "step": 10,
@@ -123,7 +123,7 @@
     {
       "type": "range",
       "id": "mobile_height",
-      "label": "t:sections.background-video.settings.mobile_height.label",
+      "label": "Mobile height",
       "min": 300,
       "max": 700,
       "step": 10,
@@ -132,35 +132,35 @@
     },
     {
       "type": "header",
-      "content": "t:sections.background-video.headers.h0"
+      "content": "Content"
     },
     {
       "type": "text",
       "id": "subheading",
-      "label": "t:sections.background-video.settings.subheading.label",
+      "label": "Subheading",
       "default": "Inside the Atelier"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.background-video.settings.heading.label",
+      "label": "Heading",
       "default": "Where Craft Becomes Form."
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": "t:sections.background-video.settings.text.label",
+      "label": "Text",
       "default": "<p>Every AKINNA piece is brought to life by master artisans in India.</p>"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "t:sections.background-video.settings.button_label.label"
+      "label": "Button label"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "t:sections.background-video.settings.button_link.label"
+      "label": "Button link"
     }
   ],
   "presets": [

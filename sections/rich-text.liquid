@@ -24,21 +24,21 @@
 {% endstylesheet %}
 {% schema %}
 {
-  "name": "t:sections.rich-text.name",
+  "name": "Rich text",
   "class": "index-section rich-text-section",
   "settings": [
     {
       "type": "select",
       "id": "alignment",
-      "label": "t:sections.rich-text.settings.alignment.label",
+      "label": "Alignment",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.rich-text.settings.alignment.options.o0"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.rich-text.settings.alignment.options.o1"
+          "label": "Center"
         }
       ],
       "default": "center"
@@ -46,19 +46,19 @@
     {
       "type": "select",
       "id": "width",
-      "label": "t:sections.rich-text.settings.width.label",
+      "label": "Width",
       "options": [
         {
           "value": "narrow",
-          "label": "t:sections.rich-text.settings.width.options.o0"
+          "label": "Narrow"
         },
         {
           "value": "medium",
-          "label": "t:sections.rich-text.settings.width.options.o1"
+          "label": "Medium"
         },
         {
           "value": "wide",
-          "label": "t:sections.rich-text.settings.width.options.o2"
+          "label": "Wide"
         }
       ],
       "default": "medium"
@@ -66,19 +66,19 @@
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.rich-text.settings.bg.label",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.rich-text.settings.text_color.label",
+      "label": "Text",
       "default": "#141515"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.rich-text.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 140,
       "step": 4,
@@ -88,7 +88,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.rich-text.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 140,
       "step": 4,
@@ -99,65 +99,65 @@
   "blocks": [
     {
       "type": "tagline",
-      "name": "t:sections.rich-text.blocks.tagline.name",
+      "name": "Tagline",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.rich-text.blocks.tagline.settings.text.label"
+          "label": "Text"
         }
       ]
     },
     {
       "type": "heading",
-      "name": "t:sections.rich-text.blocks.heading.name",
+      "name": "Heading",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.rich-text.blocks.heading.settings.text.label",
+          "label": "Text",
           "default": "Heading"
         }
       ]
     },
     {
       "type": "text",
-      "name": "t:sections.rich-text.blocks.text.name",
+      "name": "Text",
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "label": "t:sections.rich-text.blocks.text.settings.text.label",
+          "label": "Text",
           "default": "<p>Share information about your brand.</p>"
         }
       ]
     },
     {
       "type": "button",
-      "name": "t:sections.rich-text.blocks.button.name",
+      "name": "Button",
       "settings": [
         {
           "type": "text",
           "id": "label",
-          "label": "t:sections.rich-text.blocks.button.settings.label.label"
+          "label": "Label"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.rich-text.blocks.button.settings.link.label"
+          "label": "Link"
         },
         {
           "type": "select",
           "id": "style",
-          "label": "t:sections.rich-text.blocks.button.settings.style.label",
+          "label": "Style",
           "options": [
             {
               "value": "",
-              "label": "t:sections.rich-text.blocks.button.settings.style.options.o0"
+              "label": "Solid"
             },
             {
               "value": "alt",
-              "label": "t:sections.rich-text.blocks.button.settings.style.options.o1"
+              "label": "Outline"
             }
           ],
           "default": ""

@@ -67,25 +67,25 @@
 
 {% schema %}
 {
-  "name": "t:sections.media-carousel.name",
+  "name": "Media carousel",
   "class": "index-section media-carousel-section",
   "settings": [
     {
       "type": "text",
       "id": "tagline",
-      "label": "t:sections.media-carousel.settings.tagline.label",
+      "label": "Tagline",
       "default": "Top features"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.media-carousel.settings.heading.label",
+      "label": "Heading",
       "default": "Elements Of AKINNA"
     },
     {
       "type": "range",
       "id": "per_view",
-      "label": "t:sections.media-carousel.settings.per_view.label",
+      "label": "Slides per view (desktop)",
       "min": 2,
       "max": 6,
       "step": 1,
@@ -94,36 +94,36 @@
     {
       "type": "text",
       "id": "aspect",
-      "label": "t:sections.media-carousel.settings.aspect.label",
+      "label": "Slide aspect ratio",
       "default": "0.66",
-      "info": "t:sections.media-carousel.settings.aspect.info"
+      "info": "width/height, e.g. 0.66 = tall"
     },
     {
       "type": "checkbox",
       "id": "show_nav",
-      "label": "t:sections.media-carousel.settings.show_nav.label",
+      "label": "Show navigation",
       "default": true
     },
     {
       "type": "header",
-      "content": "t:sections.media-carousel.headers.h0"
+      "content": "Style"
     },
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.media-carousel.settings.bg.label",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.media-carousel.settings.text_color.label",
+      "label": "Text",
       "default": "#141515"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.media-carousel.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -133,7 +133,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.media-carousel.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -144,33 +144,33 @@
   "blocks": [
     {
       "type": "image",
-      "name": "t:sections.media-carousel.blocks.image.name",
+      "name": "Image slide",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.media-carousel.blocks.image.settings.image.label"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "label",
-          "label": "t:sections.media-carousel.blocks.image.settings.label.label"
+          "label": "Label"
         }
       ]
     },
     {
       "type": "video",
-      "name": "t:sections.media-carousel.blocks.video.name",
+      "name": "Video slide",
       "settings": [
         {
           "type": "video",
           "id": "video",
-          "label": "t:sections.media-carousel.blocks.video.settings.video.label"
+          "label": "Video"
         },
         {
           "type": "video_url",
           "id": "video_url",
-          "label": "t:sections.media-carousel.blocks.video.settings.video_url.label",
+          "label": "Video URL",
           "accept": [
             "youtube",
             "vimeo"
@@ -179,12 +179,12 @@
         {
           "type": "image_picker",
           "id": "poster",
-          "label": "t:sections.media-carousel.blocks.video.settings.poster.label"
+          "label": "Poster"
         },
         {
           "type": "text",
           "id": "label",
-          "label": "t:sections.media-carousel.blocks.video.settings.label.label"
+          "label": "Label"
         }
       ]
     }

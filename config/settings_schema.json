@@ -8,110 +8,110 @@
     "theme_support_url": "https://www.akinna.com/pages/contact-us"
   },
   {
-    "name": "t:settings_schema.colors.name",
+    "name": "Colors",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.colors.headers.h0"
+        "content": "Brand palette"
       },
       {
         "type": "color",
         "id": "color_brand_green",
-        "label": "t:settings_schema.colors.settings.color_brand_green.label",
+        "label": "Akinna green (brand)",
         "default": "#0e3432"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "t:settings_schema.colors.settings.color_text.label",
+        "label": "Body text",
         "default": "#141515"
       },
       {
         "type": "color",
         "id": "color_background",
-        "label": "t:settings_schema.colors.settings.color_background.label",
+        "label": "Background",
         "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "color_background_alt",
-        "label": "t:settings_schema.colors.settings.color_background_alt.label",
+        "label": "Alternate background",
         "default": "#f5f3f5"
       },
       {
         "type": "color",
         "id": "color_link_hover",
-        "label": "t:settings_schema.colors.settings.color_link_hover.label",
+        "label": "Link hover",
         "default": "#3a6662"
       },
       {
         "type": "color",
         "id": "color_muted",
-        "label": "t:settings_schema.colors.settings.color_muted.label",
+        "label": "Muted text",
         "default": "#5c5c5c",
-        "info": "t:settings_schema.colors.settings.color_muted.info"
+        "info": "Used for captions, taglines, meta. Keep ≥4.5:1 on background for accessibility."
       },
       {
         "type": "color",
         "id": "color_sale",
-        "label": "t:settings_schema.colors.settings.color_sale.label",
+        "label": "Sale / low-stock accent",
         "default": "#b12704"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.colors.headers.h1"
+        "content": "Buttons"
       },
       {
         "type": "color",
         "id": "color_button",
-        "label": "t:settings_schema.colors.settings.color_button.label",
+        "label": "Button background",
         "default": "#0e3432"
       },
       {
         "type": "color",
         "id": "color_button_text",
-        "label": "t:settings_schema.colors.settings.color_button_text.label",
+        "label": "Button text",
         "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "color_button_hover",
-        "label": "t:settings_schema.colors.settings.color_button_hover.label",
+        "label": "Button hover",
         "default": "#141515"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.colors.headers.h2"
+        "content": "Announcement bar"
       },
       {
         "type": "color",
         "id": "color_announcement_bg",
-        "label": "t:settings_schema.colors.settings.color_announcement_bg.label",
+        "label": "Background",
         "default": "#0e3432"
       },
       {
         "type": "color",
         "id": "color_announcement_text",
-        "label": "t:settings_schema.colors.settings.color_announcement_text.label",
+        "label": "Text",
         "default": "#ffffff"
       }
     ]
   },
   {
-    "name": "t:settings_schema.typography.name",
+    "name": "Typography",
     "settings": [
       {
         "type": "paragraph",
-        "content": "t:settings_schema.typography.paragraphs.p0"
+        "content": "Brand fonts (Queens, Suisse Intl, Centra) are bundled with the theme."
       },
       {
         "type": "header",
-        "content": "t:settings_schema.typography.headers.h0"
+        "content": "Type scale"
       },
       {
         "type": "range",
         "id": "h1_size",
-        "label": "t:settings_schema.typography.settings.h1_size.label",
+        "label": "H1 size (desktop)",
         "min": 28,
         "max": 80,
         "step": 1,
@@ -121,7 +121,7 @@
       {
         "type": "range",
         "id": "h2_size",
-        "label": "t:settings_schema.typography.settings.h2_size.label",
+        "label": "H2 size (desktop)",
         "min": 20,
         "max": 56,
         "step": 1,
@@ -131,7 +131,7 @@
       {
         "type": "range",
         "id": "body_size",
-        "label": "t:settings_schema.typography.settings.body_size.label",
+        "label": "Body size",
         "min": 13,
         "max": 18,
         "step": 1,
@@ -141,7 +141,7 @@
       {
         "type": "range",
         "id": "heading_letter_spacing",
-        "label": "t:settings_schema.typography.settings.heading_letter_spacing.label",
+        "label": "Heading letter spacing",
         "min": -0.02,
         "max": 0.1,
         "step": 0.01,
@@ -151,12 +151,12 @@
     ]
   },
   {
-    "name": "t:settings_schema.layout.name",
+    "name": "Layout",
     "settings": [
       {
         "type": "range",
         "id": "container_width",
-        "label": "t:settings_schema.layout.settings.container_width.label",
+        "label": "Max container width",
         "min": 1200,
         "max": 1920,
         "step": 20,
@@ -166,7 +166,7 @@
       {
         "type": "range",
         "id": "container_gutter",
-        "label": "t:settings_schema.layout.settings.container_gutter.label",
+        "label": "Page gutter",
         "min": 0,
         "max": 40,
         "step": 1,
@@ -176,7 +176,7 @@
       {
         "type": "range",
         "id": "section_spacing",
-        "label": "t:settings_schema.layout.settings.section_spacing.label",
+        "label": "Default space between sections",
         "min": 0,
         "max": 100,
         "step": 2,
@@ -186,12 +186,12 @@
     ]
   },
   {
-    "name": "t:settings_schema.buttons_corners.name",
+    "name": "Buttons & corners",
     "settings": [
       {
         "type": "range",
         "id": "button_radius",
-        "label": "t:settings_schema.buttons_corners.settings.button_radius.label",
+        "label": "Button corner radius",
         "min": 0,
         "max": 40,
         "step": 1,
@@ -201,7 +201,7 @@
       {
         "type": "range",
         "id": "border_radius",
-        "label": "t:settings_schema.buttons_corners.settings.border_radius.label",
+        "label": "Global corner radius",
         "min": 0,
         "max": 40,
         "step": 1,
@@ -211,30 +211,30 @@
     ]
   },
   {
-    "name": "t:settings_schema.product_cards.name",
+    "name": "Product cards",
     "settings": [
       {
         "type": "checkbox",
         "id": "card_quick_add",
-        "label": "t:settings_schema.product_cards.settings.card_quick_add.label",
+        "label": "Show quick add-to-cart",
         "default": true
       },
       {
         "type": "select",
         "id": "card_image_ratio",
-        "label": "t:settings_schema.product_cards.settings.card_image_ratio.label",
+        "label": "Card image ratio",
         "options": [
           {
             "value": "1.0",
-            "label": "t:settings_schema.product_cards.settings.card_image_ratio.options.o0"
+            "label": "Square (1:1)"
           },
           {
             "value": "1.2195",
-            "label": "t:settings_schema.product_cards.settings.card_image_ratio.options.o1"
+            "label": "Portrait (default)"
           },
           {
             "value": "1.5",
-            "label": "t:settings_schema.product_cards.settings.card_image_ratio.options.o2"
+            "label": "Tall (2:3)"
           }
         ],
         "default": "1.2195"
@@ -242,37 +242,37 @@
     ]
   },
   {
-    "name": "t:settings_schema.animations.name",
+    "name": "Animations",
     "settings": [
       {
         "type": "checkbox",
         "id": "animations_enabled",
-        "label": "t:settings_schema.animations.settings.animations_enabled.label",
+        "label": "Enable entrance & scroll animations",
         "default": true
       },
       {
         "type": "checkbox",
         "id": "parallax_enabled",
-        "label": "t:settings_schema.animations.settings.parallax_enabled.label",
+        "label": "Enable image parallax",
         "default": true
       }
     ]
   },
   {
-    "name": "t:settings_schema.cart.name",
+    "name": "Cart",
     "settings": [
       {
         "type": "select",
         "id": "cart_type",
-        "label": "t:settings_schema.cart.settings.cart_type.label",
+        "label": "Cart behavior",
         "options": [
           {
             "value": "drawer",
-            "label": "t:settings_schema.cart.settings.cart_type.options.o0"
+            "label": "Slide-out drawer"
           },
           {
             "value": "page",
-            "label": "t:settings_schema.cart.settings.cart_type.options.o1"
+            "label": "Cart page"
           }
         ],
         "default": "drawer"
@@ -280,117 +280,117 @@
       {
         "type": "checkbox",
         "id": "cart_free_shipping_bar",
-        "label": "t:settings_schema.cart.settings.cart_free_shipping_bar.label",
+        "label": "Show free-shipping progress bar",
         "default": true
       },
       {
         "type": "range",
         "id": "cart_free_shipping_threshold",
-        "label": "t:settings_schema.cart.settings.cart_free_shipping_threshold.label",
+        "label": "Free shipping threshold",
         "min": 0,
         "max": 100000,
         "step": 500,
         "default": 25000,
-        "info": "t:settings_schema.cart.settings.cart_free_shipping_threshold.info"
+        "info": "In your store currency (major units)."
       },
       {
         "type": "checkbox",
         "id": "cart_show_note",
-        "label": "t:settings_schema.cart.settings.cart_show_note.label",
+        "label": "Show order-note field",
         "default": true
       },
       {
         "type": "collection",
         "id": "cart_upsell_collection",
-        "label": "t:settings_schema.cart.settings.cart_upsell_collection.label",
-        "info": "t:settings_schema.cart.settings.cart_upsell_collection.info"
+        "label": "Cart upsell collection",
+        "info": "Shows up to 3 'you may also like' products in the cart."
       }
     ]
   },
   {
-    "name": "t:settings_schema.social_contact.name",
+    "name": "Social & contact",
     "settings": [
       {
         "type": "text",
         "id": "social_facebook",
-        "label": "t:settings_schema.social_contact.settings.social_facebook.label",
+        "label": "Facebook URL",
         "default": "https://facebook.com/akinna.studios"
       },
       {
         "type": "text",
         "id": "social_instagram",
-        "label": "t:settings_schema.social_contact.settings.social_instagram.label",
+        "label": "Instagram URL",
         "default": "https://instagram.com/akinna.studios"
       },
       {
         "type": "text",
         "id": "social_youtube",
-        "label": "t:settings_schema.social_contact.settings.social_youtube.label"
+        "label": "YouTube URL"
       },
       {
         "type": "text",
         "id": "social_tiktok",
-        "label": "t:settings_schema.social_contact.settings.social_tiktok.label"
+        "label": "TikTok URL"
       },
       {
         "type": "text",
         "id": "social_pinterest",
-        "label": "t:settings_schema.social_contact.settings.social_pinterest.label"
+        "label": "Pinterest URL"
       },
       {
         "type": "text",
         "id": "social_twitter_handle",
-        "label": "t:settings_schema.social_contact.settings.social_twitter_handle.label",
-        "info": "t:settings_schema.social_contact.settings.social_twitter_handle.info"
+        "label": "Twitter/X handle",
+        "info": "e.g. @akinna"
       },
       {
         "type": "text",
         "id": "instagram_handle",
-        "label": "t:settings_schema.social_contact.settings.instagram_handle.label",
+        "label": "Instagram handle (display)",
         "default": "@akinna.studios"
       }
     ]
   },
   {
-    "name": "t:settings_schema.whatsapp_button.name",
+    "name": "WhatsApp button",
     "settings": [
       {
         "type": "checkbox",
         "id": "whatsapp_enabled",
-        "label": "t:settings_schema.whatsapp_button.settings.whatsapp_enabled.label",
+        "label": "Show floating WhatsApp button",
         "default": true
       },
       {
         "type": "text",
         "id": "whatsapp_number",
-        "label": "t:settings_schema.whatsapp_button.settings.whatsapp_number.label",
-        "info": "t:settings_schema.whatsapp_button.settings.whatsapp_number.info"
+        "label": "WhatsApp number",
+        "info": "Include country code, e.g. 919999999999"
       },
       {
         "type": "text",
         "id": "whatsapp_message",
-        "label": "t:settings_schema.whatsapp_button.settings.whatsapp_message.label",
+        "label": "Prefilled message",
         "default": "Hi Akinna, I have a question."
       }
     ]
   },
   {
-    "name": "t:settings_schema.branding.name",
+    "name": "Branding",
     "settings": [
       {
         "type": "image_picker",
         "id": "logo_dark",
-        "label": "t:settings_schema.branding.settings.logo_dark.label"
+        "label": "Logo (dark / for light backgrounds)"
       },
       {
         "type": "image_picker",
         "id": "logo_light",
-        "label": "t:settings_schema.branding.settings.logo_light.label"
+        "label": "Logo (light / for dark backgrounds)"
       },
       {
         "type": "range",
         "id": "logo_max_height",
-        "label": "t:settings_schema.branding.settings.logo_max_height.label",
+        "label": "Logo height",
         "min": 16,
         "max": 60,
         "step": 1,
@@ -400,17 +400,17 @@
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "t:settings_schema.branding.settings.favicon.label"
+        "label": "Favicon"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.branding.headers.h0"
+        "content": "Social sharing (SEO)"
       },
       {
         "type": "image_picker",
         "id": "share_image",
-        "label": "t:settings_schema.branding.settings.share_image.label",
-        "info": "t:settings_schema.branding.settings.share_image.info"
+        "label": "Default social share image",
+        "info": "Used for Open Graph/Twitter when a page has no featured image (e.g. homepage)."
       }
     ]
   }

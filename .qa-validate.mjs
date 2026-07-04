@@ -149,22 +149,7 @@ try {
   }
 } catch (e) { fail('settings comparison failed: ' + e.message); }
 
-// ---- 9. schema locale (t:) keys resolve in en.default.schema.json ----
-console.log('Schema locale keys (t:):');
-if (existsSync(join(root, 'locales/en.default.schema.json'))) {
-  const sloc = JSON.parse(read('locales/en.default.schema.json'));
-  const getS = (p) => p.split('.').reduce((o, k) => (o == null ? undefined : o[k]), sloc);
-  const scanT = (str, where) => {
-    for (const mm of str.matchAll(/"t:([^"]+)"/g)) { checks++; if (getS(mm[1]) === undefined) fail(`${where}: schema locale key "${mm[1]}" missing in en.default.schema.json`); }
-  };
-  for (const f of list('sections').filter(f => f.endsWith('.liquid'))) {
-    const m = read(join('sections', f)).match(/\{%-?\s*schema\s*-?%\}([\s\S]*?)\{%-?\s*endschema/);
-    if (m) scanT(m[1], `sections/${f}`);
-  }
-  scanT(read('config/settings_schema.json'), 'config/settings_schema.json');
-} else { warn('locales/en.default.schema.json not found (schema labels not localized)'); }
-
-// ---- 10. No Liquid inside static .css/.js assets (Shopify won't process it) ----
+// ---- 9. No Liquid inside static .css/.js assets (Shopify won't process it) ----
 console.log('No Liquid in static assets:');
 for (const f of list('assets').filter(f => /\.(css|js)$/.test(f))) {
   checks++;

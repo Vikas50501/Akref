@@ -42,25 +42,25 @@
 
 {% schema %}
 {
-  "name": "t:sections.store-locator.name",
+  "name": "Store locator",
   "class": "index-section store-locator-section",
   "settings": [
     {
       "type": "text",
       "id": "tagline",
-      "label": "t:sections.store-locator.settings.tagline.label",
+      "label": "Tagline",
       "default": "Store locator"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.store-locator.settings.heading.label",
+      "label": "Heading",
       "default": "Store & Stockists"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.store-locator.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -70,7 +70,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.store-locator.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -81,40 +81,40 @@
   "blocks": [
     {
       "type": "store",
-      "name": "t:sections.store-locator.blocks.store.name",
+      "name": "Store",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.store-locator.blocks.store.settings.image.label"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "name",
-          "label": "t:sections.store-locator.blocks.store.settings.name.label",
+          "label": "Name",
           "default": "Store name"
         },
         {
           "type": "text",
           "id": "city",
-          "label": "t:sections.store-locator.blocks.store.settings.city.label",
+          "label": "City / region",
           "default": "New Delhi"
         },
         {
           "type": "textarea",
           "id": "address",
-          "label": "t:sections.store-locator.blocks.store.settings.address.label"
+          "label": "Address"
         },
         {
           "type": "text",
           "id": "timing",
-          "label": "t:sections.store-locator.blocks.store.settings.timing.label",
+          "label": "Timing",
           "default": "Mon-Sun 11AM-10PM"
         },
         {
           "type": "url",
           "id": "map_link",
-          "label": "t:sections.store-locator.blocks.store.settings.map_link.label"
+          "label": "Map link"
         }
       ]
     }

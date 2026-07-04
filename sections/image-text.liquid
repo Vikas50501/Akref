@@ -96,26 +96,26 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-text.name",
+  "name": "Image with text",
   "class": "index-section image-text-section",
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.image-text.settings.image.label"
+      "label": "Image"
     },
     {
       "type": "select",
       "id": "image_position",
-      "label": "t:sections.image-text.settings.image_position.label",
+      "label": "Image position",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.image-text.settings.image_position.options.o0"
+          "label": "Left"
         },
         {
           "value": "right",
-          "label": "t:sections.image-text.settings.image_position.options.o1"
+          "label": "Right"
         }
       ],
       "default": "left"
@@ -123,7 +123,7 @@
     {
       "type": "range",
       "id": "media_height",
-      "label": "t:sections.image-text.settings.media_height.label",
+      "label": "Image height",
       "min": 40,
       "max": 100,
       "step": 2,
@@ -133,41 +133,41 @@
     {
       "type": "checkbox",
       "id": "parallax",
-      "label": "t:sections.image-text.settings.parallax.label",
+      "label": "Parallax + scale on scroll",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.image-text.settings.full_width.label",
+      "label": "Full width",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "divider",
-      "label": "t:sections.image-text.settings.divider.label",
+      "label": "Top & bottom hairline",
       "default": true
     },
     {
       "type": "header",
-      "content": "t:sections.image-text.headers.h0"
+      "content": "Style"
     },
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.image-text.settings.bg.label",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.image-text.settings.text_color.label",
+      "label": "Text",
       "default": "#141515"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.image-text.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 160,
       "step": 2,
@@ -177,7 +177,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.image-text.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 160,
       "step": 2,
@@ -188,99 +188,99 @@
   "blocks": [
     {
       "type": "tagline",
-      "name": "t:sections.image-text.blocks.tagline.name",
+      "name": "Tagline",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.image-text.blocks.tagline.settings.text.label",
+          "label": "Text",
           "default": "Founder and Creative Director"
         }
       ]
     },
     {
       "type": "heading",
-      "name": "t:sections.image-text.blocks.heading.name",
+      "name": "Heading",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.image-text.blocks.heading.settings.text.label",
+          "label": "Text",
           "default": "Annika Saraf"
         }
       ]
     },
     {
       "type": "divider",
-      "name": "t:sections.image-text.blocks.divider.name",
+      "name": "Divider",
       "settings": []
     },
     {
       "type": "text",
-      "name": "t:sections.image-text.blocks.text.name",
+      "name": "Text",
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "label": "t:sections.image-text.blocks.text.settings.text.label",
+          "label": "Text",
           "default": "<p>Add your story here.</p>"
         }
       ]
     },
     {
       "type": "quote",
-      "name": "t:sections.image-text.blocks.quote.name",
+      "name": "Quote",
       "settings": [
         {
           "type": "textarea",
           "id": "text",
-          "label": "t:sections.image-text.blocks.quote.settings.text.label",
+          "label": "Quote",
           "default": "AKINNA is the result of years spent chasing one perfect spark."
         }
       ]
     },
     {
       "type": "signature",
-      "name": "t:sections.image-text.blocks.signature.name",
+      "name": "Signature",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.image-text.blocks.signature.settings.text.label",
+          "label": "Text",
           "default": "Annika"
         }
       ]
     },
     {
       "type": "button",
-      "name": "t:sections.image-text.blocks.button.name",
+      "name": "Button",
       "settings": [
         {
           "type": "text",
           "id": "label",
-          "label": "t:sections.image-text.blocks.button.settings.label.label"
+          "label": "Label"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.image-text.blocks.button.settings.link.label"
+          "label": "Link"
         },
         {
           "type": "select",
           "id": "style",
-          "label": "t:sections.image-text.blocks.button.settings.style.label",
+          "label": "Style",
           "options": [
             {
               "value": "",
-              "label": "t:sections.image-text.blocks.button.settings.style.options.o0"
+              "label": "Solid"
             },
             {
               "value": "alt",
-              "label": "t:sections.image-text.blocks.button.settings.style.options.o1"
+              "label": "Outline"
             },
             {
               "value": "custom",
-              "label": "t:sections.image-text.blocks.button.settings.style.options.o2"
+              "label": "Text link"
             }
           ],
           "default": ""
@@ -289,39 +289,39 @@
     },
     {
       "type": "certifications",
-      "name": "t:sections.image-text.blocks.certifications.name",
+      "name": "Certifications",
       "settings": [
         {
           "type": "image_picker",
           "id": "image_1",
-          "label": "t:sections.image-text.blocks.certifications.settings.image_1.label"
+          "label": "Cert 1 image"
         },
         {
           "type": "text",
           "id": "label_1",
-          "label": "t:sections.image-text.blocks.certifications.settings.label_1.label",
+          "label": "Cert 1 label",
           "default": "Read LWG-certified"
         },
         {
           "type": "url",
           "id": "link_1",
-          "label": "t:sections.image-text.blocks.certifications.settings.link_1.label"
+          "label": "Cert 1 link"
         },
         {
           "type": "image_picker",
           "id": "image_2",
-          "label": "t:sections.image-text.blocks.certifications.settings.image_2.label"
+          "label": "Cert 2 image"
         },
         {
           "type": "text",
           "id": "label_2",
-          "label": "t:sections.image-text.blocks.certifications.settings.label_2.label",
+          "label": "Cert 2 label",
           "default": "Read SA8000-certified"
         },
         {
           "type": "url",
           "id": "link_2",
-          "label": "t:sections.image-text.blocks.certifications.settings.link_2.label"
+          "label": "Cert 2 link"
         }
       ]
     }

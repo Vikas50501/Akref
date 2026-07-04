@@ -128,27 +128,27 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "header-section",
   "settings": [
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:sections.header.settings.menu.label",
+      "label": "Menu",
       "default": "main-menu"
     },
     {
       "type": "select",
       "id": "layout",
-      "label": "t:sections.header.settings.layout.label",
+      "label": "Layout",
       "options": [
         {
           "value": "centered",
-          "label": "t:sections.header.settings.layout.options.o0"
+          "label": "Centered logo"
         },
         {
           "value": "inline",
-          "label": "t:sections.header.settings.layout.options.o1"
+          "label": "Logo left"
         }
       ],
       "default": "centered"
@@ -156,85 +156,85 @@
     {
       "type": "checkbox",
       "id": "sticky",
-      "label": "t:sections.header.settings.sticky.label",
+      "label": "Sticky header",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "transparent_on_home",
-      "label": "t:sections.header.settings.transparent_on_home.label",
+      "label": "Transparent over homepage hero",
       "default": true
     },
     {
       "type": "header",
-      "content": "t:sections.header.headers.h0"
+      "content": "Logos"
     },
     {
       "type": "image_picker",
       "id": "logo_dark",
-      "label": "t:sections.header.settings.logo_dark.label"
+      "label": "Logo (dark, for light bg)"
     },
     {
       "type": "image_picker",
       "id": "logo_light",
-      "label": "t:sections.header.settings.logo_light.label"
+      "label": "Logo (light, for dark bg / transparent)"
     }
   ],
   "blocks": [
     {
       "type": "mega_promo",
-      "name": "t:sections.header.blocks.mega_promo.name",
+      "name": "Mega-menu promotions",
       "settings": [
         {
           "type": "text",
           "id": "menu_title",
-          "label": "t:sections.header.blocks.mega_promo.settings.menu_title.label",
-          "info": "t:sections.header.blocks.mega_promo.settings.menu_title.info"
+          "label": "Matches top-level menu item (exact title)",
+          "info": "e.g. Shop By Category"
         },
         {
           "type": "image_picker",
           "id": "image_1",
-          "label": "t:sections.header.blocks.mega_promo.settings.image_1.label"
+          "label": "Promo 1 image"
         },
         {
           "type": "text",
           "id": "title_1",
-          "label": "t:sections.header.blocks.mega_promo.settings.title_1.label"
+          "label": "Promo 1 title"
         },
         {
           "type": "url",
           "id": "link_1",
-          "label": "t:sections.header.blocks.mega_promo.settings.link_1.label"
+          "label": "Promo 1 link"
         },
         {
           "type": "image_picker",
           "id": "image_2",
-          "label": "t:sections.header.blocks.mega_promo.settings.image_2.label"
+          "label": "Promo 2 image"
         },
         {
           "type": "text",
           "id": "title_2",
-          "label": "t:sections.header.blocks.mega_promo.settings.title_2.label"
+          "label": "Promo 2 title"
         },
         {
           "type": "url",
           "id": "link_2",
-          "label": "t:sections.header.blocks.mega_promo.settings.link_2.label"
+          "label": "Promo 2 link"
         },
         {
           "type": "image_picker",
           "id": "image_3",
-          "label": "t:sections.header.blocks.mega_promo.settings.image_3.label"
+          "label": "Promo 3 image"
         },
         {
           "type": "text",
           "id": "title_3",
-          "label": "t:sections.header.blocks.mega_promo.settings.title_3.label"
+          "label": "Promo 3 title"
         },
         {
           "type": "url",
           "id": "link_3",
-          "label": "t:sections.header.blocks.mega_promo.settings.link_3.label"
+          "label": "Promo 3 link"
         }
       ]
     }

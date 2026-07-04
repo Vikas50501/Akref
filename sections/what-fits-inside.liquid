@@ -63,24 +63,24 @@
 
 {% schema %}
 {
-  "name": "t:sections.what-fits-inside.name",
+  "name": "What fits inside",
   "class": "index-section inside-section-wrap",
   "settings": [
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.what-fits-inside.settings.heading.label",
+      "label": "Heading",
       "default": "What Fits Inside"
     },
     {
       "type": "video",
       "id": "video",
-      "label": "t:sections.what-fits-inside.settings.video.label"
+      "label": "Main video"
     },
     {
       "type": "video_url",
       "id": "video_url",
-      "label": "t:sections.what-fits-inside.settings.video_url.label",
+      "label": "Main video URL",
       "accept": [
         "youtube",
         "vimeo"
@@ -89,17 +89,17 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.what-fits-inside.settings.image.label"
+      "label": "Main image (fallback)"
     },
     {
       "type": "video",
       "id": "secondary_video",
-      "label": "t:sections.what-fits-inside.settings.secondary_video.label"
+      "label": "Secondary video"
     },
     {
       "type": "video_url",
       "id": "secondary_video_url",
-      "label": "t:sections.what-fits-inside.settings.secondary_video_url.label",
+      "label": "Secondary video URL",
       "accept": [
         "youtube",
         "vimeo"
@@ -108,28 +108,28 @@
     {
       "type": "image_picker",
       "id": "secondary_image",
-      "label": "t:sections.what-fits-inside.settings.secondary_image.label"
+      "label": "Secondary image"
     },
     {
       "type": "header",
-      "content": "t:sections.what-fits-inside.headers.h0"
+      "content": "Style"
     },
     {
       "type": "color",
       "id": "bg",
-      "label": "t:sections.what-fits-inside.settings.bg.label",
+      "label": "Background",
       "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.what-fits-inside.settings.text_color.label",
+      "label": "Text",
       "default": "#141515"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.what-fits-inside.settings.padding_top.label",
+      "label": "Padding top",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -139,7 +139,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.what-fits-inside.settings.padding_bottom.label",
+      "label": "Padding bottom",
       "min": 0,
       "max": 120,
       "step": 4,
@@ -150,12 +150,12 @@
   "blocks": [
     {
       "type": "item",
-      "name": "t:sections.what-fits-inside.blocks.item.name",
+      "name": "Item",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "label": "t:sections.what-fits-inside.blocks.item.settings.text.label",
+          "label": "Text",
           "default": "Mac Pro 15\""
         }
       ]
