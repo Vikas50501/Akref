@@ -85,8 +85,16 @@
 
 /* Transparent header over hero */
 .header--transparent {
-  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: transparent; color: #fff;
+  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: transparent; color: #fff; z-index: 500;
 }
+/* Readability scrim so the white logo/menu is legible over ANY hero (or an empty one) */
+.header--transparent:not(.is-scrolled)::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 180%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.38), rgba(0,0,0,0)); pointer-events: none; z-index: -1;
+}
+.header--transparent:not(.is-scrolled) .header__link,
+.header--transparent:not(.is-scrolled) .header__icon,
+.header--transparent:not(.is-scrolled) .header__mobile-toggle { text-shadow: 0 1px 6px rgba(0,0,0,0.25); }
 .header--transparent .header__logo-img--dark { display: none; }
 .header--transparent .header__logo-img--light { display: inline-block; }
 .header--transparent.is-scrolled {

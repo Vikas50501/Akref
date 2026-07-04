@@ -1,5 +1,6 @@
 {
   "general": {
+    "nav": { "home": "Home", "catalog": "Catalog", "contact": "Contact" },
     "meta": { "tags": "Tagged \"{{ tags }}\"", "page": "Page {{ page }}" },
     "search": { "search": "Search", "placeholder": "Search for", "no_results": "No results found for “{{ terms }}”.", "results_for": "Results for “{{ terms }}”", "title": "Search our store" },
     "newsletter": { "label": "Your E-Mail", "button": "Subscribe", "success": "Thanks for subscribing." },

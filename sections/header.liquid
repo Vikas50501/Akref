@@ -55,6 +55,14 @@
               {%- endfor -%}
             </ul>
           </nav>
+        {%- else -%}
+          {%- comment -%} Fallback nav when no menu is connected yet {%- endcomment -%}
+          <nav class="header__nav hide-mobile hide-tablet" aria-label="Primary">
+            <ul class="header__menu">
+              <li class="header__item"><a href="{{ routes.root_url }}" class="header__link">{{ 'general.nav.home' | t }}</a></li>
+              <li class="header__item"><a href="{{ routes.all_products_collection_url }}" class="header__link">{{ 'general.nav.catalog' | t }}</a></li>
+            </ul>
+          </nav>
         {%- endif -%}
       </div>
 
