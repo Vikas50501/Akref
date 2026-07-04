@@ -9,9 +9,21 @@
     var header = document.querySelector('theme-header, .header');
     if (!header) return;
     var transparent = header.classList.contains('header--transparent');
+    var ann = document.querySelector('.announcement-bar');
     var threshold = transparent ? Math.min(120, window.innerHeight * 0.6) : 4;
-    function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > threshold); }
+    // Transparent header is position:absolute — keep it BELOW the announcement bar
+    // (not overlapping it) while at the top; snap to 0 once it becomes the fixed state.
+    function applyTop() {
+      if (!transparent) return;
+      if (header.classList.contains('is-scrolled')) { header.style.top = ''; }
+      else { header.style.top = (ann && ann.offsetParent !== null ? ann.offsetHeight : 0) + 'px'; }
+    }
+    function onScroll() {
+      header.classList.toggle('is-scrolled', window.scrollY > threshold);
+      applyTop();
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', applyTop);
     onScroll();
   }
 
