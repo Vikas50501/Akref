@@ -4,13 +4,11 @@
   with a licensed build before commercial launch.
 {%- endcomment -%}
 <style>
-  @font-face{font-family:'panamaregular';src:url({{ 'panamaproportionalregular-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intlbold';src:url({{ 'fonnts.com-suisse_intl_bold-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intlbook';src:url({{ 'fonnts.com-suisse_intl_book-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intlmedium';src:url({{ 'fonnts.com-suisse_intl_medium-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intlregular';src:url({{ 'fonnts.com-suisse_intl_regular-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intllight';src:url({{ 'fonnts.com-suisseintl-light-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'suisse_intlultralight';src:url({{ 'iek12-7pwzv-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+  {%- comment -%}
+    Match the original: only queens (headings) + centra (all body/UI/label/price/
+    button text) are shipped. The source site's suisse & panama @font-face rules are
+    commented out, so those tokens fall back to centra (see base.css).
+  {%- endcomment -%}
   @font-face{font-family:'queens_var_triallight';src:url({{ 'queensvartrial-webfont.woff2' | asset_url }}) format('woff2');font-weight:100 800;font-style:normal;font-display:swap;}
   @font-face{font-family:'queens_var_italic_trialLtIt';src:url({{ 'queensvaritalictrial-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:italic;font-display:swap;}
   @font-face{font-family:'queenregular';src:url({{ 'queen-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}

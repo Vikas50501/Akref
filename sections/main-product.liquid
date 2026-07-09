@@ -46,6 +46,27 @@
                   <span class="product-stock__dot"></span><span data-inventory-text>{% if show_inv %}{{ 'products.product.low_stock' | t: count: inv }}{% endif %}</span>
                 </p>
               {%- when 'variant_picker' -%}
+                {%- comment -%} Linked-colour swatches: sibling products chosen via the
+                  product metafield custom.color_variants (product list). Matches the
+                  original's image-swatch colour picker that links to sibling products. {%- endcomment -%}
+                {%- assign color_siblings = product.metafields.custom.color_variants.value -%}
+                {%- if color_siblings != blank and color_siblings != empty -%}
+                  <div class="variant-pick variant-pick--linked" {{ block.shopify_attributes }}>
+                    <div class="variant-label">{{ 'products.product.colours' | t }}{% if block.settings.show_selected %} - <span>{{ product.metafields.custom.color_name | default: product.title }}</span>{% endif %}</div>
+                    <div class="relatedvarain-wrap">
+                      <div class="relatedvaraint">
+                        <div class="variant-blk active" aria-current="true">
+                          {%- if product.featured_media -%}<img class="variant-img" src="{{ product.featured_media | image_url: width: 120 }}" width="60" height="60" alt="{{ product.title | escape }}" loading="lazy">{%- endif -%}
+                        </div>
+                        {%- for sibling in color_siblings -%}
+                          <a href="{{ sibling.url }}" class="variant-blk" aria-label="{{ sibling.title | escape }}">
+                            {%- if sibling.featured_media -%}<img class="variant-img" src="{{ sibling.featured_media | image_url: width: 120 }}" width="60" height="60" alt="{{ sibling.title | escape }}" loading="lazy">{%- endif -%}
+                          </a>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
                 <variant-radios class="variant-pick" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
                   {%- unless product.has_only_default_variant -%}
                     {%- for option in product.options_with_values -%}
@@ -123,27 +144,40 @@
                   <div class="product-description rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
                 {%- endif -%}
               {%- when 'accordion' -%}
-                <div class="accrodian-block" data-accordion {{ block.shopify_attributes }}>
+                {%- comment -%} Title rows open slide-in drawer panels (matches the original
+                  drop-down interaction), reusing the theme's generic drawer system. {%- endcomment -%}
+                <div class="accrodian-block" {{ block.shopify_attributes }}>
                   {%- for i in (1..5) -%}
                     {%- assign title_key = 'title_' | append: i -%}
-                    {%- assign content_key = 'content_' | append: i -%}
-                    {%- assign meta_key = 'metafield_' | append: i -%}
                     {%- assign a_title = block.settings[title_key] -%}
-                    {%- assign a_content = block.settings[content_key] -%}
-                    {%- assign a_meta = block.settings[meta_key] -%}
-                    {%- if a_meta != blank -%}{%- assign a_content = product.metafields.custom[a_meta] -%}{%- endif -%}
                     {%- if a_title != blank -%}
-                      <div class="accordion-item titleaccordian-wrap" data-accordion-item>
-                        <button type="button" class="titleaccordian" data-accordion-trigger aria-expanded="false">
-                          <span>{{ a_title }}</span>{%- render 'icon', name: 'plus', size: 16 -%}
-                        </button>
-                        <div class="accordion-panel" data-accordion-panel>
-                          <div class="accordion-panel__inner rte">{{ a_content }}</div>
-                        </div>
-                      </div>
+                      <button type="button" class="titleaccordian" data-drawer-open="ProductDrawer-{{ section.id }}-{{ i }}" aria-haspopup="dialog">
+                        <span>{{ a_title }}</span>{%- render 'icon', name: 'chevron-right', size: 16 -%}
+                      </button>
                     {%- endif -%}
                   {%- endfor -%}
                 </div>
+                {%- for i in (1..5) -%}
+                  {%- assign title_key = 'title_' | append: i -%}
+                  {%- assign content_key = 'content_' | append: i -%}
+                  {%- assign meta_key = 'metafield_' | append: i -%}
+                  {%- assign a_title = block.settings[title_key] -%}
+                  {%- assign a_content = block.settings[content_key] -%}
+                  {%- assign a_meta = block.settings[meta_key] -%}
+                  {%- if a_meta != blank -%}{%- assign a_content = product.metafields.custom[a_meta] -%}{%- endif -%}
+                  {%- if a_title != blank -%}
+                    <div class="side-panel side-panel--right product-drawer" id="ProductDrawer-{{ section.id }}-{{ i }}" data-drawer aria-hidden="true" role="dialog" aria-label="{{ a_title | escape }}">
+                      <div class="side-panel__overlay" data-drawer-close></div>
+                      <div class="side-panel__content product-drawer__content">
+                        <div class="side-panel__head">
+                          <span class="side-panel__title">{{ a_title }}</span>
+                          <button class="side-panel__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 20 -%}</button>
+                        </div>
+                        <div class="product-drawer__body rte">{{ a_content }}</div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
               {%- when 'share' -%}
                 <div class="product-share" {{ block.shopify_attributes }}>
                   <a href="https://www.facebook.com/sharer.php?u={{ shop.url | append: product.url }}" target="_blank" rel="noopener" aria-label="Share on Facebook">{%- render 'icon', name: 'facebook', size: 18 -%}</a>

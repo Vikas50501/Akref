@@ -11,7 +11,7 @@
           {%- if section.settings.text != blank -%}<div class="rte">{{ section.settings.text }}</div>{%- endif -%}
           {%- if section.settings.email != blank -%}<p class="contact-info__line"><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>{%- endif -%}
           {%- if section.settings.phone != blank -%}<p class="contact-info__line"><a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone }}</a></p>{%- endif -%}
-          {%- if section.settings.address != blank -%}<div class="contact-info__address rte">{{ section.settings.address }}</div>{%- endif -%}
+          {%- if section.settings.address != blank -%}<div class="contact-info__address rte">{{ section.settings.address | newline_to_br }}</div>{%- endif -%}
         </div>
       {%- endif -%}
       <div class="contact-form-wrap">
@@ -31,11 +31,11 @@
           </div>
           <div class="contact-form__row">
             <label class="visually-hidden" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
-            <input type="tel" id="ContactFormPhone" name="contact[phone]" class="full" placeholder="{{ 'contact.form.phone' | t }}" value="{{ form.phone }}" autocomplete="tel">
+            <input type="tel" id="ContactFormPhone" name="contact[phone]" class="full" placeholder="{{ 'contact.form.phone' | t }}" value="{{ form.phone }}" autocomplete="tel" required>
           </div>
           <div class="contact-form__row">
             <label class="visually-hidden" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
-            <textarea id="ContactFormMessage" name="contact[body]" class="full" rows="8" placeholder="{{ 'contact.form.message' | t }}" required>{{ form.body }}</textarea>
+            <textarea id="ContactFormMessage" name="contact[body]" class="full" rows="10" placeholder="{{ 'contact.form.message' | t }}" required>{{ form.body }}</textarea>
           </div>
           <button type="submit" class="button">{{ 'contact.form.send' | t }}</button>
         {%- endform -%}

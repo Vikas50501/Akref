@@ -20,7 +20,7 @@
               {%- if block.settings.image_mobile != blank -%}
                 <source media="(max-width: 767px)" srcset="{{ block.settings.image_mobile | image_url: width: 800 }} 800w, {{ block.settings.image_mobile | image_url: width: 1200 }} 1200w" sizes="100vw">
               {%- endif -%}
-              <img class="slideshow-image" src="{{ block.settings.image | image_url: width: 1600 }}" srcset="{{ block.settings.image | image_url: width: 1000 }} 1000w, {{ block.settings.image | image_url: width: 1600 }} 1600w, {{ block.settings.image | image_url: width: 2400 }} 2400w, {{ block.settings.image | image_url: width: 3000 }} 3000w" sizes="100vw" alt="{{ block.settings.heading | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+              <img class="slideshow-image" gsap-scale-anim src="{{ block.settings.image | image_url: width: 1600 }}" srcset="{{ block.settings.image | image_url: width: 1000 }} 1000w, {{ block.settings.image | image_url: width: 1600 }} 1600w, {{ block.settings.image | image_url: width: 2400 }} 2400w, {{ block.settings.image | image_url: width: 3000 }} 3000w" sizes="100vw" alt="{{ block.settings.heading | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
             </picture>
           {%- else -%}
             <div class="slideshow__placeholder">{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
@@ -30,10 +30,10 @@
         <div class="slideshow__inner content-{{ pos }}">
           <div class="slideshow__content" data-anim="up">
             {%- if block.settings.subheading != blank -%}<p class="slideshow__subheading tag-line">{{ block.settings.subheading }}</p>{%- endif -%}
-            {%- if block.settings.heading != blank -%}{%- if forloop.first -%}<h1 class="slideshow__heading">{{ block.settings.heading }}</h1>{%- else -%}<p class="slideshow__heading" role="heading" aria-level="2">{{ block.settings.heading }}</p>{%- endif -%}{%- endif -%}
+            {%- if block.settings.heading != blank -%}{%- if forloop.first -%}<h1 class="slideshow__heading letters-slide-up text-split">{{ block.settings.heading }}</h1>{%- else -%}<p class="slideshow__heading letters-slide-up text-split" role="heading" aria-level="2">{{ block.settings.heading }}</p>{%- endif -%}{%- endif -%}
             {%- if block.settings.text != blank -%}<div class="slideshow__text">{{ block.settings.text }}</div>{%- endif -%}
             {%- if block.settings.button_label != blank -%}
-              <a href="{{ block.settings.button_link }}" class="custombtn slideshow__btn">{{ block.settings.button_label }}{%- render 'icon', name: 'arrow-right', size: 13 -%}</a>
+              <a href="{{ block.settings.button_link }}" class="custombtn slideshow__btn"><span>{{ block.settings.button_label }}</span>{%- render 'icon', name: 'arrow-up-right', size: 10 -%}</a>
             {%- endif -%}
           </div>
         </div>
@@ -136,7 +136,7 @@
       "max": 10,
       "step": 1,
       "unit": "s",
-      "default": 5
+      "default": 3
     },
     {
       "type": "checkbox",

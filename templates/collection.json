@@ -9,10 +9,27 @@
  */
 {
   "sections": {
+    "tabs": {
+      "type": "collection-tabs",
+      "blocks": {
+        "t_all": { "type": "tab", "settings": { "label": "All", "is_default": true } },
+        "t_shoulder": { "type": "tab", "settings": { "label": "Shoulder" } },
+        "t_crossbody": { "type": "tab", "settings": { "label": "Crossbody" } },
+        "t_business": { "type": "tab", "settings": { "label": "Business" } },
+        "t_tote": { "type": "tab", "settings": { "label": "Tote" } },
+        "t_bucket": { "type": "tab", "settings": { "label": "Bucket" } },
+        "t_mini": { "type": "tab", "settings": { "label": "Mini" } },
+        "t_wallet": { "type": "tab", "settings": { "label": "Wallet & Purse" } },
+        "t_accessories": { "type": "tab", "settings": { "label": "Accessories" } },
+        "t_men": { "type": "tab", "settings": { "label": "Men" } }
+      },
+      "block_order": ["t_all", "t_shoulder", "t_crossbody", "t_business", "t_tote", "t_bucket", "t_mini", "t_wallet", "t_accessories", "t_men"],
+      "settings": {}
+    },
     "main": {
       "type": "main-collection",
       "settings": {
-        "show_header": true,
+        "show_header": false,
         "show_description": true,
         "enable_filtering": true,
         "columns": 4,
@@ -88,6 +105,7 @@
     }
   },
   "order": [
+    "tabs",
     "main",
     "designer_note",
     "features"

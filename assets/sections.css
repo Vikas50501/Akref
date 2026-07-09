@@ -4,7 +4,8 @@
 
 /* --- Shared section primitives --------------------------------------- */
 .index-section { position: relative; }
-.common-container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-gutter); }
+/* Original .common-container is full-bleed (no max-width), only a 10px side gutter. */
+.common-container { width: 100%; margin: 0 auto; padding: 0 var(--container-gutter); }
 .section-heading { font-family: var(--font-heading); }
 .dewrap { display: flex; flex-direction: column; gap: 20px; align-items: center; }
 .top-section-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
@@ -14,8 +15,9 @@
 .grid-normal { border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .left-blocks { position: relative; overflow: hidden; }
 .left-blocks .frame-img { width: 100%; height: 100%; object-fit: cover; }
-.right-block { display: flex; flex-direction: column; justify-content: center; padding: 60px; }
-.tag-info { max-width: 460px; font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+/* Original: centered content column, minimal 0 20px padding. */
+.right-block { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+.tag-info { max-width: 460px; margin: 0 auto; font-family: var(--font-body); font-size: 15px; font-weight: 300; line-height: 150%; opacity: 0.75; }
 
 @media (max-width: 1023px) {
   .grid-normal, .greens-container { grid-template-columns: 1fr; }
@@ -24,15 +26,16 @@
 }
 
 /* --- WhatsApp float --------------------------------------------------- */
+/* Original places the WhatsApp float bottom-left. */
 .whatsapp-float {
-  position: fixed; right: 20px; bottom: 20px; z-index: 900;
+  position: fixed; left: 20px; bottom: 20px; z-index: 900;
   width: 54px; height: 54px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: #25d366; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.18);
   transition: transform var(--transition);
 }
 .whatsapp-float:hover { transform: scale(1.06); color: #fff; }
-@media (max-width: 767px) { .whatsapp-float { width: 48px; height: 48px; right: 14px; bottom: 14px; } }
+@media (max-width: 767px) { .whatsapp-float { width: 48px; height: 48px; left: 14px; bottom: 14px; } }
 
 /* --- Shared carousel controls (used across multiple sections) --------- */
 .carousel-arrow {

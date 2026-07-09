@@ -1,0 +1,165 @@
+{%- comment -%}
+  Collection category-tab banner. Recreates the original discover-all "tab-collection"
+  band: a centered title over #f5f3f5, then a horizontal, mobile-scrollable row of
+  category tabs (icon fades in when active) with slanted dividers. Each tab links to a
+  collection or filtered URL; the active tab is matched against the current path.
+{%- endcomment -%}
+{%- liquid
+  assign heading = section.settings.heading
+  if heading == blank
+    assign heading = collection.title | default: 'Discover All'
+  endif
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg }};
+    color: {{ section.settings.text_color }};
+  }
+{%- endstyle -%}
+<div class="tab-collection index-section">
+  <div class="common-container">
+    {%- if section.settings.show_title -%}
+      <h1 class="title letters-slide-up text-split">{{ heading }}</h1>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <nav class="grid-block-wrap" aria-label="Categories">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign is_active = false
+            if block.settings.link != blank and block.settings.link != '/' and request.path contains block.settings.link
+              assign is_active = true
+            elsif block.settings.is_default and template.name == 'collection'
+              assign is_active = true
+            endif
+          -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="grid-block-tab{% if is_active %} active{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              <img class="grid-img" src="{{ block.settings.icon | image_url: width: 130 }}" alt="" width="65" height="50" loading="lazy">
+            {%- endif -%}
+            <span class="grid-tab{% if is_active %} active-tab{% endif %}">{{ block.settings.label }}</span>
+          </a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.tab-collection { overflow: hidden; position: relative; }
+.tab-collection .title { font-size: 48px; line-height: 120%; text-align: center; text-transform: capitalize; letter-spacing: 0; margin: 0 0 24px; }
+.grid-block-wrap { display: flex; gap: 12px; align-items: flex-end; justify-content: center; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+.grid-block-wrap::-webkit-scrollbar { display: none; }
+.grid-block-tab { display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative; padding-right: 12px; cursor: pointer; flex: 0 0 auto; color: inherit; }
+.grid-block-tab:last-child { padding-right: 0; }
+.grid-block-tab:last-child::after { display: none; }
+.grid-block-tab::after { content: ''; width: 1.3px; height: 14px; background: rgba(var(--color-ink-rgb), 0.6); display: block; rotate: 14deg; position: absolute; bottom: 2px; right: 0; }
+.grid-img { width: auto; max-width: 65px; height: 50px; object-fit: contain; opacity: 0; transform: translateY(6px); transition: opacity var(--transition), transform var(--transition); }
+.grid-block-tab.active .grid-img, .grid-block-tab:hover .grid-img { opacity: 1; transform: translateY(0); }
+.grid-tab { margin: 0; color: rgba(var(--color-ink-rgb), 0.6); font-family: var(--font-body); font-size: 12px; line-height: 120%; letter-spacing: 0; text-transform: uppercase; white-space: nowrap; transition: color var(--transition); }
+.grid-tab.active-tab, .grid-block-tab:hover .grid-tab { color: var(--color-ink); }
+@media (max-width: 767px) {
+  .tab-collection .title { font-size: 28px; margin-bottom: 20px; }
+  .grid-block-wrap { justify-content: flex-start; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection tabs",
+  "class": "index-section collection-tabs-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show collection title",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title override (defaults to collection title)"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background",
+      "default": "#f5f3f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#141515"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Category tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (shows when active/hovered)"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_default",
+          "label": "Active by default (the \"All\" tab)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection tabs",
+      "blocks": [
+        { "type": "tab", "settings": { "label": "All", "is_default": true } },
+        { "type": "tab", "settings": { "label": "Shoulder" } },
+        { "type": "tab", "settings": { "label": "Crossbody" } },
+        { "type": "tab", "settings": { "label": "Business" } },
+        { "type": "tab", "settings": { "label": "Tote" } },
+        { "type": "tab", "settings": { "label": "Bucket" } },
+        { "type": "tab", "settings": { "label": "Mini" } },
+        { "type": "tab", "settings": { "label": "Wallet & Purse" } },
+        { "type": "tab", "settings": { "label": "Accessories" } },
+        { "type": "tab", "settings": { "label": "Men" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

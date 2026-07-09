@@ -4,48 +4,17 @@
       "type": "page-header",
       "settings": {
         "tagline": "Responsibility",
-        "heading": "Sustainability",
+        "heading": "Sustainability & Warranty",
         "height": 420
       }
     },
-    "intro": {
-      "type": "rich-text",
-      "blocks": {
-        "h": {
-          "type": "heading",
-          "settings": {
-            "text": "Made responsibly, made to last"
-          }
-        },
-        "t": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We believe true luxury respects people and planet. Our leather is LWG-certified and our workshops are SA8000-certified for ethical labour.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "h",
-        "t"
-      ],
-      "settings": {
-        "alignment": "center",
-        "width": "medium"
-      }
-    },
-    "lwg": {
+    "sa8000": {
       "type": "image-text",
       "blocks": {
-        "tag": {
-          "type": "tagline",
-          "settings": {
-            "text": "LWG Certified"
-          }
-        },
         "head": {
           "type": "heading",
           "settings": {
-            "text": "Traceable, responsible leather"
+            "text": "SA8000 Certified"
           }
         },
         "div": {
@@ -55,12 +24,11 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p id=\"is-lwg\">Our tanneries are certified by the Leather Working Group, ensuring lower environmental impact across water, energy, and traceability.</p>"
+            "text": "<p id=\"is-sa8000\">SA8000 is a globally recognised standard for social accountability. It ensures that every person in the supply chain works under fair, safe, and dignified conditions, free from discrimination, exploitation, or child labour. At AKINNA, we work only with vendors and artisans who follow SA8000 standards. This means fair wages, safe environments, and equal opportunities are non-negotiable. We also support women-led training programs, education initiatives, and skill development projects across our partner communities in India. Every AKINNA bag carries not just craftsmanship, but also a story of empowerment. By preserving traditional skills and uplifting local communities, we ensure that our handbags represent dignity, fairness, and heritage, stitched into every detail.</p>"
           }
         }
       },
       "block_order": [
-        "tag",
         "head",
         "div",
         "body"
@@ -70,19 +38,13 @@
         "media_height": 80
       }
     },
-    "sa8000": {
+    "lwg": {
       "type": "image-text",
       "blocks": {
-        "tag": {
-          "type": "tagline",
-          "settings": {
-            "text": "SA8000 Certified"
-          }
-        },
         "head": {
           "type": "heading",
           "settings": {
-            "text": "Ethical craftsmanship"
+            "text": "LWG Certified"
           }
         },
         "div": {
@@ -92,12 +54,11 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p id=\"is-sa8000\">Our workshops meet SA8000 standards for fair wages, safe conditions, and dignified work.</p>"
+            "text": "<p id=\"is-lwg\">The Leather Working Group (LWG) is the world's leading certification for sustainable leather. It audits and certifies tanneries on their environmental practices, from water and energy use to waste and chemical management. We source only LWG-certified leather from responsible tanneries. Our manufacturing also runs on solar energy through a Tata Solar Plant, complemented by low-energy lighting, eco-conscious water usage, and strict waste-reduction practices. Every AKINNA bag begins with materials that respect the planet. By choosing sustainable leather and clean energy, we reduce our environmental footprint and ensure luxury that lasts, not just in your wardrobe, but for the world around us.</p>"
           }
         }
       },
       "block_order": [
-        "tag",
         "head",
         "div",
         "body"
@@ -106,12 +67,28 @@
         "image_position": "right",
         "media_height": 80
       }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "heading": "@akinna.studios",
+        "columns": 6,
+        "border_top": true
+      }
     }
   },
   "order": [
     "header",
-    "intro",
+    "sa8000",
     "lwg",
-    "sa8000"
+    "designer_note",
+    "instagram"
   ]
 }

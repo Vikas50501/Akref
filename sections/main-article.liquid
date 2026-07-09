@@ -25,7 +25,27 @@
     {%- if article.tags.size > 0 -%}
       <div class="article-tags"><span>{{ 'blogs.article.tags' | t }}:</span> {% for tag in article.tags %}<a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
     {%- endif -%}
-    <div class="article-footer"><a href="{{ blog.url }}" class="custombtn">{%- render 'icon', name: 'arrow-left', size: 13 -%}{{ 'blogs.article.back' | t }}</a></div>
+    {%- if section.settings.show_share -%}
+      {%- assign share_url = shop.url | append: article.url -%}
+      <div class="article-share sharpostlin">
+        <h3>{{ 'blogs.article.share' | t }}</h3>
+        <div class="article-share__links socialdiv">
+          <a class="social" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook' | t }}">{%- render 'icon', name: 'facebook', size: 18 -%}</a>
+          <a class="social" href="https://api.whatsapp.com/send?text={{ article.title | url_encode }}%20{{ share_url }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.whatsapp' | t }}">{%- render 'icon', name: 'whatsapp', size: 18 -%}</a>
+        </div>
+      </div>
+    {%- endif -%}
+    <div class="article-footer"><a href="{{ blog.url }}" class="custombtn"><span>{{ 'blogs.article.back' | t }}</span></a></div>
+    {%- if blog.previous_article or blog.next_article -%}
+      <nav class="thb_post_nav" aria-label="{{ 'blogs.article.more' | t }}">
+        {%- if blog.previous_article -%}
+          <a href="{{ blog.previous_article.url }}" class="thb_post_nav__link thb_post_nav__prev">{%- render 'icon', name: 'arrow-left', size: 16 -%}<span>{{ blog.previous_article.title }}</span></a>
+        {%- else -%}<span></span>{%- endif -%}
+        {%- if blog.next_article -%}
+          <a href="{{ blog.next_article.url }}" class="thb_post_nav__link thb_post_nav__next"><span>{{ blog.next_article.title }}</span>{%- render 'icon', name: 'arrow-right', size: 16 -%}</a>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
   </div>
 
   {%- if blog.comments_enabled? -%}
@@ -59,6 +79,12 @@
       "type": "checkbox",
       "id": "show_image",
       "label": "Show featured image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share",
+      "label": "Show share buttons",
       "default": true
     },
     {

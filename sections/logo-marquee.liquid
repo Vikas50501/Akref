@@ -31,8 +31,8 @@
 .logo-marquee__wrap { display: flex; width: max-content; }
 .logo-marquee__group { display: flex; align-items: center; gap: var(--lm-gap, 120px); padding-right: var(--lm-gap, 120px); animation: logo-scroll var(--lm-speed, 120s) linear infinite; }
 .glock-images { flex: none; max-width: var(--lm-max, 120px); }
-.glock-images img { width: 100%; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: opacity var(--transition), filter var(--transition); }
-.glock-images:hover img { filter: none; opacity: 1; }
+/* Original shows logos full-colour (no grayscale/dim). */
+.glock-images img { width: 100%; height: auto; object-fit: contain; }
 .logo-marquee__ph { font-family: var(--font-ui); opacity: 0.4; }
 [data-marquee-hover]:hover .logo-marquee__group { animation-play-state: paused; }
 @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }

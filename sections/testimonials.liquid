@@ -17,11 +17,11 @@
             {%- if block.type == 'video' -%}
               <div class="vd-wrp">
                 {%- if block.settings.video != blank -%}
-                  {{ block.settings.video | video_tag: image_size: '600x', loop: true, muted: true, controls: false, autoplay: false, playsinline: true, class: 'fr-video', preload: 'metadata' }}
+                  {{ block.settings.video | video_tag: image_size: '600x', loop: true, muted: true, controls: false, autoplay: true, playsinline: true, class: 'fr-video', preload: 'metadata' }}
                 {%- elsif block.settings.video_url != blank -%}
-                  <video class="fr-video" loop muted playsinline preload="metadata" {% if block.settings.poster %}poster="{{ block.settings.poster | image_url: width: 600 }}"{% endif %}><source src="{{ block.settings.video_url }}" type="video/mp4"></video>
+                  <video class="fr-video" loop muted autoplay playsinline preload="metadata" {% if block.settings.poster %}poster="{{ block.settings.poster | image_url: width: 600 }}"{% endif %}><source src="{{ block.settings.video_url }}" type="video/mp4"></video>
                 {%- endif -%}
-                <button class="play-pause-wrap" data-testi-toggle aria-label="Play"><span class="vd-btn is-play">{%- render 'icon', name: 'play', size: 16 -%}</span><span class="vd-btn is-pause" hidden>{%- render 'icon', name: 'pause', size: 16 -%}</span></button>
+                <button class="play-pause-wrap" data-testi-toggle aria-label="Pause"><span class="vd-btn is-play" hidden>{%- render 'icon', name: 'play', size: 16 -%}</span><span class="vd-btn is-pause">{%- render 'icon', name: 'pause', size: 16 -%}</span></button>
               </div>
             {%- else -%}
               {%- if block.settings.image != blank -%}
@@ -60,7 +60,8 @@
 .testimonials__slide { scroll-snap-align: start; aspect-ratio: 3/5; position: relative; overflow: hidden; background: var(--color-bg-alt); }
 .testimonials__slide .fr-image, .testimonials__slide video, .testimonials__slide .fr-video { width: 100%; height: 100%; object-fit: cover; }
 .vd-wrp { position: relative; width: 100%; height: 100%; }
-.play-pause-wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: none; border: 0; cursor: pointer; color: #fff; }
+.play-pause-wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: none; border: 0; cursor: pointer; color: #fff; opacity: 0; transition: opacity var(--transition); }
+.vd-wrp:hover .play-pause-wrap, .play-pause-wrap:focus-visible { opacity: 1; }
 .vd-btn { width: 46px; height: 46px; border-radius: 50%; background: rgba(0,0,0,0.35); display: inline-flex; align-items: center; justify-content: center; }
 .happy-wrapper-navigation { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 24px; }
 .happy-pagination { font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; min-width: 60px; text-align: center; }

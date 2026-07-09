@@ -11,13 +11,14 @@
   "general": {
     "nav": { "home": "Home", "catalog": "Catalog", "contact": "Contact" },
     "meta": { "tags": "Tagged \"{{ tags }}\"", "page": "Page {{ page }}" },
-    "search": { "search": "Search", "placeholder": "Search for", "no_results": "No results found for “{{ terms }}”.", "results_for": "Results for “{{ terms }}”", "title": "Search our store" },
+    "search": { "search": "Search", "placeholder": "Search for", "no_results": "No results found for “{{ terms }}”.", "results_for": "Results for “{{ terms }}”", "title": "Search our store", "esc_hint": "Press ESC to close" },
     "newsletter": { "label": "Your E-Mail", "button": "Subscribe", "success": "Thanks for subscribing." },
     "password_page": { "login_button": "Enter store" },
     "localization": { "country_label": "Country/region", "language_label": "Language", "update": "Update" },
     "social": { "facebook": "Facebook", "instagram": "Instagram", "youtube": "YouTube", "whatsapp": "Chat on WhatsApp" },
     "pagination": { "previous": "Previous", "next": "Next", "page": "Page {{ number }}" },
     "breadcrumb": { "home": "Home" },
+    "back_to_top": "Back To Top",
     "404": { "title": "Page not found", "subtext": "The page you were looking for does not exist.", "link": "Continue shopping" }
   },
   "accessibility": {
@@ -40,7 +41,8 @@
       "on_sale": "Sale",
       "from_price": "From {{ price }}",
       "low_stock": "Only {{ count }} left in stock",
-      "added": "Added"
+      "added": "Added",
+      "colours": "Colours"
     },
     "card": {
       "add_to_cart": "Add to cart",
@@ -77,7 +79,7 @@
     "you_may_also_like": "You may also like"
   },
   "blogs": {
-    "article": { "read_more": "Read more", "by": "by", "back": "Back to blog", "tags": "Tags" },
+    "article": { "read_more": "Read more", "by": "by", "back": "Back to blog", "tags": "Tags", "share": "Share this post", "more": "More articles" },
     "comments": { "title": "Leave a comment", "name": "Name", "email": "Email", "message": "Message", "post": "Post comment" }
   },
   "contact": {

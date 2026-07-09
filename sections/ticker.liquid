@@ -26,11 +26,11 @@
 .ticker__viewport { overflow: hidden; }
 .ticker__wrap { display: flex; width: max-content; }
 .ticker__group { display: flex; align-items: center; gap: var(--ticker-gap, 200px); padding-right: var(--ticker-gap, 200px); animation: ticker-scroll var(--ticker-speed, 50s) linear infinite; }
-.ticker__item { position: relative; white-space: nowrap; font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.ticker__item { position: relative; white-space: nowrap; font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0; }
 .ticker__item::before { content: ''; position: absolute; left: calc(var(--ticker-gap, 200px) / -2); top: 50%; width: 10px; height: 1px; background: currentColor; transform: translateY(-50%); opacity: 0.6; }
 [data-ticker-hover]:hover .ticker__group { animation-play-state: paused; }
 @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% )); } }
-@media (max-width: 767px) { #shopify-section [style] { } .ticker__group { gap: 60px; padding-right: 60px; } .ticker__item::before { left: -35px; } }
+@media (max-width: 767px) { .ticker__group { gap: 50px; padding-right: 50px; } .ticker__item::before { left: -30px; } }
 {% endstylesheet %}
 
 {% schema %}

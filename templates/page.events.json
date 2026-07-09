@@ -1,19 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "header": {
       "type": "page-header",
       "settings": {
         "tagline": "Akinna's Events",
-        "heading": "Where We've Been",
+        "heading": "Milan Fashion Week",
         "height": 320
       }
     },
@@ -23,8 +14,8 @@
         "e1": {
           "type": "event",
           "settings": {
-            "title": "Milan Fashion Week",
-            "meta": "September 2024 · Milan, Italy"
+            "title": "Amore Piccante",
+            "text": "<p>This season, AKINNA turned up the heat with Amore Piccante, a showcase in Spicy Red. Inspired by bold flavours and fiery passion, the collection reimagined red as more than a colour, it became the statement.</p>"
           }
         }
       },
@@ -35,10 +26,27 @@
         "tagline": "Akinna's Events",
         "heading": "Milan Fashion Week"
       }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "heading": "@akinna.studios",
+        "columns": 6,
+        "border_top": true
+      }
     }
   },
   "order": [
     "header",
-    "events"
+    "events",
+    "designer_note",
+    "instagram"
   ]
 }

@@ -49,10 +49,10 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "More Akinna this way",
-            "text": "<p>Join the AKINNA Sphere &amp; get 15% off your second order.</p>",
+            "heading": "More akinna this way",
+            "text": "<p>Join #AKINNASphere &amp; get 15% off on your second order!</p>",
             "show_payment": true,
-            "payment_title": "Secure online payment"
+            "payment_title": "secure online payment"
           }
         }
       },
@@ -65,8 +65,8 @@
         "newsletter"
       ],
       "settings": {
-        "copyright_text": "All rights reserved.",
-        "bottom_menu": "footer-legal"
+        "copyright_text": "All Rights Reserved.",
+        "bottom_menu": ""
       }
     }
   },

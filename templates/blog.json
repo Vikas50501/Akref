@@ -12,7 +12,7 @@
     "main": {
       "type": "main-blog",
       "settings": {
-        "columns": 3
+        "columns": 4
       }
     }
   },

@@ -50,15 +50,24 @@
                     <div class="facet-group__panel" data-accordion-panel>
                       {%- case filter.type -%}
                         {%- when 'price_range' -%}
-                          <div class="facet-price">
+                          {%- assign range_max = filter.range_max | money_without_currency | replace: ',', '' | plus: 0 -%}
+                          {%- assign cur_min = filter.min_value.value | default: 0 -%}
+                          {%- assign cur_max = filter.max_value.value | default: range_max -%}
+                          <price-range class="facet-price" data-max="{{ range_max }}">
+                            <div class="price-slider">
+                              <div class="price-slider__track"></div>
+                              <div class="price-slider__fill" data-slider-fill></div>
+                              <input type="range" class="price-slider__handle price-slider__handle--min" min="0" max="{{ range_max }}" step="1" value="{{ cur_min }}" data-slider-min aria-label="{{ 'products.facets.from' | t }}">
+                              <input type="range" class="price-slider__handle price-slider__handle--max" min="0" max="{{ range_max }}" step="1" value="{{ cur_max }}" data-slider-max aria-label="{{ 'products.facets.to' | t }}">
+                            </div>
                             <div class="facet-price__inputs">
                               <span class="field-currency">{{ cart.currency.symbol }}</span>
-                              <input type="number" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}" placeholder="{{ 'products.facets.from' | t }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                              <input type="number" class="facet-price__field" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}" placeholder="{{ 'products.facets.from' | t }}" min="0" max="{{ range_max }}" data-price-min>
                               <span>-</span>
                               <span class="field-currency">{{ cart.currency.symbol }}</span>
-                              <input type="number" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}" placeholder="{{ 'products.facets.to' | t }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                              <input type="number" class="facet-price__field" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}" placeholder="{{ 'products.facets.to' | t }}" min="0" max="{{ range_max }}" data-price-max>
                             </div>
-                          </div>
+                          </price-range>
                         {%- else -%}
                           <ul class="facet-list">
                             {%- for value in filter.values -%}

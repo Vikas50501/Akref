@@ -45,7 +45,7 @@
         "buy": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_pickup": true
           }
         },
@@ -63,12 +63,8 @@
             "title_3": "Materials",
             "metafield_3": "materials",
             "title_4": "Shipping & Returns",
-            "content_4": "<ul><li>FREE delivery. Shipped within 2-4 working days.</li><li>FREE returns within 14 days.</li></ul>"
+            "content_4": "<ul><li>FREE Delivery across India. Shipped within 2-4 working days.</li><li>FREE Returns within 14 days.</li><li>For more details, please read our Shipping Policy and Return Policy.</li></ul>"
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {}
         }
       },
       "block_order": [
@@ -80,8 +76,7 @@
         "variant",
         "buy",
         "badges",
-        "accordion",
-        "share"
+        "accordion"
       ],
       "settings": {
         "gallery_layout": "thumbnails",
@@ -161,7 +156,7 @@
         "e2": {
           "type": "image",
           "settings": {
-            "label": "Green Interiors"
+            "label": "Green interiors"
           }
         },
         "e3": {
@@ -221,7 +216,7 @@
           "type": "item",
           "settings": {
             "title": "Enduring Hardware",
-            "text": "Zamac fittings and YKK metal zippers, built to last."
+            "text": "Zamac fittings and YKK metal zippers, built for strength and longevity."
           }
         }
       },
@@ -274,6 +269,21 @@
         "aspect": "0.625"
       }
     },
+    "packaging": {
+      "type": "club-banner",
+      "settings": {
+        "overlay_opacity": 0,
+        "aspect_desktop": "2.3",
+        "aspect_mobile": "1.4",
+        "show_star": false,
+        "tagline": "",
+        "heading": "",
+        "text": "",
+        "button_label": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -281,11 +291,47 @@
         "limit": 4
       }
     },
-    "recently_viewed": {
-      "type": "recently-viewed",
+    "sep": {
+      "type": "separator",
       "settings": {
-        "heading": "Recently viewed",
-        "limit": 4
+        "color": "#0000001a",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
+    },
+    "press": {
+      "type": "logo-marquee",
+      "blocks": {
+        "l1": { "type": "logo", "settings": {} },
+        "l2": { "type": "logo", "settings": {} },
+        "l3": { "type": "logo", "settings": {} },
+        "l4": { "type": "logo", "settings": {} }
+      },
+      "block_order": ["l1", "l2", "l3", "l4"],
+      "settings": {
+        "heading": "",
+        "speed": 120,
+        "gap": 120,
+        "logo_width": 120,
+        "border_bottom": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "studios": {
+      "type": "club-banner",
+      "settings": {
+        "overlay_opacity": 0,
+        "aspect_desktop": "2.3",
+        "aspect_mobile": "1.4",
+        "show_star": false,
+        "tagline": "",
+        "heading": "@akinna.studios",
+        "text": "",
+        "button_label": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
@@ -297,7 +343,10 @@
     "video",
     "symbols",
     "features",
+    "packaging",
     "recommendations",
-    "recently_viewed"
+    "sep",
+    "press",
+    "studios"
   ]
 }

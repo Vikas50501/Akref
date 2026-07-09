@@ -84,8 +84,8 @@
 
       <!-- Right: icons -->
       <div class="header__right">
+        <a class="header__icon" href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="{{ 'customer.account.title' | t }}">{%- render 'icon', name: 'account', size: 20 -%}</a>
         <button class="header__icon" data-search-open aria-label="{{ 'general.search.search' | t }}">{%- render 'icon', name: 'search', size: 21 -%}</button>
-        <a class="header__icon hide-mobile" href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="{{ 'customer.account.title' | t }}">{%- render 'icon', name: 'account', size: 20 -%}</a>
         <a class="header__icon header__cart" href="{{ routes.cart_url }}" data-cart-open aria-label="{{ 'cart.title' | t }}">
           {%- render 'icon', name: 'cart', size: 20 -%}
           <span class="header__cart-count float_count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count aria-hidden="true">{{ cart.item_count }}</span>
@@ -129,7 +129,19 @@
       </ul>
     {%- endif -%}
     <div class="mobile-menu__foot">
-      <a href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{{ 'customer.login.title' | t }}</a>
+      <ul class="mobile-menu__secondary">
+        <li><a href="{% if shop.customer_accounts_enabled %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{{ 'customer.login.title' | t }}</a></li>
+        {%- if section.settings.secondary_menu != blank -%}
+          {%- for link in linklists[section.settings.secondary_menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+      <div class="mobile-menu__social">
+        {%- if settings.social_facebook != blank -%}<a href="{{ settings.social_facebook }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.facebook' | t }}">{%- render 'icon', name: 'facebook', size: 20 -%}</a>{%- endif -%}
+        {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.instagram' | t }}">{%- render 'icon', name: 'instagram', size: 20 -%}</a>{%- endif -%}
+        {%- if settings.social_youtube != blank -%}<a href="{{ settings.social_youtube }}" target="_blank" rel="noopener" aria-label="{{ 'general.social.youtube' | t }}">{%- render 'icon', name: 'youtube', size: 20 -%}</a>{%- endif -%}
+      </div>
     </div>
   </div>
 </div>
@@ -144,6 +156,12 @@
       "id": "menu",
       "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_menu",
+      "label": "Mobile secondary menu",
+      "info": "Extra links shown at the bottom of the mobile drawer (e.g. Contact, Track Order)."
     },
     {
       "type": "select",

@@ -1,6 +1,6 @@
 {%- comment -%} Article card — image, meta, title {%- endcomment -%}
 <article class="post style1 type-post" itemscope itemtype="https://schema.org/Article">
-  <figure class="post-gallery aspect-ratio" style="--ratio-percent: 66.6%;">
+  <figure class="post-gallery aspect-ratio" style="--ratio-percent: 100%;">
     <a href="{{ article.url }}" title="{{ article.title | escape }}">
       {%- if article.image -%}
         <img src="{{ article.image | image_url: width: 800 }}" srcset="{{ article.image | image_url: width: 400 }} 400w, {{ article.image | image_url: width: 800 }} 800w" sizes="(max-width:767px) 100vw, 33vw" alt="{{ article.title | escape }}" width="{{ article.image.width }}" height="{{ article.image.height }}" loading="lazy">
@@ -9,7 +9,7 @@
   </figure>
   <div class="wrappoisr">
     {%- if article.author != blank -%}<aside class="post-meta">{{ article.author }}</aside>{%- endif -%}
-    <aside class="post-meta"><time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ article.published_at | date: '%B %-d, %Y' }}</time></aside>
+    <aside class="post-meta post-meta--date"><time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ article.published_at | date: '%B %-d, %Y' }}</time></aside>
   </div>
   <div class="post-title entry-header">
     <h4><a href="{{ article.url }}" title="{{ article.title | escape }}">{{ article.title }}</a></h4>

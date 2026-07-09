@@ -16,7 +16,7 @@
 .product_thumbnail_hover { position: absolute; inset: 0; opacity: 0; z-index: 1; transition: opacity 0.5s var(--easing); }
 .product_thumbnail_hover img { position: absolute; inset: 0; }
 .thb_hover:hover .product_thumbnail_hover { opacity: 1; }
-.thb_hover:hover .product-card__img-main { transform: scale(1.03); }
+/* Original does an opacity image-swap only — no hover zoom on the main image. */
 
 .product-card__badge {
   position: absolute; top: 12px; left: 12px; z-index: 2;
@@ -28,7 +28,8 @@
 .product-card__badge--sale { background: var(--color-sale); }
 
 .product-card__info { padding: 14px 2px 0; text-align: left; }
-.product-card__title { font-family: var(--font-body); font-size: 14px; line-height: 1.35; margin: 0 0 6px; }
+/* Original card title: queens serif, 15px, line-height 120%, capitalize. */
+.product-card__title { font-family: var(--font-heading); font-size: 15px; line-height: 120%; text-transform: capitalize; margin: 0 0 6px; }
 
 /* Colour swatches on card */
 .product-card__swatches { display: flex; align-items: center; gap: 6px; margin: 8px 0 2px; flex-wrap: wrap; }
@@ -36,7 +37,8 @@
 .card-swatch:hover { transform: scale(1.15); }
 .card-swatch__more { font-family: var(--font-ui); font-size: 11px; opacity: 0.6; }
 .product-card__title a { color: var(--color-ink); }
-.product-card__info .price { color: var(--color-ink); opacity: 0.85; }
+/* Original card price: centra, 16px, opacity .75. */
+.product-card__info .price { color: var(--color-ink); font-size: 16px; opacity: 0.75; }
 
 .product_after_shop_loop_buttons { margin-top: 12px; }
 .add_to_cart_button {

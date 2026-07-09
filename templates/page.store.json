@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "header": {
@@ -17,7 +8,7 @@
         "height": 320
       }
     },
-    "stores": {
+    "offline": {
       "type": "store-locator",
       "blocks": {
         "s1": {
@@ -44,13 +35,68 @@
         "s2"
       ],
       "settings": {
-        "tagline": "Store locator",
-        "heading": "Store & Stockists"
+        "tagline": "",
+        "heading": "Offline Stores"
+      }
+    },
+    "sep": {
+      "type": "separator",
+      "settings": {
+        "color": "#0000001a",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
+    },
+    "online": {
+      "type": "store-locator",
+      "blocks": {
+        "o1": { "type": "store", "settings": { "name": "Ajio Luxe", "map_link": "https://luxe.ajio.com/b/akinna" } },
+        "o2": { "type": "store", "settings": { "name": "Nykaa" } },
+        "o3": { "type": "store", "settings": { "name": "TataCliq Luxury" } },
+        "o4": { "type": "store", "settings": { "name": "Myntra" } },
+        "o5": { "type": "store", "settings": { "name": "Nykaa Fashion" } },
+        "o6": { "type": "store", "settings": { "name": "ekke" } },
+        "o7": { "type": "store", "settings": { "name": "Made As Me" } },
+        "o8": { "type": "store", "settings": { "name": "la-fetch" } }
+      },
+      "block_order": [
+        "o1",
+        "o2",
+        "o3",
+        "o4",
+        "o5",
+        "o6",
+        "o7",
+        "o8"
+      ],
+      "settings": {
+        "tagline": "",
+        "heading": "Online"
+      }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "heading": "@akinna.studios",
+        "columns": 6,
+        "border_top": true
       }
     }
   },
   "order": [
     "header",
-    "stores"
+    "offline",
+    "sep",
+    "online",
+    "designer_note",
+    "instagram"
   ]
 }

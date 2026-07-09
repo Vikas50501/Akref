@@ -46,6 +46,14 @@
 .variant-blk .variant-swatch { display: block; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background-color: var(--swatch-color, #ccc); background-image: var(--swatch-img); background-size: cover; }
 .variant-blk.active .variant-swatch { box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 3px var(--color-ink); }
 
+/* Linked-colour image swatches (sibling products) */
+.variant-pick--linked { margin-bottom: 20px; }
+.relatedvarain-wrap { margin-top: 4px; }
+.relatedvaraint { display: flex; flex-wrap: wrap; gap: 8px; }
+.variant-blk .variant-img { width: 60px; height: 60px; object-fit: cover; border: 1px solid var(--color-border); background: var(--color-bg-alt); transition: border-color var(--transition); }
+.variant-blk.active .variant-img { border-color: var(--color-ink); }
+.variant-blk:hover .variant-img { border-color: var(--color-ink); }
+
 .product-form__qty { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
 .product-form__qty-label { font-family: var(--font-ui); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
 .add_to_cart_holder { margin-bottom: 14px; }
@@ -62,13 +70,13 @@
 
 .product-description { margin: 20px 0; }
 
+/* Accordion titles open slide-in drawer panels (see main-product.liquid). */
 .accrodian-block { border-top: 1px solid var(--color-border); margin-top: 24px; }
-.accordion-item { border-bottom: 1px solid var(--color-border); }
-.titleaccordian { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; background: none; border: 0; cursor: pointer; font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.03em; color: inherit; }
-.titleaccordian .icon { transition: transform var(--transition); }
-.accordion-item.is-open .titleaccordian .icon { transform: rotate(45deg); }
-.accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--easing); }
-.accordion-panel__inner { padding: 0 0 20px; font-family: var(--font-body); font-size: 14px; line-height: 1.6; }
+.titleaccordian { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; background: none; border: 0; border-bottom: 1px solid var(--color-border); cursor: pointer; font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.03em; color: inherit; }
+.titleaccordian .icon { transition: transform var(--transition); opacity: 0.8; }
+.titleaccordian:hover .icon { transform: translateX(3px); }
+.product-drawer__body { padding: 24px 0; font-family: var(--font-body); font-size: 14px; line-height: 1.6; overflow-y: auto; }
+.product-drawer__body img { margin-top: 16px; }
 
 .product-share { display: flex; gap: 14px; margin-top: 20px; }
 .product-share a { opacity: 0.7; } .product-share a:hover { opacity: 1; }

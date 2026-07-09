@@ -10,7 +10,7 @@
           <input type="search" name="q" class="search-modal__input" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off" aria-label="{{ 'general.search.search' | t }}" data-predictive-input>
           <button type="submit" class="search-modal__submit">{{ 'general.search.search' | t }}</button>
         </form>
-        <button class="search-modal__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 20 -%}</button>
+        <button class="search-modal__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}"><span class="search-modal__esc">{{ 'general.search.esc_hint' | t }}</span>{%- render 'icon', name: 'close', size: 20 -%}</button>
       </predictive-search>
     </div>
     <div class="search-modal__results container" data-predictive-results role="region" aria-label="{{ 'general.search.search' | t }}" aria-live="polite" hidden></div>

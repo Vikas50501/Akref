@@ -12,7 +12,6 @@
 -%}
 {%- if cart.item_count == 0 -%}
   <div class="cart-empty text-center">
-    {%- render 'icon', name: 'cart-empty', size: 48 -%}
     <p class="cart-empty__text">{{ 'cart.empty' | t }}</p>
     <a class="button" href="{{ routes.all_products_collection_url }}">{{ 'cart.browse' | t }}</a>
   </div>
@@ -38,7 +37,7 @@
           <div class="cart-item__info">
             <div class="cart-item__top">
               <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
-              <button type="button" class="cart-item__remove" data-cart-remove="{{ item.key }}" aria-label="{{ 'cart.remove' | t }}">{%- render 'icon', name: 'close', size: 14 -%}</button>
+              <span class="cart-item__price cart-item__price--top">{{ item.final_line_price | money }}</span>
             </div>
             {%- unless item.product.has_only_default_variant -%}
               <p class="cart-item__variant">{{ item.variant.title }}</p>
@@ -50,7 +49,7 @@
                 <input class="quantity__input" type="number" name="updates[]" value="{{ item.quantity }}" min="0" data-qty-input aria-label="{{ 'cart.quantity' | t }}">
                 <button type="button" class="quantity__btn" data-qty-plus aria-label="Increase">{%- render 'icon', name: 'plus', size: 14 -%}</button>
               </quantity-input>
-              <span class="cart-item__price">{{ item.final_line_price | money }}</span>
+              <button type="button" class="cart-item__remove" data-cart-remove="{{ item.key }}">{{ 'cart.remove' | t }}</button>
             </div>
           </div>
         </li>

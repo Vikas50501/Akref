@@ -1,19 +1,11 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "header": {
       "type": "page-header",
       "settings": {
         "tagline": "Meet The Founders",
-        "heading": "Two Paths. One Vision.",
+        "heading": "Annika Saraf & Sanchit Goyal",
+        "subheading": "Two Paths. One Vision.",
         "height": 420
       }
     },
@@ -29,7 +21,7 @@
         "head": {
           "type": "heading",
           "settings": {
-            "text": "Annika Saraf & Sanchit Goyal"
+            "text": "Two Paths. One Vision."
           }
         },
         "div": {
@@ -39,7 +31,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors, they returned to India with a singular vision — to build a modern luxury house rooted in craft, intention, and identity.</p>"
+            "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors to return to India, it wasn't to follow a blueprint; it was to rewrite one. Together, they imagined AKINNA: a modern luxury leather goods brand blending contemporary designs with Indian craftsmanship, created for those who carry themselves with confidence.</p><p>Annika is a graduate of Istituto Marangoni, Milan, with a Master's in Luxury Accessories Design, honing her craft with houses such as Prada, Stella McCartney, and Borbonese, where her Lucia Bag debuted at Milan Fashion Week FW20. She was named by Vogue Italia among the Top 5 Foreign Designers in Italy in 2024. Sanchit holds a Master's in Luxury & Fashion Marketing from EDHEC Business School, France, with a career across global brands including Hugo Boss Parfums, Whirlpool, Lactalis, and Aquaporin Denmark.</p>"
           }
         }
       },
@@ -54,35 +46,45 @@
         "media_height": 80
       }
     },
-    "values": {
+    "statement": {
       "type": "rich-text",
       "blocks": {
         "h": {
           "type": "heading",
           "settings": {
-            "text": "Modern luxury, made in India"
-          }
-        },
-        "t": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Every AKINNA piece is designed to move with you — timeless yet contemporary, crafted with pride and carried with confidence.</p>"
+            "text": "Global in design. Crafted in India. Carried worldwide."
           }
         }
       },
       "block_order": [
-        "h",
-        "t"
+        "h"
       ],
       "settings": {
         "alignment": "center",
         "width": "medium"
+      }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "heading": "@akinna.studios",
+        "columns": 6,
+        "border_top": true
       }
     }
   },
   "order": [
     "header",
     "story",
-    "values"
+    "statement",
+    "designer_note",
+    "instagram"
   ]
 }

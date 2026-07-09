@@ -1,19 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "header": {
       "type": "page-header",
       "settings": {
-        "tagline": "Contact",
-        "heading": "Get in touch",
+        "tagline": "Contact Akinna",
+        "heading": "Advice & Exchange for a fulfilled life",
         "height": 300
       }
     },
@@ -22,12 +13,32 @@
       "settings": {
         "show_info": true,
         "heading": "We're here to help",
-        "text": "<p>Questions about an order, a product, or a bespoke request? Reach out and our team will respond within 24 hours.</p>"
+        "text": "<p>Whether you have questions, booking an appointment or just a first Exchange – I look forward to hearing from you.</p>",
+        "address": "139, Avtar Enclave, Paschim Vihar, New Delhi-110063, India\nVorne Studios Private Limited\nGST: 07AAKCV6600L1Z0",
+        "email": "info@akinna.com",
+        "phone": "+39 351 032 7319 (Italy) · +91 92203 36303 (India)"
+      }
+    },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer's note"
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "heading": "@akinna.studios",
+        "columns": 6,
+        "border_top": true
       }
     }
   },
   "order": [
     "header",
-    "form"
+    "form",
+    "designer_note",
+    "instagram"
   ]
 }

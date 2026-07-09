@@ -32,7 +32,7 @@
       "settings": {
         "desktop_height": 92,
         "mobile_height": 90,
-        "autoplay": 5,
+        "autoplay": 3,
         "show_dots": false
       }
     },
@@ -74,7 +74,7 @@
         "bg": "#0e3432",
         "text_color": "#ffffff",
         "speed": 50,
-        "gap": 200,
+        "gap": 240,
         "pause_on_hover": true
       }
     },
@@ -114,7 +114,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>From <strong>Prada</strong> and <strong>Stella McCartney</strong> to the <strong>Lucia Bag</strong> for <strong>Borbonese</strong> at <strong>Milan Fashion Week 2020</strong>, recognised by <strong>Vogue Italia</strong> among Italy's Top 5 Foreign Designers in 2024.</p>"
+            "text": "<p>Annika holds a Master's in Luxury Accessories Design from <strong>Istituto Marangoni</strong> in Milan, bringing over 8 years of refined leather expertise shaped within Europe's leading luxury houses. Her journey includes experience with <strong>Prada</strong> and <strong>Stella McCartney</strong>, and the design of the <strong>Lucia Bag</strong> for <strong>Borbonese</strong>, unveiled at <strong>Milan Fashion Week 2020</strong>. <strong>Vogue Italia</strong> recognised her among Italy's Top 5 Foreign Designers in 2024.</p>"
           }
         },
         "quote": {
@@ -171,7 +171,7 @@
       "type": "collection-showcase",
       "settings": {
         "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-        "lifestyle_height": 80,
+        "lifestyle_height": 90,
         "tagline": "",
         "heading": "New Arrivals",
         "button_label": "Explore all",
@@ -215,7 +215,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>Crafted from <strong>premium full-grain leather</strong> with <strong>anti-tarnish hardware</strong> and backed by a <strong>5-year warranty</strong>.</p>"
+            "text": "<p>Every AKINNA piece begins with <strong>premium full-grain leather</strong>, selected for its natural character, depth, and ability to age beautifully over time. Finished with high-quality anti-tarnish hardware and precision detailing, each bag is built to endure daily wear while retaining its form and refinement. Backed by a <strong>5-year warranty</strong>, our commitment is simple: lasting materials, uncompromising quality.</p>"
           }
         },
         "certs": {
@@ -306,7 +306,7 @@
       ],
       "settings": {
         "tagline": "",
-        "heading": "Happy Customers",
+        "heading": "",
         "bg": "#ffffff",
         "text_color": "#000000",
         "padding_top": 60,
@@ -319,7 +319,7 @@
         "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 35,
         "aspect_desktop": "2.5",
-        "aspect_mobile": "1.2",
+        "aspect_mobile": "2",
         "show_star": true,
         "tagline": "",
         "heading": "AKINNA Sphere",

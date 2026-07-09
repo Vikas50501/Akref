@@ -19,8 +19,10 @@
 /* Trigger split when the heading itself is in view */
 .letters-slide-up.text-split { display: inline-block; }
 
-/* Scale-in image on scroll */
-[gsap-scale-anim] { transform: scale(1.06); transition: transform 1.2s var(--easing); will-change: transform; }
+/* Scale-in image on scroll — original GSAP is from scale 1.2 → 1 over ~1s, power1.out.
+   (Opacity kept at 1 to protect the LCP hero image; original also fades but that would
+   delay the largest paint behind JS.) */
+[gsap-scale-anim] { transform: scale(1.2); transition: transform 1s cubic-bezier(0.25,0.1,0.25,1); will-change: transform; }
 .is-inview [gsap-scale-anim], [gsap-scale-anim].is-inview { transform: scale(1); }
 
 /* Generic entrance variants */

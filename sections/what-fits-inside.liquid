@@ -48,7 +48,8 @@
 .right-grid { display: grid; grid-template-rows: 1fr auto; gap: 4px; }
 .rtc { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
 .rtc .title { margin-bottom: 24px; }
-.inside__list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+/* Original renders a single-column list. */
+.inside__list { list-style: none; margin: 0; padding: 0; columns: 1; }
 .inside__list li { font-family: var(--font-body); font-size: 16px; padding: 8px 0; break-inside: avoid; }
 .inside__list em { font-family: var(--font-ui); font-style: normal; opacity: 0.4; margin-right: 8px; }
 .rbc { overflow: hidden; }

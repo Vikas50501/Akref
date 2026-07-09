@@ -17,25 +17,30 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Welcome Offer - Get 10% Off with code FIRST10"
-          }
-        },
-        "m2": {
-          "type": "message",
-          "settings": {
-            "text": "Handcrafted in India · 100% Pure Leather · 5-Year Warranty"
+            "text": "Welcome Offer - Get 10% Off with code FIRST10",
+            "link": "shopify://collections/discover-all"
           }
         }
       },
       "block_order": [
-        "m1",
-        "m2"
+        "m1"
       ],
-      "settings": {}
+      "settings": {
+        "dismissible": false
+      }
     },
     "header": {
       "type": "header",
       "blocks": {
+        "promo_fresh": {
+          "type": "mega_promo",
+          "settings": {
+            "menu_title": "Fresh Arrivals",
+            "title_1": "Milano Bag",
+            "title_2": "Vanessa Petite",
+            "title_3": "Doppio"
+          }
+        },
         "promo_category": {
           "type": "mega_promo",
           "settings": {
@@ -56,6 +61,7 @@
         }
       },
       "block_order": [
+        "promo_fresh",
         "promo_category",
         "promo_collection"
       ],
