@@ -80,7 +80,9 @@
       "settings": {
         "heading": "@akinna.studios",
         "columns": 6,
-        "border_top": true
+        "border_top": true,
+        "padding_top": 80,
+        "padding_bottom": 36
       }
     }
   },
