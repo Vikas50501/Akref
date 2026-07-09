@@ -16,14 +16,25 @@
         "show_description": true,
         "enable_filtering": true,
         "columns": 3,
-        "products_per_page": 24
+        "products_per_page": 24,
+        "padding_top": 40,
+        "padding_bottom": 60
       }
     },
     "designer_note": {
       "type": "designer-note",
-      "disabled": true,
       "settings": {
-        "heading": "Designer's note"
+        "tagline": "From the Atelier",
+        "heading": "Designer's note",
+        "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>",
+        "person_name": "Annika Saraf",
+        "person_role": "Co-Founder & Creative Director",
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "image_position": "right",
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "features": {
@@ -65,8 +76,14 @@
         "s4"
       ],
       "settings": {
+        "tagline": "",
+        "heading": "",
         "columns": 4,
-        "dividers": true
+        "dividers": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
