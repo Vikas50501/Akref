@@ -87,7 +87,7 @@
         "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
         "button_label": "Discover all",
         "button_link": "",
-        "collection": "frontpage",
+        "collection": "discover-all",
         "products_limit": 8,
         "show_arrows": true,
         "bg": "#ffffff",
