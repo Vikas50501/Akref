@@ -26,6 +26,9 @@
         "m1"
       ],
       "settings": {
+        "bg": "#0e3432",
+        "text_color": "#ffffff",
+        "autorotate": 4,
         "dismissible": false
       }
     },
@@ -37,8 +40,11 @@
           "settings": {
             "menu_title": "Fresh Arrivals",
             "title_1": "Milano Bag",
+            "link_1": "",
             "title_2": "Vanessa Petite",
-            "title_3": "Doppio"
+            "link_2": "",
+            "title_3": "Doppio",
+            "link_3": ""
           }
         },
         "promo_category": {
@@ -46,8 +52,11 @@
           "settings": {
             "menu_title": "Shop By Category",
             "title_1": "Shoulder Bags",
+            "link_1": "",
             "title_2": "Crossbody Bags",
-            "title_3": "Mini Bags"
+            "link_2": "",
+            "title_3": "Mini Bags",
+            "link_3": ""
           }
         },
         "promo_collection": {
@@ -55,8 +64,11 @@
           "settings": {
             "menu_title": "Shop By Collection",
             "title_1": "Amore Piccante",
+            "link_1": "",
             "title_2": "Midnight Black",
-            "title_3": "Tutti Frutti"
+            "link_2": "",
+            "title_3": "Tutti Frutti",
+            "link_3": ""
           }
         }
       },
@@ -67,9 +79,10 @@
       ],
       "settings": {
         "menu": "main-menu",
+        "secondary_menu": "",
         "layout": "centered",
         "sticky": true,
-        "transparent_on_home": true
+        "transparent_on_home": false
       }
     }
   },
