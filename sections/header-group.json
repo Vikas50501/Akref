@@ -82,7 +82,7 @@
         "secondary_menu": "",
         "layout": "centered",
         "sticky": true,
-        "transparent_on_home": false
+        "transparent_on_home": true
       }
     }
   },
