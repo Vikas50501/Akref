@@ -81,6 +81,7 @@
     "products": {
       "type": "product-carousel",
       "settings": {
+        "icon": "shopify://shop_images/Frame_1.svg",
         "show_star": true,
         "tagline": "Designed by Annika Saraf.",
         "heading": "Luxury Handbags Made With Finest Indian Leather.",
