@@ -1,12 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
       "type": "page-header",
       "settings": {
         "tagline": "Meet The Founders",
-        "heading": "Annika Saraf & Sanchit Goyal",
-        "subheading": "Two Paths. One Vision.",
-        "height": 420
+        "heading": "Two Paths. One Vision.",
+        "subheading": "",
+        "overlay_opacity": 30,
+        "height": 420,
+        "bg": "#f5f3f5",
+        "text_color": "#141515"
       }
     },
     "story": {
@@ -21,7 +33,7 @@
         "head": {
           "type": "heading",
           "settings": {
-            "text": "Two Paths. One Vision."
+            "text": "Annika Saraf & Sanchit Goyal"
           }
         },
         "div": {
@@ -31,7 +43,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors to return to India, it wasn't to follow a blueprint; it was to rewrite one. Together, they imagined AKINNA: a modern luxury leather goods brand blending contemporary designs with Indian craftsmanship, created for those who carry themselves with confidence.</p><p>Annika is a graduate of Istituto Marangoni, Milan, with a Master's in Luxury Accessories Design, honing her craft with houses such as Prada, Stella McCartney, and Borbonese, where her Lucia Bag debuted at Milan Fashion Week FW20. She was named by Vogue Italia among the Top 5 Foreign Designers in Italy in 2024. Sanchit holds a Master's in Luxury & Fashion Marketing from EDHEC Business School, France, with a career across global brands including Hugo Boss Parfums, Whirlpool, Lactalis, and Aquaporin Denmark.</p>"
+            "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors, they returned to India with a singular vision — to build a modern luxury house rooted in craft, intention, and identity.</p>"
           }
         }
       },
@@ -42,49 +54,51 @@
         "body"
       ],
       "settings": {
+        "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "right",
-        "media_height": 80
+        "media_height": 80,
+        "parallax": true,
+        "full_width": false,
+        "divider": true,
+        "bg": "#00000000",
+        "text_color": "#141515",
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     },
-    "statement": {
+    "values": {
       "type": "rich-text",
       "blocks": {
         "h": {
           "type": "heading",
           "settings": {
-            "text": "Global in design. Crafted in India. Carried worldwide."
+            "text": "Modern luxury, made in India"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every AKINNA piece is designed to move with you — timeless yet contemporary, crafted with pride and carried with confidence.</p>"
           }
         }
       },
       "block_order": [
-        "h"
+        "h",
+        "t"
       ],
       "settings": {
         "alignment": "center",
-        "width": "medium"
-      }
-    },
-    "designer_note": {
-      "type": "designer-note",
-      "settings": {
-        "tagline": "From the Atelier",
-        "heading": "Designer's note"
-      }
-    },
-    "instagram": {
-      "type": "instagram",
-      "settings": {
-        "heading": "@akinna.studios",
-        "columns": 6,
-        "border_top": true
+        "width": "medium",
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
     "header",
     "story",
-    "statement",
-    "designer_note",
-    "instagram"
+    "values"
   ]
 }
