@@ -22,7 +22,9 @@
         },
         "tagline": {
           "type": "tagline",
-          "settings": {}
+          "settings": {
+            "text": ""
+          }
         },
         "price": {
           "type": "price",
@@ -45,25 +47,37 @@
         "buy": {
           "type": "buy_buttons",
           "settings": {
+            "show_quantity": false,
             "show_dynamic_checkout": false,
             "show_pickup": true
           }
         },
         "badges": {
           "type": "trust_badges",
-          "settings": {}
+          "settings": {
+            "text_1": "100% Leather",
+            "text_2": "5-Year Warranty",
+            "text_3": "Global by Design"
+          }
         },
         "accordion": {
           "type": "accordion",
           "settings": {
             "title_1": "Description",
+            "content_1": "",
             "metafield_1": "description_extra",
             "title_2": "Size",
+            "content_2": "",
             "metafield_2": "size",
             "title_3": "Materials",
+            "content_3": "",
             "metafield_3": "materials",
             "title_4": "Shipping & Returns",
-            "content_4": "<ul><li>FREE Delivery across India. Shipped within 2-4 working days.</li><li>FREE Returns within 14 days.</li><li>For more details, please read our Shipping Policy and Return Policy.</li></ul>"
+            "content_4": "<ul><li>FREE Delivery across India. Shipped within 2-4 working days.</li><li>FREE Returns within 14 days.</li><li>For more details, please read our Shipping Policy and Return Policy.</li></ul>",
+            "metafield_4": "",
+            "title_5": "",
+            "content_5": "",
+            "metafield_5": ""
           }
         }
       },
@@ -79,6 +93,8 @@
         "accordion"
       ],
       "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
         "gallery_layout": "thumbnails",
         "enable_zoom": true,
         "sticky_info": true,
@@ -89,7 +105,17 @@
       "type": "designer-note",
       "settings": {
         "tagline": "From the Atelier",
-        "heading": "Designer's note"
+        "heading": "Designer's note",
+        "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>",
+        "person_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "person_name": "Annika Saraf",
+        "person_role": "Co-Founder & Creative Director",
+        "image": "shopify://shop_images/forest-hiker.jpg",
+        "image_position": "right",
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "what_inside": {
@@ -141,7 +167,15 @@
         "i6"
       ],
       "settings": {
-        "heading": "What Fits Inside"
+        "heading": "What Fits Inside",
+        "video_url": "",
+        "image": "shopify://shop_images/forest-hiker.jpg",
+        "secondary_video_url": "",
+        "secondary_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "elements": {
@@ -150,24 +184,28 @@
         "e1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "label": "AKINNA Logo Hardware"
           }
         },
         "e2": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "label": "Green interiors"
           }
         },
         "e3": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "label": "LWG Certification"
           }
         },
         "e4": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "label": "Signature Panelling"
           }
         }
@@ -181,12 +219,26 @@
       "settings": {
         "tagline": "Top features",
         "heading": "Elements Of AKINNA",
-        "per_view": 4
+        "per_view": 4,
+        "aspect": "0.66",
+        "show_nav": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "video": {
       "type": "video-banner",
-      "settings": {}
+      "settings": {
+        "video_url": "",
+        "poster": "shopify://shop_images/forest-hiker.jpg",
+        "full_width": true,
+        "aspect_desktop": "2.5",
+        "aspect_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "symbols": {
       "type": "icon-grid",
@@ -227,8 +279,14 @@
         "s4"
       ],
       "settings": {
+        "tagline": "",
+        "heading": "",
         "columns": 4,
-        "dividers": true
+        "dividers": true,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "features": {
@@ -236,23 +294,40 @@
       "blocks": {
         "f1": {
           "type": "video",
-          "settings": {}
+          "settings": {
+            "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
+            "video_url": "",
+            "poster": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
+            "label": ""
+          }
         },
         "f2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
+            "label": ""
+          }
         },
         "f3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
+            "label": ""
+          }
         },
         "f4": {
           "type": "video",
-          "settings": {}
+          "settings": {
+            "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
+            "video_url": "",
+            "label": ""
+          }
         },
         "f5": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "label": ""
+          }
         }
       },
       "block_order": [
@@ -263,15 +338,21 @@
         "f5"
       ],
       "settings": {
-        "tagline": "",
-        "heading": "",
+        "tagline": "Video",
+        "heading": "Video",
         "per_view": 4,
-        "aspect": "0.625"
+        "aspect": "0.625",
+        "show_nav": true,
+        "bg": "#FFFFFF",
+        "text_color": "#000000",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "packaging": {
       "type": "club-banner",
       "settings": {
+        "image": "shopify://shop_images/forest-hiker.jpg",
         "overlay_opacity": 0,
         "aspect_desktop": "2.3",
         "aspect_mobile": "1.4",
@@ -280,6 +361,7 @@
         "heading": "",
         "text": "",
         "button_label": "",
+        "button_link": "",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -288,7 +370,11 @@
       "type": "product-recommendations",
       "settings": {
         "heading": "You may also like",
-        "limit": 4
+        "limit": 4,
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "sep": {
@@ -303,18 +389,49 @@
     "press": {
       "type": "logo-marquee",
       "blocks": {
-        "l1": { "type": "logo", "settings": {} },
-        "l2": { "type": "logo", "settings": {} },
-        "l3": { "type": "logo", "settings": {} },
-        "l4": { "type": "logo", "settings": {} }
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1.svg",
+            "link": ""
+          }
+        },
+        "logo_GCrGRc": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1.svg",
+            "link": ""
+          }
+        },
+        "logo_enW6cR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1.svg",
+            "link": ""
+          }
+        },
+        "logo_TQALUV": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1.svg",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4"],
+      "block_order": [
+        "l1",
+        "logo_GCrGRc",
+        "logo_enW6cR",
+        "logo_TQALUV"
+      ],
       "settings": {
         "heading": "",
         "speed": 120,
         "gap": 120,
         "logo_width": 120,
+        "pause_on_hover": true,
         "border_bottom": true,
+        "bg": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -322,14 +439,16 @@
     "studios": {
       "type": "club-banner",
       "settings": {
+        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 0,
         "aspect_desktop": "2.3",
         "aspect_mobile": "1.4",
         "show_star": false,
-        "tagline": "",
+        "tagline": "sdfbg",
         "heading": "@akinna.studios",
         "text": "",
         "button_label": "",
+        "button_link": "",
         "padding_top": 0,
         "padding_bottom": 0
       }
