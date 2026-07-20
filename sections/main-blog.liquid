@@ -6,7 +6,7 @@
   <div class="container">
     <div class="blog-header blog-heading text-center">
       {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
-      <h1 class="thb-shop-title title letters-slide-up text-split">{{ section.settings.heading | default: blog.title }}</h1>
+      <h1 class="thb-shop-title title letters-slide-up text-split" data-anim="up">{{ section.settings.heading | default: blog.title }}</h1>
       {%- if section.settings.description != blank -%}<p class="dscr blog-heading__desc">{{ section.settings.description }}</p>{%- endif -%}
     </div>
     {%- paginate blog.articles by section.settings.posts_per_page -%}

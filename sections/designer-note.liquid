@@ -8,7 +8,7 @@
       <div class="designer-grid-content">
         <div class="designer-grid-top">
           {%- if section.settings.tagline != blank -%}<div class="tagline tag-line">{{ section.settings.tagline }}</div>{%- endif -%}
-          {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>{%- endif -%}
+          {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split" data-anim="up">{{ section.settings.heading }}</h2>{%- endif -%}
           <div class="designer-desc-content">
             {%- render 'icon', name: 'quote', size: 24 -%}
             {%- assign note = section.settings.text | default: product.metafields.custom.designer_note -%}

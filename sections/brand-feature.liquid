@@ -19,7 +19,7 @@
     <div class="right-block brand-feature__content">
       <div class="flex-right">
         {%- if section.settings.tagline != blank -%}<p class="tag-line" style="color: {{ section.settings.text_color }};">{{ section.settings.tagline }}</p>{%- endif -%}
-        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split brand-feature__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split brand-feature__heading" data-anim="up">{{ section.settings.heading }}</h2>{%- endif -%}
       </div>
       <div class="rihg-bitim">
         {%- if section.settings.inset_image != blank -%}
