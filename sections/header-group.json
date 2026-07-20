@@ -54,10 +54,13 @@
           "type": "mega_promo",
           "settings": {
             "menu_title": "Shop By Category",
+            "image_1": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_1": "Shoulder Bags",
             "link_1": "",
+            "image_2": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_2": "Crossbody Bags",
             "link_2": "",
+            "image_3": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_3": "Mini Bags",
             "link_3": ""
           }
