@@ -51,7 +51,7 @@
           "settings": {
             "heading": "More akinna this way",
             "text": "<p>Join #AKINNASphere &amp; get 15% off on your second order!</p>",
-            "show_payment": false,
+            "show_payment": true,
             "payment_title": "secure online payment"
           }
         }
@@ -65,8 +65,12 @@
         "newsletter"
       ],
       "settings": {
+        "bg": "#0e3432",
+        "text_color": "#ffffff",
         "copyright_text": "All Rights Reserved.",
-        "bottom_menu": ""
+        "bottom_menu": "",
+        "credit_text": "Aspirant Solutions",
+        "show_localization": true
       }
     }
   },
