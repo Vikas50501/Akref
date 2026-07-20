@@ -29,7 +29,7 @@
         "bg": "#0e3432",
         "text_color": "#ffffff",
         "autorotate": 4,
-        "dismissible": false
+        "dismissible": true
       }
     },
     "header": {
@@ -39,10 +39,13 @@
           "type": "mega_promo",
           "settings": {
             "menu_title": "Fresh Arrivals",
+            "image_1": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_1": "Milano Bag",
             "link_1": "",
+            "image_2": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_2": "Vanessa Petite",
             "link_2": "",
+            "image_3": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
             "title_3": "Doppio",
             "link_3": ""
           }

@@ -11,6 +11,7 @@
   "sections": {
     "header": {
       "type": "page-header",
+      "disabled": true,
       "settings": {
         "tagline": "Meet The Founders",
         "heading": "Two Paths. One Vision.",
@@ -60,7 +61,7 @@
         "parallax": true,
         "full_width": false,
         "divider": true,
-        "bg": "#00000000",
+        "bg": "rgba(0,0,0,0)",
         "text_color": "#141515",
         "padding_top": 10,
         "padding_bottom": 10
