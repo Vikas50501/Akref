@@ -4,7 +4,10 @@
 .header {
   position: relative; z-index: 500; width: 100%;
   background: var(--color-bg); color: var(--color-ink);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(var(--color-ink-rgb), 0.1);
+  transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .header--sticky { position: sticky; top: 0; transition: box-shadow var(--transition); }
 .header--sticky.is-scrolled:not(.header--transparent) { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
@@ -43,28 +46,18 @@
   position: relative;
   display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0;
-  padding: 10px 14px; color: inherit; background-color: transparent;
-  transition: background-color 0.28s var(--easing), color 0.28s var(--easing);
+  padding: 8px 2px; color: inherit;
 }
-/* Animated bottom border (dark green), sweeps left -> right on hover, retracts on leave */
+/* Per-link underline that sweeps left -> right on hover (inherits current text colour,
+   so it's white over the hero and dark once the header turns white). */
 .header__link::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
-  background: var(--color-green);
+  background: currentColor;
   transform: scaleX(0); transform-origin: left center;
   transition: transform 0.28s var(--easing);
 }
-/* Hover / keyboard focus: light beige/cream background + green text + border sweep */
-.header__item:hover > .header__link,
-.header__link:focus-visible {
-  background-color: var(--color-bg-alt);
-  color: var(--color-green);
-}
 .header__item:hover > .header__link::after,
 .header__link:focus-visible::after { transform: scaleX(1); }
-/* Keep the effect readable when the header is transparent over the hero */
-.header--transparent:not(.is-scrolled) .header__item:hover > .header__link {
-  text-shadow: none;
-}
 .header__item.has-children > .header__link .icon { transition: transform var(--transition); }
 .header__item.has-children:hover > .header__link .icon { transform: rotate(180deg); }
 
@@ -104,14 +97,28 @@
   font-family: var(--font-heading); font-size: 22px; margin: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
-/* Transparent header over hero */
+/* Transparent header over hero — reference uses a white-10% hairline on the index. */
 .header--transparent {
-  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: transparent; color: #fff; z-index: 500;
+  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(255,255,255,0.1); color: #fff; z-index: 500;
 }
+/* Hover anywhere over the header (while transparent): whole bar fades to white, text/logo
+   go dark and the hairline becomes the dark ink border — matching the HTML reference
+   (.header:hover{background:#fff}). */
+.header--transparent:not(.is-scrolled):hover {
+  background: var(--color-bg); color: var(--color-ink); border-bottom-color: var(--color-border);
+}
+.header--transparent:not(.is-scrolled):hover::before { opacity: 0; }
+.header--transparent:not(.is-scrolled):hover .header__link,
+.header--transparent:not(.is-scrolled):hover .header__icon,
+.header--transparent:not(.is-scrolled):hover .header__mobile-toggle { text-shadow: none; }
+.header--transparent:not(.is-scrolled):hover .header__logo-img--dark { display: inline-block; }
+.header--transparent:not(.is-scrolled):hover .header__logo-img--light { display: none; }
+.header--transparent:not(.is-scrolled):hover .header__cart-count { background: var(--color-green); color: #fff; }
 /* Readability scrim so the white logo/menu is legible over ANY hero (or an empty one) */
 .header--transparent:not(.is-scrolled)::before {
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 180%;
   background: linear-gradient(180deg, rgba(0,0,0,0.38), rgba(0,0,0,0)); pointer-events: none; z-index: -1;
+  transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .header--transparent:not(.is-scrolled) .header__link,
 .header--transparent:not(.is-scrolled) .header__icon,
