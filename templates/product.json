@@ -236,7 +236,7 @@
         "autoplay": false,
         "autoplay_speed": 4000,
         "show_nav": false,
-        "show_pagination": true,
+        "show_pagination": false,
         "card_radius": 0,
         "card_shadow": false,
         "card_bg": "#f5f3f5",
@@ -331,7 +331,7 @@
         "f2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg",
+            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
             "label": ""
           }
         },
@@ -353,6 +353,7 @@
         "f5": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
             "label": ""
           }
         }
@@ -377,7 +378,7 @@
         "gap_desktop": 4,
         "gap_mobile": 12,
         "aspect": "0.625",
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_speed": 4000,
         "show_nav": true,
         "show_pagination": true,
