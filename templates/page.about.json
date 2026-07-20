@@ -344,6 +344,16 @@
         "padding_bottom": 0
       }
     },
+    "separator_FctgVx": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
+    },
     "designer_note": {
       "type": "designer-note",
       "settings": {
@@ -353,6 +363,7 @@
         "person_image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
         "person_name": "Annika Saraf",
         "person_role": "Co-Founder & Creative Director",
+        "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
         "image_position": "left",
         "bg": "#ffffff",
         "text_color": "#141515",
@@ -460,6 +471,7 @@
     "crafted",
     "separator_HpfNRN",
     "leathers",
+    "separator_FctgVx",
     "designer_note",
     "press",
     "instagram"
