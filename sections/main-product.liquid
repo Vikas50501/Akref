@@ -198,9 +198,9 @@
 
 {%- if section.settings.show_sticky_atc -%}
   <div class="sticky-atc" data-sticky-atc aria-hidden="true">
-    <div class="container sticky-atc__inner">
+    <div class="main-product__container sticky-atc__inner">
       <div class="sticky-atc__media">
-        {%- if product.featured_media -%}<img src="{{ product.featured_media | image_url: width: 100 }}" alt="" width="44" height="56" loading="lazy">{%- endif -%}
+        {%- if product.featured_media -%}<img src="{{ product.featured_media | image_url: width: 120 }}" alt="" width="52" height="66" loading="lazy">{%- endif -%}
         <div class="sticky-atc__text">
           <span class="sticky-atc__title">{{ product.title }}</span>
           <span class="sticky-atc__price product-price-container">{%- render 'price', product: product -%}</span>
@@ -218,16 +218,24 @@
 .product-stock.is-hidden { display: none; }
 .product-stock--low { color: var(--color-sale); }
 .product-stock__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: 0 0 auto; }
+/* Floating add-to-cart bar: cross-device (matches the original HTML theme's
+   sticky-add-to-cart-bar, which shows on desktop and mobile alike once the main
+   ATC button scrolls out of view). */
 .sticky-atc { position: fixed; left: 0; right: 0; bottom: 0; z-index: 700; background: var(--color-bg); border-top: 1px solid var(--color-border); transform: translateY(110%); transition: transform 0.35s var(--easing); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
 .sticky-atc.is-visible { transform: none; }
-.sticky-atc__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
-.sticky-atc__media { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.sticky-atc__media img { width: 44px; height: 56px; object-fit: cover; border-radius: var(--radius); }
-.sticky-atc__text { display: flex; flex-direction: column; min-width: 0; }
-.sticky-atc__title { font-family: var(--font-body); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
-.sticky-atc__price .price { font-size: 13px; }
-.sticky-atc__btn { flex: 0 0 auto; padding: 14px 28px; }
-@media (min-width: 1024px) { .sticky-atc { display: none; } }
+.sticky-atc__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+.sticky-atc__media { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.sticky-atc__media img { width: 52px; height: 66px; object-fit: cover; border-radius: var(--radius); }
+.sticky-atc__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sticky-atc__title { font-family: var(--font-heading); font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50vw; }
+.sticky-atc__price .price { font-size: 14px; }
+.sticky-atc__btn { flex: 0 0 auto; padding: 14px 32px; }
+@media (min-width: 1024px) {
+  .sticky-atc__inner { padding-top: 16px; padding-bottom: 16px; }
+  .sticky-atc__title { font-size: 16px; max-width: 320px; }
+  .sticky-atc__btn { padding: 15px 48px; }
+}
+@media (max-width: 480px) { .sticky-atc__title { max-width: 34vw; } }
 {% endstylesheet %}
 
 <script src="{{ 'product.js' | asset_url }}" defer></script>
@@ -293,7 +301,7 @@
     {
       "type": "checkbox",
       "id": "show_sticky_atc",
-      "label": "Show mobile sticky add-to-cart bar",
+      "label": "Show floating add-to-cart bar",
       "default": true
     }
   ],
