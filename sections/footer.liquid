@@ -4,18 +4,22 @@
 {%- endstyle -%}
 <footer class="footer" role="contentinfo">
   <div class="footer__inner container">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'logo' -%}
+        <div class="footer__top" {{ block.shopify_attributes }}>
+          {%- assign flogo = block.settings.logo | default: settings.logo_light -%}
+          {%- if flogo != blank -%}
+            <img class="footer__logo" src="{{ flogo | image_url: width: 500 }}" alt="{{ shop.name }}" width="{{ flogo.width }}" height="{{ flogo.height }}" loading="lazy">
+          {%- else -%}
+            <img class="footer__logo" src="{{ 'brand_akinna_logo_white.png' | asset_url }}" alt="{{ shop.name }}" width="469" height="94" loading="lazy">
+          {%- endif -%}
+        </div>
+        <div class="footer__divider"></div>
+      {%- endif -%}
+    {%- endfor -%}
     <div class="footer__grid">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'logo' -%}
-            <div class="footer__col footer__col--logo" {{ block.shopify_attributes }}>
-              {%- assign flogo = block.settings.logo | default: settings.logo_light -%}
-              {%- if flogo != blank -%}
-                <img class="footer__logo" src="{{ flogo | image_url: width: 500 }}" alt="{{ shop.name }}" width="{{ flogo.width }}" height="{{ flogo.height }}" loading="lazy">
-              {%- else -%}
-                <img class="footer__logo" src="{{ 'brand_akinna_logo_white.png' | asset_url }}" alt="{{ shop.name }}" width="469" height="94" loading="lazy">
-              {%- endif -%}
-            </div>
           {%- when 'menu' -%}
             <div class="footer__col footer__col--menu" {{ block.shopify_attributes }}>
               <details class="footer__details" open>
@@ -75,15 +79,22 @@
 
     <div class="footer__bottom">
       <p class="footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}, {{ section.settings.copyright_text }}</p>
+      <a href="#top" class="footer__totop" data-scroll-top>{{ 'general.back_to_top' | t }}</a>
+      <p class="footer__credit">
+        {{ 'general.credit_by' | t }}
+        {%- if section.settings.credit_text != blank -%}
+          {%- if section.settings.credit_link != blank -%}
+            <a href="{{ section.settings.credit_link }}" target="_blank" rel="noopener">{{ section.settings.credit_text }}</a>
+          {%- else -%}
+            {{ section.settings.credit_text }}
+          {%- endif -%}
+        {%- endif -%}
+      </p>
       {%- if section.settings.bottom_menu != blank -%}
         <ul class="footer__bottom-links">
           {%- for link in linklists[section.settings.bottom_menu].links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
         </ul>
       {%- endif -%}
-      <div class="footer__bottom-end">
-        {%- if section.settings.credit_text != blank -%}<span class="footer__credit">{{ section.settings.credit_text }}</span>{%- endif -%}
-        <a href="#top" class="footer__totop" data-scroll-top>{{ 'general.back_to_top' | t }}</a>
-      </div>
     </div>
   </div>
 </footer>
@@ -118,7 +129,13 @@
     {
       "type": "text",
       "id": "credit_text",
-      "label": "Credit line (bottom bar)"
+      "label": "Credit name (bottom bar)",
+      "default": "Mark91 Studio"
+    },
+    {
+      "type": "url",
+      "id": "credit_link",
+      "label": "Credit link"
     },
     {
       "type": "checkbox",
@@ -178,7 +195,7 @@
           "type": "checkbox",
           "id": "show_payment",
           "label": "Show payment icons",
-          "default": true
+          "default": false
         },
         {
           "type": "text",
@@ -210,6 +227,12 @@
         "type": "menu",
         "settings": {
           "title": "About Us"
+        }
+      },
+      {
+        "type": "menu",
+        "settings": {
+          "title": "Legal"
         }
       },
       {

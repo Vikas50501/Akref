@@ -19,6 +19,7 @@
     "pagination": { "previous": "Previous", "next": "Next", "page": "Page {{ number }}" },
     "breadcrumb": { "home": "Home" },
     "back_to_top": "Back To Top",
+    "credit_by": "Website by",
     "404": { "title": "Page not found", "subtext": "The page you were looking for does not exist.", "link": "Continue shopping" }
   },
   "accessibility": {
