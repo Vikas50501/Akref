@@ -157,10 +157,12 @@
     var bar = document.querySelector('[data-sticky-atc]');
     if (!bar) return;
     var btn = bar.querySelector('[data-sticky-atc-add]');
+    var btnText = btn ? btn.querySelector('[data-add-text]') : null;
     var priceEl = bar.querySelector('.product-price-container .price, .sticky-atc__price');
     if (btn) {
-      if (v && v.available) { btn.removeAttribute('disabled'); btn.textContent = window.themeStrings.addToCart; }
-      else { btn.setAttribute('disabled', ''); btn.textContent = window.themeStrings.soldOut; }
+      var label = btnText || btn;
+      if (v && v.available) { btn.removeAttribute('disabled'); label.textContent = window.themeStrings.addToCart; }
+      else { btn.setAttribute('disabled', ''); label.textContent = window.themeStrings.soldOut; }
     }
   }
   function initSticky(scope) {
@@ -168,12 +170,21 @@
     var realBtn = scope.querySelector('[data-add-button]');
     if (!bar || !realBtn) return;
     var stickyBtn = bar.querySelector('[data-sticky-atc-add]');
-    if (stickyBtn) stickyBtn.addEventListener('click', function () { realBtn.click(); });
+    if (stickyBtn) {
+      stickyBtn.addEventListener('click', function () { realBtn.click(); });
+      /* Mirror the real form's request state so the button the user actually
+         clicked (the sticky one) shows its own spinner/feedback. */
+      document.addEventListener('product:add:start', function () { stickyBtn.classList.add('is-loading'); });
+      document.addEventListener('product:add:end', function () { stickyBtn.classList.remove('is-loading'); });
+    }
     if ('IntersectionObserver' in window) {
+      /* Watch the whole main-product section, not just the button, and use no
+         negative margin - the bar should only appear once the section has fully
+         scrolled past, not while the real button is still on screen. */
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { bar.classList.toggle('is-visible', !e.isIntersecting); bar.setAttribute('aria-hidden', e.isIntersecting ? 'true' : 'false'); });
-      }, { rootMargin: '0px 0px -40% 0px' });
-      io.observe(realBtn);
+      }, { rootMargin: '0px' });
+      io.observe(scope);
     }
   }
 
@@ -203,11 +214,13 @@
       var prev = text ? text.textContent : '';
       if (text) text.textContent = '…';
       btn.classList.add('is-loading');
+      document.dispatchEvent(new CustomEvent('product:add:start'));
       fetch(root + 'cart/add.js', {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(serialize(form))
       }).then(function (r) { return r.json(); }).then(function (res) {
         btn.classList.remove('is-loading');
+        document.dispatchEvent(new CustomEvent('product:add:end'));
         if (res.status) {
           // Shopify returns {status, message, description} on error (e.g. out of stock)
           if (text) text.textContent = res.description || res.message || (window.themeStrings && window.themeStrings.unavailable) || prev;
@@ -216,7 +229,7 @@
         }
         if (text) text.textContent = prev;
         document.dispatchEvent(new CustomEvent('cart:refresh', { detail: { open: true } }));
-      }).catch(function () { btn.classList.remove('is-loading'); if (text) text.textContent = prev; });
+      }).catch(function () { btn.classList.remove('is-loading'); document.dispatchEvent(new CustomEvent('product:add:end')); if (text) text.textContent = prev; });
     });
   }
   function serialize(form) {

@@ -200,14 +200,15 @@
   <div class="sticky-atc" data-sticky-atc aria-hidden="true">
     <div class="main-product__container sticky-atc__inner">
       <div class="sticky-atc__media">
-        {%- if product.featured_media -%}<img src="{{ product.featured_media | image_url: width: 120 }}" alt="" width="52" height="66" loading="lazy">{%- endif -%}
+        {%- if product.featured_media -%}<img src="{{ product.featured_media | image_url: width: 100 }}" alt="" width="40" height="50" loading="lazy">{%- endif -%}
         <div class="sticky-atc__text">
           <span class="sticky-atc__title">{{ product.title }}</span>
           <span class="sticky-atc__price product-price-container">{%- render 'price', product: product -%}</span>
         </div>
       </div>
       <button type="button" class="button sticky-atc__btn" data-sticky-atc-add {% unless current_variant.available %}disabled{% endunless %}>
-        {% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}
+        <span data-add-text>{% if current_variant.available %}{{ 'products.product.add_to_cart' | t }}{% else %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
+        <span class="spinner" aria-hidden="true"></span>
       </button>
     </div>
   </div>
@@ -220,20 +221,22 @@
 .product-stock__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: 0 0 auto; }
 /* Floating add-to-cart bar: cross-device (matches the original HTML theme's
    sticky-add-to-cart-bar, which shows on desktop and mobile alike once the main
-   ATC button scrolls out of view). */
-.sticky-atc { position: fixed; left: 0; right: 0; bottom: 0; z-index: 700; background: var(--color-bg); border-top: 1px solid var(--color-border); transform: translateY(110%); transition: transform 0.35s var(--easing); box-shadow: 0 -4px 20px rgba(0,0,0,0.08); }
+   product section has fully scrolled past). Kept slim - this is a persistent
+   fixed element, not a section, so it shouldn't compete with the page. */
+.sticky-atc { position: fixed; left: 0; right: 0; bottom: 0; z-index: 700; background: var(--color-bg); border-top: 1px solid var(--color-border); transform: translateY(110%); transition: transform 0.3s var(--easing); box-shadow: 0 -2px 12px rgba(0,0,0,0.06); }
 .sticky-atc.is-visible { transform: none; }
-.sticky-atc__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
-.sticky-atc__media { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.sticky-atc__media img { width: 52px; height: 66px; object-fit: cover; border-radius: var(--radius); }
-.sticky-atc__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.sticky-atc__title { font-family: var(--font-heading); font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50vw; }
-.sticky-atc__price .price { font-size: 14px; }
-.sticky-atc__btn { flex: 0 0 auto; padding: 14px 32px; }
+.sticky-atc__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 8px; padding-bottom: 8px; }
+.sticky-atc__media { display: flex; align-items: center; gap: 12px; min-width: 0; padding-right: 16px; border-right: 1px solid var(--color-border); }
+.sticky-atc__media img { width: 40px; height: 50px; object-fit: cover; border-radius: var(--radius); flex: none; }
+.sticky-atc__text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.sticky-atc__title { font-family: var(--font-heading); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 45vw; }
+.sticky-atc__price .price { font-size: 13px; opacity: 0.85; }
+.sticky-atc__btn { flex: 0 0 auto; padding: 11px 24px; font-family: var(--font-ui); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
 @media (min-width: 1024px) {
-  .sticky-atc__inner { padding-top: 16px; padding-bottom: 16px; }
-  .sticky-atc__title { font-size: 16px; max-width: 320px; }
-  .sticky-atc__btn { padding: 15px 48px; }
+  .sticky-atc__inner { padding-top: 10px; padding-bottom: 10px; }
+  .sticky-atc__media { padding-right: 24px; }
+  .sticky-atc__title { font-size: 15px; max-width: 320px; }
+  .sticky-atc__btn { padding: 13px 40px; font-size: 13px; }
 }
 @media (max-width: 480px) { .sticky-atc__title { max-width: 34vw; } }
 {% endstylesheet %}

@@ -213,11 +213,13 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 .announcement-bar :focus-visible,
 .brand-feature--dark :focus-visible { outline-color: #fff; }
 
-/* --- Loading spinner (buttons / async actions) ------------------------ */
-.spinner { width: 18px; height: 18px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: akinna-spin 0.7s linear infinite; display: inline-block; }
+/* --- Loading spinner (buttons / async actions) ------------------------
+   Hidden by default - only .is-loading reveals it. (Was unconditionally
+   display:inline-block, so it spun next to the button label at all times.) */
+.spinner { display: none; width: 18px; height: 18px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: akinna-spin 0.7s linear infinite; }
 .is-loading { position: relative; pointer-events: none; }
-.is-loading > * { opacity: 0.35; }
-.is-loading .spinner { position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; opacity: 1; }
+.is-loading > *:not(.spinner) { opacity: 0.35; }
+.is-loading .spinner { display: inline-block; position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; opacity: 1; }
 @keyframes akinna-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.4s; } }
 
