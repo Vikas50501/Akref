@@ -74,15 +74,19 @@
 .award-info h3 { font-size: 20px; margin-bottom: 8px; }
 .award-info-text p { font-size: 14px; opacity: 0.75; margin: 0; }
 .awards-carousel__nav { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
-.awards-carousel__map { position: relative; margin-top: 60px; overflow: hidden; }
-.awards-carousel__map-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; padding: 0 20px; }
-.awards-carousel__map-text h3 { text-align: center; max-width: 560px; font-size: 28px; }
+.awards-carousel__map { position: relative; margin-top: -120px; overflow: hidden; }
+.awards-carousel__map-text {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  display: flex; align-items: flex-start; justify-content: center; z-index: 1; padding: 0 20px;
+}
+.awards-carousel__map-text h3 { text-align: center; max-width: 600px; font-size: 28px; margin-top: 140px; }
 .awards-carousel__map-img { width: 100%; display: block; }
 .awards-carousel__map-img.is-mobi { display: none; }
 @media (max-width: 767px) {
   .awards-carousel__map-img.is-desk { display: none; }
   .awards-carousel__map-img.is-mobi { display: block; }
-  .awards-carousel__map-text h3 { font-size: 20px; }
+  .awards-carousel__map { margin-top: -60px; }
+  .awards-carousel__map-text h3 { font-size: 20px; margin-top: 70px; }
 }
 {% endstylesheet %}
 
