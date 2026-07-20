@@ -377,48 +377,56 @@
         "l1": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_68.webp",
             "link": ""
           }
         },
         "l2": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_78.webp",
             "link": ""
           }
         },
         "l3": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Designed_in_India.webp",
             "link": ""
           }
         },
         "l4": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_66.webp",
             "link": ""
           }
         },
         "l5": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_28.webp",
             "link": ""
           }
         },
         "l6": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_31.webp",
             "link": ""
           }
         },
         "l7": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_32.webp",
             "link": ""
           }
         },
         "l8": {
           "type": "logo",
           "settings": {
+            "image": "shopify://shop_images/Frame_1.svg",
             "link": ""
           }
         }
@@ -447,6 +455,52 @@
     },
     "instagram": {
       "type": "instagram",
+      "blocks": {
+        "post_xFRQMV": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_RWgTC4": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_XyAjRp": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_TamNjJ": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_h7FYCB": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_LAtbpn": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "post_xFRQMV",
+        "post_RWgTC4",
+        "post_XyAjRp",
+        "post_TamNjJ",
+        "post_h7FYCB",
+        "post_LAtbpn"
+      ],
       "settings": {
         "heading": "@akinna.studios",
         "profile_url": "",
