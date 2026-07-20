@@ -95,9 +95,12 @@
 .product-share { display: flex; gap: 14px; margin-top: 20px; }
 .product-share a { opacity: 0.7; } .product-share a:hover { opacity: 1; }
 
-/* Sticky info */
+/* Sticky product images (left column). The info column (right) scrolls
+   normally; once its content is taller than the viewport and finishes
+   scrolling past, the sticky image column releases and scrolls away too -
+   standard position:sticky behavior once the shared grid ancestor ends. */
 @media (min-width: 1024px) {
-  .main-product-section .main-product__info { position: sticky; top: 100px; }
+  .main-product-section .main-product__media--sticky { position: sticky; top: 100px; }
 }
 
 /* Zoom overlay */

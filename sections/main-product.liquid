@@ -11,7 +11,7 @@
   <div class="common-container main-product__container">
     <div class="main-product__grid">
       <!-- Media -->
-      <div class="main-product__media">
+      <div class="main-product__media{% if section.settings.sticky_info %} main-product__media--sticky{% endif %}">
         {%- render 'product-media-gallery', product: product, section: section -%}
       </div>
 
@@ -298,7 +298,8 @@
     {
       "type": "checkbox",
       "id": "sticky_info",
-      "label": "Sticky info column",
+      "label": "Sticky product images",
+      "info": "Keeps the image gallery in view while the product details scroll, until the details finish scrolling past.",
       "default": true
     },
     {
