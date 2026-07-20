@@ -235,6 +235,7 @@
     "video": {
       "type": "video-banner",
       "settings": {
+        "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
         "video_url": "",
         "poster": "shopify://shop_images/forest-hiker.jpg",
         "full_width": true,
@@ -250,6 +251,7 @@
         "s1": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_78.webp",
             "title": "Handcrafted in India",
             "text": "Proudly crafted in India by skilled artisans."
           }
@@ -257,6 +259,7 @@
         "s2": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Designed_in_India.webp",
             "title": "New-Age Design Language",
             "text": "A contemporary vision with global sensibility."
           }
@@ -264,6 +267,7 @@
         "s3": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_68.webp",
             "title": "Unique Shape",
             "text": "Holds its sculptural form for years."
           }
@@ -271,6 +275,7 @@
         "s4": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_66.webp",
             "title": "Enduring Hardware",
             "text": "Zamac fittings and YKK metal zippers, built for strength and longevity."
           }
