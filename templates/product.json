@@ -23,13 +23,13 @@
         "tagline": {
           "type": "tagline",
           "settings": {
-            "text": ""
+            "text": "TagLine For the Product"
           }
         },
         "price": {
           "type": "price",
           "settings": {
-            "show_tax_note": true
+            "show_tax_note": false
           }
         },
         "inventory": {
