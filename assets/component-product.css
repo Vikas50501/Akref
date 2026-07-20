@@ -1,4 +1,5 @@
 /* AKINNA — Product page */
+.main-product__container { max-width: 1400px; margin-left: auto; margin-right: auto; }
 .main-product__grid { display: grid; grid-template-columns: 58% 42%; gap: 40px; align-items: start; }
 .main-product__info { position: relative; }
 .main-product-section [data-section] { }
