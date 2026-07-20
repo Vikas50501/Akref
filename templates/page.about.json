@@ -371,6 +371,16 @@
         "padding_bottom": 60
       }
     },
+    "separator_qmgeWm": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 0,
+        "side_margin": 10
+      }
+    },
     "press": {
       "type": "logo-marquee",
       "blocks": {
@@ -527,6 +537,7 @@
     "leathers",
     "separator_FctgVx",
     "designer_note",
+    "separator_qmgeWm",
     "press",
     "instagram"
   ]
