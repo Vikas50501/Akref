@@ -97,7 +97,7 @@
       ],
       "settings": {
         "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_bottom": 0,
         "gallery_layout": "thumbnails",
         "enable_zoom": true,
         "sticky_info": true,
