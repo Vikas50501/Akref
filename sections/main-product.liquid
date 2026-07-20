@@ -97,8 +97,9 @@
                   <script type="application/json" data-variant-json>{{ product.variants | json }}</script>
                 </variant-radios>
               {%- when 'buy_buttons' -%}
+                {%- assign product_form_id = 'product-form-' | append: section.id -%}
                 <product-form class="product-form product-add-to-cart-container" data-section="{{ section.id }}" {{ block.shopify_attributes }}>
-                  {%- form 'product', product, id: 'product-form-' | append: section.id, class: 'shopify-product-form', novalidate: 'novalidate' -%}
+                  {%- form 'product', product, id: product_form_id, class: 'shopify-product-form', novalidate: 'novalidate' -%}
                     <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id-input {% unless current_variant.available %}disabled{% endunless %}>
                     {%- if block.settings.show_quantity -%}
                       <div class="product-form__qty">
