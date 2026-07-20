@@ -97,7 +97,7 @@
       ],
       "settings": {
         "padding_top": 40,
-        "padding_bottom": 0,
+        "padding_bottom": 40,
         "gallery_layout": "thumbnails",
         "enable_zoom": true,
         "sticky_info": true,
@@ -171,7 +171,7 @@
       ],
       "settings": {
         "heading": "What Fits Inside",
-        "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
+        "video": "shopify://files/videos/a8febab459164b259d111293164e84f7.mp4",
         "video_url": "",
         "secondary_video": "shopify://files/videos/435128bb60ed4ebe943b42c009d4ae7b.mp4",
         "secondary_video_url": "",
