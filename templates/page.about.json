@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -8,6 +17,8 @@
         "heading": "Annika Saraf & Sanchit Goyal",
         "subheading": "Two Paths. One Vision.",
         "text": "<p>When Annika and Sanchit stepped away from Europe's luxury corridors to return to India, it wasn't to follow a blueprint; it was to rewrite one. Together, they imagined AKINNA: a modern luxury leather goods brand blending contemporary designs with Indian craftsmanship, created for those who carry themselves with confidence.</p>",
+        "button_label": "",
+        "button_link": "",
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "right",
         "media_height": 90,
@@ -39,6 +50,7 @@
         "a1": {
           "type": "award",
           "settings": {
+            "image": "shopify://shop_images/akinna-374_960x_crop_center_cbdc7a1a-202e-4cff-b2ec-b0632a1f7c59.webp",
             "name": "Sanchit (2025)",
             "description": "ET Edge 40 Under 40 Award for Redefining Luxury Entrepreneurship in India"
           }
@@ -46,6 +58,7 @@
         "a2": {
           "type": "award",
           "settings": {
+            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
             "name": "AKINNA (2025)",
             "description": "Delhiites Lifestyle Awards Emerging Accessory Brand of the Year"
           }
@@ -53,17 +66,26 @@
         "a3": {
           "type": "award",
           "settings": {
+            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
             "name": "Annika (2024)",
             "description": "Vogue Italia Top 5 New-generation designers reshaping the language of Italian design"
           }
         }
       },
-      "block_order": ["a1", "a2", "a3"],
+      "block_order": [
+        "a1",
+        "a2",
+        "a3"
+      ],
       "settings": {
         "enabled": true,
         "tagline": "Awards & recognitions",
         "show_nav": true,
+        "autoplay": false,
+        "autoplay_speed": 4000,
         "map_heading": "Global in design. Crafted in India. Carried worldwide.",
+        "map_image": "shopify://shop_images/Group_1321316626_8bdeb584-2ec9-4292-a7fb-4ae57627d4c9.svg",
+        "map_image_mobile": "shopify://shop_images/Frame_2_4.webp",
         "bg": "#ffffff",
         "text_color": "#141515",
         "padding_top": 80,
@@ -73,13 +95,42 @@
     "philosophy": {
       "type": "image-text",
       "blocks": {
-        "icon": { "type": "icon", "settings": {} },
-        "head": { "type": "heading", "settings": { "text": "Our Philosophy" } },
-        "rule": { "type": "rule", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>We design for the modern world, with roots that run deep in India. At AKINNA, every silhouette tells a story of timeless craftsmanship, contemporary vision, and global appeal. Each creation is thoughtfully designed to move with you and leave an impression that transcends fleeting trends. We believe in fashion that reflects a balance of heritage, innovation, and the spirit of a truly global perspective.</p>" } },
-        "btn": { "type": "button", "settings": { "label": "Experience true luxury with us", "link": "/collections/discover-all", "style": "custom" } }
+        "icon": {
+          "type": "icon",
+          "settings": {}
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Our Philosophy"
+          }
+        },
+        "rule": {
+          "type": "rule",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We design for the modern world, with roots that run deep in India. At AKINNA, every silhouette tells a story of timeless craftsmanship, contemporary vision, and global appeal. Each creation is thoughtfully designed to move with you and leave an impression that transcends fleeting trends. We believe in fashion that reflects a balance of heritage, innovation, and the spirit of a truly global perspective.</p>"
+          }
+        },
+        "btn": {
+          "type": "button",
+          "settings": {
+            "label": "Experience true luxury with us",
+            "link": "/collections/discover-all",
+            "style": "custom"
+          }
+        }
       },
-      "block_order": ["icon", "head", "rule", "body", "btn"],
+      "block_order": [
+        "icon",
+        "head",
+        "rule",
+        "body",
+        "btn"
+      ],
       "settings": {
         "enabled": true,
         "image": "shopify://shop_images/forest-hiker.jpg",
@@ -97,13 +148,42 @@
     "inspiration": {
       "type": "image-text",
       "blocks": {
-        "icon": { "type": "icon", "settings": {} },
-        "head": { "type": "heading", "settings": { "text": "Inspiration" } },
-        "rule": { "type": "rule", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>Every AKINNA piece begins not in a factory, but in the vision of a story waiting to be told. We draw inspiration from architecture, art, and the world around us, shaping a new-age design language that feels modern and global. Each idea then takes form in the hands of master artisans in India, men and women whose skills have been honed over decades and passed down through generations. Rooted in India's rich craft heritage yet expressed through contemporary silhouettes, every handbag becomes more than an accessory; it is a dialogue between tradition and modernity, between precision and poetry.</p>" } },
-        "btn": { "type": "button", "settings": { "label": "Shop Our Creations", "link": "/collections/discover-all", "style": "custom" } }
+        "icon": {
+          "type": "icon",
+          "settings": {}
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Inspiration"
+          }
+        },
+        "rule": {
+          "type": "rule",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every AKINNA piece begins not in a factory, but in the vision of a story waiting to be told. We draw inspiration from architecture, art, and the world around us, shaping a new-age design language that feels modern and global. Each idea then takes form in the hands of master artisans in India, men and women whose skills have been honed over decades and passed down through generations. Rooted in India's rich craft heritage yet expressed through contemporary silhouettes, every handbag becomes more than an accessory; it is a dialogue between tradition and modernity, between precision and poetry.</p>"
+          }
+        },
+        "btn": {
+          "type": "button",
+          "settings": {
+            "label": "Shop Our Creations",
+            "link": "/collections/discover-all",
+            "style": "custom"
+          }
+        }
       },
-      "block_order": ["icon", "head", "rule", "body", "btn"],
+      "block_order": [
+        "icon",
+        "head",
+        "rule",
+        "body",
+        "btn"
+      ],
       "settings": {
         "enabled": true,
         "image": "shopify://shop_images/forest-hiker.jpg",
@@ -121,13 +201,42 @@
     "crafted": {
       "type": "image-text",
       "blocks": {
-        "icon": { "type": "icon", "settings": {} },
-        "head": { "type": "heading", "settings": { "text": "Crafted in India" } },
-        "rule": { "type": "rule", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>It takes over 28 hours to bring a single AKINNA bag to life, with every stitch, curve, and detail carefully considered to ensure it will be carried, loved, and remembered for years. We are deeply committed to ethical production, supporting skilled artisans and celebrating India's rich craftsmanship. By producing in small batches, we stay true to our values, prioritising quality and precision over mass production, so every creation is as unique and enduring as the person who carries it.</p>" } },
-        "btn": { "type": "button", "settings": { "label": "Experience true luxury with us", "link": "/collections/discover-all", "style": "custom" } }
+        "icon": {
+          "type": "icon",
+          "settings": {}
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "Crafted in India"
+          }
+        },
+        "rule": {
+          "type": "rule",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It takes over 28 hours to bring a single AKINNA bag to life, with every stitch, curve, and detail carefully considered to ensure it will be carried, loved, and remembered for years. We are deeply committed to ethical production, supporting skilled artisans and celebrating India's rich craftsmanship. By producing in small batches, we stay true to our values, prioritising quality and precision over mass production, so every creation is as unique and enduring as the person who carries it.</p>"
+          }
+        },
+        "btn": {
+          "type": "button",
+          "settings": {
+            "label": "Experience true luxury with us",
+            "link": "/collections/discover-all",
+            "style": "custom"
+          }
+        }
       },
-      "block_order": ["icon", "head", "rule", "body", "btn"],
+      "block_order": [
+        "icon",
+        "head",
+        "rule",
+        "body",
+        "btn"
+      ],
       "settings": {
         "enabled": true,
         "image": "shopify://shop_images/forest-hiker.jpg",
@@ -145,13 +254,42 @@
     "leathers": {
       "type": "image-text",
       "blocks": {
-        "icon": { "type": "icon", "settings": {} },
-        "head": { "type": "heading", "settings": { "text": "AKINNA Leathers" } },
-        "rule": { "type": "rule", "settings": {} },
-        "body": { "type": "text", "settings": { "text": "<p>At AKINNA, we use only top-grain Indian leathers, each carefully selected for its rich texture, lasting strength, and commitment to ethical sourcing. Every hide tells a story of heritage craftsmanship and mindful production, reflecting our dedication to sustainability. All our leathers are LWG-certified, ensuring that quality and responsibility go hand in hand. Our leather speaks softly, yet stands tall; a reflection of the enduring elegance, meticulous attention to detail, and thoughtful design that defines every AKINNA creation.</p>" } },
-        "btn": { "type": "button", "settings": { "label": "Shop Our Creations", "link": "/collections/discover-all", "style": "custom" } }
+        "icon": {
+          "type": "icon",
+          "settings": {}
+        },
+        "head": {
+          "type": "heading",
+          "settings": {
+            "text": "AKINNA Leathers"
+          }
+        },
+        "rule": {
+          "type": "rule",
+          "settings": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At AKINNA, we use only top-grain Indian leathers, each carefully selected for its rich texture, lasting strength, and commitment to ethical sourcing. Every hide tells a story of heritage craftsmanship and mindful production, reflecting our dedication to sustainability. All our leathers are LWG-certified, ensuring that quality and responsibility go hand in hand. Our leather speaks softly, yet stands tall; a reflection of the enduring elegance, meticulous attention to detail, and thoughtful design that defines every AKINNA creation.</p>"
+          }
+        },
+        "btn": {
+          "type": "button",
+          "settings": {
+            "label": "Shop Our Creations",
+            "link": "/collections/discover-all",
+            "style": "custom"
+          }
+        }
       },
-      "block_order": ["icon", "head", "rule", "body", "btn"],
+      "block_order": [
+        "icon",
+        "head",
+        "rule",
+        "body",
+        "btn"
+      ],
       "settings": {
         "enabled": true,
         "image": "shopify://shop_images/forest-hiker.jpg",
@@ -184,21 +322,71 @@
     "press": {
       "type": "logo-marquee",
       "blocks": {
-        "l1": { "type": "logo", "settings": {} },
-        "l2": { "type": "logo", "settings": {} },
-        "l3": { "type": "logo", "settings": {} },
-        "l4": { "type": "logo", "settings": {} },
-        "l5": { "type": "logo", "settings": {} },
-        "l6": { "type": "logo", "settings": {} },
-        "l7": { "type": "logo", "settings": {} },
-        "l8": { "type": "logo", "settings": {} }
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l6": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l7": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l8": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6",
+        "l7",
+        "l8"
+      ],
       "settings": {
         "heading": "",
         "speed": 120,
         "gap": 120,
         "logo_width": 120,
+        "pause_on_hover": true,
         "border_bottom": false,
         "bg": "#ffffff",
         "padding_top": 60,
@@ -209,8 +397,13 @@
       "type": "instagram",
       "settings": {
         "heading": "@akinna.studios",
+        "profile_url": "",
         "columns": 6,
-        "border_top": true
+        "border_top": true,
+        "bg": "#ffffff",
+        "text_color": "#0e3432",
+        "padding_top": 80,
+        "padding_bottom": 36
       }
     }
   },
