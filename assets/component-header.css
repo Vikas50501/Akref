@@ -4,7 +4,7 @@
 .header {
   position: relative; z-index: 500; width: 100%;
   background: var(--color-bg); color: var(--color-ink);
-  border-bottom: 1px solid rgba(var(--color-ink-rgb), 0.1);
+  border-bottom: 1px solid rgba(var(--color-ink-rgb), 0.15);
   transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -97,9 +97,9 @@
   font-family: var(--font-heading); font-size: 22px; margin: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
-/* Transparent header over hero — reference uses a white-10% hairline on the index. */
+/* Transparent header over hero — visible hairline on every page, including home. */
 .header--transparent {
-  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(255,255,255,0.1); color: #fff; z-index: 500;
+  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(255,255,255,0.25); color: #fff; z-index: 500;
 }
 /* Hover anywhere over the header (while transparent): whole bar fades to white, text/logo
    go dark and the hairline becomes the dark ink border — matching the HTML reference
