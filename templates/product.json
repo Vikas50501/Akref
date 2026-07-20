@@ -105,8 +105,8 @@
       "type": "designer-note",
       "settings": {
         "tagline": "From the Atelier",
-        "heading": "Designer's note",
-        "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>",
+        "heading": "Designer Note",
+        "text": "<p>Louv bag was born in Paris, the City of Love. I still remember the trip that first sparked its idea, a moment when the city’s magic felt almost tangible. Paris has a way of being poetic and timeless, yet bold and unexpected, and I wanted the Louv to carry that duality. To me, the Louv isn’t just inspired by Paris, it embodies the city’s spirit of romance, artistry, and fearless style.</p>",
         "person_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "person_name": "Annika Saraf",
         "person_role": "Co-Founder & Creative Director",
@@ -168,8 +168,9 @@
       ],
       "settings": {
         "heading": "What Fits Inside",
+        "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
         "video_url": "",
-        "image": "shopify://shop_images/forest-hiker.jpg",
+        "secondary_video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
         "secondary_video_url": "",
         "secondary_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "bg": "#ffffff",
@@ -343,7 +344,7 @@
         "per_view": 4,
         "aspect": "0.625",
         "show_nav": true,
-        "bg": "#FFFFFF",
+        "bg": "#ffffff",
         "text_color": "#000000",
         "padding_top": 60,
         "padding_bottom": 60
