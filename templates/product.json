@@ -225,7 +225,7 @@
         "heading": "Elements Of AKINNA",
         "per_view": 4,
         "aspect": "0.66",
-        "show_nav": true,
+        "show_nav": false,
         "bg": "#ffffff",
         "text_color": "#141515",
         "padding_top": 60,
