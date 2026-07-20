@@ -92,7 +92,7 @@
         "button_label": "Discover all",
         "button_link": "",
         "button_style": "underline",
-        "collection": "frontpage",
+        "collection": "discover-all",
         "products_limit": 8,
         "rows": 2,
         "per_view_desktop": 4,
