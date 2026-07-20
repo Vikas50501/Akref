@@ -2,22 +2,40 @@
   Product card — two-image hover swap, price, quick add-to-cart.
   Params:
     product        (required)
-    show_quick_add (optional, default settings.card_quick_add)
+    section_id     (required if show_quick_view) — unique id for the quick-view dialog
+    show_quick_add, show_vendor, show_price, show_badge, show_rating, show_wishlist,
+    show_quick_view (optional booleans; show_price/show_badge default true, rest false
+    unless noted — show_quick_add defaults to settings.card_quick_add)
     class          (optional) grid column classes
     ratio          (optional) aspect ratio percent number, default from settings
+    card_ratio     (optional) alias of ratio
 {%- endcomment -%}
 {%- liquid
   assign show_qa = show_quick_add
   if show_quick_add == nil
     assign show_qa = settings.card_quick_add
   endif
+  assign show_vendor = show_vendor | default: false
+  assign show_price = show_price
+  if show_price == nil
+    assign show_price = true
+  endif
+  assign show_badge = show_badge
+  if show_badge == nil
+    assign show_badge = true
+  endif
+  assign show_rating = show_rating | default: false
+  assign show_wishlist = show_wishlist | default: false
+  assign show_quick_view = show_quick_view | default: false
   assign ratio = card_ratio | default: settings.card_image_ratio | default: 1.2195
   assign pad = ratio | times: 100
   assign img_main = product.featured_media.preview_image
   assign img_hover = product.media[1].preview_image | default: img_main
   assign types = product.type
+  assign rating = product.metafields.reviews.rating.value
+  assign rating_count = product.metafields.reviews.rating_count.value
 -%}
-<product-card data-type="{{ types }}" class="product-card {{ class }}">
+<product-card data-type="{{ types }}" data-product-id="{{ product.id }}" class="product-card {{ class }}">
   <figure class="product_thumbnail thb_hover" style="--ratio-percent: {{ pad }}%;">
     <a href="{{ product.url }}" title="{{ product.title | escape }}" class="product-card__link">
       {%- if img_hover and img_hover != img_main -%}
@@ -26,18 +44,41 @@
         </span>
       {%- endif -%}
       {%- render 'responsive-image', image: img_main, alt: product.title, sizes: '(max-width:767px) 50vw, 25vw', class: 'product-card__img-main' -%}
-      {%- if product.available == false -%}
-        <span class="product-card__badge product-card__badge--soldout">{{ 'products.card.sold_out' | t }}</span>
-      {%- elsif product.compare_at_price > product.price -%}
-        <span class="product-card__badge product-card__badge--sale">{{ 'products.card.sale' | t }}</span>
+      {%- if show_badge -%}
+        {%- if product.available == false -%}
+          <span class="product-card__badge product-card__badge--soldout">{{ 'products.card.sold_out' | t }}</span>
+        {%- elsif product.compare_at_price > product.price -%}
+          {%- assign pct_off = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+          <span class="product-card__badge product-card__badge--sale">{{ 'products.card.sale' | t }}{% if pct_off > 0 %} -{{ pct_off }}%{% endif %}</span>
+        {%- endif -%}
       {%- endif -%}
     </a>
+    {%- if show_wishlist -%}
+      <button type="button" class="product-card__wishlist" data-wishlist-toggle data-product-id="{{ product.id }}" data-label-add="{{ 'products.card.wishlist_add' | t }}" data-label-remove="{{ 'products.card.wishlist_remove' | t }}" aria-label="{{ 'products.card.wishlist_add' | t }}" aria-pressed="false">
+        <span class="is-off">{%- render 'icon', name: 'heart', size: 18 -%}</span><span class="is-on" hidden>{%- render 'icon', name: 'heart-filled', size: 18 -%}</span>
+      </button>
+    {%- endif -%}
+    {%- if show_quick_view -%}
+      <button type="button" class="product-card__quickview" data-quickview-open="QuickView-{{ product.id }}-{{ section_id }}" aria-label="{{ 'products.card.quick_view' | t }}">
+        {%- render 'icon', name: 'eye', size: 18 -%}<span class="visually-hidden">{{ 'products.card.quick_view' | t }}</span>
+      </button>
+    {%- endif -%}
   </figure>
   <div class="product-card__info">
+    {%- if show_vendor and product.vendor != blank -%}<p class="product-card__vendor">{{ product.vendor }}</p>{%- endif -%}
     <h3 class="product-card__title">
       <a href="{{ product.url }}" title="{{ product.title | escape }}">{{ product.title }}</a>
     </h3>
-    {%- render 'price', product: product -%}
+    {%- if show_rating and rating != blank -%}
+      {%- assign filled_stars = rating | round -%}
+      <div class="product-card__rating" aria-label="{{ rating }} / 5" data-filled="{{ filled_stars }}">
+        <span class="product-card__stars">
+          {%- for i in (1..5) -%}{%- render 'icon', name: 'star', size: 12 -%}{%- endfor -%}
+        </span>
+        {%- if rating_count != blank -%}<span class="product-card__rating-count">({{ rating_count }})</span>{%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if show_price -%}{%- render 'price', product: product -%}{%- endif -%}
     {%- comment -%} Color swatches — surfaces variant colours on the card {%- endcomment -%}
     {%- assign swatch_option = null -%}
     {%- for option in product.options_with_values -%}

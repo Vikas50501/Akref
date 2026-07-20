@@ -48,7 +48,11 @@
       "add_to_cart": "Add to cart",
       "choose_options": "Choose options",
       "sold_out": "Sold out",
-      "sale": "Sale"
+      "sale": "Sale",
+      "quick_view": "Quick view",
+      "wishlist_add": "Add to wishlist",
+      "wishlist_remove": "Remove from wishlist",
+      "view_full_details": "View full details"
     },
     "price": { "from": "From", "regular_price": "Regular price", "sale_price": "Sale price" },
     "facets": {
