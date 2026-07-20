@@ -445,21 +445,64 @@
         "padding_bottom": 60
       }
     },
-    "studios": {
-      "type": "club-banner",
+    "instagram_iTDLNc": {
+      "type": "instagram",
+      "blocks": {
+        "post_wn4FcV": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_LiPQPW": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_ay7Mb4": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_hUXbyf": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_N6XHKq": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        },
+        "post_Bz6rh6": {
+          "type": "post",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "post_wn4FcV",
+        "post_LiPQPW",
+        "post_ay7Mb4",
+        "post_hUXbyf",
+        "post_N6XHKq",
+        "post_Bz6rh6"
+      ],
+      "name": "Instagram",
       "settings": {
-        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-        "overlay_opacity": 0,
-        "aspect_desktop": "2.3",
-        "aspect_mobile": "1.4",
-        "show_star": false,
-        "tagline": "sdfbg",
         "heading": "@akinna.studios",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "profile_url": "",
+        "columns": 6,
+        "border_top": true,
+        "bg": "#FFFFFF",
+        "text_color": "#0E3425",
+        "padding_top": 80,
+        "padding_bottom": 36
       }
     }
   },
@@ -475,6 +518,6 @@
     "recommendations",
     "sep",
     "press",
-    "studios"
+    "instagram_iTDLNc"
   ]
 }
