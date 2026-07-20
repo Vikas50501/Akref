@@ -8,7 +8,6 @@
 /* Original wraps 4-up: row1 logo/Category/Services/About, row2 Legal + wide Newsletter. */
 .footer__grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
-  padding-bottom: 40px; border-bottom: 1px solid var(--color-border-light);
 }
 .footer__col--newsletter { grid-column: span 3; }
 .footer__col--logo { display: flex; align-items: flex-start; }
