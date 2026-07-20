@@ -138,10 +138,16 @@
 .pc:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .pc__viewport { overflow: hidden; }
 .pc__track { display: flex; }
-.pc__page { display: flex; flex: 0 0 100%; width: 100%; gap: var(--pc-gap, 4px); }
+/* justify-content:flex-start keeps a partial page (last page, or a collection with
+   fewer products than perView) left-aligned at true card width instead of the
+   flex-box spreading its lone item(s) out to fill the row. */
+.pc__page { display: flex; flex: 0 0 100%; width: 100%; gap: var(--pc-gap, 4px); justify-content: flex-start; }
 .pc__track--fade .pc__page { transition-property: opacity; opacity: 0; }
 .pc__track--fade .pc__page.is-active { opacity: 1; }
-.pc__slot { flex: 1 1 calc((100% - (var(--pc-pv, 4) - 1) * var(--pc-gap, 4px)) / var(--pc-pv, 4)); min-width: 0; }
+/* flex-grow:0 is the fix: a slot always holds its computed per-view width and never
+   stretches to fill leftover space when a page has fewer items than --pc-pv (e.g. a
+   1-product collection, or an underfull final page). */
+.pc__slot { flex: 0 0 calc((100% - (var(--pc-pv, 4) - 1) * var(--pc-gap, 4px)) / var(--pc-pv, 4)); min-width: 0; }
 .pc__col { display: flex; flex-direction: column; gap: var(--pc-gap, 4px); }
 .pc__col > * { flex: 1; }
 
