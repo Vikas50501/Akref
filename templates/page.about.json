@@ -92,6 +92,16 @@
         "padding_bottom": 0
       }
     },
+    "separator_zEh6jY": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
+    },
     "philosophy": {
       "type": "image-text",
       "blocks": {
@@ -136,13 +146,23 @@
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "left",
         "media_height": 80,
-        "parallax": true,
+        "parallax": false,
         "full_width": false,
         "divider": false,
         "bg": "#ffffff",
         "text_color": "#141515",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "separator_n7gjMx": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
       }
     },
     "inspiration": {
@@ -189,13 +209,23 @@
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "right",
         "media_height": 80,
-        "parallax": true,
+        "parallax": false,
         "full_width": false,
         "divider": false,
         "bg": "#ffffff",
         "text_color": "#141515",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "separator_WpXhEU": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
       }
     },
     "crafted": {
@@ -242,13 +272,23 @@
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "left",
         "media_height": 80,
-        "parallax": true,
+        "parallax": false,
         "full_width": false,
         "divider": false,
         "bg": "#ffffff",
         "text_color": "#141515",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "separator_HpfNRN": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "color": "#0000001A",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
       }
     },
     "leathers": {
@@ -295,13 +335,13 @@
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "right",
         "media_height": 80,
-        "parallax": true,
+        "parallax": false,
         "full_width": false,
-        "divider": true,
+        "divider": false,
         "bg": "#ffffff",
         "text_color": "#141515",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "designer_note": {
@@ -411,9 +451,13 @@
     "hero",
     "story",
     "awards",
+    "separator_zEh6jY",
     "philosophy",
+    "separator_n7gjMx",
     "inspiration",
+    "separator_WpXhEU",
     "crafted",
+    "separator_HpfNRN",
     "leathers",
     "designer_note",
     "press",
