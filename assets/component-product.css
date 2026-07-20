@@ -1,13 +1,13 @@
 /* AKINNA — Product page */
 .main-product__container { max-width: 1400px; margin-left: auto; margin-right: auto; }
-.main-product__grid { display: grid; grid-template-columns: 58% 42%; gap: 40px; align-items: start; }
-.main-product__info { position: relative; }
+.main-product__grid { display: grid; grid-template-columns: 55% 45%; gap: 40px; align-items: start; }
+.main-product__info { position: relative; padding: 60px 60px 60px 0px; }
 .main-product-section [data-section] { }
 
 /* Gallery */
 .product-gallery { display: grid; grid-template-columns: 84px 1fr; gap: 12px; }
 .product-gallery--stacked, .product-gallery:not(.product-gallery--thumbnails) { grid-template-columns: 1fr; }
-.product-gallery__main { position: relative; grid-column: 2; }
+.product-gallery__main { position: relative; grid-column: 2; width: 540px; max-width: 100%; margin: 0 auto; }
 .product-gallery--stacked .product-gallery__main { grid-column: 1; }
 .product-gallery__slide { display: none; }
 .product-gallery__slide.is-active { display: block; }
@@ -94,7 +94,10 @@
 
 @media (max-width: 1023px) {
   .main-product__grid { grid-template-columns: 1fr; gap: 24px; }
+  .main-product__info { padding: 0; }
   .product-gallery { grid-template-columns: 1fr; }
+  .product-gallery__main { width: 100%; max-width: 540px; }
   .product-thumbnail-container { flex-direction: row; grid-column: 1; grid-row: 2; max-height: none; }
   .product-thumbnail { flex: 0 0 72px; }
 }
+@media (max-width: 580px) { .product-gallery__main { width: 100%; max-width: none; } }
