@@ -4,7 +4,7 @@
 .header {
   position: relative; z-index: 500; width: 100%;
   background: var(--color-bg); color: var(--color-ink);
-  border-bottom: 1px solid rgba(var(--color-ink-rgb), 0.15);
+  border-bottom: 1px solid #d8d8d8;
   transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -105,7 +105,7 @@
    go dark and the hairline becomes the dark ink border — matching the HTML reference
    (.header:hover{background:#fff}). */
 .header--transparent:not(.is-scrolled):hover {
-  background: var(--color-bg); color: var(--color-ink); border-bottom-color: var(--color-border);
+  background: var(--color-bg); color: var(--color-ink); border-bottom-color: #d8d8d8;
 }
 .header--transparent:not(.is-scrolled):hover::before { opacity: 0; }
 .header--transparent:not(.is-scrolled):hover .header__link,
@@ -126,7 +126,7 @@
 .header--transparent .header__logo-img--dark { display: none; }
 .header--transparent .header__logo-img--light { display: inline-block; }
 .header--transparent.is-scrolled {
-  position: fixed; background: var(--color-bg); color: var(--color-ink); border-bottom-color: var(--color-border);
+  position: fixed; background: var(--color-bg); color: var(--color-ink); border-bottom-color: #d8d8d8;
   animation: header-drop 0.4s var(--easing);
 }
 .header--transparent.is-scrolled .header__logo-img--dark { display: inline-block; }
