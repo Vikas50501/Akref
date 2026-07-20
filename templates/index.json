@@ -16,7 +16,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-            "overlay_opacity": 40,
+            "overlay_opacity": 65,
             "content_position": "bottom-right",
             "subheading": "",
             "heading": "Doppio",
