@@ -316,6 +316,15 @@
         "padding_bottom": 60
       }
     },
+    "sep": {
+      "type": "separator",
+      "settings": {
+        "color": "#0000001a",
+        "thickness": 1,
+        "margin": 52,
+        "side_margin": 10
+      }
+    },
     "features": {
       "type": "media-carousel",
       "blocks": {
@@ -423,12 +432,12 @@
         "padding_bottom": 60
       }
     },
-    "sep": {
+    "separator_8JAakR": {
       "type": "separator",
       "settings": {
         "color": "#0000001a",
         "thickness": 1,
-        "margin": 52,
+        "margin": 0,
         "side_margin": 10
       }
     },
@@ -478,8 +487,8 @@
         "pause_on_hover": true,
         "border_bottom": true,
         "bg": "#ffffff",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "instagram_iTDLNc": {
@@ -550,10 +559,11 @@
     "elements",
     "video",
     "symbols",
+    "sep",
     "features",
     "packaging",
     "recommendations",
-    "sep",
+    "separator_8JAakR",
     "press",
     "instagram_iTDLNc"
   ]
