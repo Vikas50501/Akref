@@ -17,8 +17,21 @@
 .product-gallery--zoom .product-single__media-image img { cursor: zoom-in; }
 .product-single__media-native-video video { width: 100%; display: block; }
 
-.flickity-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 1px solid var(--color-border); background: rgba(255,255,255,0.85); border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-.flickity-prev { left: 12px; } .flickity-next { right: 12px; }
+.flickity-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 1px solid var(--color-border); background: rgba(255,255,255,0.85); border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: opacity 0.3s var(--easing), transform 0.3s var(--easing); }
+.flickity-prev { left: 12px; transform: translateY(-50%) translateX(-6px); }
+.flickity-next { right: 12px; transform: translateY(-50%) translateX(6px); }
+.flickity-nav:hover { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+/* Arrows only reveal on image hover (matches the original gallery); on touch
+   devices with no hover, keep them visible so they stay reachable. */
+@media (hover: hover) {
+  .flickity-nav { opacity: 0; pointer-events: none; }
+  .product-gallery__main:hover .flickity-nav,
+  .product-gallery__main:focus-within .flickity-nav { opacity: 1; pointer-events: auto; }
+  .product-gallery__main:hover .flickity-prev,
+  .product-gallery__main:focus-within .flickity-prev { transform: translateY(-50%) translateX(0); }
+  .product-gallery__main:hover .flickity-next,
+  .product-gallery__main:focus-within .flickity-next { transform: translateY(-50%) translateX(0); }
+}
 
 .product-thumbnail-container { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 8px; max-height: 640px; overflow-y: auto; scrollbar-width: thin; }
 .product-thumbnail { position: relative; border: 1px solid transparent; background: none; padding: 0; cursor: pointer; border-radius: var(--radius); overflow: hidden; }
