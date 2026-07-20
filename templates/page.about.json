@@ -447,7 +447,7 @@
         "gap": 120,
         "logo_width": 120,
         "pause_on_hover": true,
-        "border_bottom": false,
+        "border_bottom": true,
         "bg": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
