@@ -104,6 +104,23 @@
         "show_sticky_atc": true
       }
     },
+    "designer_note": {
+      "type": "designer-note",
+      "settings": {
+        "tagline": "From the Atelier",
+        "heading": "Designer Note",
+        "text": "<p>Louv bag was born in Paris, the City of Love. I still remember the trip that first sparked its idea, a moment when the city’s magic felt almost tangible. Paris has a way of being poetic and timeless, yet bold and unexpected, and I wanted the Louv to carry that duality. To me, the Louv isn’t just inspired by Paris, it embodies the city’s spirit of romance, artistry, and fearless style.</p>",
+        "person_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "person_name": "Annika Saraf",
+        "person_role": "Co-Founder & Creative Director",
+        "image": "shopify://shop_images/forest-hiker.jpg",
+        "image_position": "right",
+        "bg": "#ffffff",
+        "text_color": "#141515",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "what_inside": {
       "type": "what-fits-inside",
       "blocks": {
@@ -159,23 +176,6 @@
         "secondary_video": "shopify://files/videos/435128bb60ed4ebe943b42c009d4ae7b.mp4",
         "secondary_video_url": "",
         "secondary_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-        "bg": "#ffffff",
-        "text_color": "#141515",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "designer_note": {
-      "type": "designer-note",
-      "settings": {
-        "tagline": "From the Atelier",
-        "heading": "Designer Note",
-        "text": "<p>Louv bag was born in Paris, the City of Love. I still remember the trip that first sparked its idea, a moment when the city’s magic felt almost tangible. Paris has a way of being poetic and timeless, yet bold and unexpected, and I wanted the Louv to carry that duality. To me, the Louv isn’t just inspired by Paris, it embodies the city’s spirit of romance, artistry, and fearless style.</p>",
-        "person_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-        "person_name": "Annika Saraf",
-        "person_role": "Co-Founder & Creative Director",
-        "image": "shopify://shop_images/forest-hiker.jpg",
-        "image_position": "right",
         "bg": "#ffffff",
         "text_color": "#141515",
         "padding_top": 60,
@@ -508,8 +508,8 @@
   },
   "order": [
     "main",
-    "what_inside",
     "designer_note",
+    "what_inside",
     "elements",
     "video",
     "symbols",
