@@ -88,7 +88,7 @@
         "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
         "button_label": "Discover all",
         "button_link": "",
-        "collection": "discover-all",
+        "collection": "frontpage",
         "products_limit": 8,
         "show_arrows": true,
         "bg": "#ffffff",
@@ -177,7 +177,7 @@
         "heading": "New Arrivals",
         "button_label": "Explore all",
         "button_link": "",
-        "collection": "",
+        "collection": "frontpage",
         "products_limit": 4,
         "bg": "#ffffff",
         "text_color": "#000000",
@@ -276,26 +276,35 @@
         "s1": {
           "type": "video",
           "settings": {
-            "video_url": ""
+            "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
+            "video_url": "",
+            "poster": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg"
           }
         },
         "s2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg"
+          }
         },
         "s3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg"
+          }
         },
         "s4": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
             "video_url": ""
           }
         },
         "s5": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/black-glass-perfume-bottle-and-spritzer.jpg"
+          }
         }
       },
       "block_order": [
