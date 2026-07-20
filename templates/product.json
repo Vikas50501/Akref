@@ -55,8 +55,11 @@
         "badges": {
           "type": "trust_badges",
           "settings": {
+            "icon_1": "shopify://shop_images/Frame_28.webp",
             "text_1": "100% Leather",
+            "icon_2": "shopify://shop_images/Frame_32.webp",
             "text_2": "5-Year Warranty",
+            "icon_3": "shopify://shop_images/Frame_31.webp",
             "text_3": "Global by Design"
           }
         },
