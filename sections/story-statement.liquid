@@ -1,0 +1,73 @@
+{%- comment -%}
+  Story statement — centered tagline + large statement, with a "Read more"
+  trigger that opens the full narrative in a slide-in drawer (reuses the
+  theme's generic drawer system, same pattern as the product accordion).
+{%- endcomment -%}
+{%- if section.settings.enabled -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+  }
+{%- endstyle -%}
+<div class="story-statement index-section">
+  <div class="common-container">
+    <div class="story-statement__block">
+      {%- if section.settings.tagline != blank -%}<div class="tag-line">{{ section.settings.tagline }}</div>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="story-statement__heading" style="font-size:{{ section.settings.heading_size }}px;">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.read_more_text != blank -%}
+        <button type="button" class="titleaccordian readmore" data-drawer-open="StoryDrawer-{{ section.id }}">{{ section.settings.read_more_label | default: 'Read more' }}</button>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- if section.settings.read_more_text != blank -%}
+  <div class="side-panel side-panel--right story-drawer" id="StoryDrawer-{{ section.id }}" data-drawer aria-hidden="true" role="dialog" aria-label="{{ section.settings.drawer_title | default: section.settings.tagline }}">
+    <div class="side-panel__overlay" data-drawer-close></div>
+    <div class="side-panel__content story-drawer__content">
+      <div class="side-panel__head">
+        <span class="side-panel__title">{{ section.settings.drawer_title | default: section.settings.tagline }}</span>
+        <button class="side-panel__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 20 -%}</button>
+      </div>
+      <div class="story-drawer__body rte">{{ section.settings.read_more_text }}</div>
+    </div>
+  </div>
+{%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+.story-statement__block { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 700px; margin: 0 auto; }
+.story-statement__block .tag-line { font-size: 32px; letter-spacing: 0; opacity: 1; font-family: var(--font-heading); text-transform: capitalize; margin-bottom: 0; }
+.story-statement__heading { font-family: var(--font-body); font-weight: 500; font-size: 24px; line-height: 140%; margin-top: 32px; max-width: 460px; }
+.story-statement .readmore { text-decoration: underline; cursor: pointer; margin-top: 16px; font-size: 13px; text-transform: uppercase; opacity: 0.75; background: none; border: 0; font-family: var(--font-body); color: inherit; }
+.story-drawer__body { padding: 24px 0; font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-y: auto; }
+.story-drawer__body p { margin-bottom: 20px; }
+@media (max-width: 768px) {
+  .story-statement__block .tag-line { font-size: 24px; }
+  .story-statement__heading { font-size: 14px; margin-top: 12px; max-width: 360px; }
+  .story-statement .readmore { font-size: 12px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Story statement",
+  "class": "index-section story-statement-section",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Enable section", "default": true },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Our Story" },
+    { "type": "richtext", "id": "heading", "label": "Statement", "default": "<p>Our story is one of two worlds.</p>" },
+    { "type": "range", "id": "heading_size", "label": "Statement size", "min": 16, "max": 32, "step": 1, "unit": "px", "default": 24 },
+    { "type": "text", "id": "read_more_label", "label": "\"Read more\" label", "default": "Read more" },
+    { "type": "text", "id": "drawer_title", "label": "Drawer title (defaults to tagline)" },
+    { "type": "richtext", "id": "read_more_text", "label": "Full story (opens in a drawer)" },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#141515" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "presets": [{ "name": "Story statement" }]
+}
+{% endschema %}

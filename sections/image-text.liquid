@@ -14,6 +14,7 @@
   }
   #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}26; }
 {%- endstyle -%}
+{%- if section.settings.enabled -%}
 <div class="image-text index-section{% if section.settings.divider %} image-text--divider{% endif %}">
   <div class="{% if section.settings.full_width %}image-text__full{% else %}common-container{% endif %}">
     <div class="grid-normal image-text__grid{% if img_right == 'right' %} image-text__grid--reverse{% endif %}"{% if section.settings.divider == false %} style="border:0;"{% endif %}>
@@ -29,12 +30,19 @@
       <div class="right-block image-text__content">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
+            {%- when 'icon' -%}
+              <div class="image-text__icon" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 60 }}" alt="" width="24" height="24" loading="lazy">
+                {%- else -%}{%- render 'icon', name: 'star', size: 24 -%}{%- endif -%}
+              </div>
             {%- when 'tagline' -%}
               <p class="tag-line" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
             {%- when 'heading' -%}
               <h2 class="letters-slide-up text-split image-text__heading" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
             {%- when 'divider' -%}
               <span class="straight-line" style="margin-left:0;" {{ block.shopify_attributes }}></span>
+            {%- when 'rule' -%}
+              <span class="image-text__rule" {{ block.shopify_attributes }}></span>
             {%- when 'text' -%}
               <div class="tag-info rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
             {%- when 'quote' -%}
@@ -46,7 +54,11 @@
             {%- when 'signature' -%}
               <p class="image-text__signature" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
             {%- when 'button' -%}
-              <a href="{{ block.settings.link }}" class="button {{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+              {%- if block.settings.style == 'custom' -%}
+                <a href="{{ block.settings.link }}" class="custombtn image-text__btn" {{ block.shopify_attributes }}><span>{{ block.settings.label }}</span>{%- render 'icon', name: 'arrow-up-right', size: 10 -%}</a>
+              {%- else -%}
+                <a href="{{ block.settings.link }}" class="button {{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+              {%- endif -%}
             {%- when 'certifications' -%}
               <div class="divoth-wrap" {{ block.shopify_attributes }}>
                 {%- for i in (1..2) -%}
@@ -70,6 +82,7 @@
     </div>
   </div>
 </div>
+{%- endif -%}
 
 {% stylesheet %}
 .image-text__grid { align-items: stretch; }
@@ -79,7 +92,11 @@
 .image-text__media .frame-img { width: 100%; height: 100%; object-fit: cover; }
 .image-text__content { padding: 60px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
 .image-text__content .tag-info { max-width: 480px; }
+.image-text__icon { display: flex; }
+.image-text__icon img { width: 24px; height: 24px; object-fit: contain; }
 .image-text__heading { margin: 0; }
+.image-text__btn { margin-top: 4px; }
+.image-text__rule { display: block; width: 100%; height: 1px; background: rgba(var(--color-ink-rgb), 0.1); margin-top: 8px; }
 .image-text__quote { display: flex; flex-direction: column; gap: 10px; max-width: 440px; }
 .image-text__quote-text { font-family: var(--font-body); font-style: italic; font-size: 17px; opacity: 0.85; margin: 0; }
 .image-text__quote-close { align-self: flex-end; transform: rotate(180deg); }
@@ -102,6 +119,12 @@
   "name": "Image with text",
   "class": "index-section image-text-section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable section",
+      "default": true
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -190,6 +213,17 @@
   ],
   "blocks": [
     {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom icon (defaults to the brand star)"
+        }
+      ]
+    },
+    {
       "type": "tagline",
       "name": "Tagline",
       "settings": [
@@ -215,7 +249,12 @@
     },
     {
       "type": "divider",
-      "name": "Divider",
+      "name": "Divider (vertical)",
+      "settings": []
+    },
+    {
+      "type": "rule",
+      "name": "Hairline (horizontal)",
       "settings": []
     },
     {

@@ -1,0 +1,131 @@
+{%- comment -%}
+  Awards & recognition — tagline with a vertical divider, a swipeable row of
+  award slides (image + title + description), and a full-width "map" band
+  with a centered statement over a world-map image (desktop/mobile variants).
+{%- endcomment -%}
+{%- if section.settings.enabled -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+  }
+{%- endstyle -%}
+<div class="awards-carousel index-section">
+  <div class="common-container">
+    <div class="awards-carousel__head">
+      <span class="awards-carousel__line"></span>
+      {%- if section.settings.tagline != blank -%}<div class="tag-line">{{ section.settings.tagline }}</div>{%- endif -%}
+    </div>
+    <div class="awards-carousel__wrap" data-carousel {% if section.settings.autoplay %}data-autoplay="{{ section.settings.autoplay_speed }}"{% endif %}>
+      <div class="awards-carousel__track" data-carousel-track>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'award' -%}
+            <div class="award-slide" data-carousel-slide {{ block.shopify_attributes }}>
+              <div class="award-contents">
+                <div class="award-image-content">
+                  {%- if block.settings.image != blank -%}<img gsap-scale-anim class="award-frame-img" src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.name | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
+                  {%- else -%}{{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg award-frame-img' }}{%- endif -%}
+                </div>
+                <div class="award-info">
+                  {%- if block.settings.name != blank -%}<h3>{{ block.settings.name }}</h3>{%- endif -%}
+                  {%- if block.settings.description != blank -%}<div class="award-info-text"><p>{{ block.settings.description }}</p></div>{%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- if section.settings.show_nav -%}
+        <div class="awards-carousel__nav">
+          <button class="carousel-arrow" data-carousel-prev aria-label="{{ 'accessibility.previous' | t }}">{%- render 'icon', name: 'arrow-left', size: 18 -%}</button>
+          <button class="carousel-arrow" data-carousel-next aria-label="{{ 'accessibility.next' | t }}">{%- render 'icon', name: 'arrow-right', size: 18 -%}</button>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.settings.map_heading != blank or section.settings.map_image != blank or section.settings.map_image_mobile != blank -%}
+    <div class="awards-carousel__map">
+      {%- if section.settings.map_heading != blank -%}
+        <div class="awards-carousel__map-text">
+          <h3>{{ section.settings.map_heading }}</h3>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.map_image != blank -%}
+        <img class="awards-carousel__map-img is-desk" src="{{ section.settings.map_image | image_url: width: 1600 }}" alt="" width="{{ section.settings.map_image.width }}" height="{{ section.settings.map_image.height }}" loading="lazy">
+      {%- endif -%}
+      {%- if section.settings.map_image_mobile != blank -%}
+        <img class="awards-carousel__map-img is-mobi" src="{{ section.settings.map_image_mobile | image_url: width: 900 }}" alt="" width="{{ section.settings.map_image_mobile.width }}" height="{{ section.settings.map_image_mobile.height }}" loading="lazy">
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% stylesheet %}
+.awards-carousel__head { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 40px; }
+.awards-carousel__line { width: 1px; height: 40px; background: rgba(var(--color-ink-rgb), 0.15); }
+.awards-carousel__track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 1fr); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.awards-carousel__track::-webkit-scrollbar { display: none; }
+.award-slide { scroll-snap-align: start; }
+.award-contents { display: flex; flex-direction: column; gap: 20px; }
+.award-image-content { aspect-ratio: 4/3; overflow: hidden; background: var(--color-bg-alt); }
+.award-image-content img { width: 100%; height: 100%; object-fit: cover; }
+.award-info h3 { font-size: 20px; margin-bottom: 8px; }
+.award-info-text p { font-size: 14px; opacity: 0.75; margin: 0; }
+.awards-carousel__nav { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+.awards-carousel__map { position: relative; margin-top: 60px; overflow: hidden; }
+.awards-carousel__map-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; padding: 0 20px; }
+.awards-carousel__map-text h3 { text-align: center; max-width: 560px; font-size: 28px; }
+.awards-carousel__map-img { width: 100%; display: block; }
+.awards-carousel__map-img.is-mobi { display: none; }
+@media (max-width: 767px) {
+  .awards-carousel__map-img.is-desk { display: none; }
+  .awards-carousel__map-img.is-mobi { display: block; }
+  .awards-carousel__map-text h3 { font-size: 20px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Awards & recognition",
+  "class": "index-section awards-carousel-section",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Enable section", "default": true },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Awards & recognitions" },
+    { "type": "checkbox", "id": "show_nav", "label": "Show navigation arrows", "default": true },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_speed", "label": "Autoplay speed", "min": 1500, "max": 8000, "step": 500, "unit": "ms", "default": 4000 },
+    { "type": "header", "content": "Map band" },
+    { "type": "text", "id": "map_heading", "label": "Map heading", "default": "Global in design. Crafted in India. Carried worldwide." },
+    { "type": "image_picker", "id": "map_image", "label": "Map image (desktop)" },
+    { "type": "image_picker", "id": "map_image_mobile", "label": "Map image (mobile)" },
+    { "type": "header", "content": "Style" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#141515" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "award",
+      "name": "Award",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Name & year", "default": "Name (Year)" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Awards & recognition",
+      "blocks": [
+        { "type": "award" },
+        { "type": "award" },
+        { "type": "award" }
+      ]
+    }
+  ]
+}
+{% endschema %}
