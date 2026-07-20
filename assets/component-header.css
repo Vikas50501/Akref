@@ -40,9 +40,30 @@
 .header__menu { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
 .header__item { position: static; }
 .header__link {
+  position: relative;
   display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0;
-  padding: 8px 0; color: inherit;
+  padding: 10px 14px; color: inherit; background-color: transparent;
+  transition: background-color 0.28s var(--easing), color 0.28s var(--easing);
+}
+/* Animated bottom border (dark green), sweeps left -> right on hover, retracts on leave */
+.header__link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--color-green);
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform 0.28s var(--easing);
+}
+/* Hover / keyboard focus: light beige/cream background + green text + border sweep */
+.header__item:hover > .header__link,
+.header__link:focus-visible {
+  background-color: var(--color-bg-alt);
+  color: var(--color-green);
+}
+.header__item:hover > .header__link::after,
+.header__link:focus-visible::after { transform: scaleX(1); }
+/* Keep the effect readable when the header is transparent over the hero */
+.header--transparent:not(.is-scrolled) .header__item:hover > .header__link {
+  text-shadow: none;
 }
 .header__item.has-children > .header__link .icon { transition: transform var(--transition); }
 .header__item.has-children:hover > .header__link .icon { transform: rotate(180deg); }
