@@ -121,7 +121,9 @@ h3 { font-size: var(--h3-size); font-weight: 400; }
 p  { margin: 0 0 1em; font-weight: 300; }
 p:last-child { margin-bottom: 0; }
 
-strong, b { font-weight: normal; font-family: var(--font-ui-medium); }
+/* Bold inside body copy must stay in Petrona — switching to Inter here would
+   change typeface mid-sentence. Petrona ships weights up to Black. */
+strong, b { font-weight: 600; font-family: inherit; }
 em, i { font-style: italic; }
 
 ul, ol { margin: 0 0 1em; padding-left: 1.2em; }

@@ -32,7 +32,7 @@
 .footer__news-text { font-size: 14px; opacity: 0.85; margin-bottom: 16px; }
 .footer__news-text a { text-decoration: underline; }
 .footer__subscribe-row { display: flex; align-items: center; background: #fff; border-radius: 2px; overflow: hidden; max-width: 420px; }
-.footer__subscribe-row input { flex: 1; border: 0; background: none; color: var(--color-ink); padding: 15px 18px; font-family: var(--font-body); font-size: 14px; text-transform: uppercase; letter-spacing: 0.02em; }
+.footer__subscribe-row input { flex: 1; border: 0; background: none; color: var(--color-ink); padding: 15px 18px; font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.02em; }
 .footer__subscribe-row input::placeholder { color: rgba(20,21,21,0.5); }
 .footer__subscribe-row button { border: 0; background: none; color: var(--color-ink); padding: 0 18px; cursor: pointer; }
 .footer__news-success { font-size: 13px; margin-bottom: 8px; }

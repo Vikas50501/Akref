@@ -34,7 +34,7 @@
 .cart-item__remove:hover { color: var(--color-ink); }
 .cart-item__bottom { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; }
 /* Original cart prices use the serif (queens). */
-.cart-item__price { font-family: var(--font-heading); font-size: 16px; }
+.cart-item__price { font-family: var(--font-ui); font-size: 15px; }
 .cart-item__price--top { align-self: flex-start; white-space: nowrap; }
 
 /* Cart upsell */
@@ -50,9 +50,9 @@
 .cart-upsell__add:hover { background: var(--color-ink); color: var(--color-bg); }
 
 .cart-footer { padding-top: 18px; margin-top: 8px; border-top: 1px solid var(--color-border); }
-.cart-note textarea { width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 10px; font-family: var(--font-body); margin: 6px 0 14px; }
+.cart-note textarea { width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 10px; font-family: var(--font-ui); margin: 6px 0 14px; }
 .cart-subtotal { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.04em; font-size: 14px; }
-.cart-subtotal [data-cart-subtotal] { font-family: var(--font-heading); font-size: 18px; letter-spacing: 0; text-transform: none; }
+.cart-subtotal [data-cart-subtotal] { font-family: var(--font-ui); font-size: 16px; letter-spacing: 0; text-transform: none; }
 .cart-taxes { font-size: 12px; opacity: 0.6; margin: 8px 0 16px; }
 .cart-checkout { width: 100%; }
 
@@ -66,7 +66,7 @@
 .search-modal__head { display: flex; }
 .search-modal__form-wrap { display: flex; align-items: center; gap: 16px; width: 100%; border-bottom: 1px solid var(--color-ink); padding-bottom: 12px; }
 .search-modal__form { display: flex; align-items: center; gap: 12px; flex: 1; }
-.search-modal__input { flex: 1; border: 0; background: none; font-family: var(--font-heading); font-size: 24px; padding: 6px 0; }
+.search-modal__input { flex: 1; border: 0; background: none; font-family: var(--font-ui); font-size: 24px; padding: 6px 0; }
 /* focus is indicated by the wrapper border-bottom emphasis, plus global :focus-visible */
 .search-modal__form-wrap:focus-within { border-bottom-color: var(--color-green); border-bottom-width: 2px; }
 .search-modal__submit { background: none; border: 0; font-family: var(--font-ui); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; }
