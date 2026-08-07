@@ -33,7 +33,7 @@
       "settings": {
         "enabled": true,
         "tagline": "Our Story",
-        "heading": "<p>Our story is one of two worlds. Brought to life by the skilled hands of Indian artisans, every AKINNA bag carries a global vision with deep Indian roots and uncompromising craftsmanship.</p>",
+        "heading": "<p>Our story is one of two worlds. Brought to life by the hands of artisan weavers, every KRAMÈ trouser carries an engineer's precision and a craftsman's patience, woven thread by thread.</p>",
         "heading_size": 24,
         "read_more_label": "Read more",
         "drawer_title": "Our Story",
@@ -51,24 +51,24 @@
           "type": "award",
           "settings": {
             "image": "shopify://shop_images/akinna-374_960x_crop_center_cbdc7a1a-202e-4cff-b2ec-b0632a1f7c59.webp",
-            "name": "Sanchit (2025)",
-            "description": "ET Edge 40 Under 40 Award for Redefining Luxury Entrepreneurship in India"
+            "name": "Handspun Cotton",
+            "description": "Hand-spun by artisans, honouring a centuries-old Indian textile tradition."
           }
         },
         "a2": {
           "type": "award",
           "settings": {
             "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
-            "name": "AKINNA (2025)",
-            "description": "Delhiites Lifestyle Awards Emerging Accessory Brand of the Year"
+            "name": "Skilled Artisans",
+            "description": "Every trouser passes through hands trained across generations of craft."
           }
         },
         "a3": {
           "type": "award",
           "settings": {
             "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
-            "name": "Annika (2024)",
-            "description": "Vogue Italia Top 5 New-generation designers reshaping the language of Italian design"
+            "name": "Timeless Silhouettes",
+            "description": "Designed to be worn often and cherished for years to come."
           }
         }
       },
@@ -83,7 +83,7 @@
         "show_nav": true,
         "autoplay": false,
         "autoplay_speed": 4000,
-        "map_heading": "Global in design. Crafted in India. Carried worldwide.",
+        "map_heading": "Handwoven in India. Worn across India, UAE, Singapore.",
         "map_image": "shopify://shop_images/Group_1321316626_8bdeb584-2ec9-4292-a7fb-4ae57627d4c9.svg",
         "map_image_mobile": "shopify://shop_images/Frame_2_4.webp",
         "bg": "#f5f2ea",
@@ -122,13 +122,13 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>We design for the modern world, with roots that run deep in India. At AKINNA, every silhouette tells a story of timeless craftsmanship, contemporary vision, and global appeal. Each creation is thoughtfully designed to move with you and leave an impression that transcends fleeting trends. We believe in fashion that reflects a balance of heritage, innovation, and the spirit of a truly global perspective.</p>"
+            "text": "<p>We design for real, lived days, rooted in India's handwoven tradition. Every KRAMÈ garment is thoughtfully crafted to honour traditional textiles while offering timeless design, refined comfort and effortless versatility. Unlike trend-driven fashion, we build a wardrobe that is timeless, functional and consciously made — quietly confident, thoughtfully crafted, and grounded in every detail.</p>"
           }
         },
         "btn": {
           "type": "button",
           "settings": {
-            "label": "Experience true luxury with us",
+            "label": "Experience the Art of KRAMÈ",
             "link": "/collections/discover-all",
             "style": "custom"
           }
@@ -185,13 +185,13 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>Every AKINNA piece begins not in a factory, but in the vision of a story waiting to be told. We draw inspiration from architecture, art, and the world around us, shaping a new-age design language that feels modern and global. Each idea then takes form in the hands of master artisans in India, men and women whose skills have been honed over decades and passed down through generations. Rooted in India's rich craft heritage yet expressed through contemporary silhouettes, every handbag becomes more than an accessory; it is a dialogue between tradition and modernity, between precision and poetry.</p>"
+            "text": "<p>Every KRAMÈ trouser begins not in a factory, but in a wardrobe that wasn't working — too many trousers for too many versions of one woman's day. We looked to India's handloom tradition for the answer. Each idea takes shape in the hands of artisan weavers, men and women whose craft has been passed down through generations, now at risk of disappearing. Rooted in that heritage yet designed for modern movement, every trouser becomes more than a garment — it is trust, placed once again in the hands that wove it.</p>"
           }
         },
         "btn": {
           "type": "button",
           "settings": {
-            "label": "Shop Our Creations",
+            "label": "Shop the Collection",
             "link": "/collections/discover-all",
             "style": "custom"
           }
