@@ -12,7 +12,7 @@
     background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
     --it-media-h: {{ section.settings.media_height }}vh;
   }
-  #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}4D; }
+  #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}8C; }
 {%- endstyle -%}
 {%- if section.settings.enabled -%}
 <div class="image-text index-section{% if section.settings.divider %} image-text--divider{% endif %}">
@@ -43,7 +43,7 @@
                 .is-inview, which initReveal() only adds to [data-anim] elements. {%- endcomment -%}
               <h2 class="letters-slide-up text-split image-text__heading" data-anim="up" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
             {%- when 'divider' -%}
-              <span class="straight-line" style="margin-left:0;" {{ block.shopify_attributes }}></span>
+              <span class="straight-line" {{ block.shopify_attributes }}></span>
             {%- when 'rule' -%}
               <span class="image-text__rule" {{ block.shopify_attributes }}></span>
             {%- when 'text' -%}
