@@ -71,8 +71,8 @@
         "t4"
       ],
       "settings": {
-        "bg": "#0e3432",
-        "text_color": "#ffffff",
+        "bg": "#7C6252",
+        "text_color": "#F5F2EA",
         "speed": 50,
         "gap": 240,
         "pause_on_hover": true
@@ -88,7 +88,7 @@
         "heading_size": 32,
         "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
         "heading_alignment": "center",
-        "heading_color": "#141515",
+        "heading_color": "#7C6252",
         "button_label": "Discover all",
         "button_link": "",
         "button_style": "underline",
@@ -116,7 +116,7 @@
         "show_dots": false,
         "show_scrollbar": false,
         "show_progressbar": false,
-        "image_ratio": "1.2195",
+        "image_ratio": "1.25",
         "card_style": "default",
         "show_vendor": false,
         "show_price": true,
@@ -129,9 +129,9 @@
         "card_radius": 0,
         "card_shadow": false,
         "card_bg": "rgba(0,0,0,0)",
-        "card_text_color": "#141515",
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "card_text_color": "#7C6252",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 80,
         "padding_bottom": 80,
         "margin_top": 0,
@@ -186,8 +186,8 @@
         "parallax": true,
         "full_width": false,
         "divider": true,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 10,
         "padding_bottom": 0
       }
@@ -220,8 +220,8 @@
         "button_link": "",
         "collection": "frontpage",
         "products_limit": 4,
-        "bg": "#ffffff",
-        "text_color": "#000000",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 12,
         "padding_bottom": 12
       }
@@ -229,7 +229,7 @@
     "sep1": {
       "type": "separator",
       "settings": {
-        "color": "#0000001a",
+        "color": "#7C62521a",
         "thickness": 1,
         "margin": 52,
         "side_margin": 10
@@ -286,8 +286,8 @@
         "parallax": true,
         "full_width": false,
         "divider": true,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 10,
         "padding_bottom": 10
       }
@@ -305,8 +305,8 @@
         "button_label": "",
         "button_link": "",
         "button_style": "alt",
-        "bg": "#0e3432",
-        "text_color": "#ffffff",
+        "bg": "#7C6252",
+        "text_color": "#F5F2EA",
         "padding_top": 10,
         "padding_bottom": 10
       }
@@ -358,8 +358,8 @@
       "settings": {
         "tagline": "",
         "heading": "",
-        "bg": "#ffffff",
-        "text_color": "#000000",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -426,7 +426,7 @@
         "logo_width": 120,
         "pause_on_hover": true,
         "border_bottom": true,
-        "bg": "#ffffff",
+        "bg": "#F5F2EA",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -490,8 +490,8 @@
         "profile_url": "",
         "columns": 6,
         "border_top": true,
-        "bg": "#ffffff",
-        "text_color": "#0e3432",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 80,
         "padding_bottom": 36
       }

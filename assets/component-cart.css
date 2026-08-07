@@ -29,7 +29,7 @@
 .cart-item__top { display: flex; justify-content: space-between; gap: 10px; }
 .cart-item__title { font-family: var(--font-body); font-size: 14px; }
 .cart-item__variant { font-size: 12px; opacity: 0.6; margin: 4px 0 0; }
-/* Original REMOVE: uppercase text link, 12px centra, #14151580 */
+/* Remove control: uppercase text link, Inter 12px, muted brand brown */
 .cart-item__remove { background: none; border: 0; cursor: pointer; font-family: var(--font-body); font-size: 12px; text-transform: uppercase; color: rgba(var(--color-ink-rgb), 0.5); padding: 0; transition: color var(--transition); }
 .cart-item__remove:hover { color: var(--color-ink); }
 .cart-item__bottom { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; }

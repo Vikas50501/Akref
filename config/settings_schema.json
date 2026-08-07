@@ -18,44 +18,44 @@
         "type": "color",
         "id": "color_brand_green",
         "label": "Akinna green (brand)",
-        "default": "#0e3432"
+        "default": "#7C6252"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Body text",
-        "default": "#141515"
+        "default": "#7C6252"
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Background",
-        "default": "#ffffff"
+        "default": "#F5F2EA"
       },
       {
         "type": "color",
         "id": "color_background_alt",
         "label": "Alternate background",
-        "default": "#f5f3f5"
+        "default": "#E6D7C7"
       },
       {
         "type": "color",
         "id": "color_link_hover",
         "label": "Link hover",
-        "default": "#3a6662"
+        "default": "#974C52"
       },
       {
         "type": "color",
         "id": "color_muted",
         "label": "Muted text",
-        "default": "#5c5c5c",
+        "default": "#7C6252",
         "info": "Used for captions, taglines, meta. Keep ≥4.5:1 on background for accessibility."
       },
       {
         "type": "color",
         "id": "color_sale",
         "label": "Sale / low-stock accent",
-        "default": "#b12704"
+        "default": "#974C52"
       },
       {
         "type": "header",
@@ -65,19 +65,19 @@
         "type": "color",
         "id": "color_button",
         "label": "Button background",
-        "default": "#0e3432"
+        "default": "#7C6252"
       },
       {
         "type": "color",
         "id": "color_button_text",
         "label": "Button text",
-        "default": "#ffffff"
+        "default": "#F5F2EA"
       },
       {
         "type": "color",
         "id": "color_button_hover",
         "label": "Button hover",
-        "default": "#141515"
+        "default": "#974C52"
       },
       {
         "type": "header",
@@ -87,13 +87,13 @@
         "type": "color",
         "id": "color_announcement_bg",
         "label": "Background",
-        "default": "#0e3432"
+        "default": "#7C6252"
       },
       {
         "type": "color",
         "id": "color_announcement_text",
         "label": "Text",
-        "default": "#ffffff"
+        "default": "#F5F2EA"
       }
     ]
   },
@@ -102,7 +102,13 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Brand fonts (Queens, Suisse Intl, Centra) are bundled with the theme."
+        "content": "KRAMÈ typography: The Seasons (display), Petrona (body), Inter (navigation, buttons, forms). Petrona and Inter load automatically. The Seasons is a licensed font — upload TheSeasons-Light.woff2, TheSeasons-Regular.woff2 and TheSeasons-Bold.woff2 to Assets, then switch on the checkbox below. Until then headings use Petrona."
+      },
+      {
+        "type": "checkbox",
+        "id": "the_seasons_installed",
+        "label": "The Seasons font files are uploaded",
+        "default": false
       },
       {
         "type": "header",
@@ -231,15 +237,15 @@
             "label": "Square (1:1)"
           },
           {
-            "value": "1.2195",
-            "label": "Portrait (default)"
+            "value": "1.25",
+            "label": "Portrait 4:5 (brand standard)"
           },
           {
             "value": "1.5",
             "label": "Tall (2:3)"
           }
         ],
-        "default": "1.2195"
+        "default": "1.25"
       }
     ]
   },

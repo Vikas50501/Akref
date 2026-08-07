@@ -26,8 +26,8 @@
         "m1"
       ],
       "settings": {
-        "bg": "#0e3432",
-        "text_color": "#ffffff",
+        "bg": "#7C6252",
+        "text_color": "#F5F2EA",
         "autorotate": 4,
         "dismissible": true
       }

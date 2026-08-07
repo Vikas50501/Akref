@@ -74,7 +74,7 @@
 .card-swatch__more { font-family: var(--font-ui); font-size: 11px; opacity: 0.6; }
 .product-card__title a { color: var(--color-ink); }
 /* Original card price: centra, 16px, opacity .75. */
-.product-card__info .price { color: var(--color-ink); font-size: 16px; opacity: 0.75; }
+.product-card__info .price { color: var(--color-ink); font-size: 16px; }
 
 .product_after_shop_loop_buttons { margin-top: 12px; }
 .add_to_cart_button {

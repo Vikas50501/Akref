@@ -27,7 +27,7 @@
   assign show_rating = show_rating | default: false
   assign show_wishlist = show_wishlist | default: false
   assign show_quick_view = show_quick_view | default: false
-  assign ratio = card_ratio | default: settings.card_image_ratio | default: 1.2195
+  assign ratio = card_ratio | default: settings.card_image_ratio | default: 1.25
   assign pad = ratio | times: 100
   assign img_main = product.featured_media.preview_image
   assign img_hover = product.media[1].preview_image | default: img_main
