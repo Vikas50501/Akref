@@ -17,7 +17,7 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Welcome Offer - Get 10% Off with code FIRST10",
+            "text": "FREE SHIPPING ON ALL ORDERS ABOVE ₹2000",
             "link": "shopify://collections/discover-all"
           }
         }
@@ -26,8 +26,8 @@
         "m1"
       ],
       "settings": {
-        "bg": "#7C6252",
-        "text_color": "#F5F2EA",
+        "bg": "#7c6252",
+        "text_color": "#f5f2ea",
         "autorotate": 4,
         "dismissible": true
       }
