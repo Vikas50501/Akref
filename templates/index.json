@@ -144,31 +144,31 @@
         "tag": {
           "type": "tagline",
           "settings": {
-            "text": "Founder and Creative Director"
+            "text": "Founder & Former Engineer"
           }
         },
         "head": {
           "type": "heading",
           "settings": {
-            "text": "Annika Saraf"
+            "text": "YASHA DABAS"
           }
         },
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>Annika holds a Master's in Luxury Accessories Design from <strong>Istituto Marangoni</strong> in Milan, bringing over 8 years of refined leather expertise shaped within Europe's leading luxury houses. Her journey includes experience with <strong>Prada</strong> and <strong>Stella McCartney</strong>, and the design of the <strong>Lucia Bag</strong> for <strong>Borbonese</strong>, unveiled at <strong>Milan Fashion Week 2020</strong>. <strong>Vogue Italia</strong> recognised her among Italy's Top 5 Foreign Designers in 2024.</p>"
+            "text": "<p>Yasha spent years solving problems as an engineer before she turned that same eye toward her own wardrobe. She noticed what fashion had stopped asking: why should one woman need ten different trousers to move through one day? So she built one — handwoven, versatile, made to hold every version of her. With KRAMÈ, she set out to close that gap, and in doing so, bring trust back to the artisans and looms that make it possible.</p>"
           }
         },
         "quote": {
           "type": "quote",
           "settings": {
-            "text": "AKINNA is the result of years spent chasing one perfect spark — a vision of modern luxury that feels personal, timeless, and deeply meaningful."
+            "text": "Fewer, better pieces. Trousers built to move through every part of a day, woven by hands that have done this for generations."
           }
         },
         "sign": {
           "type": "signature",
           "settings": {
-            "text": "Annika"
+            "text": "KRAME"
           }
         }
       },
@@ -203,9 +203,9 @@
         "show_controls": true,
         "desktop_height": 650,
         "mobile_height": 500,
-        "subheading": "Inside the Atelier",
-        "heading": "Where Craft Becomes Form.",
-        "text": "<p>Every AKINNA piece is brought to life by master artisans in India. Inside our workshops, skilled hands shape each form with patience and precision.</p>",
+        "subheading": "Inside the Process",
+        "heading": "Where Craft Becomes Cloth.",
+        "text": "<p>Every KRAMÈ trouser is brought to life by artisan weavers in India. On slow looms, skilled hands shape each thread with patience and precision.</p>",
         "button_label": "",
         "button_link": ""
       }
