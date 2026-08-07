@@ -5,7 +5,7 @@
 {%- if recommendations.performed and recommendations.products_count > 0 -%}
   <div class="recommendations index-section">
     <div class="common-container">
-      {%- if section.settings.heading != blank -%}<div class="recommendations__head text-center"><h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2></div>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<div class="recommendations__head text-center" data-anim="up"><h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2></div>{%- endif -%}
       <div class="recommendations__grid">
         {%- for product in recommendations.products limit: section.settings.limit -%}
           {%- render 'product-card', product: product -%}

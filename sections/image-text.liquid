@@ -12,7 +12,7 @@
     background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
     --it-media-h: {{ section.settings.media_height }}vh;
   }
-  #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}26; }
+  #shopify-section-{{ section.id }} .straight-line { background: {{ section.settings.text_color }}4D; }
 {%- endstyle -%}
 {%- if section.settings.enabled -%}
 <div class="image-text index-section{% if section.settings.divider %} image-text--divider{% endif %}">
@@ -38,7 +38,10 @@
             {%- when 'tagline' -%}
               <p class="tag-line" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
             {%- when 'heading' -%}
-              <h2 class="letters-slide-up text-split image-text__heading" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
+              {%- comment -%} data-anim is required: the split-text reveal keeps each word
+                translated out of view until an ancestor (or the element itself) gets
+                .is-inview, which initReveal() only adds to [data-anim] elements. {%- endcomment -%}
+              <h2 class="letters-slide-up text-split image-text__heading" data-anim="up" {{ block.shopify_attributes }}>{{ block.settings.text }}</h2>
             {%- when 'divider' -%}
               <span class="straight-line" style="margin-left:0;" {{ block.shopify_attributes }}></span>
             {%- when 'rule' -%}
@@ -96,7 +99,9 @@
 .image-text__icon img { width: 24px; height: 24px; object-fit: contain; }
 .image-text__heading { margin: 0; }
 .image-text__btn { margin-top: 4px; }
-.image-text__rule { display: block; width: 100%; height: 1px; background: rgba(var(--color-ink-rgb), 0.1); margin-top: 8px; }
+/* align-self: stretch — the content column centres its items, which would
+   otherwise collapse this zero-content rule to nothing. */
+.image-text__rule { display: block; flex: none; align-self: stretch; width: 100%; height: 1px; background: var(--color-border); margin-top: 8px; }
 .image-text__quote { display: flex; flex-direction: column; gap: 10px; max-width: 440px; }
 .image-text__quote-text { font-family: var(--font-body); font-style: italic; font-size: 17px; opacity: 0.85; margin: 0; }
 .image-text__quote-close { align-self: flex-end; transform: rotate(180deg); }

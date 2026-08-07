@@ -23,7 +23,7 @@
   --color-bg:         #F5F2EA; /* Soft Ivory — preferred background */
   --color-bg-alt:     #E6D7C7; /* Warm Sand — supporting surfaces */
   --color-white:      #ffffff;
-  --color-border:     rgba(var(--color-ink-rgb), 0.10);
+  --color-border:     rgba(var(--color-ink-rgb), 0.20); /* 0.20 on ivory ~= old 0.10 ink-on-white */
   --color-border-light: rgba(245,242,234,0.20);
   --color-link-hover: #974C52; /* Mulberry — accent for intentional emphasis */
   --color-muted:      #7C6252; /* solid Deep Brown: keeps secondary text at AA */
@@ -158,8 +158,9 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
   margin: 0 0 16px;
 }
 .straight-line {
+  display: block; flex: none; /* flex: none — a column flex parent would otherwise shrink the 70px height to 0 */
   width: 1px; height: 70px;
-  background: rgba(var(--color-green-rgb), 0.15);
+  background: rgba(var(--color-green-rgb), 0.30);
   margin: 16px auto;
 }
 
