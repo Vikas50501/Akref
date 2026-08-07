@@ -42,25 +42,25 @@
         "t1": {
           "type": "item",
           "settings": {
-            "text": "Handcrafted In India"
+            "text": "Handwoven in India"
           }
         },
         "t2": {
           "type": "item",
           "settings": {
-            "text": "100% Pure Leather"
+            "text": "100% Handspun Cotton"
           }
         },
         "t3": {
           "type": "item",
           "settings": {
-            "text": "5-Year Warranty"
+            "text": "Made to Last"
           }
         },
         "t4": {
           "type": "item",
           "settings": {
-            "text": "LWG-Certified"
+            "text": "Artisan Crafted"
           }
         }
       },
@@ -83,13 +83,13 @@
       "settings": {
         "icon": "shopify://shop_images/Frame_1.svg",
         "show_star": true,
-        "tagline": "Designed by Annika Saraf.",
-        "heading": "Luxury Handbags Made With Finest Indian Leather.",
+        "tagline": "Founded by Yasha Dabas",
+        "heading": "One Trouser to Close the Day.",
         "heading_size": 32,
-        "text": "<p>Our signature silhouettes balance sculptural design with enduring elegance. Created for the rhythm of everyday life — and made to be treasured for years.</p>",
+        "text": "<p>Rooted in the tradition of handwoven khadi, each trouser is designed to move through every part of a woman's day — worn often, cherished for years.</p>",
         "heading_alignment": "center",
         "heading_color": "#7c6252",
-        "button_label": "Discover all",
+        "button_label": "View Collection",
         "button_link": "",
         "button_style": "underline",
         "collection": "discover-all",
