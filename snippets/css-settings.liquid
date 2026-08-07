@@ -5,19 +5,19 @@
 {%- endcomment -%}
 <style>
   :root {
-    --color-green: {{ settings.color_brand_green | default: '#0e3432' }};
-    --color-green-rgb: {{ settings.color_brand_green | default: '#0e3432' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-    --color-ink: {{ settings.color_text | default: '#141515' }};
-    --color-ink-rgb: {{ settings.color_text | default: '#141515' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-    --color-bg: {{ settings.color_background | default: '#ffffff' }};
-    --color-bg-alt: {{ settings.color_background_alt | default: '#f5f3f5' }};
-    --color-link-hover: {{ settings.color_link_hover | default: '#3a6662' }};
-    --color-muted: {{ settings.color_muted | default: '#5c5c5c' }};
-    --color-sale: {{ settings.color_sale | default: '#b12704' }};
-    --color-btn: {{ settings.color_button | default: settings.color_brand_green | default: '#0e3432' }};
-    --color-btn-text: {{ settings.color_button_text | default: '#ffffff' }};
-    --color-btn-hover: {{ settings.color_button_hover | default: '#000000' }};
-    --color-focus: {{ settings.color_brand_green | default: '#0e3432' }};
+    --color-green: {{ settings.color_brand_green | default: '#7C6252' }};
+    --color-green-rgb: {{ settings.color_brand_green | default: '#7C6252' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+    --color-ink: {{ settings.color_text | default: '#7C6252' }};
+    --color-ink-rgb: {{ settings.color_text | default: '#7C6252' | color_to_rgb | remove: 'rgb(' | remove: ')' }};
+    --color-bg: {{ settings.color_background | default: '#F5F2EA' }};
+    --color-bg-alt: {{ settings.color_background_alt | default: '#E6D7C7' }};
+    --color-link-hover: {{ settings.color_link_hover | default: '#974C52' }};
+    --color-muted: {{ settings.color_muted | default: '#7C6252' }};
+    --color-sale: {{ settings.color_sale | default: '#974C52' }};
+    --color-btn: {{ settings.color_button | default: settings.color_brand_green | default: '#7C6252' }};
+    --color-btn-text: {{ settings.color_button_text | default: '#F5F2EA' }};
+    --color-btn-hover: {{ settings.color_button_hover | default: '#974C52' }};
+    --color-focus: {{ settings.color_brand_green | default: '#7C6252' }};
     --h1-max: {{ settings.h1_size | default: 48 }};
     --h2-max: {{ settings.h2_size | default: 32 }};
     --body-size: {{ settings.body_size | default: 16 }}px;

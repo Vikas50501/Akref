@@ -115,8 +115,8 @@
         "person_role": "Co-Founder & Creative Director",
         "image": "shopify://shop_images/forest-hiker.jpg",
         "image_position": "right",
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -176,8 +176,8 @@
         "secondary_video": "shopify://files/videos/435128bb60ed4ebe943b42c009d4ae7b.mp4",
         "secondary_video_url": "",
         "secondary_image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -222,10 +222,10 @@
       ],
       "settings": {
         "tagline": "Top features",
-        "tagline_color": "#141515",
+        "tagline_color": "#7C6252",
         "heading": "Elements Of AKINNA",
         "heading_size": 32,
-        "heading_color": "#141515",
+        "heading_color": "#7C6252",
         "heading_alignment": "center",
         "per_view_desktop": 4,
         "per_view_tablet": 2,
@@ -239,11 +239,11 @@
         "show_pagination": false,
         "card_radius": 0,
         "card_shadow": false,
-        "card_bg": "#f5f3f5",
-        "label_color": "#141515",
+        "card_bg": "#F5F2EA",
+        "label_color": "#7C6252",
         "label_size": 13,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60,
         "margin_top": 0,
@@ -310,8 +310,8 @@
         "heading": "",
         "columns": 4,
         "dividers": true,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -319,7 +319,7 @@
     "sep": {
       "type": "separator",
       "settings": {
-        "color": "#0000001a",
+        "color": "#7C62521a",
         "thickness": 1,
         "margin": 52,
         "side_margin": 10
@@ -376,10 +376,10 @@
       ],
       "settings": {
         "tagline": "",
-        "tagline_color": "#141515",
+        "tagline_color": "#7C6252",
         "heading": "",
         "heading_size": 32,
-        "heading_color": "#141515",
+        "heading_color": "#7C6252",
         "heading_alignment": "center",
         "per_view_desktop": 4,
         "per_view_tablet": 2,
@@ -393,11 +393,11 @@
         "show_pagination": true,
         "card_radius": 0,
         "card_shadow": false,
-        "card_bg": "#f5f3f5",
-        "label_color": "#141515",
+        "card_bg": "#F5F2EA",
+        "label_color": "#7C6252",
         "label_size": 13,
-        "bg": "#ffffff",
-        "text_color": "#000000",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 20,
         "padding_bottom": 40,
         "margin_top": 0,
@@ -426,8 +426,8 @@
       "settings": {
         "heading": "You may also like",
         "limit": 4,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -435,7 +435,7 @@
     "separator_8JAakR": {
       "type": "separator",
       "settings": {
-        "color": "#0000001a",
+        "color": "#7C62521a",
         "thickness": 1,
         "margin": 0,
         "side_margin": 10
@@ -486,7 +486,7 @@
         "logo_width": 120,
         "pause_on_hover": true,
         "border_bottom": true,
-        "bg": "#ffffff",
+        "bg": "#F5F2EA",
         "padding_top": 32,
         "padding_bottom": 32
       }
@@ -545,7 +545,7 @@
         "profile_url": "",
         "columns": 6,
         "border_top": true,
-        "bg": "#ffffff",
+        "bg": "#F5F2EA",
         "text_color": "#0e3425",
         "padding_top": 80,
         "padding_bottom": 36

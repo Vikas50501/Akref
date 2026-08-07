@@ -48,8 +48,8 @@
         "person_role": "Co-Founder & Creative Director",
         "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "image_position": "right",
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -97,8 +97,8 @@
         "heading": "",
         "columns": 4,
         "dividers": true,
-        "bg": "#ffffff",
-        "text_color": "#141515",
+        "bg": "#F5F2EA",
+        "text_color": "#7C6252",
         "padding_top": 60,
         "padding_bottom": 60
       }

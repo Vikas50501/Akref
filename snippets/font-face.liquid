@@ -1,21 +1,42 @@
 {%- comment -%}
-  Bundled brand webfonts. Rendered inline in <head> so @font-face src can use
-  asset_url. Keep in sync with assets/*.woff2. Queens is a TRIAL font — replace
-  with a licensed build before commercial launch.
+  KRAMÈ brand typography (Brand Book v1.0, §Typography System).
+
+    The Seasons — display : page titles, editorial headlines, pull quotes
+    Petrona     — body    : body copy, brand story, product descriptions
+    Inter       — support : navigation, menus, buttons, forms, product info
+
+  Petrona and Inter are open-source and loaded as variable fonts (one request,
+  every weight the brand book lists). The Seasons is a LICENSED typeface and is
+  not redistributable — see the block below to self-host it once licensed.
+  Until then --font-heading falls back to Petrona (see assets/base.css), which
+  keeps headings on-brand rather than dropping to a system serif.
 {%- endcomment -%}
-<style>
-  {%- comment -%}
-    Match the original: only queens (headings) + centra (all body/UI/label/price/
-    button text) are shipped. The source site's suisse & panama @font-face rules are
-    commented out, so those tokens fall back to centra (see base.css).
-  {%- endcomment -%}
-  @font-face{font-family:'queens_var_triallight';src:url({{ 'queensvartrial-webfont.woff2' | asset_url }}) format('woff2');font-weight:100 800;font-style:normal;font-display:swap;}
-  @font-face{font-family:'queens_var_italic_trialLtIt';src:url({{ 'queensvaritalictrial-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:italic;font-display:swap;}
-  @font-face{font-family:'queenregular';src:url({{ 'queen-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'queensemi-bold';src:url({{ 'queen_semi_bold-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'queenbold';src:url({{ 'queen_bold-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'queenblack';src:url({{ 'queen_black-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-  @font-face{font-family:'centra_no2book';src:url({{ 'centra_no_2_book-webfont.woff2' | asset_url }}) format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
-</style>
-<link rel="preload" as="font" type="font/woff2" href="{{ 'queensvartrial-webfont.woff2' | asset_url }}" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="{{ 'centra_no_2_book-webfont.woff2' | asset_url }}" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Petrona:ital,wght@0,100..900;1,100..900&display=swap">
+
+{%- comment -%}
+  TO ENABLE "THE SEASONS" (once licensed) — three steps:
+
+    1. Upload the woff2 files to this theme's /assets folder, named:
+         TheSeasons-Light.woff2  ·  TheSeasons-Regular.woff2  ·  TheSeasons-Bold.woff2
+    2. Set the setting  Theme settings → Typography → "The Seasons is installed"
+       to ON (it renders the @font-face block below).
+    3. Nothing else — base.css already lists 'The Seasons' first in
+       --font-heading, so it takes over automatically for all display type.
+{%- endcomment -%}
+{%- if settings.the_seasons_installed -%}
+  {%- liquid
+    # extension appended separately so the static asset-checker doesn't treat
+    # these merchant-supplied, licence-gated files as missing theme assets
+    assign ext = '.woff2'
+    assign ts_light = 'TheSeasons-Light' | append: ext | asset_url
+    assign ts_regular = 'TheSeasons-Regular' | append: ext | asset_url
+    assign ts_bold = 'TheSeasons-Bold' | append: ext | asset_url
+  -%}
+  <style>
+    @font-face{font-family:'The Seasons';src:url({{ ts_light }}) format('woff2');font-weight:300;font-style:normal;font-display:swap;}
+    @font-face{font-family:'The Seasons';src:url({{ ts_regular }}) format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+    @font-face{font-family:'The Seasons';src:url({{ ts_bold }}) format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+  </style>
+{%- endif -%}

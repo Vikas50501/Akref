@@ -8,36 +8,57 @@
    Merchant/settings-driven overrides are injected via an inline <style> in
    layout/theme.liquid (see snippets/css-settings). */
 :root {
-  /* Brand palette */
-  --color-green:      #0e3432;
-  --color-green-rgb:  14,52,50;
-  --color-ink:        #141515;
-  --color-ink-rgb:    20,21,21;
-  --color-bg:         #ffffff;
-  --color-bg-alt:     #f5f3f5;
+  /* ---- KRAMÈ brand palette (Brand Book v1.0, §Colour System) --------------
+     Primary   (60–70%): Deep Brown #7C6252 · Sage Mist #B7BAA2 · Soft Ivory #F5F2EA
+     Secondary (20–30%): Dusty Rose #DAA8AC · Warm Sand #E6D7C7 · Deep Teal #558282
+     Accent    (5–10%) : Harvest Gold #D1A147 · Terracotta #D07A55 · Mulberry #974C52
+     Soft Ivory is the preferred background; Deep Brown anchors the identity.
+     Accents are text-safe only where contrast allows — Mulberry (5.41:1 on ivory)
+     carries the interactive/emphasis roles; Gold & Terracotta stay decorative
+     (2.4–2.9:1) and must not be used for body text. */
+  --color-green:      #7C6252; /* Deep Brown — brand anchor (token name kept for compatibility) */
+  --color-green-rgb:  124,98,82;
+  --color-ink:        #7C6252; /* Deep Brown — 5.04:1 on Soft Ivory (WCAG AA) */
+  --color-ink-rgb:    124,98,82;
+  --color-bg:         #F5F2EA; /* Soft Ivory — preferred background */
+  --color-bg-alt:     #E6D7C7; /* Warm Sand — supporting surfaces */
   --color-white:      #ffffff;
   --color-border:     rgba(var(--color-ink-rgb), 0.10);
-  --color-border-light: rgba(255,255,255,0.10);
-  --color-link-hover: #3a6662;
-  --color-muted:      #5c5c5c;
-  --color-sale:       #b12704;
-  --color-error:      #b12704;
-  --color-success:    #1a7f4b;
-  --color-btn:        #0e3432;
-  --color-btn-text:   #ffffff;
-  --color-btn-hover:  #141515;
-  --color-focus:      #0e3432;
-  --overlay-color:    0,0,0;
+  --color-border-light: rgba(245,242,234,0.20);
+  --color-link-hover: #974C52; /* Mulberry — accent for intentional emphasis */
+  --color-muted:      #7C6252; /* solid Deep Brown: keeps secondary text at AA */
+  --color-sale:       #974C52; /* Mulberry (Terracotta fails AA as text) */
+  --color-error:      #974C52;
+  --color-success:    #558282; /* Deep Teal */
+  --color-btn:        #7C6252;
+  --color-btn-text:   #F5F2EA;
+  --color-btn-hover:  #974C52;
+  --color-focus:      #7C6252;
+  --overlay-color:    124,98,82;
 
-  /* Typography families
-     NOTE: the original site only ships queens (headings) + centra_no2book (all
-     body/UI/label/price/button text). Its suisse & panama @font-face rules are
-     commented out, so those UI tokens map to centra to match what actually renders. */
-  --font-heading: 'queens_var_triallight', 'Times New Roman', serif;
-  --font-body:    'centra_no2book', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-ui:      'centra_no2book', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-ui-medium: 'centra_no2book', -apple-system, sans-serif;
-  --font-accent:  'centra_no2book', serif;
+  /* Full palette, available for section-level colour pickers */
+  --color-sage:       #B7BAA2;
+  --color-ivory:      #F5F2EA;
+  --color-brown:      #7C6252;
+  --color-rose:       #DAA8AC;
+  --color-sand:       #E6D7C7;
+  --color-teal:       #558282;
+  --color-gold:       #D1A147;
+  --color-terracotta: #D07A55;
+  --color-mulberry:   #974C52;
+
+  /* ---- KRAMÈ typography (Brand Book v1.0, §Typography System) -------------
+     The Seasons — display: page titles, editorial headlines, pull quotes.
+     Petrona     — body: body copy, brand story, product descriptions.
+     Inter       — supporting: navigation, menus, buttons, forms, product info.
+     The Seasons is a licensed typeface and is NOT bundled; until its webfont
+     files are added to /assets (see snippets/font-face.liquid) headings fall
+     back to Petrona, the brand's own serif, so the page stays on-brand. */
+  --font-heading: 'The Seasons', 'Petrona', Georgia, 'Times New Roman', serif;
+  --font-body:    'Petrona', Georgia, 'Times New Roman', serif;
+  --font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ui-medium: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-accent:  'Petrona', Georgia, serif;
 
   /* Type scale — original uses fixed desktop sizes (h1 48 / h2 32 / h3 18) that
      drop at ≤767px; not fluid clamp. */
@@ -145,9 +166,10 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 /* --- Buttons ---------------------------------------------------------- */
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--font-heading); font-size: 18px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0; line-height: 1.2; cursor: pointer;
-  padding: 13px 40px; border: 1px solid var(--color-green);
+  /* Brand Book: buttons use Inter (supporting typeface). */
+  font-family: var(--font-ui); font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.2; cursor: pointer;
+  padding: 15px 40px; border: 1px solid var(--color-green);
   background: var(--color-green); color: var(--color-white);
   border-radius: var(--btn-radius); transition: all var(--transition);
   text-decoration: none;
@@ -162,17 +184,20 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
    weight 300, letter-spacing 0, opacity .75, only the label underlined. */
 .custombtn, .button.custom {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-body); font-size: 14px; font-weight: 300; text-transform: uppercase;
-  letter-spacing: 0; background: transparent; border: 0; padding: 0;
+  /* Brand Book: buttons use Inter. Full opacity — dimming Deep Brown to 75%
+     drops it to 3.1:1 on Soft Ivory, below the WCAG AA 4.5:1 floor. */
+  font-family: var(--font-ui); font-size: 13px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.04em; background: transparent; border: 0; padding: 0;
   color: inherit; text-decoration: none; line-height: 1.2;
-  opacity: 0.75; transition: opacity var(--transition); cursor: pointer;
+  opacity: 1; transition: opacity var(--transition); cursor: pointer;
 }
 .custombtn > span, .button.custom > span { text-decoration: underline; text-underline-offset: 5px; }
-.custombtn:hover { opacity: 1; color: inherit; }
+.custombtn:hover { opacity: 1; color: var(--color-link-hover); }
 .custombtn svg { width: 10px; height: 10px; }
 
 /* --- Price ------------------------------------------------------------ */
-.price { font-family: var(--font-body); font-size: 14px; letter-spacing: 0; }
+/* Brand Book: product information uses Inter. */
+.price { font-family: var(--font-ui); font-size: 14px; letter-spacing: 0; }
 .price ins { text-decoration: none; }
 .price del { opacity: 0.5; margin-right: 6px; }
 .price .amount { white-space: nowrap; }
