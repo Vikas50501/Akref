@@ -159,8 +159,8 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 }
 .straight-line {
   display: block; flex: none; /* flex: none — a column flex parent would otherwise shrink the 70px height to 0 */
-  width: 2px; height: 70px;
-  background: rgba(var(--color-green-rgb), 0.55);
+  width: 1px; height: 70px;
+  background: rgba(var(--color-green-rgb), 0.30);
   margin: 16px auto; /* auto keeps it centred — do not override margin-left */
 }
 
