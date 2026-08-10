@@ -1,0 +1,269 @@
+{%- comment -%}
+  Contact — three-column layout mirroring the reference page's structure:
+    1. intro column (icon, eyebrow, heading, copy) — sticky on desktop
+    2. detail blocks + contact form
+    3. lifestyle image — sticky on desktop
+
+  Structure, grid ratios, spacing and sticky behaviour follow the reference.
+  All colour, type, button and border styling comes from the theme's design
+  tokens so the page sits natively alongside every other template.
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
+    --cj-heading-size: {{ section.settings.heading_size }}px;
+    --cj-sticky-top: {{ section.settings.sticky_offset }}px;
+  }
+{%- endstyle -%}
+<div class="contact-journey index-section">
+  <div class="contact-journey__grid">
+
+    {%- comment -%} 1 — Intro column {%- endcomment -%}
+    <div class="contact-journey__intro">
+      <div class="contact-journey__intro-inner" data-anim="up">
+        {%- if section.settings.show_icon -%}
+          <span class="contact-journey__icon">{%- render 'icon', name: 'star', size: 24 -%}</span>
+        {%- endif -%}
+        {%- if section.settings.tagline != blank -%}
+          <p class="tag-line">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h1 class="contact-journey__heading letters-slide-up text-split" data-anim="up">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="contact-journey__intro-text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} 2 — Details + form {%- endcomment -%}
+    <div class="contact-journey__main">
+      {%- if section.blocks.size > 0 -%}
+        <div class="contact-journey__details">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'detail' -%}
+              <div class="contact-journey__detail" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="contact-journey__detail-head">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                {%- if block.settings.content != blank -%}
+                  <div class="contact-journey__detail-body rte">{{ block.settings.content }}</div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- form 'contact', id: 'contact_form', class: 'contact-journey__form' -%}
+        {%- if section.settings.form_heading != blank -%}
+          <h2 class="contact-journey__form-heading">{{ section.settings.form_heading }}</h2>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+          <p class="contact-journey__success" role="status" tabindex="-1">{{ 'contact.form.success' | t }}</p>
+        {%- elsif form.errors -%}
+          <div class="contact-journey__errors" role="alert" tabindex="-1">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+
+        <div class="contact-journey__fields">
+          <div class="contact-journey__field contact-journey__field--half">
+            <label class="visually-hidden" for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+            <input type="text" id="ContactFormName" name="contact[name]" class="contact-journey__input"
+              placeholder="{{ 'contact.form.name' | t }}" value="{{ form.name }}" autocomplete="name" required>
+          </div>
+          <div class="contact-journey__field contact-journey__field--half">
+            <label class="visually-hidden" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+            <input type="email" id="ContactFormEmail" name="contact[email]" class="contact-journey__input"
+              placeholder="{{ 'contact.form.email' | t }}" value="{{ form.email }}" autocomplete="email" required>
+          </div>
+          <div class="contact-journey__field">
+            <label class="visually-hidden" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+            <input type="tel" id="ContactFormPhone" name="contact[phone]" class="contact-journey__input"
+              placeholder="{{ 'contact.form.phone' | t }}" value="{{ form.phone }}" autocomplete="tel" required>
+          </div>
+          <div class="contact-journey__field">
+            <label class="visually-hidden" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+            <textarea id="ContactFormMessage" name="contact[body]" class="contact-journey__input contact-journey__textarea"
+              rows="{{ section.settings.textarea_rows }}" placeholder="{{ 'contact.form.message' | t }}" required>{{ form.body }}</textarea>
+          </div>
+          <div class="contact-journey__field">
+            <button type="submit" class="button contact-journey__submit">{{ 'contact.form.send' | t }}</button>
+          </div>
+        </div>
+      {%- endform -%}
+    </div>
+
+    {%- comment -%} 3 — Sticky image {%- endcomment -%}
+    <div class="contact-journey__media">
+      {%- if section.settings.image != blank -%}
+        <img class="contact-journey__image"
+          src="{{ section.settings.image | image_url: width: 1000 }}"
+          srcset="{{ section.settings.image | image_url: width: 500 }} 500w, {{ section.settings.image | image_url: width: 1000 }} 1000w"
+          sizes="(max-width: 768px) 100vw, 33vw"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
+      {%- else -%}
+        <div class="contact-journey__image contact-journey__image--placeholder">{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% stylesheet %}
+/* Grid ratios and paddings follow the reference layout. */
+.contact-journey__grid {
+  display: grid;
+  grid-template-columns: 0.5fr 1.25fr 1fr;
+  align-items: start;
+  max-width: 100%;
+  padding: 10px 10px 0 32px;
+}
+
+/* 1 — Intro column */
+.contact-journey__intro-inner {
+  position: sticky; top: var(--cj-sticky-top, 50px);
+  display: flex; flex-direction: column; align-items: flex-start;
+  max-width: 360px;
+}
+.contact-journey__icon { display: inline-flex; margin-bottom: 12px; color: var(--color-green); }
+.contact-journey__intro-inner .tag-line { text-align: left; }
+.contact-journey__heading {
+  font-family: var(--font-heading);
+  font-size: var(--cj-heading-size, 36px);
+  line-height: var(--line-heading);
+  letter-spacing: var(--heading-tracking, 0);
+  max-width: 260px;
+  margin: 0 0 24px;
+}
+.contact-journey__intro-text { max-width: 290px; }
+.contact-journey__intro-text p { font-family: var(--font-body); font-size: 16px; line-height: 130%; margin: 0; }
+
+/* 2 — Details + form */
+.contact-journey__main { max-width: 550px; width: 100%; margin: 126px auto 0; }
+.contact-journey__details {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 40px;
+  padding-bottom: 48px; border-bottom: 1px solid var(--color-border);
+}
+.contact-journey__detail { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+/* 18px matches the theme's --h3-size step */
+.contact-journey__detail-head {
+  font-family: var(--font-heading); font-size: var(--h3-size, 18px);
+  text-transform: capitalize; margin: 0;
+}
+.contact-journey__detail-body { max-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+.contact-journey__detail-body p { font-family: var(--font-body); margin: 0; }
+.contact-journey__detail-body a { text-decoration: underline; text-underline-offset: 3px; }
+.contact-journey__detail-body a:hover { color: var(--color-link-hover); }
+
+.contact-journey__form { margin-top: 48px; }
+.contact-journey__form-heading { font-family: var(--font-heading); font-size: var(--h2-size); margin: 0 0 32px; }
+.contact-journey__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.contact-journey__field { grid-column: 1 / -1; }
+.contact-journey__field--half { grid-column: auto; }
+
+/* Underlined fields per the reference; colour/type from theme tokens
+   (brand book assigns forms to the UI face). */
+.contact-journey__input {
+  width: 100%; border: 0; border-bottom: 1px solid var(--color-border);
+  border-radius: 0; background: none; outline: none; padding: 0;
+  min-height: 50px; margin-bottom: 24px;
+  font-family: var(--font-ui); font-size: 16px; font-weight: 400;
+  color: var(--color-ink);
+}
+.contact-journey__input::placeholder { font-family: var(--font-ui); font-size: 16px; color: rgba(var(--color-ink-rgb), 0.6); }
+.contact-journey__input:focus-visible { border-bottom-color: var(--color-ink); border-bottom-width: 2px; outline: none; }
+.contact-journey__textarea { min-height: auto; padding-top: 14px; resize: vertical; }
+.contact-journey__submit { width: 100%; }
+.contact-journey__success { padding: 14px 16px; background: rgba(var(--color-green-rgb), 0.08); border: 1px solid var(--color-green); border-radius: var(--radius); margin-bottom: 20px; }
+.contact-journey__errors { color: var(--color-error); margin-bottom: 20px; }
+
+/* 3 — Sticky image */
+.contact-journey__media { width: 100%; justify-self: center; }
+.contact-journey__image {
+  position: sticky; top: var(--cj-sticky-top, 50px);
+  width: 100%; max-height: 800px; object-fit: cover; display: block;
+}
+.contact-journey__image--placeholder { background: var(--color-bg-alt); aspect-ratio: 3/4; }
+.contact-journey__image--placeholder .placeholder-svg { width: 100%; height: 100%; }
+
+@media (max-width: 1600px) {
+  .contact-journey__grid { grid-template-columns: 1fr 1fr 1fr; }
+  .contact-journey__media { width: 90%; justify-self: end; }
+}
+@media (max-width: 768px) {
+  .contact-journey { overflow: hidden; }
+  .contact-journey__grid { grid-template-columns: 1fr; padding: 40px 10px 50px; }
+  .contact-journey__intro-inner {
+    position: relative; top: 0; width: 100%; max-width: 100%;
+    align-items: center; text-align: center;
+  }
+  .contact-journey__intro-inner .tag-line { text-align: center; }
+  .contact-journey__heading { font-size: 28px; max-width: 260px; margin-bottom: 16px; }
+  .contact-journey__intro-text { max-width: 100%; }
+  .contact-journey__intro-text p { font-size: 14px; }
+  /* Image sits between the intro and the form, as in the reference. */
+  .contact-journey__media { grid-row: 2; width: 100%; margin: 32px 0; justify-self: center; }
+  .contact-journey__image { position: relative; top: 0; }
+  .contact-journey__main { grid-row: 3; margin-top: 0; }
+  .contact-journey__details { align-items: center; text-align: center; gap: 32px; padding-bottom: 32px; }
+  .contact-journey__detail { align-items: center; text-align: center; }
+  .contact-journey__detail-body { align-items: center; max-width: 200px; }
+  .contact-journey__form { margin-top: 32px; }
+  .contact-journey__form-heading { margin-bottom: 24px; }
+  .contact-journey__fields { grid-template-columns: 1fr; }
+  .contact-journey__input { min-height: 40px; margin-bottom: 16px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Contact journey",
+  "class": "index-section contact-journey-section",
+  "settings": [
+    { "type": "header", "content": "Intro column" },
+    { "type": "checkbox", "id": "show_icon", "label": "Show star icon", "default": true },
+    { "type": "text", "id": "tagline", "label": "Eyebrow", "default": "Contact Akinna" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Advice & Exchange for a fulfilled life" },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 24, "max": 56, "step": 2, "unit": "px", "default": 36 },
+    { "type": "richtext", "id": "text", "label": "Intro text" },
+
+    { "type": "header", "content": "Form" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Contact Us" },
+    { "type": "range", "id": "textarea_rows", "label": "Message field rows", "min": 4, "max": 14, "step": 1, "default": 10 },
+
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+
+    { "type": "header", "content": "Layout & style" },
+    { "type": "range", "id": "sticky_offset", "label": "Sticky offset (desktop)", "min": 0, "max": 160, "step": 5, "unit": "px", "default": 50 },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#F5F2EA" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#7C6252" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "detail",
+      "name": "Detail block",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Contact details" },
+        { "type": "richtext", "id": "content", "label": "Content" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact journey",
+      "blocks": [
+        { "type": "detail", "settings": { "heading": "Contact details" } },
+        { "type": "detail", "settings": { "heading": "Address" } },
+        { "type": "detail", "settings": { "heading": "GSTIN" } },
+        { "type": "detail", "settings": { "heading": "Legal Name" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
