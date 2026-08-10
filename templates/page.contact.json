@@ -55,6 +55,7 @@
         "text": "<p>Whether you have questions, booking an appointment or just a first Exchange – I look forward to hearing from you.</p>",
         "form_heading": "Contact Us",
         "textarea_rows": 10,
+        "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
         "sticky_offset": 50,
         "bg": "#f5f2ea",
         "text_color": "#7c6252",
@@ -68,8 +69,10 @@
         "tagline": "From the Atelier",
         "heading": "Designer's note",
         "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>",
+        "person_image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
         "person_name": "Annika Saraf",
         "person_role": "Co-Founder & Creative Director",
+        "image": "shopify://shop_images/LouvAMProduct-066_960x_crop_center_e4e31c4f-3677-4922-96fa-217772c36c4b.webp",
         "image_position": "right",
         "bg": "#f5f2ea",
         "text_color": "#7c6252",
@@ -139,6 +142,58 @@
     },
     "instagram": {
       "type": "instagram",
+      "blocks": {
+        "post_8kKi78": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+            "link": ""
+          }
+        },
+        "post_XJwaDU": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/akinna-372_960x_crop_center_ece99071-b535-4aed-9ccf-e8b6b6e42273.webp",
+            "link": ""
+          }
+        },
+        "post_hmGKeW": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+            "link": ""
+          }
+        },
+        "post_ipBpt3": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/LouvAMProduct-066_960x_crop_center_e4e31c4f-3677-4922-96fa-217772c36c4b.webp",
+            "link": ""
+          }
+        },
+        "post_kd3kae": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/akinna-372_960x_crop_center_ece99071-b535-4aed-9ccf-e8b6b6e42273.webp",
+            "link": ""
+          }
+        },
+        "post_cHTJiC": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "post_8kKi78",
+        "post_XJwaDU",
+        "post_hmGKeW",
+        "post_ipBpt3",
+        "post_kd3kae",
+        "post_cHTJiC"
+      ],
       "settings": {
         "heading": "@akinna.label",
         "profile_url": "",
