@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "contact": {
@@ -32,9 +41,14 @@
           }
         }
       },
-      "block_order": ["d1", "d2", "d3", "d4"],
+      "block_order": [
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
       "settings": {
-        "show_icon": true,
+        "show_icon": false,
         "tagline": "Contact Akinna",
         "heading": "Advice & Exchange for a fulfilled life",
         "heading_size": 36,
@@ -42,6 +56,8 @@
         "form_heading": "Contact Us",
         "textarea_rows": 10,
         "sticky_offset": 50,
+        "bg": "#f5f2ea",
+        "text_color": "#7c6252",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -51,7 +67,12 @@
       "settings": {
         "tagline": "From the Atelier",
         "heading": "Designer's note",
+        "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years.</p>",
+        "person_name": "Annika Saraf",
+        "person_role": "Co-Founder & Creative Director",
         "image_position": "right",
+        "bg": "#f5f2ea",
+        "text_color": "#7c6252",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -59,20 +80,59 @@
     "press": {
       "type": "logo-marquee",
       "blocks": {
-        "l1": { "type": "logo", "settings": {} },
-        "l2": { "type": "logo", "settings": {} },
-        "l3": { "type": "logo", "settings": {} },
-        "l4": { "type": "logo", "settings": {} },
-        "l5": { "type": "logo", "settings": {} },
-        "l6": { "type": "logo", "settings": {} }
+        "l1": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l2": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l3": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l4": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l5": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "l6": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6"
+      ],
       "settings": {
         "heading": "",
         "speed": 120,
         "gap": 120,
         "logo_width": 120,
+        "pause_on_hover": true,
         "border_bottom": false,
+        "bg": "#f5f2ea",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -81,8 +141,13 @@
       "type": "instagram",
       "settings": {
         "heading": "@akinna.label",
+        "profile_url": "",
         "columns": 6,
-        "border_top": true
+        "border_top": true,
+        "bg": "#f5f2ea",
+        "text_color": "#7c6252",
+        "padding_top": 80,
+        "padding_bottom": 36
       }
     }
   },
