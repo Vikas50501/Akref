@@ -201,8 +201,8 @@
     "atelier_video": {
       "type": "background-video",
       "settings": {
+        "video": "shopify://files/videos/longhaired-female-rider-wild-and-fast-riding-black-2026-06-29-16-25-17-utc.mov",
         "video_url": "",
-        "poster": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 25,
         "full_width": true,
         "show_controls": true,
