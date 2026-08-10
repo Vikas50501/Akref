@@ -1,95 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "contact": {
-      "type": "contact-journey",
-      "blocks": {
-        "d1": {
-          "type": "detail",
-          "settings": {
-            "heading": "Contact details",
-            "content": "<p><a href=\"mailto:info@akinna.com\">info@akinna.com</a></p><p><a href=\"tel:+919220336303\">+91 92203 36303</a></p>"
-          }
-        },
-        "d2": {
-          "type": "detail",
-          "settings": {
-            "heading": "Address",
-            "content": "<p>139, Avtar Enclave, Paschim Vihar,</p><p>New Delhi-110063, India</p>"
-          }
-        },
-        "d3": {
-          "type": "detail",
-          "settings": {
-            "heading": "GSTIN",
-            "content": "<p>07AAKCV6600L1Z0</p>"
-          }
-        },
-        "d4": {
-          "type": "detail",
-          "settings": {
-            "heading": "Legal Name",
-            "content": "<p>Vorne Studios Private Limited</p>"
-          }
-        }
-      },
-      "block_order": ["d1", "d2", "d3", "d4"],
+    "header": {
+      "type": "page-header",
       "settings": {
-        "show_icon": true,
-        "tagline": "Contact Akinna",
-        "heading": "Advice & Exchange for a fulfilled life",
-        "heading_size": 36,
-        "text": "<p>Whether you have questions, booking an appointment or just a first Exchange – I look forward to hearing from you.</p>",
-        "form_heading": "Contact Us",
-        "textarea_rows": 10,
-        "sticky_offset": 50,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "tagline": "Contact",
+        "heading": "Get in touch",
+        "subheading": "",
+        "overlay_opacity": 30,
+        "height": 300,
+        "bg": "#f5f2ea",
+        "text_color": "#7c6252"
       }
     },
-    "designer_note": {
-      "type": "designer-note",
+    "form": {
+      "type": "contact-form",
       "settings": {
-        "tagline": "From the Atelier",
-        "heading": "Designer's note",
-        "image_position": "right",
+        "show_info": true,
+        "heading": "We're here to help",
+        "text": "<p>Questions about an order, a product, or a bespoke request? Reach out and our team will respond within 24 hours.</p>",
+        "email": "",
+        "phone": "",
+        "address": "",
         "padding_top": 60,
         "padding_bottom": 60
-      }
-    },
-    "press": {
-      "type": "logo-marquee",
-      "blocks": {
-        "l1": { "type": "logo", "settings": {} },
-        "l2": { "type": "logo", "settings": {} },
-        "l3": { "type": "logo", "settings": {} },
-        "l4": { "type": "logo", "settings": {} },
-        "l5": { "type": "logo", "settings": {} },
-        "l6": { "type": "logo", "settings": {} }
-      },
-      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6"],
-      "settings": {
-        "heading": "",
-        "speed": 120,
-        "gap": 120,
-        "logo_width": 120,
-        "border_bottom": false,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "instagram": {
-      "type": "instagram",
-      "settings": {
-        "heading": "@akinna.label",
-        "columns": 6,
-        "border_top": true
       }
     }
   },
   "order": [
-    "contact",
-    "designer_note",
-    "press",
-    "instagram"
+    "header",
+    "form"
   ]
 }
