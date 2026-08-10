@@ -117,7 +117,11 @@
 .contact-journey__grid {
   display: grid;
   grid-template-columns: 0.5fr 1.25fr 1fr;
-  align-items: start;
+  /* Columns must stretch to the row height (the grid default, as in the
+     reference) so the sticky intro and image have travel room. With
+     align-items:start they'd collapse to content height and sticky would
+     have nowhere to move — the whole row would just scroll together. */
+  align-items: stretch;
   max-width: 100%;
   padding: 10px 10px 0 32px;
 }
