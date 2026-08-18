@@ -365,6 +365,7 @@
         "s4",
         "s5"
       ],
+      "disabled": true,
       "settings": {
         "tagline": "",
         "heading": "",
