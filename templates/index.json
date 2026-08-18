@@ -271,6 +271,7 @@
         },
         "certs": {
           "type": "certifications",
+          "disabled": true,
           "settings": {
             "image_1": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
             "label_1": "Read LWG-certified",
