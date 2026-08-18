@@ -87,15 +87,15 @@
 .content-bottom-left { align-items: flex-end; justify-content: flex-start; text-align: left; }
 .content-bottom-center { align-items: flex-end; justify-content: center; text-align: center; }
 .content-center { align-items: center; justify-content: center; text-align: center; }
-.slideshow__content { max-width: 600px; color: #fff; }
+.slideshow__content { max-width: 600px; color: var(--color-ivory); }
 /* Typography follows the brand system: display face for the headline, body
    face for the copy, and the theme's own type scale rather than a bespoke
    fluid clamp — so the hero reads as the same hierarchy as every other page.
    text-transform is deliberately not set: forcing capitalize turns "of" into
    "Of" and breaks the brand's natural title casing. */
-.slideshow__subheading { color: #fff; opacity: 0.85; margin-bottom: 12px; }
+.slideshow__subheading { color: var(--color-ivory); opacity: 0.85; margin-bottom: 12px; }
 .slideshow__heading {
-  color: #fff;
+  color: var(--color-ivory);
   font-family: var(--font-heading);
   font-size: var(--slide-heading-size, 48px);
   line-height: var(--line-heading);
@@ -104,14 +104,14 @@
 }
 .slideshow__text {
   font-family: var(--font-body); font-size: var(--body-size, 16px);
-  line-height: var(--line-body); margin-bottom: 18px; color: #fff; opacity: 0.92;
+  line-height: var(--line-body); margin-bottom: 18px; color: var(--color-ivory); opacity: 0.92;
 }
-.slideshow__btn { color: #fff; }
-.slideshow__btn:hover { color: #fff; }
+.slideshow__btn { color: var(--color-ivory); }
+.slideshow__btn:hover { color: var(--color-ivory); }
 .slideshow__dots { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
 .slideshow__dot { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-.slideshow__dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.7); background: transparent; transition: background .2s; }
-.slideshow__dot.is-active::before { background: #fff; }
+.slideshow__dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(245,242,234,0.7); background: transparent; transition: background .2s; }
+.slideshow__dot.is-active::before { background: var(--color-ivory); }
 @media (max-width: 767px) {
   .slideshow__slide { height: var(--slide-mh, 90vh); height: min(var(--slide-mh, 90vh), 100dvh); }
   .slideshow__inner { padding: 28px 20px; }

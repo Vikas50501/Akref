@@ -31,11 +31,11 @@
 .header__icon { background: none; border: 0; padding: 0; cursor: pointer; color: inherit; display: inline-flex; align-items: center; justify-content: center; position: relative; min-width: 44px; min-height: 44px; }
 .header__cart-count {
   position: absolute; top: 2px; right: 0; min-width: 16px; height: 16px; padding: 0 4px;
-  border-radius: 8px; background: var(--color-green); color: #fff; font-family: var(--font-ui);
+  border-radius: 8px; background: var(--color-green); color: var(--color-ivory); font-family: var(--font-ui);
   font-size: 10px; line-height: 16px; text-align: center;
 }
 .header__cart-count[hidden], .header__cart-count.is-empty { display: none; }
-.header--transparent:not(.is-scrolled) .header__cart-count { background: #fff; color: var(--color-green); }
+.header--transparent:not(.is-scrolled) .header__cart-count { background: var(--color-ivory); color: var(--color-green); }
 .header__mobile-toggle { background: none; border: 0; padding: 0; cursor: pointer; color: inherit; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; margin-left: -10px; }
 .header__right { gap: 6px; }
 
@@ -100,13 +100,13 @@
 .mega-menu__promo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--easing); }
 .mega-menu__promo:hover .mega-menu__promo-img img { transform: scale(1.06); }
 .mega-menu__promo-title {
-  position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; color: #fff;
+  position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; color: var(--color-ivory);
   font-family: var(--font-heading); font-size: 22px; margin: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
 /* Transparent header over hero — visible hairline on every page, including home. */
 .header--transparent {
-  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(255,255,255,0.25); color: #fff; z-index: 500;
+  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(245,242,234,0.25); color: var(--color-ivory); z-index: 500;
 }
 /* Hover anywhere over the header (while transparent): whole bar fades to white, text/logo
    go dark and the hairline becomes the dark ink border — matching the HTML reference
@@ -120,7 +120,7 @@
 .header--transparent:not(.is-scrolled):hover .header__mobile-toggle { text-shadow: none; }
 .header--transparent:not(.is-scrolled):hover .header__logo-img--dark { display: inline-block; }
 .header--transparent:not(.is-scrolled):hover .header__logo-img--light { display: none; }
-.header--transparent:not(.is-scrolled):hover .header__cart-count { background: var(--color-green); color: #fff; }
+.header--transparent:not(.is-scrolled):hover .header__cart-count { background: var(--color-green); color: var(--color-ivory); }
 /* Readability scrim so the white logo/menu is legible over ANY hero (or an empty one) */
 .header--transparent:not(.is-scrolled)::before {
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 180%;
