@@ -16,7 +16,7 @@
         <img class="frame-img" gsap-scale-anim src="{{ section.settings.image | image_url: width: 1400 }}" srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1400 }} 1400w" sizes="(max-width:1023px) 100vw, 50vw" alt="{{ section.settings.image.alt | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="lazy">
       {%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg frame-img' }}{%- endif -%}
     </div>
-    <div class="right-block brand-feature__content">
+    <div class="right-block brand-feature__content{% if section.settings.inset_image == blank %} brand-feature__content--no-inset{% endif %}">
       <div class="flex-right">
         {%- if section.settings.tagline != blank -%}<p class="tag-line" style="color: {{ section.settings.text_color }};">{{ section.settings.tagline }}</p>{%- endif -%}
         {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split brand-feature__heading" data-anim="up">{{ section.settings.heading }}</h2>{%- endif -%}
@@ -44,6 +44,13 @@
 .righti img { width: 100%; height: auto; object-fit: cover; }
 .rightri { display: flex; flex-direction: column; align-items: flex-start; }
 .brand-feature__content .tag-info { max-width: none; }
+
+/* No inset image: the 0.75fr/1fr split would leave the text in the narrow
+   column with a large empty gap beside it, so collapse to one centred column. */
+.brand-feature__content--no-inset .rihg-bitim { grid-template-columns: 1fr; }
+.brand-feature__content--no-inset .flex-right,
+.brand-feature__content--no-inset .rightri { align-items: center; text-align: center; }
+.brand-feature__content--no-inset .tag-info { max-width: 520px; margin-left: auto; margin-right: auto; }
 @media (max-width: 1023px) {
   .brand-feature--reverse .brand-feature__media { order: 0; }
   .brand-feature__media { min-height: 60vh; }
