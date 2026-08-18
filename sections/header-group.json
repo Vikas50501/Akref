@@ -25,6 +25,7 @@
       "block_order": [
         "m1"
       ],
+      "disabled": true,
       "settings": {
         "bg": "#7c6252",
         "text_color": "#f5f2ea",
