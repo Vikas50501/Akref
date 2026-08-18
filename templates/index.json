@@ -32,6 +32,8 @@
       "settings": {
         "desktop_height": 92,
         "mobile_height": 90,
+        "heading_size": 48,
+        "heading_size_mobile": 32,
         "autoplay": 3,
         "show_dots": false
       }
@@ -222,6 +224,7 @@
         "lifestyle_height": 76,
         "tagline": "",
         "heading": "The Breeze",
+        "text": "<p>Effortless, versatile trousers designed to move with you. Thoughtfully cut for everyday ease, comfort and understated elegance.</p>",
         "button_label": "Shop Now",
         "button_link": "",
         "collection": "frontpage",
