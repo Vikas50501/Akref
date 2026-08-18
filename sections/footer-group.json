@@ -16,7 +16,9 @@
       "blocks": {
         "logo": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "logo": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_04_58_36_PM.png"
+          }
         },
         "cat": {
           "type": "menu",
@@ -65,11 +67,12 @@
         "newsletter"
       ],
       "settings": {
-        "bg": "#7C6252",
-        "text_color": "#F5F2EA",
+        "bg": "#7c6252",
+        "text_color": "#f5f2ea",
         "copyright_text": "All Rights Reserved.",
         "bottom_menu": "",
         "credit_text": "Aspirant Solutions",
+        "credit_link": "",
         "show_localization": true
       }
     }
