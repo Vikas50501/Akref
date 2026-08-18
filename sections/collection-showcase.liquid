@@ -24,6 +24,7 @@
         <div class="explore-block-itle" data-anim="up">
           {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
           {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>{%- endif -%}
+          {%- if section.settings.text != blank -%}<div class="explore-block-desc rte">{{ section.settings.text }}</div>{%- endif -%}
           {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="custombtn"><span>{{ section.settings.button_label }}</span>{%- render 'icon', name: 'arrow-up-right', size: 10 -%}</a>{%- endif -%}
         </div>
       </div>
@@ -50,6 +51,10 @@
 .explore-block-itle { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; color: #fff; padding: 24px; }
 .explore-block-itle::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%); }
 .explore-block-itle > * { position: relative; z-index: 1; }
+/* Inherits the block's colour, so it reads ivory over the image on mobile and
+   brand brown on the section background at desktop. */
+.explore-block-desc { max-width: 460px; font-family: var(--font-body); font-size: 15px; line-height: var(--line-body); }
+.explore-block-desc p { margin: 0; }
 .collection-showcase__products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 4px; }
 @media (max-width: 1023px) { .collection-showcase__products { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 @media (max-width: 767px) { .lifestyle-topwrap { height: 60vh; } }
@@ -92,6 +97,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "New Arrivals"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description"
     },
     {
       "type": "text",
