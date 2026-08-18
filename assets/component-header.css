@@ -45,7 +45,11 @@
 .header__link {
   position: relative;
   display: inline-flex; align-items: center; gap: 4px;
-  font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0;
+  /* Brand book: navigation uses Inter. Medium weight + 0.04em tracking gives
+     small uppercase Inter the right optical weight and matches the submenu,
+     mega-menu and mobile nav, which were already on 0.04em. */
+  font-family: var(--font-ui); font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
   padding: 8px 2px; color: inherit;
 }
 /* Per-link underline that sweeps left -> right on hover (inherits current text colour,
@@ -86,7 +90,10 @@
 .mega-menu__inner { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 40px; padding: 32px var(--container-gutter); }
 .mega-menu__links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .mega-menu__link { font-family: var(--font-ui); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
-.mega-menu__sublinks { list-style: none; margin: 6px 0 0; padding: 0 0 0 12px; display: flex; flex-direction: column; gap: 6px; opacity: 0.7; }
+/* font-family set explicitly: these inherited the body face, but the brand
+   book puts all navigation on Inter. opacity dropped — 0.7 brown on ivory
+   is ~2.9:1, under the WCAG AA floor. */
+.mega-menu__sublinks { list-style: none; margin: 6px 0 0; padding: 0 0 0 12px; display: flex; flex-direction: column; gap: 6px; font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.04em; }
 .mega-menu__promos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .mega-menu__promo { display: block; position: relative; }
 .mega-menu__promo-img { position: relative; overflow: hidden; aspect-ratio: 3/4; background: var(--color-bg-alt); }
@@ -154,11 +161,11 @@
 
 .mobile-menu__list { list-style: none; margin: 0; padding: 0; }
 .mobile-menu__row { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--color-border); }
-.mobile-menu__row a { flex: 1; display: block; padding: 14px 0; font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
+.mobile-menu__row a { flex: 1; display: block; padding: 14px 0; font-family: var(--font-ui); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
 .mobile-menu__expand { background: none; border: 0; padding: 14px 4px; cursor: pointer; color: inherit; }
 .mobile-menu__item.is-open .mobile-menu__expand .icon { transform: rotate(180deg); }
 .mobile-menu__sub { list-style: none; margin: 0; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.35s var(--easing); }
-.mobile-menu__sub li a { display: block; padding: 10px 0 10px 16px; font-size: 13px; opacity: 0.75; }
+.mobile-menu__sub li a { display: block; padding: 10px 0 10px 16px; font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.04em; }
 .mobile-menu__foot { margin-top: auto; padding-top: 20px; }
 .mobile-menu__secondary { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .mobile-menu__foot a { font-family: var(--font-ui); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }

@@ -3,6 +3,8 @@
   #shopify-section-{{ section.id }} {
     --slide-dh: {{ section.settings.desktop_height }}vh;
     --slide-mh: {{ section.settings.mobile_height }}vh;
+    --slide-heading-size: {{ section.settings.heading_size }}px;
+    --slide-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
   }
 {%- endstyle -%}
 
@@ -86,9 +88,24 @@
 .content-bottom-center { align-items: flex-end; justify-content: center; text-align: center; }
 .content-center { align-items: center; justify-content: center; text-align: center; }
 .slideshow__content { max-width: 600px; color: #fff; }
+/* Typography follows the brand system: display face for the headline, body
+   face for the copy, and the theme's own type scale rather than a bespoke
+   fluid clamp — so the hero reads as the same hierarchy as every other page.
+   text-transform is deliberately not set: forcing capitalize turns "of" into
+   "Of" and breaks the brand's natural title casing. */
 .slideshow__subheading { color: #fff; opacity: 0.85; margin-bottom: 12px; }
-.slideshow__heading { color: #fff; font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; text-transform: capitalize; }
-.slideshow__text { font-family: var(--font-body); font-size: 16px; margin-bottom: 18px; color: #fff; opacity: 0.92; }
+.slideshow__heading {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: var(--slide-heading-size, 48px);
+  line-height: var(--line-heading);
+  letter-spacing: var(--heading-tracking, 0);
+  margin-bottom: 14px;
+}
+.slideshow__text {
+  font-family: var(--font-body); font-size: var(--body-size, 16px);
+  line-height: var(--line-body); margin-bottom: 18px; color: #fff; opacity: 0.92;
+}
 .slideshow__btn { color: #fff; }
 .slideshow__btn:hover { color: #fff; }
 .slideshow__dots { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
@@ -99,6 +116,7 @@
   .slideshow__slide { height: var(--slide-mh, 90vh); height: min(var(--slide-mh, 90vh), 100dvh); }
   .slideshow__inner { padding: 28px 20px; }
   .content-bottom-right, .content-bottom-left { justify-content: center; text-align: center; }
+  .slideshow__heading { font-size: var(--slide-heading-size-mobile, 32px); }
 }
 {% endstylesheet %}
 
@@ -127,6 +145,26 @@
       "step": 1,
       "unit": "vh",
       "default": 90
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size (desktop)",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
     },
     {
       "type": "range",
