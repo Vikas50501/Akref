@@ -88,7 +88,9 @@
         "secondary_menu": "",
         "layout": "centered",
         "sticky": true,
-        "transparent_on_home": true
+        "transparent_on_home": true,
+        "logo_dark": "shopify://shop_images/Krame_Logo_Transparent.png",
+        "logo_light": "shopify://shop_images/Krame_Logo_Transparent.png"
       }
     }
   },
