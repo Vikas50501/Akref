@@ -21,6 +21,7 @@
     padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
     margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;
     background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
+    --ps-icon-w: {{ section.settings.icon_width }}px;
     --pc-card-bg: {{ section.settings.card_bg }}; --pc-card-text: {{ section.settings.card_text_color }};
     --pc-card-radius: {{ section.settings.card_radius }}px;
     --pc-card-shadow: {% if section.settings.card_shadow %}0 8px 24px rgba(0,0,0,0.08){% else %}none{% endif %};
@@ -29,7 +30,7 @@
 <div class="product-section index-section{% if section.settings.section_width == 'full' %} product-section--full{% endif %}{% unless section.settings.show_compare_price %} pc--hide-compare{% endunless %}">
   <div class="{% if section.settings.section_width == 'full' %}product-section__full-pad{% else %}common-container{% endif %}">
     <div class="top-section-wrap text-{{ section.settings.heading_alignment }}" data-anim="up" style="color:{{ section.settings.heading_color }};">
-      {%- if section.settings.icon != blank -%}<img class="ps-icon" src="{{ section.settings.icon | image_url: width: 100 }}" alt="" width="50" height="50" loading="lazy">{%- endif -%}
+      {%- if section.settings.icon != blank -%}<img class="ps-icon" src="{{ section.settings.icon | image_url: width: 800 }}" srcset="{{ section.settings.icon | image_url: width: 400 }} 400w, {{ section.settings.icon | image_url: width: 800 }} 800w" sizes="{{ section.settings.icon_width }}px" alt="{{ shop.name | escape }}" width="{{ section.settings.icon.width }}" height="{{ section.settings.icon.height }}" loading="lazy">{%- endif -%}
       <span class="straight-line"></span>
       {%- if section.settings.show_star -%}{%- render 'icon', name: 'star', size: 22 -%}{%- endif -%}
       {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
@@ -125,7 +126,9 @@
 {% stylesheet %}
 .product-section .top-section-wrap { margin-bottom: 40px; }
 .product-section__full-pad { padding: 0 var(--container-gutter); }
-.ps-icon { width: 50px; height: 50px; object-fit: contain; }
+/* height:auto, not a fixed square — a wide wordmark logo would otherwise be
+   scaled down to fit a 50px box. Width is merchant-controlled. */
+.ps-icon { width: var(--ps-icon-w, 140px); max-width: 100%; height: auto; object-fit: contain; }
 .ps-desc { max-width: 560px; opacity: 0.8; }
 .text-left.top-section-wrap { align-items: flex-start; text-align: left; }
 .text-right.top-section-wrap { align-items: flex-end; text-align: right; }
@@ -182,7 +185,8 @@
   "class": "index-section product-section-wrap",
   "settings": [
     { "type": "header", "content": "Heading block" },
-    { "type": "image_picker", "id": "icon", "label": "Decorative icon" },
+    { "type": "image_picker", "id": "icon", "label": "Logo / decorative icon" },
+    { "type": "range", "id": "icon_width", "label": "Logo width", "min": 40, "max": 400, "step": 10, "unit": "px", "default": 140 },
     { "type": "checkbox", "id": "show_star", "label": "Show star", "default": true },
     { "type": "text", "id": "tagline", "label": "Tagline", "default": "Designed by Annika Saraf." },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Luxury Handbags Made With Finest Indian Leather." },
