@@ -25,7 +25,6 @@
       "block_order": [
         "m1"
       ],
-      "disabled": true,
       "settings": {
         "bg": "#7c6252",
         "text_color": "#f5f2ea",
@@ -90,6 +89,7 @@
         "layout": "centered",
         "sticky": true,
         "transparent_on_home": true,
+        "transparent_text_color": "#b7baa2",
         "logo_dark": "shopify://shop_images/KRAME.png",
         "logo_light": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_04_58_36_PM.png"
       }
