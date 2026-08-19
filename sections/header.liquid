@@ -10,7 +10,10 @@
   assign sticky = section.settings.sticky
 -%}
 {%- style -%}
-  #shopify-section-{{ section.id }} { --header-max-logo: {{ settings.logo_max_height }}px; }
+  #shopify-section-{{ section.id }} {
+    --header-max-logo: {{ settings.logo_max_height }}px;
+    --header-transparent-color: {{ section.settings.transparent_text_color }};
+  }
 {%- endstyle -%}
 
 <theme-header class="header header--{{ section.settings.layout }}{% if sticky %} header--sticky{% endif %}{% if section.settings.transparent_on_home and template.name == 'index' %} header--transparent{% endif %}" data-sticky="{{ sticky }}">
@@ -190,6 +193,13 @@
       "id": "transparent_on_home",
       "label": "Transparent over homepage hero",
       "default": true
+    },
+    {
+      "type": "color",
+      "id": "transparent_text_color",
+      "label": "Menu colour over hero",
+      "info": "Brand tones that stay legible on a dark hero: Sage Mist #B7BAA2, Warm Sand #E6D7C7, Soft Ivory #F5F2EA.",
+      "default": "#B7BAA2"
     },
     {
       "type": "header",

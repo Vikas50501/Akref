@@ -104,9 +104,15 @@
   font-family: var(--font-heading); font-size: 22px; margin: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
-/* Transparent header over hero — visible hairline on every page, including home. */
+/* Transparent header over hero — visible hairline on every page, including home.
+   Colour is merchant-controlled ("Menu colour over hero" in the header section);
+   defaults to Sage Mist, the primary-palette tone that stays legible on a dark
+   hero without reading as plain white. Icons inherit it too. */
 .header--transparent {
-  position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom-color: rgba(245,242,234,0.25); color: var(--color-ivory); z-index: 500;
+  position: absolute; top: 0; left: 0; right: 0; background: transparent;
+  border-bottom-color: rgba(245,242,234,0.25);
+  color: var(--header-transparent-color, var(--color-sage));
+  z-index: 500;
 }
 /* Hover anywhere over the header (while transparent): whole bar fades to white, text/logo
    go dark and the hairline becomes the dark ink border — matching the HTML reference
