@@ -51,8 +51,8 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "More akinna this way",
-            "text": "<p>Join #AKINNASphere &amp; get 15% off on your second order!</p>",
+            "heading": "JOIN THE WAITING LIST",
+            "text": "<p>Join #AKINNASphere & get 15% off on your second order!</p>",
             "show_payment": true,
             "payment_title": "secure online payment"
           }
