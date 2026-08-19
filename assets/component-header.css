@@ -12,11 +12,15 @@
 .header--sticky { position: sticky; top: 0; transition: box-shadow var(--transition); }
 .header--sticky.is-scrolled:not(.header--transparent) { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
 .header__inner { padding-top: 16px; padding-bottom: 16px; }
+/* auto | 1fr | auto — the nav and icons take their natural width and the logo
+   centres in whatever is left. 1fr/auto/1fr would pin the logo to true page
+   centre and squeeze the nav into a narrow column, forcing labels to wrap;
+   this lets the logo sit slightly right of centre instead. */
 .header-grid {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
 }
-.header__left { display: flex; align-items: center; gap: 10px; justify-content: flex-start; }
-.header__center { display: flex; justify-content: center; }
+.header__left { display: flex; align-items: center; gap: 10px; justify-content: flex-start; min-width: 0; }
+.header__center { display: flex; justify-content: center; min-width: 0; }
 .header__right { display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
 
 .header__logo { display: inline-flex; align-items: center; }
@@ -40,7 +44,7 @@
 .header__right { gap: 6px; }
 
 /* Desktop nav */
-.header__menu { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+.header__menu { list-style: none; display: flex; align-items: center; gap: 26px; margin: 0; padding: 0; flex-wrap: nowrap; }
 .header__item { position: static; }
 .header__link {
   position: relative;
@@ -51,6 +55,7 @@
   font-family: var(--font-ui); font-size: 14px; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.04em;
   padding: 8px 2px; color: inherit;
+  white-space: nowrap; /* labels must never wrap to a second line */
 }
 /* Per-link underline that sweeps left -> right on hover (inherits current text colour,
    so it's white over the hero and dark once the header turns white). */
@@ -179,6 +184,13 @@
 .mobile-menu__social a { display: inline-flex; opacity: 0.85; }
 .mobile-menu__social a:hover { opacity: 1; }
 
+/* Narrow desktops: tighten the nav gap so the nowrapped labels still fit on one
+   line without crowding the logo. Type stays at the brand size. */
+@media (min-width: 1024px) and (max-width: 1360px) {
+  .header__menu { gap: 16px; }
+}
+
 @media (max-width: 1023px) {
+  /* Nav is hidden here, so restore a truly centred logo. */
   .header-grid { grid-template-columns: 1fr auto 1fr; }
 }
