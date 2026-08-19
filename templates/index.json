@@ -238,6 +238,7 @@
     },
     "sep1": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "color": "#7c62521a",
         "thickness": 1,
