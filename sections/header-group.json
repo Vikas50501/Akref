@@ -17,7 +17,7 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "FREE SHIPPING ON ALL ORDERS ABOVE ₹2000",
+            "text": "Shipping Worldwide",
             "link": "shopify://collections/discover-all"
           }
         }
