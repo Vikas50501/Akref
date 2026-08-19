@@ -5,6 +5,7 @@
     --slide-mh: {{ section.settings.mobile_height }}vh;
     --slide-heading-size: {{ section.settings.heading_size }}px;
     --slide-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --slide-text-color: {{ section.settings.text_color }};
   }
 {%- endstyle -%}
 
@@ -87,15 +88,17 @@
 .content-bottom-left { align-items: flex-end; justify-content: flex-start; text-align: left; }
 .content-bottom-center { align-items: flex-end; justify-content: center; text-align: center; }
 .content-center { align-items: center; justify-content: center; text-align: center; }
-.slideshow__content { max-width: 600px; color: var(--color-ivory); }
+/* Colour is merchant-controlled ("Text colour" on the section); defaults to
+   Sage Mist so the hero matches the transparent header nav. */
+.slideshow__content { max-width: 600px; color: var(--slide-text-color, var(--color-sage)); }
 /* Typography follows the brand system: display face for the headline, body
    face for the copy, and the theme's own type scale rather than a bespoke
    fluid clamp — so the hero reads as the same hierarchy as every other page.
    text-transform is deliberately not set: forcing capitalize turns "of" into
    "Of" and breaks the brand's natural title casing. */
-.slideshow__subheading { color: var(--color-ivory); opacity: 0.85; margin-bottom: 12px; }
+.slideshow__subheading { color: var(--slide-text-color, var(--color-sage)); opacity: 0.85; margin-bottom: 12px; }
 .slideshow__heading {
-  color: var(--color-ivory);
+  color: var(--slide-text-color, var(--color-sage));
   font-family: var(--font-heading);
   font-size: var(--slide-heading-size, 48px);
   line-height: var(--line-heading);
@@ -104,14 +107,16 @@
 }
 .slideshow__text {
   font-family: var(--font-body); font-size: var(--body-size, 16px);
-  line-height: var(--line-body); margin-bottom: 18px; color: var(--color-ivory); opacity: 0.92;
+  line-height: var(--line-body); margin-bottom: 18px; color: var(--slide-text-color, var(--color-sage)); opacity: 0.92;
 }
-.slideshow__btn { color: var(--color-ivory); }
-.slideshow__btn:hover { color: var(--color-ivory); }
-.slideshow__dots { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; }
+.slideshow__btn { color: var(--slide-text-color, var(--color-sage)); }
+.slideshow__btn:hover { color: var(--slide-text-color, var(--color-sage)); }
+/* Sits outside .slideshow__content, so it needs the colour set here — otherwise
+   currentColor on the dots resolves to the body's brown and vanishes on the image. */
+.slideshow__dots { position: absolute; bottom: 24px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 3; color: var(--slide-text-color, var(--color-sage)); }
 .slideshow__dot { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
-.slideshow__dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(245,242,234,0.7); background: transparent; transition: background .2s; }
-.slideshow__dot.is-active::before { background: var(--color-ivory); }
+.slideshow__dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid currentColor; opacity: 0.7; background: transparent; transition: background .2s; }
+.slideshow__dot.is-active::before { background: currentColor; opacity: 1; }
 @media (max-width: 767px) {
   .slideshow__slide { height: var(--slide-mh, 90vh); height: min(var(--slide-mh, 90vh), 100dvh); }
   .slideshow__inner { padding: 28px 20px; }
@@ -181,6 +186,13 @@
       "id": "show_dots",
       "label": "Show dots",
       "default": false
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "info": "Brand tones that stay legible over a hero image: Sage Mist #B7BAA2, Warm Sand #E6D7C7, Soft Ivory #F5F2EA.",
+      "default": "#B7BAA2"
     }
   ],
   "blocks": [
