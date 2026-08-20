@@ -9,21 +9,76 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign hero_widths = '1000,1400,1800,2200,2600,3000' | split: ','
+  assign hero_widths_mobile = '600,800,1000,1200,1600' | split: ','
+-%}
 <div class="slideshow section-slideshow" data-carousel data-autoplay="{{ section.settings.autoplay | times: 1000 }}" data-fade="true">
   <div class="slideshow__track" data-carousel-track data-fade-track>
     {%- for block in section.blocks -%}
       {%- liquid
         assign overlay = block.settings.overlay_opacity | divided_by: 100.0
         assign pos = block.settings.content_position | default: 'bottom-right'
+        assign img = block.settings.image
+        assign img_m = block.settings.image_mobile
+
+        # Crop anchor. A full-bleed hero is always wider than it is tall, so
+        # object-fit: cover has to crop one axis of any normal 3:2 or 4:3 photo.
+        # With no anchor the browser centres that crop, which slices the top off
+        # a standing subject. The slugs below are two CSS position keywords
+        # joined by a hyphen, and object-position accepts keyword pairs in
+        # either order, so a replace is all that's needed.
+        assign anchor = block.settings.image_focal | default: 'auto'
+        if anchor == 'auto'
+          assign focal = img.presentation.focal_point | default: '50% 50%'
+        else
+          assign focal = anchor | replace: '-', ' '
+        endif
+
+        assign anchor_m = block.settings.image_focal_mobile | default: 'auto'
+        if anchor_m == 'inherit'
+          assign focal_m = focal
+        elsif anchor_m == 'auto'
+          assign focal_m = img_m.presentation.focal_point | default: focal
+        else
+          assign focal_m = anchor_m | replace: '-', ' '
+        endif
       -%}
-      <div class="slideshow__slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide {{ block.shopify_attributes }} style="--overlay-opacity: {{ overlay }};">
+      {%- comment -%}
+        Candidate widths are capped at the asset's own width and always end with
+        it. image_url can't upscale, so asking for 3000w on a 1600px asset hands
+        back the 1600px file under a "3000w" descriptor — the browser then picks
+        it for a 3000px slot and upscales, which is why a hero can look soft on a
+        large display even though the markup looks correct.
+      {%- endcomment -%}
+      {%- capture srcset_d -%}
+        {%- if img != blank -%}
+          {%- assign sep = '' -%}
+          {%- for w in hero_widths -%}
+            {%- assign wn = w | plus: 0 -%}
+            {%- if wn < img.width -%}{{ sep }}{{ img | image_url: width: wn }} {{ wn }}w{%- assign sep = ', ' -%}{%- endif -%}
+          {%- endfor -%}
+          {{ sep }}{{ img | image_url: width: img.width }} {{ img.width }}w
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- capture srcset_m -%}
+        {%- if img_m != blank -%}
+          {%- assign sep = '' -%}
+          {%- for w in hero_widths_mobile -%}
+            {%- assign wn = w | plus: 0 -%}
+            {%- if wn < img_m.width -%}{{ sep }}{{ img_m | image_url: width: wn }} {{ wn }}w{%- assign sep = ', ' -%}{%- endif -%}
+          {%- endfor -%}
+          {{ sep }}{{ img_m | image_url: width: img_m.width }} {{ img_m.width }}w
+        {%- endif -%}
+      {%- endcapture -%}
+      <div class="slideshow__slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide {{ block.shopify_attributes }} style="--overlay-opacity: {{ overlay }}; --slide-focal: {{ focal }}; --slide-focal-m: {{ focal_m }};">
         <div class="slideshow__bg">
           {%- if block.settings.image != blank -%}
             <picture>
-              {%- if block.settings.image_mobile != blank -%}
-                <source media="(max-width: 767px)" srcset="{{ block.settings.image_mobile | image_url: width: 800 }} 800w, {{ block.settings.image_mobile | image_url: width: 1200 }} 1200w" sizes="100vw">
+              {%- if img_m != blank -%}
+                <source media="(max-width: 767px)" srcset="{{ srcset_m | strip }}" sizes="100vw">
               {%- endif -%}
-              <img class="slideshow-image" gsap-scale-anim src="{{ block.settings.image | image_url: width: 1600 }}" srcset="{{ block.settings.image | image_url: width: 1000 }} 1000w, {{ block.settings.image | image_url: width: 1600 }} 1600w, {{ block.settings.image | image_url: width: 2400 }} 2400w, {{ block.settings.image | image_url: width: 3000 }} 3000w" sizes="100vw" alt="{{ block.settings.heading | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+              <img class="slideshow-image" gsap-scale-anim src="{{ img | image_url: width: 1600 }}" srcset="{{ srcset_d | strip }}" sizes="100vw" alt="{{ block.settings.heading | escape }}" width="{{ img.width }}" height="{{ img.height }}" {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
             </picture>
           {%- else -%}
             <div class="slideshow__placeholder">{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
@@ -82,6 +137,10 @@
 .slideshow__slide { height: var(--slide-dh, 92vh); height: min(var(--slide-dh, 92vh), 100dvh); }
 .slideshow__bg picture { display: block; width: 100%; height: 100%; }
 .slideshow-image, .slideshow__placeholder { width: 100%; height: 100%; object-fit: cover; }
+/* Crop anchor, set per slide. The frame is far wider than a normal 3:2 photo at
+   this height, so cover always discards part of the image height; without this
+   the browser centres the crop and takes the top off a standing subject. */
+.slideshow-image { object-position: var(--slide-focal, 50% 50%); }
 /* The image carries [gsap-scale-anim], which parks it at scale(1.2) until an
    .is-inview ancestor releases it. Nothing wrapping it here is a [data-anim]
    element (the reveal observer only watches those), so the zoom never resolved
@@ -130,6 +189,9 @@
   .slideshow__inner { padding: 28px 20px; }
   .content-bottom-right, .content-bottom-left { justify-content: center; text-align: center; }
   .slideshow__heading { font-size: var(--slide-heading-size-mobile, 32px); }
+  /* The mobile frame is portrait, so it crops the opposite axis and needs its
+     own anchor. Falls back to the desktop one when left on Inherit. */
+  .slideshow-image { object-position: var(--slide-focal-m, var(--slide-focal, 50% 50%)); }
 }
 {% endstylesheet %}
 
@@ -214,9 +276,47 @@
           "label": "Desktop image"
         },
         {
+          "type": "select",
+          "id": "image_focal",
+          "label": "Desktop crop anchor",
+          "info": "The hero is much wider than a standard photo, so part of the image height is always cropped. Pick the part to keep — use Top centre when the subject is a standing person.",
+          "options": [
+            { "value": "auto", "label": "Auto (image focal point)" },
+            { "value": "top-left", "label": "Top left" },
+            { "value": "top-center", "label": "Top centre" },
+            { "value": "top-right", "label": "Top right" },
+            { "value": "center-left", "label": "Middle left" },
+            { "value": "center", "label": "Middle centre" },
+            { "value": "center-right", "label": "Middle right" },
+            { "value": "bottom-left", "label": "Bottom left" },
+            { "value": "bottom-center", "label": "Bottom centre" },
+            { "value": "bottom-right", "label": "Bottom right" }
+          ],
+          "default": "auto"
+        },
+        {
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Mobile image"
+        },
+        {
+          "type": "select",
+          "id": "image_focal_mobile",
+          "label": "Mobile crop anchor",
+          "options": [
+            { "value": "inherit", "label": "Same as desktop" },
+            { "value": "auto", "label": "Auto (image focal point)" },
+            { "value": "top-left", "label": "Top left" },
+            { "value": "top-center", "label": "Top centre" },
+            { "value": "top-right", "label": "Top right" },
+            { "value": "center-left", "label": "Middle left" },
+            { "value": "center", "label": "Middle centre" },
+            { "value": "center-right", "label": "Middle right" },
+            { "value": "bottom-left", "label": "Bottom left" },
+            { "value": "bottom-center", "label": "Bottom centre" },
+            { "value": "bottom-right", "label": "Bottom right" }
+          ],
+          "default": "inherit"
         },
         {
           "type": "range",

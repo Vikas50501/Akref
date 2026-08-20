@@ -16,7 +16,9 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Horizontal_Version_Banner.jpg",
+            "image_focal": "top-center",
             "image_mobile": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
+            "image_focal_mobile": "inherit",
             "overlay_opacity": 80,
             "content_position": "bottom-right",
             "subheading": "",
