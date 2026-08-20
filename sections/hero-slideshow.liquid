@@ -82,6 +82,14 @@
 .slideshow__slide { height: var(--slide-dh, 92vh); height: min(var(--slide-dh, 92vh), 100dvh); }
 .slideshow__bg picture { display: block; width: 100%; height: 100%; }
 .slideshow-image, .slideshow__placeholder { width: 100%; height: 100%; object-fit: cover; }
+/* The image carries [gsap-scale-anim], which parks it at scale(1.2) until an
+   .is-inview ancestor releases it. Nothing wrapping it here is a [data-anim]
+   element (the reveal observer only watches those), so the zoom never resolved
+   and the image sat 20% oversized inside the overflow:hidden frame — cropped
+   rather than fitted. Driving the reset off .is-active gives the intended
+   zoom-out per slide and needs no JS for the first paint, because .is-active is
+   rendered server-side on the first slide. */
+.slideshow__slide.is-active .slideshow-image { transform: scale(1); }
 .slideshow__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,calc(var(--overlay-opacity)*0.3)), rgba(0,0,0,var(--overlay-opacity))); }
 .slideshow__inner { position: absolute; inset: 0; display: flex; padding: 40px 32px; }
 .content-bottom-right { align-items: flex-end; justify-content: flex-end; text-align: left; }
