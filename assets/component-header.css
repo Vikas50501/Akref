@@ -12,12 +12,16 @@
 .header--sticky { position: sticky; top: 0; transition: box-shadow var(--transition); }
 .header--sticky.is-scrolled:not(.header--transparent) { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
 .header__inner { padding-top: 16px; padding-bottom: 16px; }
-/* auto | 1fr | auto — the nav and icons take their natural width and the logo
-   centres in whatever is left. 1fr/auto/1fr would pin the logo to true page
-   centre and squeeze the nav into a narrow column, forcing labels to wrap;
-   this lets the logo sit slightly right of centre instead. */
+/* Side columns are equal-width (1fr) so the auto-sized logo lands on true page
+   centre, but each has a max-content floor so the nav never gets squeezed into
+   a narrow column and forced to wrap. If the nav genuinely needs more than half
+   the header, its column keeps its content width and the logo drifts off-centre
+   rather than overlapping — the gap rule below keeps that from happening on
+   narrow desktops. */
 .header-grid {
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr);
+  align-items: center; gap: 12px;
 }
 .header__left { display: flex; align-items: center; gap: 10px; justify-content: flex-start; min-width: 0; }
 .header__center { display: flex; justify-content: center; min-width: 0; }
