@@ -85,6 +85,7 @@
       "type": "product-carousel",
       "settings": {
         "icon": "shopify://shop_images/KRAME.png",
+        "icon_width": 140,
         "show_star": true,
         "tagline": "Founded by Yasha Dabas",
         "heading": "One Trouser to Close the Day.",
@@ -499,7 +500,7 @@
         "post_BUrLzQ"
       ],
       "settings": {
-        "heading": "@akinna.studios",
+        "heading": "@kramestudios",
         "profile_url": "",
         "columns": 6,
         "border_top": true,
