@@ -52,7 +52,7 @@
           "type": "newsletter",
           "settings": {
             "heading": "JOIN THE WAITING LIST",
-            "text": "<p>Join #AKINNASphere & get 15% off on your second order!</p>",
+            "text": "",
             "show_payment": true,
             "payment_title": "secure online payment"
           }
