@@ -31,8 +31,8 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'icon' -%}
-              <div class="image-text__icon" {{ block.shopify_attributes }}>
-                {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 60 }}" alt="" width="24" height="24" loading="lazy">
+              <div class="image-text__icon" style="--it-icon-w: {{ block.settings.width }}px;" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 800 }}" srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 800 }} 800w" sizes="{{ block.settings.width }}px" alt="{{ block.settings.image.alt | default: shop.name | escape }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" loading="lazy">
                 {%- else -%}{%- render 'icon', name: 'star', size: 24 -%}{%- endif -%}
               </div>
             {%- when 'tagline' -%}
@@ -55,7 +55,7 @@
                 <div class="image-text__quote-close">{%- render 'icon', name: 'quote', size: 22 -%}</div>
               </div>
             {%- when 'signature' -%}
-              <p class="image-text__signature" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+              <p class="image-text__signature" style="--it-sig-size: {{ block.settings.size }}px;" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
             {%- when 'button' -%}
               {%- if block.settings.style == 'custom' -%}
                 <a href="{{ block.settings.link }}" class="custombtn image-text__btn" {{ block.shopify_attributes }}><span>{{ block.settings.label }}</span>{%- render 'icon', name: 'arrow-up-right', size: 10 -%}</a>
@@ -96,7 +96,10 @@
 .image-text__content { padding: 60px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
 .image-text__content .tag-info { max-width: 480px; }
 .image-text__icon { display: flex; }
-.image-text__icon img { width: 24px; height: 24px; object-fit: contain; }
+/* height:auto, not a fixed square — a wordmark logo dropped in here would
+   otherwise be scaled down to fit a 24px box and read as a smudge. Width is
+   merchant-controlled; the inline star fallback keeps its own 24px size. */
+.image-text__icon img { width: var(--it-icon-w, 140px); max-width: 100%; height: auto; object-fit: contain; }
 .image-text__heading { margin: 0; }
 .image-text__btn { margin-top: 4px; }
 /* align-self: stretch — the content column centres its items, which would
@@ -105,7 +108,7 @@
 .image-text__quote { display: flex; flex-direction: column; gap: 10px; max-width: 440px; }
 .image-text__quote-text { font-family: var(--font-heading); font-style: italic; font-size: 17px; opacity: 0.85; margin: 0; }
 .image-text__quote-close { align-self: flex-end; transform: rotate(180deg); }
-.image-text__signature { font-family: var(--font-ui); font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+.image-text__signature { font-family: var(--font-ui); font-size: var(--it-sig-size, 22px); text-transform: uppercase; letter-spacing: 0.06em; }
 .divoth-wrap { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 10px; }
 .elevet-block { display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .elevet-blockimg { width: 110px; height: 110px; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; border-radius: var(--radius); }
@@ -219,12 +222,23 @@
   "blocks": [
     {
       "type": "icon",
-      "name": "Icon",
+      "name": "Icon / logo",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Custom icon (defaults to the brand star)"
+          "label": "Custom icon or logo (defaults to the brand star)"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "label": "Width",
+          "info": "Applies to an uploaded image only. Height follows the image's own proportions, so a wide wordmark is not squashed.",
+          "min": 20,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "default": 140
         }
       ]
     },
@@ -294,7 +308,17 @@
           "type": "text",
           "id": "text",
           "label": "Text",
-          "default": "Annika"
+          "default": "KRAMÈ"
+        },
+        {
+          "type": "range",
+          "id": "size",
+          "label": "Size",
+          "min": 12,
+          "max": 48,
+          "step": 1,
+          "unit": "px",
+          "default": 22
         }
       ]
     },
