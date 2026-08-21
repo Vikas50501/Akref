@@ -176,10 +176,10 @@
             "text": "Fewer, better pieces. Trousers built to move through every part of a day, woven by hands that have done this for generations."
           }
         },
-        "sign": {
-          "type": "signature",
+        "icon_7AQPEm": {
+          "type": "icon",
           "settings": {
-            "text": "KRAME"
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_04_58_36_PM.png"
           }
         }
       },
@@ -189,7 +189,7 @@
         "body",
         "divider_wAdQBF",
         "quote",
-        "sign"
+        "icon_7AQPEm"
       ],
       "settings": {
         "enabled": true,
