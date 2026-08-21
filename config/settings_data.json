@@ -21,6 +21,7 @@
     "color_button_hover": "#974C52",
     "color_announcement_bg": "#7C6252",
     "color_announcement_text": "#F5F2EA",
+    "the_seasons_installed": true,
     "h1_size": 48,
     "h2_size": 32,
     "body_size": 16,
@@ -44,7 +45,8 @@
     "whatsapp_enabled": true,
     "whatsapp_number": "919220336303",
     "whatsapp_message": "Hi Akinna, I have a question.",
-    "logo_max_height": 30
+    "logo_max_height": 30,
+    "content_for_index": []
   },
   "presets": {
     "Akinna": {
