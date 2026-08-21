@@ -3,6 +3,7 @@
   #shopify-section-{{ section.id }} {
     --bv-dh: {{ section.settings.desktop_height }}px; --bv-mh: {{ section.settings.mobile_height }}px;
     --bv-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --bv-text: {{ section.settings.text_color }};
   }
 {%- endstyle -%}
 <div class="background-video{% if section.settings.full_width %} background-video--full{% endif %}">
@@ -55,12 +56,16 @@
 .background-video__el { width: 100%; height: 100%; object-fit: cover; }
 .background-video__overlay { position: absolute; inset: 0; background: #000; }
 .background-video__content-wrap { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-.background-video__content { max-width: 720px; color: #fff; }
-.background-video__content .subheading { color: #fff; opacity: 0.85; margin-bottom: 12px; }
-.background-video__heading { color: #fff; font-size: clamp(28px, 4vw, 52px); margin-bottom: 16px; }
-.background-video__text { color: #fff; opacity: 0.9; font-size: 15px; }
-.background-video__btn { color: #fff; margin-top: 18px; }
-.background-video__controls { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: rgba(0,0,0,0.25); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+/* Sage Mist is the brand's light-on-dark tone, matching the hero slideshow.
+   The subheading and body previously sat at 0.85/0.9 opacity; white can absorb
+   that, but Sage Mist is already a muted tone and dimming it further turns it
+   murky over video, so the colour alone now carries the hierarchy. */
+.background-video__content { max-width: 720px; color: var(--bv-text, var(--color-sage)); }
+.background-video__content .subheading { color: var(--bv-text, var(--color-sage)); margin-bottom: 12px; }
+.background-video__heading { color: var(--bv-text, var(--color-sage)); font-size: clamp(28px, 4vw, 52px); margin-bottom: 16px; }
+.background-video__text { color: var(--bv-text, var(--color-sage)); font-size: 15px; }
+.background-video__btn { color: var(--bv-text, var(--color-sage)); margin-top: 18px; }
+.background-video__controls { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--bv-text, var(--color-sage)); background: rgba(0,0,0,0.25); color: var(--bv-text, var(--color-sage)); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 @media (max-width: 767px) { .background-video { height: var(--bv-mh, 500px); } }
 {% endstylesheet %}
 
@@ -97,6 +102,13 @@
       "step": 5,
       "unit": "%",
       "default": 25
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "info": "Brand light-on-dark tone is Sage Mist #B7BAA2. Soft Ivory #F5F2EA is the brighter alternative.",
+      "default": "#B7BAA2"
     },
     {
       "type": "checkbox",
