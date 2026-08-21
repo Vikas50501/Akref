@@ -1,7 +1,7 @@
 {%- comment -%} Parallax banner with centered CTA (AKINNA Sphere) {%- endcomment -%}
 {%- style -%}
   #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
-  #shopify-section-{{ section.id }} .banner-club-section { --overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; --ar-d: {{ section.settings.aspect_desktop }}; --ar-m: {{ section.settings.aspect_mobile }}; }
+  #shopify-section-{{ section.id }} .banner-club-section { --overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; --ar-d: {{ section.settings.aspect_desktop }}; --ar-m: {{ section.settings.aspect_mobile }}; --cb-text: {{ section.settings.text_color }}; }
 {%- endstyle -%}
 <div class="banner-club-section index-section">
   <div class="common-container">
@@ -14,10 +14,10 @@
       </div>
       <div class="center-block" data-anim="up">
         {%- if section.settings.show_star -%}{%- render 'icon', name: 'star', size: 22 -%}{%- endif -%}
-        {%- if section.settings.tagline != blank -%}<p class="tag-line" style="color:#fff;">{{ section.settings.tagline }}</p>{%- endif -%}
-        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split" style="color:#fff;">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.tagline != blank -%}<p class="tag-line">{{ section.settings.tagline }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 class="letters-slide-up text-split">{{ section.settings.heading }}</h2>{%- endif -%}
         {%- if section.settings.text != blank -%}<div class="club-banner__text rte">{{ section.settings.text }}</div>{%- endif -%}
-        {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="button custombtn" style="color:#fff;" target="_blank" rel="noopener">{{ section.settings.button_label }}{%- render 'icon', name: 'arrow-right', size: 14 -%}</a>{%- endif -%}
+        {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="button custombtn" target="_blank" rel="noopener">{{ section.settings.button_label }}{%- render 'icon', name: 'arrow-right', size: 14 -%}</a>{%- endif -%}
       </div>
     </div>
   </div>
@@ -28,8 +28,10 @@
 .parralex-wrap { position: absolute; inset: -10% 0; }
 .video_banner-img { width: 100%; height: 120%; object-fit: cover; }
 .club-banner__overlay { position: absolute; inset: 0; background: rgba(0,0,0,var(--overlay, 0.35)); }
-.center-block { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; padding: 20px; color: #fff; }
-.club-banner__text { color: #fff; max-width: 520px; opacity: 0.92; }
+.center-block { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; padding: 20px; color: var(--cb-text, var(--color-sage)); }
+/* Opacity dropped with the colour change: white absorbs a 0.92 knock-back, but
+   Sage Mist is already a muted tone and dimming it further reads as murky. */
+.club-banner__text { color: var(--cb-text, var(--color-sage)); max-width: 520px; }
 @media (max-width: 767px) { .club-banner { aspect-ratio: var(--ar-m, 1.2); } .club-banner__text { display: none; } }
 {% endstylesheet %}
 
@@ -52,6 +54,13 @@
       "step": 5,
       "unit": "%",
       "default": 35
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text colour",
+      "info": "Brand light-on-dark tone is Sage Mist #B7BAA2. Soft Ivory #F5F2EA is the brighter alternative.",
+      "default": "#B7BAA2"
     },
     {
       "type": "text",

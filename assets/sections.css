@@ -44,7 +44,7 @@
   border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
   color: inherit; transition: all var(--transition); flex: none;
 }
-.carousel-arrow:hover { background: var(--color-green); color: #fff; border-color: var(--color-green); }
+.carousel-arrow:hover { background: var(--color-green); color: var(--color-ivory); border-color: var(--color-green); }
 .carousel-arrow[disabled] { opacity: 0.3; pointer-events: none; }
 
 /* --- Shopify policy pages (auto-rendered) ----------------------------- */

@@ -20,7 +20,7 @@
 .flickity-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 1px solid var(--color-border); background: rgba(255,255,255,0.85); border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: opacity 0.3s var(--easing), transform 0.3s var(--easing); }
 .flickity-prev { left: 12px; transform: translateY(-50%) translateX(-6px); }
 .flickity-next { right: 12px; transform: translateY(-50%) translateX(6px); }
-.flickity-nav:hover { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+.flickity-nav:hover { background: var(--color-ink); color: var(--color-ivory); border-color: var(--color-ink); }
 /* Arrows only reveal on image hover (matches the original gallery); on touch
    devices with no hover, keep them visible so they stay reachable. */
 @media (hover: hover) {
@@ -37,7 +37,7 @@
 .product-thumbnail { position: relative; border: 1px solid transparent; background: none; padding: 0; cursor: pointer; border-radius: var(--radius); overflow: hidden; }
 .product-thumbnail.is-initial-selected { border-color: var(--color-ink); }
 .product-thumbnail img { width: 100%; height: auto; display: block; }
-.product-thumbnail-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(0,0,0,0.2); }
+.product-thumbnail-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--color-ivory); background: rgba(0,0,0,0.2); }
 
 /* Info column */
 .north-breadcrumb { font-family: var(--font-ui); font-size: 12px; letter-spacing: 0.03em; opacity: 0.6; margin-bottom: 16px; }
@@ -56,7 +56,7 @@
 .variant-blk { position: relative; cursor: pointer; }
 .variant-blk input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .variant-blk .variant-value { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 44px; padding: 10px 14px; border: 1px solid var(--color-border); font-family: var(--font-ui); font-size: 13px; transition: all var(--transition); }
-.variant-blk.active .variant-value { border-color: var(--color-ink); background: var(--color-ink); color: #fff; }
+.variant-blk.active .variant-value { border-color: var(--color-ink); background: var(--color-ink); color: var(--color-ivory); }
 .variant-blk .variant-swatch { display: block; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background-color: var(--swatch-color, #ccc); background-image: var(--swatch-img); background-size: cover; }
 .variant-blk.active .variant-swatch { box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 3px var(--color-ink); }
 
@@ -106,7 +106,7 @@
 /* Zoom overlay */
 .product-zoom-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; cursor: zoom-out; }
 .product-zoom-overlay img { max-width: 92vw; max-height: 92vh; object-fit: contain; }
-.product-zoom-close { position: absolute; top: 20px; right: 24px; font-size: 32px; line-height: 1; background: none; border: 0; color: #fff; cursor: pointer; }
+.product-zoom-close { position: absolute; top: 20px; right: 24px; font-size: 32px; line-height: 1; background: none; border: 0; color: var(--color-ivory); cursor: pointer; }
 
 @media (max-width: 1023px) {
   .main-product__grid { grid-template-columns: 1fr; gap: 24px; }

@@ -10,6 +10,7 @@
     padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;
     background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};
     --cs-lifestyle-h: {{ section.settings.lifestyle_height }}vh;
+    --cs-overlay-text: {{ section.settings.overlay_text_color }};
   }
 {%- endstyle -%}
 <div class="collection-showcase explore-collection-section index-section">
@@ -48,7 +49,7 @@
 .lifestyle-topwrap { position: relative; height: var(--cs-lifestyle-h, 90vh); overflow: hidden; }
 .lifestyle-img { width: 100%; height: 100%; object-fit: cover; }
 /* Mobile-first: title is an absolute overlay with a gradient scrim over the image. */
-.explore-block-itle { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; color: #fff; padding: 24px; }
+.explore-block-itle { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; color: var(--cs-overlay-text, var(--color-sage)); padding: 24px; }
 .explore-block-itle::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%); }
 .explore-block-itle > * { position: relative; z-index: 1; }
 /* Inherits the block's colour, so it reads ivory over the image on mobile and
@@ -131,6 +132,13 @@
     {
       "type": "header",
       "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "overlay_text_color",
+      "label": "Overlay text colour (mobile)",
+      "info": "Only used below 1024px, where the heading sits on top of the lifestyle image. Above that it inherits the section text colour. Soft Ivory #F5F2EA is the brighter option if a photo washes this out.",
+      "default": "#B7BAA2"
     },
     {
       "type": "color",

@@ -2,7 +2,7 @@
 {%- style -%}
   #shopify-section-{{ section.id }} { --ph-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
 {%- endstyle -%}
-<div class="page-header{% if section.settings.image != blank %} page-header--image{% endif %}" style="--ph-h: {{ section.settings.height }}px; {% if section.settings.image != blank %}color:#fff;{% else %}background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};{% endif %}">
+<div class="page-header{% if section.settings.image != blank %} page-header--image{% endif %}" style="--ph-h: {{ section.settings.height }}px; {% if section.settings.image != blank %}color: {{ section.settings.image_text_color }};{% else %}background: {{ section.settings.bg }}; color: {{ section.settings.text_color }};{% endif %}">
   {%- if section.settings.image != blank -%}
     <div class="page-header__media">
       <img src="{{ section.settings.image | image_url: width: 2000 }}" srcset="{{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 2000 }} 2000w" sizes="100vw" alt="{{ section.settings.heading | escape }}" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}" loading="eager" fetchpriority="high">
@@ -70,6 +70,13 @@
       "step": 20,
       "unit": "px",
       "default": 360
+    },
+    {
+      "type": "color",
+      "id": "image_text_color",
+      "label": "Text colour over image",
+      "info": "Used when a background image is set. Brand light-on-dark tone is Sage Mist #B7BAA2; Soft Ivory #F5F2EA is brighter. The two settings below apply when there is no image.",
+      "default": "#B7BAA2"
     },
     {
       "type": "color",

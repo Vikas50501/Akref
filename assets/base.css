@@ -239,7 +239,7 @@ ul, ol { margin: 0 0 1em; padding-left: 1.2em; }
 .footer :focus-visible,
 [data-drawer] :focus-visible,
 .announcement-bar :focus-visible,
-.brand-feature--dark :focus-visible { outline-color: #fff; }
+.brand-feature--dark :focus-visible { outline-color: var(--color-ivory); }
 
 /* --- Loading spinner (buttons / async actions) ------------------------
    Hidden by default - only .is-loading reveals it. (Was unconditionally
