@@ -6,37 +6,36 @@
     Inter       — support : navigation, menus, buttons, forms, product info
 
   Petrona and Inter are open-source and loaded as variable fonts (one request,
-  every weight the brand book lists). The Seasons is a LICENSED typeface and is
-  not redistributable — see the block below to self-host it once licensed.
-  Until then --font-heading falls back to Petrona (see assets/base.css), which
-  keeps headings on-brand rather than dropping to a system serif.
+  every weight the brand book lists). The Seasons is a LICENSED typeface, so it
+  is self-hosted from /assets rather than a CDN; Light is installed. If the file
+  is ever removed, --font-heading falls back to Petrona (see assets/base.css),
+  which keeps headings on-brand rather than dropping to a system serif.
 {%- endcomment -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Petrona:ital,wght@0,100..900;1,100..900&display=swap">
 
 {%- comment -%}
-  TO ENABLE "THE SEASONS" (once licensed) — three steps:
+  THE SEASONS — currently licensed in Light only (TheSeasons-Light.woff2).
 
-    1. Upload the woff2 files to this theme's /assets folder, named:
-         TheSeasons-Light.woff2  ·  TheSeasons-Regular.woff2  ·  TheSeasons-Bold.woff2
-    2. Set the setting  Theme settings → Typography → "The Seasons is installed"
-       to ON (it renders the @font-face block below).
-    3. Nothing else — base.css already lists 'The Seasons' first in
-       --font-heading, so it takes over automatically for all display type.
+  Headings ask for font-weight: normal (see the h1–h6 rule in base.css), and one
+  static face is declared across 300–700 rather than at 300 alone. Declaring the
+  range tells the browser this file already covers every weight the theme asks
+  for, so it renders the real Light drawing instead of synthesising a faux-bold —
+  which smears a delicate display serif. It also stops a 600/700 request from
+  skipping the family and falling through to Petrona mid-page.
+
+  To add real Regular and Bold once licensed: drop TheSeasons-Regular.woff2 and
+  TheSeasons-Bold.woff2 into /assets, then split this into three @font-face
+  rules at 300 / 400 / 700 and narrow the Light rule to font-weight: 300.
+
+  The toggle stays so the merchant can fall back to Petrona without deleting
+  the asset (Theme settings → Typography).
 {%- endcomment -%}
 {%- if settings.the_seasons_installed -%}
-  {%- liquid
-    # extension appended separately so the static asset-checker doesn't treat
-    # these merchant-supplied, licence-gated files as missing theme assets
-    assign ext = '.woff2'
-    assign ts_light = 'TheSeasons-Light' | append: ext | asset_url
-    assign ts_regular = 'TheSeasons-Regular' | append: ext | asset_url
-    assign ts_bold = 'TheSeasons-Bold' | append: ext | asset_url
-  -%}
+  {%- assign ts_light = 'TheSeasons-Light.woff2' | asset_url -%}
+  <link rel="preload" as="font" type="font/woff2" href="{{ ts_light }}" crossorigin>
   <style>
-    @font-face{font-family:'The Seasons';src:url({{ ts_light }}) format('woff2');font-weight:300;font-style:normal;font-display:swap;}
-    @font-face{font-family:'The Seasons';src:url({{ ts_regular }}) format('woff2');font-weight:400;font-style:normal;font-display:swap;}
-    @font-face{font-family:'The Seasons';src:url({{ ts_bold }}) format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+    @font-face{font-family:'The Seasons';src:url({{ ts_light }}) format('woff2');font-weight:300 700;font-style:normal;font-display:swap;}
   </style>
 {%- endif -%}

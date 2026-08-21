@@ -102,13 +102,13 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "KRAMÈ typography: The Seasons (display), Petrona (body), Inter (navigation, buttons, forms). Petrona and Inter load automatically. The Seasons is a licensed font — upload TheSeasons-Light.woff2, TheSeasons-Regular.woff2 and TheSeasons-Bold.woff2 to Assets, then switch on the checkbox below. Until then headings use Petrona."
+        "content": "KRAMÈ typography: The Seasons (display), Petrona (body), Inter (navigation, buttons, forms). Petrona and Inter load automatically. The Seasons is a licensed font, self-hosted from Assets — TheSeasons-Light.woff2 is installed and is used for every heading weight. To add true Regular and Bold, upload TheSeasons-Regular.woff2 and TheSeasons-Bold.woff2. Unchecking the box below reverts all headings to Petrona."
       },
       {
         "type": "checkbox",
         "id": "the_seasons_installed",
-        "label": "The Seasons font files are uploaded",
-        "default": false
+        "label": "Use The Seasons for headings",
+        "default": true
       },
       {
         "type": "header",
