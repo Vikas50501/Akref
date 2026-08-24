@@ -406,40 +406,40 @@
     "press": {
       "type": "logo-marquee",
       "blocks": {
-        "l1": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-            "link": ""
-          }
-        },
-        "logo_LARaU7": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-            "link": ""
-          }
-        },
-        "logo_LexCDe": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
-            "link": ""
-          }
-        },
         "logo_Xkktiw": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+            "image": "shopify://shop_images/KRAME.png",
+            "link": ""
+          }
+        },
+        "logo_mgWUR9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KRAME.png",
+            "link": ""
+          }
+        },
+        "logo_D3EgHN": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KRAME.png",
+            "link": ""
+          }
+        },
+        "logo_cVjPPf": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/KRAME.png",
             "link": ""
           }
         }
       },
       "block_order": [
-        "l1",
-        "logo_LARaU7",
-        "logo_LexCDe",
-        "logo_Xkktiw"
+        "logo_Xkktiw",
+        "logo_mgWUR9",
+        "logo_D3EgHN",
+        "logo_cVjPPf"
       ],
       "settings": {
         "heading": "",
