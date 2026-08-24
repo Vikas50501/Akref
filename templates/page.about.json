@@ -50,7 +50,7 @@
         "a1": {
           "type": "award",
           "settings": {
-            "image": "shopify://shop_images/akinna-374_960x_crop_center_cbdc7a1a-202e-4cff-b2ec-b0632a1f7c59.webp",
+            "image": "shopify://shop_images/Horizontal_Version_Banner.jpg",
             "name": "Handspun Cotton",
             "description": "Hand-spun by artisans, honouring a centuries-old Indian textile tradition."
           }
@@ -58,7 +58,7 @@
         "a2": {
           "type": "award",
           "settings": {
-            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "name": "Skilled Artisans",
             "description": "Every trouser passes through hands trained across generations of craft."
           }
@@ -66,7 +66,7 @@
         "a3": {
           "type": "award",
           "settings": {
-            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+            "image": "shopify://shop_images/Horizontal_Version_Banner.jpg",
             "name": "Timeless Silhouettes",
             "description": "Designed to be worn often and cherished for years to come."
           }
@@ -107,7 +107,9 @@
       "blocks": {
         "icon": {
           "type": "icon",
-          "settings": {}
+          "settings": {
+            "width": 140
+          }
         },
         "head": {
           "type": "heading",
@@ -170,7 +172,9 @@
       "blocks": {
         "icon": {
           "type": "icon",
-          "settings": {}
+          "settings": {
+            "width": 140
+          }
         },
         "head": {
           "type": "heading",
@@ -233,7 +237,9 @@
       "blocks": {
         "icon": {
           "type": "icon",
-          "settings": {}
+          "settings": {
+            "width": 140
+          }
         },
         "head": {
           "type": "heading",
@@ -296,7 +302,9 @@
       "blocks": {
         "icon": {
           "type": "icon",
-          "settings": {}
+          "settings": {
+            "width": 140
+          }
         },
         "head": {
           "type": "heading",
@@ -359,11 +367,11 @@
       "settings": {
         "tagline": "From the Atelier",
         "heading": "Designer's note",
-        "text": "<p>For me, AKINNA is that one spark of perfection I've been chasing for years. A brand that feels timeless yet modern, designed to move with you. Every AKINNA bag is created to make you feel bold, confident, and deeply rooted. Handcrafted in India, we don't borrow culture, we carry our own, and we carry it beautifully.</p>",
-        "person_image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
-        "person_name": "Annika Saraf",
+        "text": "<p>For me, KARMÉ is that one spark of perfection I've been chasing for years. A brand that feels timeless yet modern, designed to move with you. Every AKINNA bag is created to make you feel bold, confident, and deeply rooted. Handcrafted in India, we don't borrow culture, we carry our own, and we carry it beautifully.</p>",
+        "person_image": "shopify://shop_images/IMG_6355.jpg",
+        "person_name": "Yasha Dabas",
         "person_role": "Co-Founder & Creative Director",
-        "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
         "image_position": "left",
         "bg": "#f5f2ea",
         "text_color": "#7c6252",
@@ -512,7 +520,7 @@
         "post_LAtbpn"
       ],
       "settings": {
-        "heading": "@akinna.studios",
+        "heading": "@kramestudios",
         "profile_url": "",
         "columns": 6,
         "border_top": true,
