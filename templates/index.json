@@ -227,7 +227,7 @@
     "new_arrivals": {
       "type": "collection-showcase",
       "settings": {
-        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
         "lifestyle_height": 86,
         "tagline": "",
         "heading": "The Breeze",
@@ -300,7 +300,7 @@
       ],
       "settings": {
         "enabled": true,
-        "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
         "image_position": "left",
         "media_height": 86,
         "parallax": true,
