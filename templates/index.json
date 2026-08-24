@@ -179,7 +179,8 @@
         "icon_7AQPEm": {
           "type": "icon",
           "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_04_58_36_PM.png"
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_18_2026_04_58_36_PM.png",
+            "width": 140
           }
         }
       },
@@ -211,6 +212,7 @@
         "video": "shopify://files/videos/watermark-removed-Chakra Video.mp4",
         "video_url": "",
         "overlay_opacity": 25,
+        "text_color": "#b7baa2",
         "full_width": true,
         "show_controls": true,
         "desktop_height": 650,
@@ -234,6 +236,7 @@
         "button_link": "",
         "collection": "frontpage",
         "products_limit": 4,
+        "overlay_text_color": "#b7baa2",
         "bg": "#f5f2ea",
         "text_color": "#7c6252",
         "padding_top": 12,
@@ -383,9 +386,11 @@
     },
     "club": {
       "type": "club-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/need-in-green-color-which-match-with-my-theme.png",
         "overlay_opacity": 35,
+        "text_color": "#b7baa2",
         "aspect_desktop": "2.5",
         "aspect_mobile": "2",
         "show_star": true,
@@ -454,53 +459,53 @@
         "post_axU6xt": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         },
-        "post_6Vmrz8": {
+        "post_aKNCkb": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/akinna-374_960x_crop_center_cbdc7a1a-202e-4cff-b2ec-b0632a1f7c59.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         },
-        "post_yCTGAy": {
+        "post_x687kE": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         },
-        "post_L3gqfi": {
+        "post_xhrqXN": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/LouvAkinna-003_1310x_crop_center_5e3bc4f6-2412-4add-97b9-2768ac9c3d2d.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         },
-        "post_LgcQat": {
+        "post_dhANNT": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/akinna-372_960x_crop_center_ece99071-b535-4aed-9ccf-e8b6b6e42273.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         },
-        "post_BUrLzQ": {
+        "post_g4g83m": {
           "type": "post",
           "settings": {
-            "image": "shopify://shop_images/LouvAMLifestyle-023_960x_crop_center_fa5776d4-5b0c-432b-9f17-ae1c46636bad.webp",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
             "link": ""
           }
         }
       },
       "block_order": [
         "post_axU6xt",
-        "post_6Vmrz8",
-        "post_yCTGAy",
-        "post_L3gqfi",
-        "post_LgcQat",
-        "post_BUrLzQ"
+        "post_aKNCkb",
+        "post_x687kE",
+        "post_xhrqXN",
+        "post_dhANNT",
+        "post_g4g83m"
       ],
       "settings": {
         "heading": "@kramestudios",
