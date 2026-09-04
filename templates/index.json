@@ -226,6 +226,7 @@
     },
     "new_arrivals": {
       "type": "collection-showcase",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_3.13.01_PM.jpg",
         "lifestyle_height": 86,
