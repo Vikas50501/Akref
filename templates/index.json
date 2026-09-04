@@ -87,8 +87,8 @@
     "products": {
       "type": "product-carousel",
       "custom_css": [
-        ".pc__page{display: block;}",
-        ".pc__controls{display: block;}"
+        ".pc__page {display: block;}",
+        ".pc__controls {display: block;}"
       ],
       "settings": {
         "icon": "shopify://shop_images/KRAME.png",
@@ -154,6 +154,7 @@
       "blocks": {
         "tag": {
           "type": "tagline",
+          "disabled": true,
           "settings": {
             "text": "Founder & Former Engineer"
           }
