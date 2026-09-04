@@ -86,6 +86,10 @@
     },
     "products": {
       "type": "product-carousel",
+      "custom_css": [
+        ".pc__page{display: block;}",
+        ".pc__controls{display: block;}"
+      ],
       "settings": {
         "icon": "shopify://shop_images/KRAME.png",
         "icon_width": 140,
