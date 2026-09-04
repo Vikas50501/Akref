@@ -59,7 +59,8 @@
                   show_badge: section.settings.show_badge,
                   show_rating: section.settings.show_rating,
                   show_wishlist: section.settings.show_wishlist,
-                  show_quick_view: section.settings.show_quick_view
+                  show_quick_view: section.settings.show_quick_view,
+                  show_swatches: section.settings.show_swatches
                 -%}
               </div>
             {%- endfor -%}
@@ -237,7 +238,8 @@
     { "type": "checkbox", "id": "show_badge", "label": "Show sale/sold-out badge", "default": true },
     { "type": "checkbox", "id": "show_rating", "label": "Show rating (if a review app provides reviews.rating)", "default": false },
     { "type": "checkbox", "id": "show_wishlist", "label": "Show wishlist icon", "default": false },
-    { "type": "checkbox", "id": "show_quick_add", "label": "Show quick add", "default": true },
+    { "type": "checkbox", "id": "show_swatches", "label": "Show colour swatches", "info": "The small colour circles below the price, for products with a Color/Colour option.", "default": true },
+    { "type": "checkbox", "id": "show_quick_add", "label": "Show \"Choose options\" / \"Add to cart\" button", "default": true },
     { "type": "checkbox", "id": "show_quick_view", "label": "Show quick view", "default": false },
     { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 0, "max": 24, "step": 1, "unit": "px", "default": 0 },
     { "type": "checkbox", "id": "card_shadow", "label": "Card shadow", "default": false },

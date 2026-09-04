@@ -4,8 +4,9 @@
     product        (required)
     section_id     (required if show_quick_view) — unique id for the quick-view dialog
     show_quick_add, show_vendor, show_price, show_badge, show_rating, show_wishlist,
-    show_quick_view (optional booleans; show_price/show_badge default true, rest false
-    unless noted — show_quick_add defaults to settings.card_quick_add)
+    show_quick_view, show_swatches (optional booleans; show_price/show_badge/
+    show_swatches default true, rest false unless noted — show_quick_add
+    defaults to settings.card_quick_add)
     class          (optional) grid column classes
     ratio          (optional) aspect ratio percent number, default from settings
     card_ratio     (optional) alias of ratio
@@ -27,6 +28,10 @@
   assign show_rating = show_rating | default: false
   assign show_wishlist = show_wishlist | default: false
   assign show_quick_view = show_quick_view | default: false
+  assign show_swatches = show_swatches
+  if show_swatches == nil
+    assign show_swatches = true
+  endif
   assign ratio = card_ratio | default: settings.card_image_ratio | default: 1.25
   assign pad = ratio | times: 100
   assign img_main = product.featured_media.preview_image
@@ -84,7 +89,7 @@
     {%- for option in product.options_with_values -%}
       {%- if option.name contains 'Color' or option.name contains 'Colour' or option.name contains 'Shade' -%}{%- assign swatch_option = option -%}{%- break -%}{%- endif -%}
     {%- endfor -%}
-    {%- if swatch_option and swatch_option.values.size > 1 -%}
+    {%- if show_swatches and swatch_option and swatch_option.values.size > 1 -%}
       <div class="product-card__swatches" aria-label="{{ swatch_option.name }}">
         {%- for value in swatch_option.values limit: 5 -%}
           {%- if value.variant.url -%}
