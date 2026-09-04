@@ -86,10 +86,7 @@
     },
     "products": {
       "type": "product-carousel",
-      "custom_css": [
-        ".pc__page {display: block !important;}",
-        ".pc__controls {display: block !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "icon": "shopify://shop_images/KRAME.png",
         "icon_width": 140,
@@ -103,6 +100,7 @@
         "button_label": "View Collection",
         "button_link": "",
         "button_style": "underline",
+        "show_products": false,
         "collection": "discover-all",
         "products_limit": 8,
         "rows": 2,
@@ -135,6 +133,7 @@
         "show_badge": true,
         "show_rating": false,
         "show_wishlist": false,
+        "show_swatches": true,
         "show_quick_add": true,
         "show_quick_view": false,
         "card_radius": 0,
