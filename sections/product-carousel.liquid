@@ -43,6 +43,7 @@
       </div>
     </div>
 
+    {%- if section.settings.show_products -%}
     <product-carousel class="pc" data-options='{{ options | strip_newlines | strip }}'>
       <div class="pc__viewport" data-pc-viewport>
         <div class="pc__track" data-pc-track>
@@ -92,8 +93,9 @@
         <div class="pc__scrollbar" data-pc-scrollbar><span class="pc__scrollbar-thumb" data-pc-scrollbar-thumb></span></div>
       {%- endif -%}
     </product-carousel>
+    {%- endif -%}
 
-    {%- if section.settings.show_quick_view and coll != blank -%}
+    {%- if section.settings.show_products and section.settings.show_quick_view and coll != blank -%}
       {%- for product in coll.products limit: limit -%}
         <dialog class="quickview" id="QuickView-{{ product.id }}-{{ section.id }}">
           <button type="button" class="quickview__close" data-quickview-close aria-label="{{ 'accessibility.close' | t }}">{%- render 'icon', name: 'close', size: 20 -%}</button>
@@ -200,6 +202,7 @@
     { "type": "select", "id": "button_style", "label": "Button style", "options": [{"value":"underline","label":"Underlined text"},{"value":"solid","label":"Solid button"}], "default": "underline" },
 
     { "type": "header", "content": "Products" },
+    { "type": "checkbox", "id": "show_products", "label": "Show product cards", "info": "Turn off to hide the whole product grid — cards, arrows, dots and scrollbar — while keeping the heading, text and button above it.", "default": true },
     { "type": "collection", "id": "collection", "label": "Collection" },
     { "type": "range", "id": "products_limit", "label": "Products to show", "min": 4, "max": 24, "step": 1, "default": 8 },
     { "type": "range", "id": "rows", "label": "Rows", "min": 1, "max": 3, "step": 1, "default": 1 },
