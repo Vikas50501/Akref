@@ -213,7 +213,7 @@
     "atelier_video": {
       "type": "background-video",
       "settings": {
-        "video": "shopify://files/videos/watermark-removed-Chakra Video.mp4",
+        "video": "shopify://files/videos/Chakra Video.mp4",
         "video_url": "",
         "overlay_opacity": 25,
         "text_color": "#b7baa2",
